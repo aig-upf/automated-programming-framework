@@ -1,0 +1,13 @@
+PLPR
+bin/compile
+domains/variables-output/domain.pddl
+domain.pddl ins.pddl
+2
+5 1500 2 domains/variables-output/grid/grid1x5a.pddl domains/variables-output/grid/grid1x5b.pddl
+5 1500 2 domains/variables-output/grid/grid5x1a.pddl domains/variables-output/grid/grid5x1b.pddl
+5 1000 4 domains/variables-output/grid/grid6x6aa.pddl domains/variables-output/grid/grid6x6ab.pddl domains/old/grid/variables-output/grid/grid6x6ba.pddl domains/old/grid/variables-output/grid/grid6x6bb.pddl
+0
+0
+0
+2 2
+0 0

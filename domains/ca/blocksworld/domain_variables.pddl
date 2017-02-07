@@ -1,0 +1,177 @@
+( DEFINE ( DOMAIN BLOCKSWORLD )
+( :REQUIREMENTS :TYPING )
+( :TYPES
+	BLOCK - OBJECT
+	BLOCK-VARIABLE - OBJECT
+)
+( :PREDICATES
+	( ON ?BLOCK0 - BLOCK ?BLOCK1 - BLOCK )
+	( ONTABLE ?BLOCK0 - BLOCK )
+	( CLEAR ?BLOCK0 - BLOCK )
+	( HANDEMPTY )
+	( HOLDING ?BLOCK0 - BLOCK )
+	( ALL-CLEAR )
+	( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 - BLOCK-VARIABLE ?BLOCK1 - BLOCK )
+)
+( :ACTION PICK-UP
+  :PARAMETERS ( ?BLOCK-VARIABLE0 - BLOCK-VARIABLE )
+  :PRECONDITION
+	( AND
+		( HANDEMPTY )
+	)
+  :EFFECT
+	( AND
+		( FORALL
+			( ?BLOCK1 - BLOCK )
+			( WHEN
+				( AND
+					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK1 )
+					( CLEAR ?BLOCK1 )
+					( ONTABLE ?BLOCK1 )
+				)
+				( NOT ( ONTABLE ?BLOCK1 ) )
+			)
+		)
+		( FORALL
+			( ?BLOCK1 - BLOCK )
+			( WHEN
+				( AND
+					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK1 )
+					( CLEAR ?BLOCK1 )
+					( ONTABLE ?BLOCK1 )
+				)
+				( NOT ( CLEAR ?BLOCK1 ) )
+			)
+		)
+		( NOT ( HANDEMPTY ) )
+		( FORALL
+			( ?BLOCK1 - BLOCK )
+			( WHEN
+				( AND
+					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK1 )
+					( CLEAR ?BLOCK1 )
+					( ONTABLE ?BLOCK1 )
+				)
+				( HOLDING ?BLOCK1 )
+			)
+		)
+	)
+)
+( :ACTION PUT-DOWN
+  :PARAMETERS ( ?BLOCK-VARIABLE0 - BLOCK-VARIABLE )
+  :PRECONDITION
+	( AND
+	)
+  :EFFECT
+	( AND
+		( FORALL
+			( ?BLOCK1 - BLOCK )
+			( WHEN
+				( AND
+					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK1 )
+					( HOLDING ?BLOCK1 )
+				)
+				( NOT ( HOLDING ?BLOCK1 ) )
+			)
+		)
+		( FORALL
+			( ?BLOCK1 - BLOCK )
+			( WHEN
+				( AND
+					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK1 )
+					( HOLDING ?BLOCK1 )
+				)
+				( CLEAR ?BLOCK1 )
+			)
+		)
+		( HANDEMPTY )
+		( FORALL
+			( ?BLOCK1 - BLOCK )
+			( WHEN
+				( AND
+					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK1 )
+					( HOLDING ?BLOCK1 )
+				)
+				( ONTABLE ?BLOCK1 )
+			)
+		)
+	)
+)
+;( :ACTION STACK
+;  :PARAMETERS ( ?BLOCK-VARIABLE0 - BLOCK-VARIABLE ?BLOCK1 - BLOCK )
+;  :PRECONDITION
+;	( AND
+;		( CLEAR ?BLOCK1 )
+;	)
+;  :EFFECT
+;	( AND
+;		( FORALL
+;			( ?BLOCK2 - BLOCK )
+;			( WHEN
+;				( AND
+;					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK2 )
+;					( HOLDING ?BLOCK2 )
+;				)
+;				( NOT ( HOLDING ?BLOCK2 ) )
+;			)
+;		)
+;		( NOT ( CLEAR ?BLOCK1 ) )
+;		( FORALL
+;			( ?BLOCK2 - BLOCK )
+;			( WHEN
+;				( AND
+;					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK2 )
+;					( HOLDING ?BLOCK2 )
+;				)
+;				( CLEAR ?BLOCK2 )
+;			)
+;		)
+;		( HANDEMPTY )
+;		( FORALL
+;			( ?BLOCK2 - BLOCK )
+;			( WHEN
+;				( AND
+;					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK2 )
+;					( HOLDING ?BLOCK2 )
+;				)
+;				( ON ?BLOCK2 ?BLOCK1 )
+;			)
+;		)
+;	)
+;)
+( :ACTION UNSTACK
+  :PARAMETERS ( ?BLOCK-VARIABLE0 - BLOCK-VARIABLE )
+  :PRECONDITION
+	( AND
+		( HANDEMPTY )
+	)
+  :EFFECT
+	( AND
+		( FORALL
+			( ?BLOCK1 - BLOCK ?BLOCK2 - BLOCK )
+			( WHEN
+				( AND
+					( BLOCK-ASSIGNMENT ?BLOCK-VARIABLE0 ?BLOCK1 )
+					( ON ?BLOCK1 ?BLOCK2 )
+					( CLEAR ?BLOCK1 )
+				)
+				( AND
+					( HOLDING ?BLOCK1 )
+					( CLEAR ?BLOCK2 )
+					( NOT ( CLEAR ?BLOCK1 ) )
+					( NOT ( HANDEMPTY ) )
+					( NOT ( ON ?BLOCK1 ?BLOCK2 ) )
+				)
+			)
+		)
+	)
+)
+( :DERIVED ( ALL-CLEAR )
+	( FORALL
+		( ?BLOCK0 - BLOCK )
+		( AND
+			( CLEAR ?BLOCK0 )
+		)
+	)
+)
+)

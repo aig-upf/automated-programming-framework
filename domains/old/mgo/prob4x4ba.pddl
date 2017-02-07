@@ -1,0 +1,5 @@
+(define (problem p4x4ba)
+  (:domain mgo)
+  (:objects v0 v1 v2 v3 - value )
+  (:init  (xpos v0) (ypos v0) (xgoal v2) (ygoal v3)(consec v0 v1)(consec v1 v2)(consec v2 v3))
+  (:goal (and  (xpos v2) (ypos v3))))

@@ -1,0 +1,15 @@
+PLPR
+bin/compile
+domains/variables-output/domain_dck.pddl
+domain.pddl ins.pddl
+4
+5 600 2 domains/variables-output/hallA/hallA4x4-2.pddl domains/variables-output/hallA/hallA5x5-2.pddl
+5 600 2 domains/variables-output/hallA/hallA4x4-1.pddl domains/variables-output/hallA/hallA5x5-1.pddl
+5 600 2 domains/variables-output/hallA/hallA4x4-4.pddl domains/variables-output/hallA/hallA5x5-4.pddl
+5 600 2 domains/variables-output/hallA/hallA4x4-8.pddl domains/variables-output/hallA/hallA5x5-8.pddl
+4 600 2 domains/variables-output/hallA/hallA4x4-15.pddl domains/variables-output/hallA/hallA5x5-15.pddl
+1 60 domains/variables-output/hallA/hallA100x100.pddl
+0
+0
+2 2
+0 0

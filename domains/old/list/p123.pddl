@@ -1,0 +1,6 @@
+(define (problem p123)
+  (:domain list)
+  (:objects n1 n2 n3 - node )
+  (:init  (at n1) (adjacent n1 n2) (adjacent n2 n3) (goal n3) )
+  (:goal (and (at n3) (visited n1) (visited n2) (visited n3) (checked n1)(checked n2) ))
+)

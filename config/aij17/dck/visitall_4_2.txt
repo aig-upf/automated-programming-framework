@@ -1,0 +1,13 @@
+PLPR
+bin/compile
+domains/variables-output/domain_dck.pddl
+domain.pddl ins.pddl
+2
+3 10 2 domains/variables-output/visitall/visitall3x1.pddl domains/variables-output/visitall/visitall5x1.pddl
+2 10 2 domains/variables-output/visitall/visitall3x1b.pddl domains/variables-output/visitall/visitall5x1b.pddl
+4 100 2 domains/variables-output/visitall/visitall3x3.pddl domains/variables-output/visitall/visitall4x4.pddl
+1 600 domains/variables-output/visitall/visitall30x30.pddl
+0
+0
+2 2
+0 0

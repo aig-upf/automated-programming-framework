@@ -1,0 +1,5 @@
+(define (problem p5x5-4-08092015130509)
+  (:domain 4corners)
+  (:objects v0 v1 v2 v3 v4 - value )
+  (:init (xpos v4)(ypos v0)(xmin v0)(ymin v0)(xmax v4)(ymax v4) (consec v0 v1)(consec v1 v2)(consec v2 v3)(consec v3 v4))
+  (:goal (and  (visited v4 v4) )))

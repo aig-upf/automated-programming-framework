@@ -1,0 +1,5 @@
+(repeat-append-str-1-0 res str-var row-0)
+(repeat-append-char-1-1 res space row-0)
+(repeat-append-str-1-2 res str2-var row-0)
+(repeat-end-main-0-3 row-0)
+; cost = 3 (general cost)

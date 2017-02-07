@@ -1,0 +1,13 @@
+PLPR
+bin/compile
+domains/unsupervised/grid/domain.pddl
+domain.pddl ins.pddl
+0
+10 30 4 domains/unsupervised/grid/prob6x6a.pddl domains/unsupervised/grid/prob7x3b.pddl domains/unsupervised/grid/prob7x7a.pddl domains/unsupervised/grid/prob3x7b.pddl
+6 60 domains/unsupervised/grid/prob6x6a.pddl domains/unsupervised/grid/prob7x3b.pddl domains/unsupervised/grid/prob7x7a.pddl domains/unsupervised/grid/prob3x7b.pddl domains/unsupervised/grid/prob10x10a.pddl domains/unsupervised/grid/prob10x10b.pddl 
+0
+0
+1 1
+0 0 2
+
+

@@ -1,0 +1,5 @@
+(define (problem p3-09092015162748)
+  (:domain blocks)
+  (:objects b1 b2 b3 - block )
+  (:init (clear b3) (ontable b2) (on b3 b1)(on b1 b2)(empty) (green b2))
+  (:goal (and (obs-greenish)(empty))))

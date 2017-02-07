@@ -1,0 +1,17 @@
+PLPR
+bin/compile
+domains/unsupervised/generic-andor/domain.pddl
+domain.pddl ins.pddl
+0
+6 300 8 domains/unsupervised/generic-andor/x1x2-00.pddl domains/unsupervised/generic-andor/x1x2-01.pddl domains/unsupervised/generic-andor/x1x2-10.pddl domains/unsupervised/generic-andor/x1x2-11.pddl domains/unsupervised/generic-andor/x2x1-00.pddl domains/unsupervised/generic-andor/x2x1-01.pddl domains/unsupervised/generic-andor/x2x1-10.pddl domains/unsupervised/generic-andor/x2x1-11.pddl
+0
+0
+0
+1 1
+0 0 2
+
+10 600 6 domains/unsupervised/generic-andor/and2.pddl domains/unsupervised/generic-andor/and3.pddl domains/unsupervised/generic-andor/and4.pddl  domains/unsupervised/generic-andor/nand2.pddl domains/unsupervised/generic-andor/nand3.pddl domains/unsupervised/generic-andor/nand4.pddl
+
+10 1200 8 domains/unsupervised/generic-andor/and1.pddl domains/unsupervised/generic-andor/and2.pddl domains/unsupervised/generic-andor/and3.pddl domains/unsupervised/generic-andor/and4.pddl domains/unsupervised/generic-andor/nand1.pddl domains/unsupervised/generic-andor/nand2.pddl domains/unsupervised/generic-andor/nand3.pddl domains/unsupervised/generic-andor/nand4.pddl
+
+6 100 12 domains/unsupervised/generic-andor/and1.pddl domains/unsupervised/generic-andor/and2.pddl domains/unsupervised/generic-andor/and3.pddl domains/unsupervised/generic-andor/and4.pddl domains/unsupervised/generic-andor/or1.pddl domains/unsupervised/generic-andor/or2.pddl domains/unsupervised/generic-andor/or3.pddl domains/unsupervised/generic-andor/or4.pddl domains/unsupervised/generic-andor/xor1.pddl domains/unsupervised/generic-andor/xor2.pddl domains/unsupervised/generic-andor/xor3.pddl domains/unsupervised/generic-andor/xor4.pddl

@@ -1,0 +1,5 @@
+(define (problem p6-27102015141703)
+  (:domain count)
+  (:objects v0 v1 v2 v3 v4 v5 - value ix0 ix1 ix2 ix3 ix4 ix5 - index )
+  (:init  (counter v0) (goal v2) (iterator ix0) (currentval v0) (assignment ix0 v0) (assignment ix1 v2) (assignment ix2 v2) (assignment ix3 v1) (assignment ix4 v2) (assignment ix5 v2)(consec-v v0 v1)(consec-v v1 v2)(consec-v v2 v3)(consec-v v3 v4)(consec-v v4 v5)(consec-i ix0 v1)(consec-i ix1 v2)(consec-i ix2 v3)(consec-i ix3 v4)(consec-i ix4 v5))
+  (:goal (and  (counter v4))))

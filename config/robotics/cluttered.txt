@@ -1,0 +1,13 @@
+bin/compile
+domains/robotics/cluttered/domain.pddl
+domain.pddl ins.pddl
+2
+5 10 2 domains/robotics/cluttered/prob1x5a.pddl domains/robotics/cluttered/prob1x5b.pddl
+5 20 2 domains/robotics/cluttered/prob5x1a.pddl domains/robotics/cluttered/prob5x1b.pddl
+5 810 2 domains/robotics/cluttered/prob4x4aa.pddl domains/robotics/cluttered/prob4x4bb.pddl
+1 30 domains/robotics/cluttered/prob10x10a.pddl
+0
+0
+3
+
+

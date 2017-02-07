@@ -1,0 +1,15 @@
+PLPR
+bin/compile
+domains/other/excel_variables/domain_variables.pddl
+domain.pddl ins.pddl
+1
+3 60 2 domains/other/excel_variables/copy01_variables.pddl domains/other/excel_variables/copy02_variables.pddl
+3 60 1 domains/other/excel_variables/fill01_variables.pddl
+1 30 domains/other/excel_variables/fill01_test_variables.pddl
+1
+INPUT-ASSIGNMENT
+1
+INPUT-VARIABLE
+2 2
+0 0 0
+

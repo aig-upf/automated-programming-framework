@@ -1,0 +1,12 @@
+(define (problem p2x2-09092015123540)
+  (:domain visual-marker)
+  (:objects x0 x1 - xpos y0 y1 - ypos )
+  (:init 
+	(agent-x x0) (agent-y y0) 
+	(xmax x1)(ymax y1)
+	(suc-x x0 x1)
+	(suc-y y0 y1)
+	(block x0 y0)
+	(block x1 y0)
+	(green x0 y0))
+  (:goal (and (marked))))

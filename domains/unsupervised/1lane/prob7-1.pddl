@@ -1,0 +1,12 @@
+(define (problem p7-1)
+  (:domain 1lane)
+  (:objects v0 v1 v2 v3 v4 v5 v6 - value )
+  (:init 
+	(xpos v5)(xgoal v1) 
+	(consec v0 v1)
+	(consec v1 v2)
+	(consec v2 v3)
+	(consec v3 v4)
+	(consec v4 v5)
+	(consec v5 v6))
+  (:goal (and  (visited v1) )))

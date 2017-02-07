@@ -1,0 +1,36 @@
+(define (problem selection4)
+	(:domain genericlist)
+	(:objects
+		next lessthan - relation
+		i1 i2 i3 i4 i5 v1 v2 v3 v4 v5 - value
+		iter best tail - variable
+	)
+	(:init
+		(assignment iter i1)
+		(pointer iter v5)
+		(assignment best i1)
+		(pointer best v5)
+		(assignment tail i5)
+		(vector-assignment i1 v5)
+		(vector-assignment i2 v3)
+		(vector-assignment i3 v2)
+		(vector-assignment i4 v4)
+		(next i1 i2)
+		(next i2 i3)
+		(next i3 i4)
+		(next i4 i5)
+		(includes lessthan v1 v2)
+		(includes lessthan v1 v3)
+		(includes lessthan v1 v4)
+		(includes lessthan v1 v5)
+		(includes lessthan v2 v3)
+		(includes lessthan v2 v4)
+		(includes lessthan v2 v5)
+		(includes lessthan v3 v4)
+		(includes lessthan v3 v5)
+		(includes lessthan v4 v5)
+	)
+	(:goal (and
+		(assignment best i3)
+	))
+)

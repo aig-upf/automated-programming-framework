@@ -1,0 +1,7 @@
+
+Known issues:
+
+- Testing for predicates is case-sensitive
+- Not all functionalities are possible via methods
+   (some require "manual" creation of instances,
+    e.g. "forall", "or", "when", etc.)

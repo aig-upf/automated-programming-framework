@@ -1,0 +1,23 @@
+PLPR
+bin/compile
+domains/unsupervised/grid/domain.pddl
+domain.pddl ins.pddl
+0
+20 500 8 domains/unsupervised/grid/prob6x6a.pddl domains/unsupervised/grid/prob7x3b.pddl domains/unsupervised/grid/prob7x7a.pddl domains/unsupervised/grid/prob3x7b.pddl domains/unsupervised/grid/prob6x6ab.pddl domains/unsupervised/grid/prob7x3ba.pddl domains/unsupervised/grid/prob7x7ab.pddl domains/unsupervised/grid/prob3x7ba.pddl 
+0
+0
+0
+1 1
+0 0 4
+
+10 300 4 domains/unsupervised/grid/prob1x5a.pddl domains/unsupervised/grid/prob1x5b.pddl domains/unsupervised/grid/prob5x1a.pddl domains/unsupervised/grid/prob5x1b.pddl
+
+10 600 6 domains/unsupervised/grid/prob3x3c0.pddl domains/unsupervised/grid/prob3x4c0.pddl domains/unsupervised/grid/prob4x3c0.pddl domains/unsupervised/grid/prob3x3c1.pddl domains/unsupervised/grid/prob3x4c1.pddl domains/unsupervised/grid/prob4x3c1.pddl
+
+10 1000 4 domains/unsupervised/grid/prob3x3aa-1.pddl domains/unsupervised/grid/prob3x3aa-2.pddl domains/unsupervised/grid/prob3x3bb-1.pddl domains/unsupervised/grid/prob3x3bb-2.pddl
+
+20 600 8 domains/unsupervised/grid/prob3x3aa-1.pddl domains/unsupervised/grid/prob3x3aa-2.pddl domains/unsupervised/grid/prob3x3ab-1.pddl domains/unsupervised/grid/prob3x3ab-2.pddl domains/unsupervised/grid/prob3x3ba-1.pddl domains/unsupervised/grid/prob3x3ba-2.pddl domains/unsupervised/grid/prob3x3bb-1.pddl domains/unsupervised/grid/prob3x3bb-2.pddl
+
+20 1800 8 domains/unsupervised/grid/prob4x4aa.pddl domains/unsupervised/grid/prob4x4bb.pddl domains/unsupervised/grid/prob4x4ab.pddl domains/unsupervised/grid/prob4x4ba.pddl domains/unsupervised/grid/prob6x6aa.pddl domains/unsupervised/grid/prob6x6bb.pddl domains/unsupervised/grid/prob6x6ab.pddl domains/unsupervised/grid/prob6x6ba.pddl
+
+

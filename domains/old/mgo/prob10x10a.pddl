@@ -1,0 +1,11 @@
+(define (problem p10x10a)
+  (:domain mgo)
+  (:objects v-4 v-3 v-2 v-1 v0 v1 v2 v3 v4 - value )
+  (:init  
+	(xpos v3) (ypos v-3) (xgoal v-1) (ygoal v3)
+	(consec v-4 v-3)(consec v-3 v-2)(consec v-2 v-1)(consec v-1 v0)(consec v0 v1)(consec v1 v2)(consec v2 v3)(consec v3 v4)
+	(wall v-4 v-3)(wall v-3 v-3)(wall v-2 v-3)(wall v-1 v-3)(wall v-4 v0)(wall v-3 v0)(wall v-2 v-1)(wall v-1 v-1)(wall v-2 v1)
+	(wall v-1 v1)(wall v-1 v0)(wall v-2 v0)(wall v-1 v4)(wall v4 v-1)(wall v3 v-1)(wall v2 v-1)(wall v2 v0)(wall v2 v1)(wall v2 v2)
+	(wall v3 v2)(wall v4 v2)
+  )
+  (:goal (and  (xpos v-1) (ypos v3))))

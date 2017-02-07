@@ -1,0 +1,11 @@
+PLPR
+bin/compile
+domains/ca/blocksworld/domain_variables.pddl
+domain.pddl ins.pddl
+0
+4 10 2 domains/ca/blocksworld/prob1b_variables.pddl domains/ca/blocksworld/prob4b_variables.pddl
+1 10 domains/ca/blocksworld/prob20_variables.pddl
+1 BLOCK-ASSIGNMENT
+1 BLOCK-VARIABLE
+1 1
+0 0

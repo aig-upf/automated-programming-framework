@@ -1,0 +1,5 @@
+(define (problem p5-23092015124510)
+  (:domain htower)
+  (:objects v0 v1 v2 v3 v4  vNULL - value )
+  (:init   (odd)(consecA vNULL v0)(consecA v0 v1)(consecA v1 v2)(consecA v2 v3)(consecA v3 v4)(clearA v4)(clearB vNULL)(clearC vNULL)(greater-than v2 v4)(greater-than vNULL v0)(greater-than vNULL v1)(greater-than v0 v1)(greater-than vNULL v2)(greater-than vNULL v3)(greater-than v1 v4)(greater-than v0 v4)(greater-than vNULL v4)(greater-than v3 v4)(greater-than v0 v2)(greater-than v0 v3)(greater-than v1 v2)(greater-than v2 v3)(greater-than v1 v3)(handempty))
+  (:goal (and (consecC vNULL v0)(consecC v0 v1)(consecC v1 v2)(consecC v2 v3)(consecC v3 v4))))

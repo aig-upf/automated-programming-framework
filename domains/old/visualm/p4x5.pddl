@@ -1,0 +1,12 @@
+(define (problem p4x5-09092015123555)
+  (:domain visual-marker)
+  (:objects x0 x1 x2 x3 - xpos y0 y1 y2 y3 y4 - ypos )
+  (:init 
+	(agent-x x0) (agent-y y0) 
+	(xmax x3)(ymax y4)
+	(suc-x x0 x1)(suc-x x1 x2)(suc-x x2 x3)
+	(suc-y y0 y1)(suc-y y1 y2)(suc-y y2 y3)(suc-y y3 y4)
+	(block x2 y0)
+	(block x3 y0)(block x3 y1)(block x3 y2)(block x3 y3)(block x3 y4)
+	(green x3 y3))
+  (:goal (and (marked))))

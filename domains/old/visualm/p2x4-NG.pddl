@@ -1,0 +1,10 @@
+(define (problem p2x4-0-1-08092015155036)
+  (:domain visual-marker)
+  (:objects x0 x1 - xpos y0 y1 y2 y3 - ypos )
+  (:init 
+	(agent-x x0) (agent-y y3) 
+	(xmax x1)(ymax y3)
+	(suc-x x0 x1)
+	(suc-y y0 y1)(suc-y y1 y2)(suc-y y2 y3)
+	(block x1 y0)(block x1 y1)(block x1 y2)(block x1 y3))
+  (:goal (and (agent-x x1) (agent-y y0))))

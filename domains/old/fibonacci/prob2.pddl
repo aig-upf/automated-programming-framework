@@ -1,0 +1,12 @@
+(define (problem p5-10092015145347)
+  (:domain fibonacci)
+  (:objects v2 - value)
+  (:init 
+	(fn1 v0) (fn2 v0) (fn v1) (nth v2)
+	(suc-v v0 v1)(suc-v v1 v2)
+	(sum v0 v0 v0)(sum v0 v1 v1)(sum v0 v2 v2)
+	(sum v1 v0 v1)(sum v1 v1 v2)
+	(sum v2 v0 v2)
+  )
+  (:goal (and  (fn v2)(nth v0)))
+)

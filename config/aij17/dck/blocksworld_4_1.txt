@@ -1,0 +1,13 @@
+PLPR
+bin/compile
+domains/dck/blocksworld/domain.pddl
+domain.pddl ins.pddl
+1
+3 20 3 domains/dck/blocksworld/prob1.pddl domains/dck/blocksworld/prob2.pddl domains/dck/blocksworld/prob3.pddl
+4 20 2 domains/dck/blocksworld/prob6.pddl domains/dck/blocksworld/prob7.pddl
+1 300 domains/dck/blocksworld/prob100b.pddl
+0
+0
+2 2
+0 0
+

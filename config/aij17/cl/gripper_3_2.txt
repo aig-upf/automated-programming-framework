@@ -1,0 +1,13 @@
+PLPR
+bin/compile
+domains/other/gripper/domain.pddl
+domain.pddl ins.pddl
+2
+3 10 2 domains/other/gripper/prob4b.pddl domains/other/gripper/prob2b.pddl
+3 10 2 domains/other/gripper/prob4c.pddl domains/other/gripper/prob2c.pddl
+3 10 2 domains/other/gripper/prob2.pddl domains/other/gripper/prob4.pddl 
+1 10 domains/other/gripper/prob30.pddl 
+0
+0
+2 2
+0 0

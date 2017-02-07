@@ -1,0 +1,25 @@
+
+
+*.o
+.sconsign.dblite
+*.pyc
+
+# FD files
+PLANNERS/fast-downward/src/search/downward-release
+PLANNERS/fast-downward/src/search/.obj
+PLANNERS/fast-downward/src/VAL/validate
+PLANNERS/fast-downward/src/validate
+PLANNERS/fast-downward/src/preprocess/preprocess
+PLANNERS/fast-downward/src/VAL/lex.yy.cc
+
+# PDDL parser
+universal-pddl-parser/Domain
+
+
+# Planning Programs
+bin/compile
+bin/compile_variable
+
+domain.pddl
+execution.txt
+main

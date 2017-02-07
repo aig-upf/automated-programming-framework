@@ -1,0 +1,5 @@
+(define (problem p5-23102015121618)
+  (:domain btree)
+  (:objects v1 v2 v3 v4 v5 v6 v7 v8 v9 v10 v11 v12 v13 v14 v15 v16 v17 v18 v19 v20 v21 v22 v23 v24 v25 v26 v27 v28 v29 v30 v31 - value )
+  (:init (varnode v1) (vargoal v29)(consec-0 v1 v2)(consec-1 v1 v3)(consec-0 v2 v4)(consec-1 v2 v5)(consec-0 v3 v6)(consec-1 v3 v7)(consec-0 v4 v8)(consec-1 v4 v9)(consec-0 v5 v10)(consec-1 v5 v11)(consec-0 v6 v12)(consec-1 v6 v13)(consec-0 v7 v14)(consec-1 v7 v15)(consec-0 v8 v16)(consec-1 v8 v17)(consec-0 v9 v18)(consec-1 v9 v19)(consec-0 v10 v20)(consec-1 v10 v21)(consec-0 v11 v22)(consec-1 v11 v23)(consec-0 v12 v24)(consec-1 v12 v25)(consec-0 v13 v26)(consec-1 v13 v27)(consec-0 v14 v28)(consec-1 v14 v29)(consec-0 v15 v30)(consec-1 v15 v31))
+  (:goal (and  (visited v29))))

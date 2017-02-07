@@ -1,0 +1,5 @@
+(define (problem p6x6ba-07092015131914)
+  (:domain grid)
+  (:objects v0 v1 v2 v3 v4 v5 - value )
+  (:init  (xpos v2) (ypos v2) (xgoal v2) (ygoal v5)(consec v0 v1)(consec v1 v2)(consec v2 v3)(consec v3 v4)(consec v4 v5))
+  (:goal (and  (xpos v2) (ypos v5))))

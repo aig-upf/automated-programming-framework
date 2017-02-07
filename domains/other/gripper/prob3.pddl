@@ -1,0 +1,12 @@
+(define (problem p3-08092015185503)
+  (:domain gripper)
+  (:objects roomA roomB - room b0 b1 b2 b3 - balls )
+  (:init 
+	(at-robby roomA) 
+	(ballsR b0) 
+	(ballsA b3) 
+	(ballsB b0) 
+	(goalB b3) 
+	(succAB b0 b1) (succAB b1 b2) (succAB b2 b3) 
+	(succR b0 b1) (succR b1 b2))
+  (:goal (and (ballsB b3))))
