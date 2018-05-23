@@ -1,0 +1,15 @@
+NEG
+bin/compile
+domains/pointers/domain.pddl
+domain.pddl ins.pddl
+0
+4 600 3 1 domains/pointers/select/select2.pddl domains/pointers/select/select3.pddl domains/pointers/select/select4.pddl domains/pointers/select/select2-NEG.pddl
+0
+0
+0
+1 1
+0 0 0
+
+
+4 600 3 3 domains/pointers/select/select2.pddl domains/pointers/select/select3.pddl domains/pointers/select/select4.pddl domains/pointers/select/select2-NEG.pddl domains/pointers/select/select3-NEG.pddl domains/pointers/select/select4-NEG.pddl 
+4 300 4 domains/pointers/select/select2.pddl domains/pointers/select/select3.pddl domains/pointers/select/select4.pddl domains/pointers/select/select5.pddl

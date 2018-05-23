@@ -12,8 +12,8 @@
 
   (:action unstack
     :parameters ()
-    :precondition ()
-    :effect (forall (?x ?y - block)
+    :precondition ( and )
+    :effect ( and ( forall (?x ?y - block)
         (and (when (and (not (finished)) (clear ?x) (on ?x ?y) (empty))
                (and (hold ?x) (clear ?y) (not (clear ?x))
                     (not (on ?x ?y)) (not (empty)))
@@ -22,25 +22,25 @@
                (and (hold ?x) (not (clear ?x))
                     (not (ontable ?x)) (not (empty)))
              )
-        )
+        ) )
       )
   )
 
   (:action drop
     :parameters ()
-    :precondition ()
-    :effect (forall (?x - block)
+    :precondition ( and )
+    :effect ( and ( forall (?x - block)
         (when (and (not (finished)) (hold ?x))
           (and (empty) (not (hold ?x))))
-      )
+      ) )
   )
   (:action collect
     :parameters ()
-    :precondition ()
-    :effect (forall (?x - block)
+    :precondition ( and )
+    :effect ( and ( forall (?x - block)
         (when (and (not (finished)) (hold ?x))
           (and (have ?x) (empty) (finished) (not (hold ?x))))
-      )
+      ) )
   )
 
   (:derived (obs-greenish)

@@ -1,0 +1,35 @@
+HFSC
+bin/compile
+domains/hfsc/reverse/domain.pddl
+domain.pddl ins.pddl
+0
+3 100 2 domains/hfsc/reverse/prob4.pddl domains/hfsc/reverse/prob5.pddl
+0
+0
+0
+1 1
+0 0 0
+
+HFSC
+bin/compile
+domains/hfsc/reverse/domain.pddl
+domain.pddl ins.pddl
+0
+3 100 2 domains/hfsc/reverse/prob5.pddl domains/hfsc/reverse/prob4.pddl
+1 600 domains/hfsc/reverse/prob30b.pddl
+0
+0
+1 1
+0 0 0
+
+HFSC
+bin/compile
+domains/pointers/domain.pddl
+domain.pddl ins.pddl
+0
+3 60 2 domains/pointers/reverse/reverse2.pddl domains/pointers/reverse/reverse4.pddl
+1 300 domains/pointers/reverse/reverse30.pddl
+0
+0
+1 1
+0 0

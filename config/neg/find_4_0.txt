@@ -1,0 +1,14 @@
+NEG
+bin/compile
+domains/pointers/domain.pddl
+domain.pddl ins.pddl
+0
+4 900 2 1 domains/pointers/find/find3.pddl domains/pointers/find/find4a.pddl domains/pointers/find/find3-NEG.pddl 
+0
+0
+0
+1 1
+0 0 0
+
+4 900 3 3 domains/pointers/find/find3.pddl domains/pointers/find/find4a.pddl domains/pointers/find/find4b.pddl domains/pointers/find/find3-NEG.pddl domains/pointers/find/find4a-NEG.pddl domains/pointers/find/find4b-NEG.pddl
+2 600 domains/pointers/find/find30.pddl domains/pointers/find/find30-NEG.pddl

@@ -1,0 +1,26 @@
+(define (problem p3)
+  (:domain variables-output )
+  (:objects  v0 v1 v2 v3 - value 
+  )
+  (:init
+	( next v0 v1)
+	( next v1 v2)
+	( next v2 v3)
+	( assignment a v0 )
+	( assignment b v0 )
+	( assignment c v3 )
+	( assignment d v3 ) )
+  (:goal
+	( and
+	( output-two v0 v0 )
+	( output-two v0 v1 )
+	( output-two v0 v2 )
+	( output-two v1 v0 )
+	( output-two v1 v1 )
+	( output-two v1 v2 )
+	( output-two v2 v0 )
+	( output-two v2 v1 )
+	( output-two v2 v2 )
+	)
+  )
+)

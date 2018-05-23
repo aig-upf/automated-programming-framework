@@ -1,0 +1,13 @@
+CFG
+bin/compile
+domains/cfg/grammar/domain.pddl
+domain.pddl ins.pddl
+2
+6 10 2 domains/cfg/grammar/noun_phrase_2.pddl domains/cfg/grammar/noun_phrase.pddl
+3 10 1 domains/cfg/grammar/verb_phrase.pddl
+3 10 1 domains/cfg/grammar/sentence.pddl
+1 400 domains/cfg/grammar/big-sentence.pddl
+0
+0
+10 92
+0 0

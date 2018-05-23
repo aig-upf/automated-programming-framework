@@ -1,0 +1,70 @@
+(define (domain reverse)
+	(:requirements :typing)
+	(:types index value)
+	(:predicates
+		(iterator1 ?ix - index)
+		(iterator2 ?ix - index)
+		(i1val ?v - value)
+		(i2val ?v - value)
+
+		(assignment ?ix - index ?v - value)
+
+		(consec ?ix1 ?ix2 - index)
+		(greatereq-than ?ix1 ?ix2 - index)
+		(greatereq-than-i1-i2)
+	)
+
+	(:action inc-iter1
+		:parameters ()
+		:precondition (and ) 
+		:effect (and (forall (?val - value) (not (i1val ?val)))
+		             (forall (?ix1 ?ix2 - index ?val - value)
+		                     (when (and (iterator1 ?ix1) (consec ?ix1 ?ix2) (assignment ?ix2 ?val))
+		                           (and (not (iterator1 ?ix1)) (iterator1 ?ix2) (i1val ?val))))))
+	(:action dec-iter1
+		:parameters ()
+		:precondition (and ) 
+		:effect (and (forall (?val - value) (not (i1val ?val)))
+		             (forall (?ix1 ?ix2 - index ?val - value)
+		                     (when (and (iterator1 ?ix1) (consec ?ix2 ?ix1) (assignment ?ix2 ?val))
+		                           (and (not (iterator1 ?ix1)) (iterator1 ?ix2) (i1val ?val))))))
+
+	(:action inc-iter2
+		:parameters ( )
+		:precondition (and ) 
+		:effect (and (forall (?val - value) (not (i2val ?val)))
+		             (forall (?ix1 ?ix2 - index ?val - value)
+		                     (when (and (iterator2 ?ix1) (consec ?ix1 ?ix2) (assignment ?ix2 ?val))
+		                           (and (not (iterator2 ?ix1)) (iterator2 ?ix2) (i2val ?val))))))
+
+	(:action dec-iter2
+		:parameters ()
+		:precondition (and ) 
+		:effect (and (forall (?val - value) (not (i2val ?val)))
+		             (forall (?ix1 ?ix2 - index ?val - value)
+		                     (when (and (iterator2 ?ix1) (consec ?ix2 ?ix1) (assignment ?ix2 ?val))
+		                           (and (not (iterator2 ?ix1)) (iterator2 ?ix2) (i2val ?val))))))
+	(:action swap
+		:parameters ()
+		:precondition (and )
+		:effect (and 
+			     (forall (?ix - index ?val - value)	      
+			      	(when (and (iterator1 ?ix) (assignment ?ix ?val))
+				      (and (not (assignment ?ix ?val)))))
+			     (forall (?ix - index ?val - value)	      
+			      	(when (and (iterator2 ?ix) (assignment ?ix ?val))
+				      (and (not (assignment ?ix ?val)))))
+			     (forall (?ix - index ?val - value)	      
+			      	(when (and (iterator1 ?ix) (i2val ?val))
+				      (and (assignment ?ix ?val))))
+			     (forall (?ix - index ?val - value)	      
+			      	(when (and (iterator2 ?ix) (i1val ?val))
+				      (and (assignment ?ix ?val))))
+                             (forall (?v1 ?v2 - value)
+			     	(when (and (i1val ?v1) (i2val ?v2))
+				      (and (i1val ?v2) (i2val ?v1) (not (i1val ?v1)) (not (i2val ?v2)))))))
+
+	(:derived (greatereq-than-i1-i2)
+		(exists (?i1 ?i2 - index)
+		        (and (iterator1 ?i1) (iterator2 ?i2) (greatereq-than ?i1 ?i2))))
+)

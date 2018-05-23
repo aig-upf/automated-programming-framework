@@ -8,6 +8,7 @@
      (free right)  
      (at b1 roomA)
 	 (succ-balls b1 b2)
-     (next-ball b1))
+     (next-ball b1)
+     (at b2 roomB))
 
   (:goal (and (at b1 roomB) )))

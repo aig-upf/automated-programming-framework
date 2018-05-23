@@ -1,0 +1,14 @@
+CFG
+bin/compile
+domains/cfg/arithmetics/domain.pddl
+domain.pddl ins.pddl
+3
+20 20 10 domains/cfg/arithmetics/v0.pddl domains/cfg/arithmetics/v1.pddl domains/cfg/arithmetics/v2.pddl domains/cfg/arithmetics/v3.pddl domains/cfg/arithmetics/v4.pddl domains/cfg/arithmetics/v5.pddl domains/cfg/arithmetics/v6.pddl domains/cfg/arithmetics/v7.pddl domains/cfg/arithmetics/v8.pddl domains/cfg/arithmetics/v9.pddl
+8 20 4 domains/cfg/arithmetics/opAdd.pddl domains/cfg/arithmetics/opBorrow.pddl domains/cfg/arithmetics/opMultiply.pddl domains/cfg/arithmetics/opDivision.pddl
+3 20 1 domains/cfg/arithmetics/number.pddl
+4 20 4 domains/cfg/arithmetics/add.pddl domains/cfg/arithmetics/borrow.pddl domains/cfg/arithmetics/multiply.pddl domains/cfg/arithmetics/division.pddl
+4 100 domains/cfg/arithmetics/test_add.pddl domains/cfg/arithmetics/test_borrow.pddl domains/cfg/arithmetics/test_multiply.pddl domains/cfg/arithmetics/test_division.pddl
+0
+0
+8 25
+0 0

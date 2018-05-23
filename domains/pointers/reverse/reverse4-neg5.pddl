@@ -1,0 +1,32 @@
+(define (problem reverse4-neg5)
+	(:domain pointers)
+	(:objects
+		v0 v1 v2 v3 - value
+;		a b - variable
+	)
+	(:init
+		(assignment a v0)
+		(content a v1)
+		(assignment b v3)
+		(content b v2)
+		(vector-assignment v0 v1)
+		(vector-assignment v1 v0)
+		(vector-assignment v2 v3)
+		(vector-assignment v3 v2)
+		(next v0 v1)
+		(next v1 v2)
+		(next v2 v3)
+		(less v0 v1)
+		(less v0 v2)
+		(less v0 v3)
+		(less v1 v2)
+		(less v1 v3)
+		(less v2 v3)
+	)
+	(:goal (and
+		(vector-assignment v0 v1)
+		(vector-assignment v1 v3)
+		(vector-assignment v2 v0)
+		(vector-assignment v3 v1)
+	))
+)

@@ -1,0 +1,31 @@
+HFSC
+bin/compile
+domains/variables-output/domain.pddl
+domain.pddl ins.pddl
+4
+2 60 2 domains/variables-output/hallA/hallA4x4-2.pddl domains/variables-output/hallA/hallA5x5-2.pddl
+2 30 2 domains/variables-output/hallA/hallA4x4-1.pddl domains/variables-output/hallA/hallA5x5-1.pddl
+2 100 2 domains/variables-output/hallA/hallA4x4-4.pddl domains/variables-output/hallA/hallA5x5-4.pddl
+2 150 2 domains/variables-output/hallA/hallA4x4-8.pddl domains/variables-output/hallA/hallA5x5-8.pddl
+2 230 2 domains/variables-output/hallA/hallA4x4-15.pddl domains/variables-output/hallA/hallA5x5-15.pddl
+0
+0
+0
+2 2
+0 0 0
+
+HFSC
+bin/compile
+domains/variables-output/domain.pddl
+domain.pddl ins.pddl
+4
+2 60 2 domains/variables-output/hallA/hallA4x4-2.pddl domains/variables-output/hallA/hallA5x5-2.pddl
+2 30 2 domains/variables-output/hallA/hallA4x4-1.pddl domains/variables-output/hallA/hallA5x5-1.pddl
+2 100 2 domains/variables-output/hallA/hallA4x4-4.pddl domains/variables-output/hallA/hallA5x5-4.pddl
+2 150 2 domains/variables-output/hallA/hallA4x4-8.pddl domains/variables-output/hallA/hallA5x5-8.pddl
+2 230 2 domains/variables-output/hallA/hallA4x4-15.pddl domains/variables-output/hallA/hallA5x5-15.pddl
+1 100 domains/variables-output/hallA/hallA100x100.pddl
+0
+0
+2 2
+0 0 0

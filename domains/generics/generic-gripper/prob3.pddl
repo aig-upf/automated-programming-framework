@@ -1,0 +1,38 @@
+(define (problem gripper-3)
+    (:domain gripper)
+  (:objects b1 b2 b3 b4 b5 roomA roomB left right - value)
+
+  (:init 
+	(arity-1 at-robby)
+	(arity-1 is-hand)
+	(arity-1 free)
+	(arity-2 at)
+	(arity-2 carry)
+
+	(includes-1ary is-room roomA )
+	(includes-1ary is-room roomB )
+	(includes-1ary is-ball b1 )
+	(includes-1ary is-ball b2 )
+	(includes-1ary is-ball b3 )
+	(includes-1ary is-ball b4 )
+	(includes-1ary is-ball b5 )
+	(includes-1ary is-hand left )
+	(includes-1ary is-hand right )
+
+     (includes-1ary at-robby roomA) 
+     (includes-1ary free left) 
+     (includes-1ary free right)  
+     (includes-2ary at b1 roomA)
+     (includes-2ary at b2 roomA)
+	 (includes-2ary at b3 roomA)
+     (includes-2ary at b4 roomA)
+	 (includes-2ary at b5 roomA)
+  )
+  (:goal 
+	(and 
+		(includes-2ary at b1 roomB)
+		(includes-2ary at b2 roomB)
+		(includes-2ary at b3 roomB)
+		(includes-2ary at b4 roomB)
+		(includes-2ary at b5 roomB) 
+)))

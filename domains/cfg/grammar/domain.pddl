@@ -1,0 +1,56 @@
+(define (domain SimpleGrammar)
+	(:requirements :typing)
+	(:types index terminal-symbol)
+	(:constants adjective singular-noun singular-verb adverb empty - terminal-symbol)
+	(:predicates
+		(at ?i - index)
+		(current-content ?ts - terminal-symbol )
+		(adjacent ?i1 ?i2 - index)
+		(content ?i - index ?ts - terminal-symbol )
+	)
+
+
+	(:action process-adjective
+		:parameters ()
+		:precondition (and (current-content adjective) ) 
+		:effect (and ( forall (?i1 ?i2 - index ?ts - terminal-symbol) 
+						( when  (and ( adjacent ?i1 ?i2 ) ( at ?i1 ) (content ?i2 ?ts) )
+								(and ( not (at ?i1) ) (at ?i2) (not (current-content adjective))(current-content ?ts))
+						)
+					 )
+				)
+	)
+	
+	(:action process-singular-noun
+		:parameters ()
+		:precondition (and (current-content singular-noun) ) 
+		:effect (and ( forall (?i1 ?i2 - index ?ts - terminal-symbol) 
+						( when  (and ( adjacent ?i1 ?i2 ) ( at ?i1 ) (content ?i2 ?ts) )
+								(and ( not (at ?i1) ) (at ?i2) (not (current-content singular-noun))(current-content ?ts))
+						)
+					 )
+				)
+	)
+	
+	(:action process-singular-verb
+		:parameters ()
+		:precondition (and (current-content singular-verb) ) 
+		:effect (and ( forall (?i1 ?i2 - index ?ts - terminal-symbol) 
+						( when  (and ( adjacent ?i1 ?i2 ) ( at ?i1 ) (content ?i2 ?ts) )
+								(and ( not (at ?i1) ) (at ?i2) (not (current-content singular-verb))(current-content ?ts))
+						)
+					 )
+				)
+	)
+	
+	(:action process-adverb
+		:parameters ()
+		:precondition (and (current-content adverb) ) 
+		:effect (and ( forall (?i1 ?i2 - index ?ts - terminal-symbol) 
+						( when  (and ( adjacent ?i1 ?i2 ) ( at ?i1 ) (content ?i2 ?ts) )
+								(and ( not (at ?i1) ) (at ?i2) (not (current-content adverb))(current-content ?ts))
+						)
+					 )
+				)
+	)
+)

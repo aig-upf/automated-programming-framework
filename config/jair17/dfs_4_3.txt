@@ -3,11 +3,25 @@ bin/compile
 domains/generics/generic-dfs/domain.pddl
 domain.pddl ins.pddl
 0
-4 30 1 domains/generics/generic-dfs/trees7.pddl
+3 1700 4 domains/generics/generic-dfs/trees5.pddl domains/generics/generic-dfs/trees5b.pddl domains/generics/generic-dfs/trees5c.pddl domains/generics/generic-dfs/trees5d.pddl
 0
 1
 ASSIGNMENT
 1
 VARIABLE
-4 4
-0 0
+4 10
+0 0 0
+
+HFSC
+bin/compile
+domains/generics/generic-dfs/domain.pddl
+domain.pddl ins.pddl
+0
+3 1700 4 domains/generics/generic-dfs/trees5.pddl domains/generics/generic-dfs/trees5b.pddl domains/generics/generic-dfs/trees5c.pddl domains/generics/generic-dfs/trees5d.pddl
+1 30 domains/generics/generic-dfs/trees20.pddl
+1
+ASSIGNMENT
+1
+VARIABLE
+4 10
+0 0 0

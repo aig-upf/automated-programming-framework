@@ -17,5 +17,7 @@
 	(:goal (and
 		(vector-assignment v0 v0)
 		(vector-assignment v1 v1)
+		;(assignment a v1)
+		;(assignment b v0)
 	))
 )

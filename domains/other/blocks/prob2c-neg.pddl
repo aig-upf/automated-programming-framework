@@ -1,0 +1,5 @@
+(define (problem p2c-neg)
+  (:domain blocks)
+  (:objects b1 b2 - block )
+  (:init (clear b2) (ontable b1) (on b2 b1)(empty) (green b2))
+  (:goal (and (have b1))))

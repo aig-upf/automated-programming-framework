@@ -3,6 +3,7 @@
 *.o
 .sconsign.dblite
 *.pyc
+*~
 
 # FD files
 PLANNERS/fast-downward/src/search/downward-release
@@ -20,6 +21,5 @@ universal-pddl-parser/Domain
 bin/compile
 bin/compile_variable
 
-domain.pddl
 execution.txt
 main

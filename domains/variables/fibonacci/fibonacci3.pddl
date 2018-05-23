@@ -30,5 +30,7 @@
 	(:goal (and
 		(assignment a v3)
 		(assignment b v0)
+		(assignment c v2)
+		(assignment d v1)
 	))
 )

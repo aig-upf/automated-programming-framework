@@ -1,0 +1,43 @@
+NEG
+bin/compile
+domains/variables/domain.pddl
+domain.pddl ins.pddl
+0
+5 600 2 2 domains/variables/fibonacci/fibonacci1.pddl domains/variables/fibonacci/fibonacci2.pddl domains/variables/fibonacci/fibonacci3-neg.pddl domains/variables/fibonacci/fibonacci3b-neg.pddl
+8 600 domains/variables/fibonacci/fibonacci1.pddl domains/variables/fibonacci/fibonacci2.pddl domains/variables/fibonacci/fibonacci3.pddl domains/variables/fibonacci/fibonacci4.pddl domains/variables/fibonacci/fibonacci1-neg.pddl domains/variables/fibonacci/fibonacci2-neg.pddl domains/variables/fibonacci/fibonacci3-neg.pddl domains/variables/fibonacci/fibonacci4-neg.pddl
+0
+0
+1 1 
+0 0 0
+
+***************************************************************************************************
+domains/variables/fibonacci/fibonacci3.pddl
+domains/variables/fibonacci/fibonacci4-neg.pddl
+NEG
+bin/compile
+domains/variables/domain.pddl
+domain.pddl ins.pddl
+0
+5 3600 4 2 domains/variables/fibonacci/fibonacci1.pddl domains/variables/fibonacci/fibonacci2.pddl domains/variables/fibonacci/fibonacci3.pddl domains/variables/fibonacci/fibonacci4.pddl domains/variables/fibonacci/fibonacci2-neg.pddl domains/variables/fibonacci/fibonacci3-neg.pddl 
+8 600 domains/variables/fibonacci/fibonacci1.pddl domains/variables/fibonacci/fibonacci2.pddl domains/variables/fibonacci/fibonacci3.pddl domains/variables/fibonacci/fibonacci4.pddl domains/variables/fibonacci/fibonacci1-neg.pddl domains/variables/fibonacci/fibonacci2-neg.pddl domains/variables/fibonacci/fibonacci3-neg.pddl domains/variables/fibonacci/fibonacci4-neg.pddl 
+0
+0
+1 1 
+0 0 0
+
+***************************************************************************************************
+
+8 600 domains/variables/fibonacci/fibonacci1.pddl domains/variables/fibonacci/fibonacci2.pddl domains/variables/fibonacci/fibonacci3.pddl domains/variables/fibonacci/fibonacci4.pddl domains/variables/fibonacci/fibonacci1-neg.pddl domains/variables/fibonacci/fibonacci2-neg.pddl domains/variables/fibonacci/fibonacci3-neg.pddl domains/variables/fibonacci/fibonacci4-neg.pddl 
+
+PLPR
+bin/compile
+domains/variables/domain.pddl
+domain.pddl ins.pddl
+1
+3 10 2 domains/variables/fibonacci/fibonacci3b.pddl domains/variables/fibonacci/fibonacci4b.pddl
+3 10 4 domains/variables/fibonacci/fibonacci1.pddl domains/variables/fibonacci/fibonacci2.pddl domains/variables/fibonacci/fibonacci3.pddl domains/variables/fibonacci/fibonacci4.pddl
+1 10 domains/variables/fibonacci/fibonacci6.pddl
+0
+0
+2 2
+0 0

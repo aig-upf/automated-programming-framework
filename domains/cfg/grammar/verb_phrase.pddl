@@ -1,0 +1,16 @@
+(define (problem verb_phrase)
+  (:domain SimpleGrammar)
+  (:objects i0 i1 i2 - index )
+  (:init  
+	(at i0)
+	(current-content singular-verb)
+	(adjacent i0 i1)
+	(adjacent i1 i2)
+	(content i0 singular-verb)
+	(content i1 adverb)
+	(content i2 empty)
+  )
+  (:goal (and 
+	(at i2)
+  ))
+)

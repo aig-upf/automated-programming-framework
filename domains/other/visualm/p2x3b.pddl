@@ -1,0 +1,22 @@
+(define (problem p2x3b)
+  (:domain visual-marker )
+  (:objects  v0 v1 v2 v3 - value 
+  )
+  (:init
+	( consec v0 v1)
+	( consec v1 v2)
+	( consec v2 v3)
+	(xpos v0)(ypos v0)(xmax v2)(ymax v3)
+	(green v2 v1 )
+	(block v0 v0 )
+	(block v0 v1 )
+	(block v0 v2 )
+	(block v0 v3 )
+	(block v2 v0 )
+	(block v2 v1 )
+	(block v2 v2 ) )
+  (:goal
+	( and ( marked )
+	)
+  )
+)

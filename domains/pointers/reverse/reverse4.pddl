@@ -28,5 +28,7 @@
 		(vector-assignment v1 v3)
 		(vector-assignment v2 v0)
 		(vector-assignment v3 v1)
+		;(assignment a v2)
+		;(assignment b v1)
 	))
 )

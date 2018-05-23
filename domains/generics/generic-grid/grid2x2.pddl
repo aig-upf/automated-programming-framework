@@ -1,0 +1,25 @@
+(define (problem prob2x2)
+	(:domain grid)
+	(:objects v0 v1 - value xgoal ygoal - variable )
+	(:init
+		(assignment xpos v0)
+		(assignment ypos v1)
+		(includes-2ary consec v0 v1)
+		(arity-2 visited)
+		(arity-2 consec)
+		(assignment xgoal v0)
+		(assignment ygoal v0)
+
+		(includes-2ary notvisited v0 v0)
+		(includes-2ary notvisited v1 v0)
+		(includes-2ary notvisited v0 v1)
+		(includes-2ary notvisited v1 v1)		
+	)
+	(:goal (and
+		(includes-2ary visited v0 v0)
+		(includes-2ary notvisited v1 v0)
+		(includes-2ary notvisited v0 v1)
+		(includes-2ary notvisited v1 v1)
+		
+	))
+)

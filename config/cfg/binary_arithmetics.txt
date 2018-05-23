@@ -1,0 +1,12 @@
+CFG
+bin/compile
+domains/cfg/arithmetics/domain_binary.pddl
+domain.pddl ins.pddl
+1
+6 10 4 domains/cfg/arithmetics/binary_number_v0.pddl domains/cfg/arithmetics/binary_number_v1.pddl domains/cfg/arithmetics/binary_number_v0s.pddl  domains/cfg/arithmetics/binary_number_v1s.pddl
+8 10 2 domains/cfg/arithmetics/binary_add.pddl domains/cfg/arithmetics/binary_borrow.pddl
+2 100 domains/cfg/arithmetics/binary_test_add.pddl domains/cfg/arithmetics/binary_test_borrow.pddl
+0
+0
+4 15
+0 0

@@ -8,8 +8,8 @@
             ;;d is ymax
   )
   
-  (:init (assignment a v3)
-  	 (assignment b v0)
+  (:init (assignment a v0)
+  	 (assignment b v3)
 	 (assignment c v3)
 	 (assignment d v3)
 	 (next v0 v1)

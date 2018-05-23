@@ -20,7 +20,9 @@
 	(sum v1 v0 v1)
   )
   (:goal (and  
-		(assignment a v1)
-		(assignment b v0)
+	(assignment a v1)
+	(assignment b v0)
+	(assignment c v1)
+	(assignment d v0)
   ))
 )

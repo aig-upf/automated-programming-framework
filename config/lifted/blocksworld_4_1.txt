@@ -1,0 +1,15 @@
+LIFTED
+bin/compile
+domains/generics/generic-blocksworld/domain.pddl
+domain.pddl ins.pddl
+0
+6 200 1 domains/generics/generic-blocksworld/prob5.pddl
+0
+0
+0
+2 2
+2 2 0
+
+3 20 3 domains/generics/generic-blocksworld/prob1.pddl domains/generics/generic-blocksworld/prob2.pddl domains/generics/generic-blocksworld/prob3.pddl
+4 20 2 domains/generics/generic-blocksworld/prob6.pddl domains/generics/generic-blocksworld/prob7.pddl
+4 1000 domains/generics/generic-blocksworld/p100a.pddl domains/generics/generic-blocksworld/p100b.pddl domains/generics/generic-blocksworld/p100c.pddl domains/generics/generic-blocksworld/p100d.pddl

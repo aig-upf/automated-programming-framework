@@ -1,0 +1,8 @@
+(define (problem p1-5b)
+  (:domain list)
+  (:objects n1 n2 n3 n4 n5 nlast - node )
+  (:init  (at n1) (adjacent n1 n2) (adjacent n2 n3) (adjacent n3 n4)(adjacent n4 n5)(adjacent n5 nlast)
+			(not-visited n1)(not-visited n2)(not-visited n3)(not-visited n4)(not-visited n5)(not-visited nlast)
+	)
+  (:goal (and (at nlast) (visited n1) (visited n2) (visited n3) (visited n4)(not-visited n5)(not-visited nlast) ))
+)

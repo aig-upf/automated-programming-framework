@@ -1,0 +1,36 @@
+HFSC
+bin/compile
+domains/hfsc/binadder/domain.pddl
+domain.pddl ins.pddl
+6
+1 10 2 domains/hfsc/binadder/p000-c2.pddl domains/hfsc/binadder/p100-c2.pddl
+1 10 2 domains/hfsc/binadder/p010-c2.pddl domains/hfsc/binadder/p110-c2.pddl
+1 10 2 domains/hfsc/binadder/p001-c2.pddl domains/hfsc/binadder/p101-c2.pddl
+1 10 2 domains/hfsc/binadder/p011-c2.pddl domains/hfsc/binadder/p111-c2.pddl
+1 10 4 domains/hfsc/binadder/p000-c2.pddl domains/hfsc/binadder/p100-c2.pddl domains/hfsc/binadder/p010-c2.pddl domains/hfsc/binadder/p110-c2.pddl
+1 10 4 domains/hfsc/binadder/p001-c2.pddl domains/hfsc/binadder/p101-c2.pddl domains/hfsc/binadder/p011-c2.pddl domains/hfsc/binadder/p111-c2.pddl
+2 600 8 domains/hfsc/binadder/p000.pddl domains/hfsc/binadder/p001.pddl domains/hfsc/binadder/p010.pddl domains/hfsc/binadder/p011.pddl domains/hfsc/binadder/p100.pddl domains/hfsc/binadder/p101.pddl domains/hfsc/binadder/p110.pddl domains/hfsc/binadder/p111.pddl
+0
+0
+0
+3 3
+0 0 0
+
+HFSC
+bin/compile
+domains/hfsc/binadder/domain.pddl
+domain.pddl ins.pddl
+6
+1 10 2 domains/hfsc/binadder/p000-c2.pddl domains/hfsc/binadder/p100-c2.pddl
+1 10 2 domains/hfsc/binadder/p010-c2.pddl domains/hfsc/binadder/p110-c2.pddl
+1 10 2 domains/hfsc/binadder/p001-c2.pddl domains/hfsc/binadder/p101-c2.pddl
+1 10 2 domains/hfsc/binadder/p011-c2.pddl domains/hfsc/binadder/p111-c2.pddl
+1 10 4 domains/hfsc/binadder/p000-c2.pddl domains/hfsc/binadder/p100-c2.pddl domains/hfsc/binadder/p010-c2.pddl domains/hfsc/binadder/p110-c2.pddl
+1 10 4 domains/hfsc/binadder/p001-c2.pddl domains/hfsc/binadder/p101-c2.pddl domains/hfsc/binadder/p011-c2.pddl domains/hfsc/binadder/p111-c2.pddl
+2 600 8 domains/hfsc/binadder/p000.pddl domains/hfsc/binadder/p001.pddl domains/hfsc/binadder/p010.pddl domains/hfsc/binadder/p011.pddl domains/hfsc/binadder/p100.pddl domains/hfsc/binadder/p101.pddl domains/hfsc/binadder/p110.pddl domains/hfsc/binadder/p111.pddl
+2 60 domains/hfsc/binadder/p1.pddl domains/hfsc/binadder/p2.pddl
+0
+0
+3 3
+0 0 0
+

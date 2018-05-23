@@ -1,0 +1,25 @@
+(define (problem p10x10)
+  (:domain variables-output )
+  (:objects  v0 v1 v2 v3 v4 v5 v6 v7 v8 v9 - value 
+  )
+  (:init
+	( next v0 v1)
+	( next v1 v2)
+	( next v2 v3)
+	( next v3 v4)
+	( next v4 v5)
+	( next v5 v6)
+	( next v6 v7)
+	( next v7 v8)
+	( next v8 v9)
+	( assignment a v5)
+	( assignment b v9)
+	( assignment c v5)
+	( assignment d v0) )
+  (:goal
+	( and
+	( assignment a v5 )
+	( assignment b v0 )
+	)
+  )
+)

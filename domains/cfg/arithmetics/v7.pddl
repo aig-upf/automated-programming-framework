@@ -1,0 +1,18 @@
+( DEFINE ( PROBLEM V7 )
+( :DOMAIN ARITHMETICS )
+( :OBJECTS
+	I0 I1 - INDEX
+)
+( :INIT
+	( AT I0 )
+	( CURRENT-CONTENT V7 )
+	( ADJACENT I0 I1 )
+	( CONTENT I0 V7 )
+	( CONTENT I1 EMPTY )
+)
+( :GOAL
+	( AND
+		( AT I1 )
+	)
+)
+)

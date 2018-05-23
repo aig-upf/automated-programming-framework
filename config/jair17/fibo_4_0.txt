@@ -1,10 +1,42 @@
 HFSC
 bin/compile
-domains/fibonacci/domain.pddl
+domains/hfsc/fibonacci/domain.pddl
+domain.pddl ins.pddl
+1
+3 10 2 domains/hfsc/fibonacci/prob3b.pddl domains/hfsc/fibonacci/prob4b.pddl
+2 20 4 domains/hfsc/fibonacci/prob1.pddl domains/hfsc/fibonacci/prob2.pddl domains/hfsc/fibonacci/prob3.pddl domains/hfsc/fibonacci/prob4.pddl
+0
+0
+0
+2 2
+0 0 0
+
+
+HFSC
+bin/compile
+domains/hfsc/fibonacci/domain.pddl
+domain.pddl ins.pddl
+1
+3 10 2 domains/hfsc/fibonacci/prob3b.pddl domains/hfsc/fibonacci/prob4b.pddl
+2 20 4 domains/hfsc/fibonacci/prob1.pddl domains/hfsc/fibonacci/prob2.pddl domains/hfsc/fibonacci/prob3.pddl domains/hfsc/fibonacci/prob4.pddl
+1 60 domains/hfsc/fibonacci/prob6.pddl
+0
+0
+2 2
+0 0 0
+
+
+
+
+
+
+HFSC
+bin/compile
+domains/hfsc/fibonacci/domain.pddl
 domain.pddl ins.pddl
 0
-4 1000 2 domains/fibonacci/prob3.pddl domains/fibonacci/prob5.pddl
-0
+4 300 4 domains/hfsc/fibonacci/prob1.pddl domains/hfsc/fibonacci/prob2.pddl domains/hfsc/fibonacci/prob3.pddl domains/hfsc/fibonacci/prob4.pddl
+1 900 domains/hfsc/fibonacci/prob6.pddl
 0
 0
 1 1

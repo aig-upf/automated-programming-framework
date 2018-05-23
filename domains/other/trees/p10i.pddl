@@ -1,0 +1,37 @@
+(define (problem p10i)
+  (:domain trees_alt )
+  (:objects 
+	 current childs - variable
+	 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - node )
+	
+  (:init
+	( assignment current n7 )
+	( internal n7 )
+	( right-child n10 n7 )
+	( left-child n9 n7 )
+	( internal n9 )
+	( right-child n4 n9 )
+	( internal n4 )
+	( right-child n6 n4 )
+	( left-child n3 n9 )
+	( internal n3 )
+	( right-child n8 n3 )
+	( left-child n2 n3 )
+	( internal n2 )
+	( right-child n5 n2 )
+	( left-child n1 n2 ) )
+  (:goal
+	( and 
+	( visited n7 )
+	( visited n10 )
+	( visited n9 )
+	( visited n4 )
+	( visited n6 )
+	( visited n3 )
+	( visited n8 )
+	( visited n2 )
+	( visited n5 )
+	( visited n1 )
+	)
+  )
+)

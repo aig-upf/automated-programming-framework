@@ -1,14 +1,26 @@
 HFSC
 bin/compile
-domains/other/blocks/domain_cl.pddl
+domains/hfsc/blocks/domain_cl.pddl
 domain.pddl ins.pddl
 0
-3 10 5 domains/other/blocks/prob2.pddl domains/other/blocks/prob2b.pddl domains/other/blocks/prob2c.pddl domains/other/blocks/prob3.pddl domains/other/blocks/prob3b.pddl
+3 10 5 domains/hfsc/blocks/prob2.pddl domains/hfsc/blocks/prob2b.pddl domains/hfsc/blocks/prob2c.pddl domains/hfsc/blocks/prob3.pddl domains/hfsc/blocks/prob3b.pddl
 0
 0
 0
 1 1
-0 0
+0 0 0
+
+HFSC
+bin/compile
+domains/hfsc/blocks/domain_cl.pddl
+domain.pddl ins.pddl
+0
+3 10 5 domains/hfsc/blocks/prob2.pddl domains/hfsc/blocks/prob2b.pddl domains/hfsc/blocks/prob2c.pddl domains/hfsc/blocks/prob3.pddl domains/hfsc/blocks/prob3b.pddl
+1 100 domains/hfsc/blocks/prob100.pddl
+0
+0
+1 1
+0 0 0
 
 
 

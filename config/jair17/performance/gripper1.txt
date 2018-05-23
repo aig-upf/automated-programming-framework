@@ -1,0 +1,27 @@
+HFSC
+bin/compile
+domains/hfsc/gripper/domain.pddl
+domain.pddl ins.pddl
+0
+3 20 2 domains/hfsc/gripper/prob2.pddl domains/hfsc/gripper/prob4.pddl
+0
+0
+0
+1 1
+0 0 0
+
+
+
+HFSC
+bin/compile
+domains/hfsc/gripper/domain.pddl
+domain.pddl ins.pddl
+0
+3 20 2 domains/hfsc/gripper/prob4.pddl domains/hfsc/gripper/prob2.pddl
+1 20 domains/hfsc/gripper/prob30.pddl
+0
+0
+1 1
+0 0 0
+
+

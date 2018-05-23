@@ -1,13 +1,26 @@
 HFSC
 bin/compile
-domains/old/visitall/domain.pddl
+domains/hfsc/visitall/domain.pddl
 domain.pddl ins.pddl
-2
-2 20 3 domains/old/visitall/prob5x1.pddl domains/old/visitall/prob3x1.pddl domains/old/visitall/prob1x1.pddl 
-2 20 3 domains/old/visitall/prob5x1b.pddl domains/old/visitall/prob3x1b.pddl domains/old/visitall/prob1x1b.pddl 
-2 20 3 domains/old/visitall/prob3x3.pddl domains/old/visitall/prob3x2.pddl domains/old/visitall/prob2x3.pddl
+1
+2 20 3 domains/hfsc/visitall/prob5x1.pddl domains/hfsc/visitall/prob3x1.pddl domains/hfsc/visitall/prob1x1.pddl 
+2 100 2 domains/hfsc/visitall/prob3x3.pddl domains/hfsc/visitall/prob4x4.pddl 
 0
 0
 0
 2 2
-0 0
+0 0 0
+
+
+HFSC
+bin/compile
+domains/hfsc/visitall/domain.pddl
+domain.pddl ins.pddl
+1
+2 20 3 domains/hfsc/visitall/prob5x1.pddl domains/hfsc/visitall/prob3x1.pddl domains/hfsc/visitall/prob1x1.pddl 
+2 100 2 domains/hfsc/visitall/prob3x3.pddl domains/hfsc/visitall/prob4x4.pddl 
+1 600 domains/hfsc/visitall/prob30x30.pddl
+0
+0
+2 2
+0 0 0
