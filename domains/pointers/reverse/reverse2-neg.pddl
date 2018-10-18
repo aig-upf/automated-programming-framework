@@ -1,4 +1,4 @@
-(define (problem reverse2)
+(define (problem reverse2-neg)
 	(:domain pointers)
 	(:objects
 		v0 v1 - value
@@ -15,9 +15,9 @@
 		(less v0 v1)
 	)
 	(:goal (and
-		(assignment a v0)
-		(assignment b v1)
-		(vector-assignment v0 v0)
-		(vector-assignment v1 v1)
+		;(assignment a v1)
+		;(assignment b v0)
+		(vector-assignment v0 v1)
+		(vector-assignment v1 v0)
 	))
 )

@@ -1,7 +1,7 @@
 PLPR
 bin/compile
 domains/variables-output/domain_dck.pddl
-domain.pddl ins.pddl
+domain_dck.pddl ins_dck.pddl
 4
 5 900 2 domains/variables-output/hallA/hallA4x4-2.pddl domains/variables-output/hallA/hallA5x5-2.pddl
 5 600 2 domains/variables-output/hallA/hallA4x4-1.pddl domains/variables-output/hallA/hallA5x5-1.pddl

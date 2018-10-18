@@ -3,7 +3,7 @@
 
 class HLCondActions : public Actions{
 	public:
-	HLCondActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ){}
+	HLCondActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ){}
 
 	void recursive_step_conditions( unsigned k, UIntVec & apars, const StringVec& constant_slots, const StringVec &constant_vars, unsigned novariables, const StringQVec& hl_conds ){
 		if ( k == 4 + od->preds[ apars[ 3 ] ]->params.size() ) {
@@ -18,7 +18,7 @@ class HLCondActions : public Actions{
 			pars.resize( 1 );
 			pars.insert( pars.begin(), "STACKROW" );
 		
-			Action * stepcond = createAction( name, pars );
+			parser::pddl::Action * stepcond = createAction( name, pars );
 
 			addPrecondition( name, stack_top_pred, false, IntVec( 1, 0 ) );
 			addPrecondition( name, stack_procedures[ apars[ 1 ] ], false, IntVec( 1, 0 ) );
@@ -37,30 +37,30 @@ class HLCondActions : public Actions{
 			addEffect( name, "CURRENT-SLOT", true, IntVec( 1, cd->constantIndex( constant_slots[ apars[ 4 ] - 1 ], "CONDITION-SLOT" ) ) );
 			addEffect( name, "CURRENT-SLOT", false, IntVec( 1, cd->constantIndex( constant_slots[ apars[ 4 ] ], "CONDITION-SLOT" ) ) );
 
-			Forall * f = new Forall;
+			parser::pddl::Forall * f = new parser::pddl::Forall;
 			f->params.insert( f->params.end(), novariables, cd->types.index( "VALUE" ) );
-			When * w = new When;
+			parser::pddl::When * w = new parser::pddl::When;
 		
-			w->pars = new And;
+			w->pars = new parser::pddl::And;
 			if ( 1 < apars[ 4 ] ) {
 				IntVec ppars = incvec( 0, novariables + 1 );
 				ppars[ 0 ] = cd->constantIndex( constant_slots[ apars[ 4 ] - 1 ], "CONDITION-SLOT" );
-				( ( And * )w->pars )->add( cd->ground( "POSSIBLE-VALUE", ppars ) );
+				( ( parser::pddl::And * )w->pars )->add( cd->ground( "POSSIBLE-VALUE", ppars ) );
 			}
 			IntVec cpars( 1, 0 );
 			for ( unsigned j = 5; j < 4 + od->preds[ apars[ 3 ] ]->params.size(); ++j )
 				cpars.push_back( apars[ j ] );
-			( ( And * )w->pars )->add( cd->ground( od->preds[ apars[ 3 ] ]->name, cpars ) );
+			( ( parser::pddl::And * )w->pars )->add( cd->ground( od->preds[ apars[ 3 ] ]->name, cpars ) );
 
-			w->cond = new And;
+			w->cond = new parser::pddl::And;
 			IntVec ppars = incvec( 0, novariables + 1 );
 			ppars[ 0 ] = cd->constantIndex( constant_slots[ apars[ 4 ] ], "CONDITION-SLOT" );
-			( ( And * )w->cond )->add( cd->ground( "POSSIBLE-VALUE", ppars ) );
-			// Use offset param in forall because of STACKROW param
+			( ( parser::pddl::And * )w->cond )->add( cd->ground( "POSSIBLE-VALUE", ppars ) );
+			// Use offset param in parser::pddl::Forall because of STACKROW param
 			w->addParams( 0 , 1 );
 
 			f->cond = w;
-			( ( And * )stepcond->eff )->add( f );
+			( ( parser::pddl::And * )stepcond->eff )->add( f );
 
 			addCost( name, 1 );
 		}
@@ -137,7 +137,7 @@ class HLCondActions : public Actions{
 				SStream ss;
 				ss << "EVAL-COND-" << p << "-" << k;
 				String name = ss.str();
-				Action * evalcond = createAction( name , StringVec( 1, "STACKROW" ) );
+				parser::pddl::Action * evalcond = createAction( name , StringVec( 1, "STACKROW" ) );
 			
 				addPrecondition( name, stack_top_pred, false, IntVec( 1, 0) );
 				addPrecondition( name, stack_procedures[ p ], false, IntVec( 1, 0 ) );
@@ -146,31 +146,31 @@ class HLCondActions : public Actions{
 
 				addEffect( name, eval_pred );
 
-				Forall * f = new Forall;
+				parser::pddl::Forall * f = new parser::pddl::Forall;
 				f->params.insert( f->params.end(), no_variables, cd->types.index( "VALUE" ) );
-				When * w = new When;
+				parser::pddl::When * w = new parser::pddl::When;
 				IntVec ppars = incvec( 1, no_variables  + 1);
 				ppars.insert( ppars.begin(), cd->constantIndex( constant_slots[ no_slots ], "CONDITION-SLOT" ) );
 				w->pars = cd->ground( "POSSIBLE-VALUE", ppars );
-				w->cond = new And;
-				( ( And * )w->cond )->add( cd->ground( accu_pred ) );
-				( ( And * )w->cond )->add( new Not( cd->ground( "POSSIBLE-VALUE", ppars ) ) );
+				w->cond = new parser::pddl::And;
+				( ( parser::pddl::And * )w->cond )->add( cd->ground( accu_pred ) );
+				( ( parser::pddl::And * )w->cond )->add( new parser::pddl::Not( cd->ground( "POSSIBLE-VALUE", ppars ) ) );
 
 				f->cond = w;
-				( ( And * )evalcond->eff )->add( f );
+				( ( parser::pddl::And * )evalcond->eff )->add( f );
 
 				// delete everything about slots !!!
 				addEffect( name, "CURRENT-SLOT", true, IntVec( 1, cd->constantIndex( constant_slots[ no_slots ], "CONDITION-SLOT" ) ) );
 				addEffect( name, "CURRENT-SLOT", false, IntVec( 1, cd->constantIndex( constant_slots[ 0 ], "CONDITION-SLOT" ) ) );
 
-				f = new Forall;
+				f = new parser::pddl::Forall;
 				f->params.insert( f->params.end(), no_variables, cd->types.index( "VALUE" ) );
-				f->cond = new And;
+				f->cond = new parser::pddl::And;
 				for ( unsigned s = 1; s < no_slots; ++s ) {
 					ppars[ 0 ] = cd->constantIndex( constant_slots[ s ], "CONDITION-SLOT" );
-					( ( And * )f->cond )->add( new Not( cd->ground( "POSSIBLE-VALUE", ppars ) ) );
+					( ( parser::pddl::And * )f->cond )->add( new parser::pddl::Not( cd->ground( "POSSIBLE-VALUE", ppars ) ) );
 				}
-				( ( And * )evalcond->eff )->add( f );
+				( ( parser::pddl::And * )evalcond->eff )->add( f );
 
 				addCost( name, 1 );
 			}

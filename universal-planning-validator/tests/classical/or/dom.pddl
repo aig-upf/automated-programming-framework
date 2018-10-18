@@ -1,0 +1,20 @@
+(define (domain exists-test-1)
+    (:requirements :typing :negative-preconditions :disjunctive-preconditions)
+    (:types person door - object)
+    (:predicates
+        (opened ?d - door)
+        (out-room ?p - person)
+        (in-room ?p - person)
+    )
+    (:constants d1 d2 - door)
+    (:action open-door
+        :parameters (?p - person ?d - door)
+        :precondition (and (in-room ?p) (not (opened ?d)))
+        :effect (opened ?d)
+    )
+    (:action escape-from-room
+        :parameters (?p - person)
+        :precondition (or (opened d1) (opened d2))
+        :effect (and (out-room ?p) (not (in-room ?p)))
+    )
+)

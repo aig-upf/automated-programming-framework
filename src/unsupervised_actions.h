@@ -3,14 +3,14 @@
 
 class UActions : public Actions{
 	public:
-	UActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ){}
+	UActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ){}
 
 	void createRepeatActions( unsigned lines, unsigned noclasses, StringVec &constant_programs ){
 		String name = "SELECT-PROGRAM";
 		StringVec parameters;
 		parameters.emplace_back( "PROGRAM" );
 		parameters.emplace_back( "STACKROW" );
-		Action *act = createAction( name, parameters );
+		parser::pddl::Action *act = createAction( name, parameters );
 
 		addPrecondition( name, "TOP-STACK", false, IntVec( 1, 1 ) );
 		addPrecondition( name, "STACK-MAIN", false, IntVec( 1, 1 ) );
@@ -24,15 +24,15 @@ class UActions : public Actions{
 		unsigned current_class = 0;
 		while( program_line < lines ){
 			int cpIdx = cd->constantIndex( constant_programs[ current_class ], "PROGRAM" );
-			When *w = new When;
-			w->pars = new And;
+			parser::pddl::When *w = new parser::pddl::When;
+			w->pars = new parser::pddl::And;
 			IntVec v;
 			v.emplace_back( 0 );
 			v.emplace_back( cpIdx );
-			( ( And * ) w->pars )->add( cd->ground( "CHOSEN-PROGRAM", v ) );
-			w->cond = new And;
-			( ( And * ) w->cond )->add( cd->ground( stack_lines[ program_line ] , IntVec( 1, 1 ) ) );
-			( ( And * ) act->eff )->add( w );
+			( ( parser::pddl::And * ) w->pars )->add( cd->ground( "CHOSEN-PROGRAM", v ) );
+			w->cond = new parser::pddl::And;
+			( ( parser::pddl::And * ) w->cond )->add( cd->ground( stack_lines[ program_line ] , IntVec( 1, 1 ) ) );
+			( ( parser::pddl::And * ) act->eff )->add( w );
 
 			program_line += program_lines;
 			current_class++;

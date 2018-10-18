@@ -8,15 +8,15 @@ class Types{
 	/****
 	** Copy types from the original domain to the compiled domain
 	****/
-	void copyTypes( Domain *od, Domain *cd ){ 
+	void copyTypes( parser::pddl::Domain *od, parser::pddl::Domain *cd ){ 
 		cd->setTypes( od->copyTypes() );
 	}
 
-	void createType( Domain *cd , const String& type_name, const String& parent_type_name = "OBJECT" ){
+	void createType( parser::pddl::Domain *cd , const String& type_name, const String& parent_type_name = "OBJECT" ){
 		cd->createType( type_name, parent_type_name );
 	}
 
-	void moveObjectsToConstants( Domain *d ){
+	void moveObjectsToConstants( parser::pddl::Domain *d ){
 		/*for ( unsigned i = 0; i < d->types.size(); i++ ) {
 			Type *t = d->types[ i ];
 			for( unsigned j = 0; j < t->objects.size(); j++ ){
@@ -45,18 +45,18 @@ class Types{
 		}
 	}
 	
-	void clearObjects( Domain *d ){
+	void clearObjects( parser::pddl::Domain *d ){
 		for( unsigned i = 0; i < d->types.size(); ++i ){
-			Type *t = d->types[ i ];
+			parser::pddl::Type *t = d->types[ i ];
 			t->objects.tokens.clear();
 			t->objects.tokenMap.clear();
 			t->objects.types.clear();
 		}
 	}
 
-	void addValuedConstants( Domain *d, const String &type_name, const String &constant_name, 
+	void addValuedConstants( parser::pddl::Domain *d, const String &type_name, const String &constant_name, 
 							 StringVec& constant_names, unsigned bound, unsigned offset = 0){
-		Type *t = d->types.get( type_name );
+		parser::pddl::Type *t = d->types.get( type_name );
 		for( unsigned i = offset; i < bound; i++ ){
 			SStream ss;
 			ss << constant_name << "-" << i;

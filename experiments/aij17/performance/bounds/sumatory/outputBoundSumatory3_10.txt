@@ -1,0 +1,414 @@
+INFO     Running translator.
+INFO     translator inputs: ['domain.pddl', 'ins.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.030s CPU, 0.019s wall-clock]
+Normalizing task... [0.000s CPU, 0.002s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.015s wall-clock]
+Preparing model... [0.010s CPU, 0.008s wall-clock]
+Generated 709 rules.
+Computing model... [0.070s CPU, 0.067s wall-clock]
+3625 relevant atoms
+3585 auxiliary atoms
+7210 final queue length
+17259 total queue pushes
+Completing instantiation... [0.530s CPU, 0.544s wall-clock]
+Instantiating: [0.630s CPU, 0.640s wall-clock]
+Computing fact groups...
+Finding invariants...
+73 initial candidates
+Finding invariants: [0.060s CPU, 0.056s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+211 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.060s CPU, 0.059s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.020s CPU, 0.011s wall-clock]
+Translating task: [1.950s CPU, 1.944s wall-clock]
+1614 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+25 propositions removed
+Detecting unreachable propositions: [0.160s CPU, 0.156s wall-clock]
+Translator variables: 206
+Translator derived variables: 0
+Translator facts: 423
+Translator goal facts: 1
+Translator mutex groups: 38
+Translator total mutex groups size: 84
+Translator operators: 3267
+Translator axioms: 0
+Translator task size: 178859
+Translator peak memory: 74380 KB
+Writing output... [0.140s CPU, 0.147s wall-clock]
+Done! [2.980s CPU, 2.982s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+206 variables of 206 necessary
+32 of 38 mutex groups necessary.
+3267 of 3267 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 423
+Preprocessor derived variables: 0
+Preprocessor task size: 178839
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/js/Desktop/planning-programs/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=1.54s]
+building causal graph...done! [t=1.72s]
+packing state variables...done! [t=1.72s]
+Variables: 206
+Facts: 423
+Bytes per state: 28
+done initalizing global data [t=1.72s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.03s
+Discovered 11 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+13 edges
+Landmark graph: 
+LM 3 NegatedAtom done-programming() (var103(205)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 0 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+		<-_gn  LM 5 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+		<-_gn  LM 1 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+		<-_gn  LM 2 Atom top-stack(row-0) (var205(105)->0) Achievers (6, 6)
+		<-_gn  LM 3 NegatedAtom done-programming() (var103(205)->1) Achievers (0, 0)
+		<-_gn  LM 4 Atom test-1() (var204(0)->1) Achievers (3, 3)
+
+LM 9 NegatedAtom assignment(a, v6) (var7(202)->1) Achievers (33, 3)
+		->_gn  LM 5 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+
+LM 5 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+		<-_nat LM 4 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		<-_gn  LM 9 NegatedAtom assignment(a, v6) (var7(202)->1) Achievers (33, 3)
+		->_gn  LM 0 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 10 NegatedAtom assignment(a, v3) (var4(199)->1) Achievers (93, 33)
+		->_gn  LM 8 Atom assignment(a, v3) (var4(199)->0) Achievers (90, 90)
+
+LM 8 Atom assignment(a, v3) (var4(199)->0) Achievers (90, 90)
+		<-_gn  LM 10 NegatedAtom assignment(a, v3) (var4(199)->1) Achievers (93, 33)
+		->_gn  LM 4 Atom test-1() (var204(0)->1) Achievers (3, 3)
+
+LM 6 NegatedAtom assignment(b, v0) (var8(189)->1) Achievers (33, 33)
+		->_gn  LM 1 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+
+LM 1 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+		<-_gn  LM 6 NegatedAtom assignment(b, v0) (var8(189)->1) Achievers (33, 33)
+		->_gn  LM 4 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		->_gn  LM 0 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 2 Atom top-stack(row-0) (var205(105)->0) Achievers (6, 6)
+		->_gn  LM 4 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		->_gn  LM 0 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 4 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		<-_gn  LM 1 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+		<-_gn  LM 8 Atom assignment(a, v3) (var4(199)->0) Achievers (90, 90)
+		<-_gn  LM 2 Atom top-stack(row-0) (var205(105)->0) Achievers (6, 6)
+		<-_gn  LM 7 Atom test-0() (var204(0)->0) Achievers (0, 0)
+		->_nat LM 5 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+		->_gn  LM 0 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 7 Atom test-0() (var204(0)->0) Achievers (0, 0)
+		->_gn  LM 4 Atom test-1() (var204(0)->1) Achievers (3, 3)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+6 initial landmarks, 1 goal landmarks
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+Switch from bucket-based to heap-based queue at key = 1002, num_pushes = 206
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.02s
+Discovered 11 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+13 edges
+Landmark graph: 
+LM 2 NegatedAtom done-programming() (var103(205)->1) Achievers (0, 0)
+		->_gn  LM 10 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 10 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+		<-_gn  LM 8 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+		<-_gn  LM 1 Atom top-stack(row-0) (var205(105)->0) Achievers (6, 6)
+		<-_gn  LM 2 NegatedAtom done-programming() (var103(205)->1) Achievers (0, 0)
+		<-_gn  LM 0 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+		<-_gn  LM 7 Atom test-1() (var204(0)->1) Achievers (3, 3)
+
+LM 6 NegatedAtom assignment(a, v6) (var7(202)->1) Achievers (33, 3)
+		->_gn  LM 8 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+
+LM 8 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+		<-_nat LM 7 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		<-_gn  LM 6 NegatedAtom assignment(a, v6) (var7(202)->1) Achievers (33, 3)
+		->_gn  LM 10 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 9 NegatedAtom assignment(a, v3) (var4(199)->1) Achievers (93, 33)
+		->_gn  LM 5 Atom assignment(a, v3) (var4(199)->0) Achievers (90, 90)
+
+LM 5 Atom assignment(a, v3) (var4(199)->0) Achievers (90, 90)
+		<-_gn  LM 9 NegatedAtom assignment(a, v3) (var4(199)->1) Achievers (93, 33)
+		->_gn  LM 7 Atom test-1() (var204(0)->1) Achievers (3, 3)
+
+LM 3 NegatedAtom assignment(b, v0) (var8(189)->1) Achievers (33, 33)
+		->_gn  LM 0 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+
+LM 0 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+		<-_gn  LM 3 NegatedAtom assignment(b, v0) (var8(189)->1) Achievers (33, 33)
+		->_gn  LM 7 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		->_gn  LM 10 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 1 Atom top-stack(row-0) (var205(105)->0) Achievers (6, 6)
+		->_gn  LM 7 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		->_gn  LM 10 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 7 Atom test-1() (var204(0)->1) Achievers (3, 3)
+		<-_gn  LM 0 Atom assignment(b, v0) (var8(189)->0) Achievers (30, 30)
+		<-_gn  LM 1 Atom top-stack(row-0) (var205(105)->0) Achievers (6, 6)
+		<-_gn  LM 5 Atom assignment(a, v3) (var4(199)->0) Achievers (90, 90)
+		<-_gn  LM 4 Atom test-0() (var204(0)->0) Achievers (0, 0)
+		->_nat LM 8 Atom assignment(a, v6) (var7(202)->0) Achievers (60, 60)
+		->_gn  LM 10 Atom done-programming() (var103(205)->0)(goal) Achievers (3, 3)
+
+LM 4 Atom test-0() (var204(0)->0) Achievers (0, 0)
+		->_gn  LM 7 Atom test-1() (var204(0)->1) Achievers (3, 3)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+6 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 5/11 [g=0, 1 evaluated, 0 expanded, t=1.78s, 19516 KB]
+Best heuristic value: 5/10 [g=1, 2 evaluated, 1 expanded, t=1.78s, 19516 KB]
+Best heuristic value: 5/9 [g=2, 7 evaluated, 6 expanded, t=1.78s, 19516 KB]
+Best heuristic value: 5/8 [g=1, 8 evaluated, 7 expanded, t=1.78s, 19516 KB]
+Best heuristic value: 5/7 [g=2, 9 evaluated, 8 expanded, t=1.78s, 19516 KB]
+Best heuristic value: 5/6 [g=3, 12 evaluated, 9 expanded, t=1.78s, 19516 KB]
+Best heuristic value: 4/6 [g=4, 14 evaluated, 11 expanded, t=1.78s, 19516 KB]
+Best heuristic value: 4/5 [g=5, 52 evaluated, 34 expanded, t=1.82s, 19516 KB]
+Best heuristic value: 4/4 [g=5, 66 evaluated, 37 expanded, t=1.82s, 19516 KB]
+Switch from bucket-based to heap-based queue at key = 367, num_pushes = 225
+WARNING: overflow on LAMA/FF synergy h^add! Costs clamped to 100000000
+WARNING: overflow on LAMA/FF synergy h^add! Costs clamped to 100000000
+Best heuristic value: 3/4 [g=12, 2259 evaluated, 427 expanded, t=2.84s, 19780 KB]
+Best heuristic value: 3/3 [g=16, 2263 evaluated, 431 expanded, t=2.84s, 19780 KB]
+Best heuristic value: 2/3 [g=27, 2274 evaluated, 442 expanded, t=2.84s, 19780 KB]
+Best heuristic value: 1/3 [g=23, 3015 evaluated, 524 expanded, t=3.16s, 19912 KB]
+Best heuristic value: 1/2 [g=24, 3016 evaluated, 525 expanded, t=3.16s, 19912 KB]
+Best heuristic value: 1/1 [g=25, 3017 evaluated, 526 expanded, t=3.16s, 19912 KB]
+Solution found!
+Actual search time: 1.38s [t=3.16s]
+program-add-a-b-0 row-0 (1001)
+repeat-add-a-b-0-0 row-0 (1)
+program-dec-b-1 row-0 (1001)
+repeat-dec-b-0-1 row-0 (1)
+program-goto-assignment-2-0 b v0 row-0 (1001)
+eval-cond-assignment-0-2 b v0 row-0 (1)
+do-goto-0-2-0 row-0 (1)
+repeat-add-a-b-0-0 row-0 (1)
+repeat-dec-b-0-1 row-0 (1)
+eval-cond-assignment-0-2 b v0 row-0 (1)
+dont-goto-0-2-0 row-0 (1)
+program-end-3 row-0 (1)
+repeat-end-main-0-3 row-0 (0)
+repeat-add-a-b-0-0 row-0 (1)
+repeat-dec-b-0-1 row-0 (1)
+eval-cond-assignment-0-2 b v0 row-0 (1)
+do-goto-0-2-0 row-0 (1)
+repeat-add-a-b-0-0 row-0 (1)
+repeat-dec-b-0-1 row-0 (1)
+eval-cond-assignment-0-2 b v0 row-0 (1)
+do-goto-0-2-0 row-0 (1)
+repeat-add-a-b-0-0 row-0 (1)
+repeat-dec-b-0-1 row-0 (1)
+eval-cond-assignment-0-2 b v0 row-0 (1)
+dont-goto-0-2-0 row-0 (1)
+repeat-end-main-1-3 row-0 (0)
+Plan length: 26 step(s).
+Plan cost: 3024
+Initial state h value: 5/11.
+Expanded 527 state(s).
+Reopened 0 state(s).
+Evaluated 3018 state(s).
+Evaluations: 6036
+Generated 8535 state(s).
+Dead ends: 2490 state(s).
+Best solution cost so far: 3024
+Solution found - keep searching
+Starting search: lazy_greedy(list(hff2, hlm2), preferred = list(hff2, hlm2), reopen_closed = false)
+Conducting lazy best first search, (real) bound = 3024
+Best heuristic value: 8/3016 [g=0, 1 evaluated, 0 expanded, t=3.18s, 20044 KB]
+Best heuristic value: 8/2014 [g=1001, 3 evaluated, 2 expanded, t=3.18s, 20044 KB]
+Best heuristic value: 8/2012 [g=1002, 6 evaluated, 5 expanded, t=3.18s, 20044 KB]
+Best heuristic value: 8/1010 [g=2003, 9 evaluated, 7 expanded, t=3.18s, 20044 KB]
+Best heuristic value: 6/1010 [g=2004, 11 evaluated, 8 expanded, t=3.18s, 20044 KB]
+Best heuristic value: 6/10 [g=3005, 16 evaluated, 11 expanded, t=3.18s, 20044 KB]
+Best heuristic value: 6/6 [g=3005, 28 evaluated, 20 expanded, t=3.18s, 20044 KB]
+WARNING: overflow on LAMA/FF synergy h^add! Costs clamped to 100000000
+WARNING: overflow on LAMA/FF synergy h^add! Costs clamped to 100000000
+Best heuristic value: 5/6 [g=3011, 1996 evaluated, 353 expanded, t=4.10s, 20176 KB]
+Best heuristic value: 4/6 [g=3013, 2031 evaluated, 382 expanded, t=4.14s, 20176 KB]
+Best heuristic value: 4/4 [g=3012, 2435 evaluated, 430 expanded, t=4.30s, 20176 KB]
+Best heuristic value: 3/4 [g=3021, 2461 evaluated, 452 expanded, t=4.32s, 20176 KB]
+Best heuristic value: 1/4 [g=3022, 2462 evaluated, 453 expanded, t=4.32s, 20176 KB]
+Best heuristic value: 1/3 [g=3023, 2463 evaluated, 454 expanded, t=4.32s, 20176 KB]
+Completely explored state space -- no solution!
+Actual search time: 25.50s [t=28.66s]
+Initial state h value: 8/3016.
+Expanded 3555 state(s).
+Reopened 0 state(s).
+Evaluated 59475 state(s).
+Evaluations: 118950
+Generated 60730 state(s).
+Dead ends: 55920 state(s).
+Best solution cost so far: 3024
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 5)
+Conducting lazy best first search, (real) bound = 3024
+Best heuristic value: 8/3016 [g=0, 1 evaluated, 0 expanded, t=28.68s, 26968 KB]
+Best heuristic value: 8/2014 [g=1001, 3 evaluated, 2 expanded, t=28.68s, 26968 KB]
+Best heuristic value: 8/2012 [g=1002, 6 evaluated, 5 expanded, t=28.68s, 26968 KB]
+Best heuristic value: 8/1010 [g=2003, 9 evaluated, 7 expanded, t=28.68s, 26968 KB]
+Best heuristic value: 6/1010 [g=2004, 10 evaluated, 8 expanded, t=28.68s, 26968 KB]
+Best heuristic value: 6/10 [g=3005, 20 evaluated, 14 expanded, t=28.68s, 26968 KB]
+Best heuristic value: 6/6 [g=3005, 39 evaluated, 28 expanded, t=28.70s, 26968 KB]
+Best heuristic value: 5/6 [g=3011, 11807 evaluated, 3396 expanded, t=35.06s, 27892 KB]
+Best heuristic value: 4/6 [g=3013, 11840 evaluated, 3425 expanded, t=35.08s, 27892 KB]
+Best heuristic value: 4/4 [g=3012, 12069 evaluated, 3473 expanded, t=35.20s, 27892 KB]
+Best heuristic value: 3/4 [g=3021, 12095 evaluated, 3495 expanded, t=35.22s, 27892 KB]
+Best heuristic value: 1/4 [g=3022, 12096 evaluated, 3496 expanded, t=35.22s, 27892 KB]
+Best heuristic value: 1/3 [g=3023, 12097 evaluated, 3497 expanded, t=35.22s, 27892 KB]
+Completely explored state space -- no solution!
+Actual search time: 26.48s [t=55.14s]
+Initial state h value: 8/3016.
+Expanded 3555 state(s).
+Reopened 0 state(s).
+Evaluated 59475 state(s).
+Evaluations: 118950
+Generated 60730 state(s).
+Dead ends: 55920 state(s).
+Best solution cost so far: 3024
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 3)
+Conducting lazy best first search, (real) bound = 3024
+Best heuristic value: 8/3016 [g=0, 1 evaluated, 0 expanded, t=55.14s, 28300 KB]
+Best heuristic value: 8/2014 [g=1001, 3 evaluated, 2 expanded, t=55.14s, 28300 KB]
+Best heuristic value: 8/2012 [g=1002, 6 evaluated, 5 expanded, t=55.14s, 28300 KB]
+Best heuristic value: 8/1010 [g=2003, 9 evaluated, 7 expanded, t=55.14s, 28300 KB]
+Best heuristic value: 6/1010 [g=2004, 10 evaluated, 8 expanded, t=55.14s, 28300 KB]
+Best heuristic value: 6/10 [g=3005, 20 evaluated, 14 expanded, t=55.14s, 28300 KB]
+Best heuristic value: 6/6 [g=3005, 39 evaluated, 28 expanded, t=55.16s, 28300 KB]
+Best heuristic value: 5/6 [g=3011, 11807 evaluated, 3396 expanded, t=61.00s, 29092 KB]
+Best heuristic value: 4/6 [g=3013, 11840 evaluated, 3425 expanded, t=61.02s, 29092 KB]
+Best heuristic value: 4/4 [g=3012, 12069 evaluated, 3473 expanded, t=61.12s, 29092 KB]
+Best heuristic value: 3/4 [g=3021, 12095 evaluated, 3495 expanded, t=61.14s, 29092 KB]
+Best heuristic value: 1/4 [g=3022, 12096 evaluated, 3496 expanded, t=61.14s, 29092 KB]
+Best heuristic value: 1/3 [g=3023, 12097 evaluated, 3497 expanded, t=61.14s, 29092 KB]
+Completely explored state space -- no solution!
+Actual search time: 25.26s [t=80.40s]
+Initial state h value: 8/3016.
+Expanded 3555 state(s).
+Reopened 0 state(s).
+Evaluated 59475 state(s).
+Evaluations: 118950
+Generated 60730 state(s).
+Dead ends: 55920 state(s).
+Best solution cost so far: 3024
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 2)
+Conducting lazy best first search, (real) bound = 3024
+Best heuristic value: 8/3016 [g=0, 1 evaluated, 0 expanded, t=80.40s, 29500 KB]
+Best heuristic value: 8/2014 [g=1001, 3 evaluated, 2 expanded, t=80.40s, 29500 KB]
+Best heuristic value: 8/2012 [g=1002, 6 evaluated, 5 expanded, t=80.40s, 29500 KB]
+Best heuristic value: 8/1010 [g=2003, 9 evaluated, 7 expanded, t=80.40s, 29500 KB]
+Best heuristic value: 6/1010 [g=2004, 10 evaluated, 8 expanded, t=80.40s, 29500 KB]
+Best heuristic value: 6/10 [g=3005, 20 evaluated, 14 expanded, t=80.42s, 29500 KB]
+Best heuristic value: 6/6 [g=3005, 39 evaluated, 28 expanded, t=80.42s, 29500 KB]
+Best heuristic value: 5/6 [g=3011, 11807 evaluated, 3396 expanded, t=86.22s, 30292 KB]
+Best heuristic value: 4/6 [g=3013, 11840 evaluated, 3425 expanded, t=86.24s, 30292 KB]
+Best heuristic value: 4/4 [g=3012, 12069 evaluated, 3473 expanded, t=86.36s, 30292 KB]
+Best heuristic value: 3/4 [g=3021, 12095 evaluated, 3495 expanded, t=86.36s, 30292 KB]
+Best heuristic value: 1/4 [g=3022, 12096 evaluated, 3496 expanded, t=86.36s, 30292 KB]
+Best heuristic value: 1/3 [g=3023, 12097 evaluated, 3497 expanded, t=86.38s, 30292 KB]
+Completely explored state space -- no solution!
+Actual search time: 27.42s [t=107.82s]
+Initial state h value: 8/3016.
+Expanded 3555 state(s).
+Reopened 0 state(s).
+Evaluated 59475 state(s).
+Evaluations: 118950
+Generated 60730 state(s).
+Dead ends: 55920 state(s).
+Best solution cost so far: 3024
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+Conducting lazy best first search, (real) bound = 3024
+Best heuristic value: 8/3016 [g=0, 1 evaluated, 0 expanded, t=107.82s, 30560 KB]
+Best heuristic value: 8/2014 [g=1001, 3 evaluated, 2 expanded, t=107.82s, 30560 KB]
+Best heuristic value: 8/2012 [g=1002, 6 evaluated, 5 expanded, t=107.84s, 30560 KB]
+Best heuristic value: 8/1010 [g=2003, 9 evaluated, 7 expanded, t=107.84s, 30560 KB]
+Best heuristic value: 6/1010 [g=2004, 10 evaluated, 8 expanded, t=107.84s, 30560 KB]
+Best heuristic value: 6/10 [g=3005, 25 evaluated, 19 expanded, t=107.84s, 30560 KB]
+Best heuristic value: 6/6 [g=3005, 39 evaluated, 28 expanded, t=107.86s, 30560 KB]
+Best heuristic value: 5/6 [g=3011, 11807 evaluated, 3396 expanded, t=113.72s, 31484 KB]
+Best heuristic value: 4/6 [g=3013, 11840 evaluated, 3425 expanded, t=113.74s, 31484 KB]
+Best heuristic value: 4/4 [g=3012, 12069 evaluated, 3473 expanded, t=113.84s, 31484 KB]
+Best heuristic value: 3/4 [g=3021, 12095 evaluated, 3495 expanded, t=113.86s, 31484 KB]
+Best heuristic value: 1/4 [g=3022, 12096 evaluated, 3496 expanded, t=113.86s, 31484 KB]
+Best heuristic value: 1/3 [g=3023, 12097 evaluated, 3497 expanded, t=113.86s, 31484 KB]
+Completely explored state space -- no solution!
+Actual search time: 25.40s [t=133.22s]
+Initial state h value: 8/3016.
+Expanded 3555 state(s).
+Reopened 0 state(s).
+Evaluated 59475 state(s).
+Evaluations: 118950
+Generated 60730 state(s).
+Dead ends: 55920 state(s).
+Best solution cost so far: 3024
+No solution found - keep searching
+Actual search time: 131.44s [t=133.22s]
+Cumulative statistics:
+Expanded 18302 state(s).
+Reopened 0 state(s).
+Evaluated 300393 state(s).
+Evaluations: 600786
+Generated 312185 state(s).
+Dead ends: 0 state(s).
+Search time: 131.44s
+Total time: 133.22s
+Solution found.
+Peak memory: 31484 KB

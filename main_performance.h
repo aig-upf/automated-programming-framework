@@ -233,7 +233,7 @@ public:
 	// Return: void
 	//
 	////////////////////////////////////////////////////////////
-	void getConstants( Domain *d ){
+	void getConstants( parser::pddl::Domain *d ){
 		for( unsigned i = 0; i < d->types.size(); i++ ){
 			original_constants.push_back( StringSet() );
 			for( unsigned j = 0; j < d->types[ i ]->constants.size(); j++ ){
@@ -252,7 +252,7 @@ public:
 	// Return: void
 	//
 	////////////////////////////////////////////////////////////
-	void moveOriginalConstantsToDomain( Domain *d ){
+	void moveOriginalConstantsToDomain( parser::pddl::Domain *d ){
 		if( original_constants.size() == 0u ) return;
 		// Avoid duplicate objects in the universal pddl parser (workaround in the compiler)
 		for( unsigned i = 0; i < d->types.size(); i++ ){
@@ -320,9 +320,9 @@ public:
 	///////////////////////////////////////////////////////////
 	void callPlanner( int procedure , int timeout ){
 		if( _debug ) execution << "[INFO] CREATING COMPILED DOMAIN" << endl;
-		Domain *cd = new Domain( dest_domain.c_str() );
+		parser::pddl::Domain *cd = new parser::pddl::Domain( dest_domain.c_str() );
 		if( _debug ) execution << "\t[INFO] DOMAIN READ" << endl;
-		Instance* ins = new Instance( *cd , dest_ins.c_str() );
+		parser::pddl::Instance* ins = new parser::pddl::Instance( *cd , dest_ins.c_str() );
 
 		moveOriginalConstantsToDomain( cd );
 
@@ -375,7 +375,8 @@ public:
 		if( procedure > 0 ){
 			if( _debug ) execution << "\t[INFO] ALL INSTRUCTIONS ADDED" << endl;
 			ofstream ofs( dest_ins.c_str() );
-			ins->PDDLPrint( ofs );
+			//ins->PDDLPrint( ofs );
+			ins->print( ofs );
 		}
 
 		string planner = getPlannerCommand( timeout );
@@ -623,7 +624,7 @@ public:
 		}
 
 		if( isTesting() ){
-			Domain *cd = new Domain( dest_domain.c_str() );
+			parser::pddl::Domain *cd = new parser::pddl::Domain( dest_domain.c_str() );
 			getConstants( cd );
 			vector< int > solved, unsolved;
 		

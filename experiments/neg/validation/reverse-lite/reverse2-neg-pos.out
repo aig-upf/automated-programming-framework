@@ -1,0 +1,29 @@
+Checking plan: experiments/neg/synthesis/reverse-lite/program-positive.txt
+Plan Validation details
+-----------------------
+
+Checking action SWAP-A-B - Procedure: 0 - Line: 0
+Deleting (VECTOR-ASSIGNMENT V0 V1)
+Deleting (CONTENT A V1)
+Deleting (VECTOR-ASSIGNMENT V1 V0)
+Deleting (CONTENT B V0)
+Adding (VECTOR-ASSIGNMENT V0 V0)
+Adding (CONTENT A V0)
+Adding (VECTOR-ASSIGNMENT V1 V1)
+Adding (CONTENT B V1)
+
+Checking action DEC-POINTER-B - Procedure: 0 - Line: 1
+Deleting (CONTENT B V0)
+Deleting (CONTENT B V1)
+Deleting (ASSIGNMENT B V1)
+Adding (ASSIGNMENT B V0)
+Adding (CONTENT B V0)
+
+Checking action INC-POINTER-A - Procedure: 0 - Line: 2
+Deleting (CONTENT A V0)
+Deleting (CONTENT A V1)
+Deleting (ASSIGNMENT A V0)
+Adding (ASSIGNMENT A V1)
+Adding (CONTENT A V1)
+
+Plan executed successfully - checking goal

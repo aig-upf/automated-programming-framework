@@ -13,7 +13,6 @@
 	(consec v2 v3)
 	(consec v3 v4)
 	(consec v4 v5)
-	(consec v4 v5)
 	(consec v5 v6)
 	(consec v6 v7)
 	(consec v7 v8)

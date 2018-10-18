@@ -1,0 +1,74 @@
+Domain: domains/variables/domain.pddl Problem: domains/variables/sumatory/sumatory120.pddl
+Parsing...
+Parsing: [0.070s CPU, 0.062s wall-clock]
+Generating Datalog program... [0.010s CPU, 0.013s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.100s CPU, 0.092s wall-clock]
+Generated 33 rules.
+Computing model... [4.340s CPU, 4.339s wall-clock]
+8007 relevant atoms
+16811 auxiliary atoms
+24818 final queue length
+2747199 total queue pushes
+Completing instantiation... [87.480s CPU, 87.467s wall-clock]
+goal relaxed reachable: True
+242 atoms
+Computing fact groups...
+Finding invariants...
+3 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.003s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+242 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.010s CPU, 0.008s wall-clock]
+Axioms 0
+Deterministic 5 actions
+0 negated fluents created
+Invariants 242
+
+ Match tree built with 5 nodes.
+
+PDDL problem description loaded: 
+	Domain: variables
+	Problem: sumatory120
+	#Actions: 5
+	#Fluents: 242
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24]Plan found with cost: 23
+1. (add-a-b )
+2. (add-a-b )
+3. (add-a-b )
+4. (add-a-b )
+5. (add-a-b )
+6. (add-a-b )
+7. (add-a-b )
+8. (add-a-b )
+9. (dec-b )
+10. (dec-b )
+11. (dec-b )
+12. (dec-b )
+13. (dec-b )
+14. (dec-b )
+15. (dec-b )
+16. (dec-b )
+17. (dec-b )
+18. (dec-b )
+19. (dec-b )
+20. (dec-b )
+21. (dec-b )
+22. (dec-b )
+23. (dec-b )
+Time: 0.451996
+Generated: 4929
+Expanded: 4719
+Total time: 0.451997
+Nodes generated during search: 4930
+Nodes expanded during search: 4719
+BRFS search completed in 0.451997 secs, check 'bfs_f.log' for details

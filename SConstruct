@@ -3,11 +3,12 @@ import os, glob, sys
 pkgpath = os.environ.get( "PKG_CONFIG_PATH", "" )
 os.environ["PKG_CONFIG_PATH"] = pkgpath
 
-dirfile = "universal-pddl-parser/"
-
 paths = [
 	"src/",
-	dirfile,
+	"universal-pddl-parser/parser/",
+	"universal-pddl-parser/",
+	"universal-planning-validator/validator/",
+	"universal-planning-validator/",
 ]
 
 mains = [
@@ -16,7 +17,8 @@ mains = [
 	"main.cpp",
 	"main_nir.cpp",
 	"main_performance.cpp",
-	dirfile + "Domain.cpp",
+	"universal-pddl-parser/parser/Domain.cpp",
+	"universal-planning-validator/validator/validate.cpp",
 ]
 
 sources = []
@@ -54,15 +56,17 @@ compileVariable = env.Program( "bin/compile_variable", sources + ["src/compile_v
 main = env.Program( "main", sources + ["main.cpp"] )
 main_nir = env.Program( "main_nir", sources + ["main_nir.cpp"] )
 main_perf = env.Program( "main_perf", sources + ["main_performance.cpp"] )
-uniparser = env.Program("universal-pddl-parser/Domain", sources + ["universal-pddl-parser/Domain.cpp"]  )
+uniparser = env.Command( 'uniparser.out',[], 'cd universal-pddl-parser/; scons' )
+unival = env.Command( 'unival.out',[], 'cd universal-planning-validator/; scons' )
 #clean = env.Command('src/*.o',[],'rm src/*.o *.o')
 
+env.AlwaysBuild( uniparser )
+env.AlwaysBuild( unival )
 env.AlwaysBuild( fastdownward )
 env.AlwaysBuild( compile )
 env.AlwaysBuild( compileVariable )
 env.AlwaysBuild( main )
 env.AlwaysBuild( main_nir )
 env.AlwaysBuild( main_perf )
-env.AlwaysBuild( uniparser )
 #env.AlwaysBuild( clean )
 

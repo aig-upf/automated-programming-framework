@@ -1,0 +1,58 @@
+Checking plan: experiments/neg/synthesis/triangularsum-lite/program-positive.txt
+Plan Validation details
+-----------------------
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V0)
+Adding (ASSIGNMENT A V6)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V6)
+Adding (ASSIGNMENT B V5)
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V6)
+Adding (ASSIGNMENT A V11)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V5)
+Adding (ASSIGNMENT B V4)
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V11)
+Adding (ASSIGNMENT A V15)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V4)
+Adding (ASSIGNMENT B V3)
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V15)
+Adding (ASSIGNMENT A V18)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V3)
+Adding (ASSIGNMENT B V2)
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V18)
+Adding (ASSIGNMENT A V20)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V2)
+Adding (ASSIGNMENT B V1)
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V20)
+Adding (ASSIGNMENT A V21)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V1)
+Adding (ASSIGNMENT B V0)
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V21)
+Adding (ASSIGNMENT A V21)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+

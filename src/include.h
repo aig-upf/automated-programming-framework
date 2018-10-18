@@ -1,7 +1,7 @@
 #ifndef GLOBAL_INCLUDE
 #define GLOBAL_INCLUDE
 
-#include "../universal-pddl-parser/Instance.h"
+#include "../universal-pddl-parser/parser/Instance.h"
 #include <fstream>
 
 ///////////////////////////////////////////////////
@@ -15,7 +15,7 @@ typedef std::vector< StringDVec > StringTVec;
 typedef std::vector< StringTVec > StringQVec;
 typedef std::set< String > StringSet;
 typedef std::map< String , StringVec > MapStrSVec;
-typedef std::vector< Instance * > InstVec;
+typedef std::vector< parser::pddl::Instance * > InstVec;
 typedef std::stringstream SStream;
 typedef std::istringstream ISStream;
 typedef std::ostringstream OSStream;
@@ -25,6 +25,7 @@ typedef std::set< int > IntSet;
 typedef std::pair< int, int > PII;
 typedef std::set< PII > PIISet;
 typedef std::vector< unsigned > UIntVec;
+typedef std::vector< int > IntVec;
 
 ///////////////////////////////////////////////////
 /////////////// GLOBAL VARIABLES //////////////////
@@ -70,13 +71,13 @@ MapStrSVec act2ins; 			// Variable to map action into programming instructions
 ///////////////////////////////////////////////////
 /////////////// GLOBAL FUNCTIONS //////////////////
 ///////////////////////////////////////////////////
-IntSet preds( Domain *d, Condition * c ) {
-	And * a = dynamic_cast< And * >( c );
-	Forall * f = dynamic_cast< Forall * >( c );
-	Ground * g = dynamic_cast< Ground * >( c );
-	Or * o = dynamic_cast< Or * >( c );
-	Not * n = dynamic_cast< Not * >( c );
-	When * w = dynamic_cast< When * >( c );
+IntSet preds( parser::pddl::Domain *d, parser::pddl::Condition * c ) {
+	parser::pddl::And * a = dynamic_cast< parser::pddl::And * >( c );
+	parser::pddl::Forall * f = dynamic_cast< parser::pddl::Forall * >( c );
+	parser::pddl::Ground * g = dynamic_cast< parser::pddl::Ground * >( c );
+	parser::pddl::Or * o = dynamic_cast< parser::pddl::Or * >( c );
+	parser::pddl::Not * n = dynamic_cast< parser::pddl::Not * >( c );
+	parser::pddl::When * w = dynamic_cast< parser::pddl::When * >( c );
 
 	if ( f ) return preds( d, f->cond );
 	if ( n ) return preds( d, n->cond );
@@ -98,14 +99,14 @@ IntSet preds( Domain *d, Condition * c ) {
 
 
 
-void addStackRow( Condition * c, int par ) {
-	And * a = dynamic_cast< And * >( c );
-	Forall * f = dynamic_cast< Forall * >( c );
-	Ground * g = dynamic_cast< Ground * >( c );
-	Or * o = dynamic_cast< Or * >( c );
-	Not * n = dynamic_cast< Not * >( c );
-	When * w = dynamic_cast< When * >( c );
-	Exists * ex = dynamic_cast< Exists * >( c );
+void addStackRow( parser::pddl::Condition * c, int par ) {
+	parser::pddl::And * a = dynamic_cast< parser::pddl::And * >( c );
+	parser::pddl::Forall * f = dynamic_cast< parser::pddl::Forall * >( c );
+	parser::pddl::Ground * g = dynamic_cast< parser::pddl::Ground * >( c );
+	parser::pddl::Or * o = dynamic_cast< parser::pddl::Or * >( c );
+	parser::pddl::Not * n = dynamic_cast< parser::pddl::Not * >( c );
+	parser::pddl::When * w = dynamic_cast< parser::pddl::When * >( c );
+	parser::pddl::Exists * ex = dynamic_cast< parser::pddl::Exists * >( c );
 
 	if ( f ) addStackRow( f->cond, par );
 	if ( n ) addStackRow( n->cond, par );

@@ -1,0 +1,605 @@
+INFO     Running translator.
+INFO     translator inputs: ['domain.pddl', 'ins.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.020s CPU, 0.019s wall-clock]
+Normalizing task... [0.000s CPU, 0.001s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.023s wall-clock]
+Preparing model... [0.010s CPU, 0.010s wall-clock]
+Generated 639 rules.
+Computing model... [0.020s CPU, 0.023s wall-clock]
+905 relevant atoms
+1189 auxiliary atoms
+2094 final queue length
+4754 total queue pushes
+Completing instantiation... [0.130s CPU, 0.140s wall-clock]
+Instantiating: [0.190s CPU, 0.198s wall-clock]
+Computing fact groups...
+Finding invariants...
+100 initial candidates
+Finding invariants: [0.030s CPU, 0.024s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+223 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.030s CPU, 0.030s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.005s wall-clock]
+Translating task: [2.090s CPU, 2.105s wall-clock]
+541 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+41 propositions removed
+Detecting unreachable propositions: [0.570s CPU, 0.574s wall-clock]
+Translator variables: 235
+Translator derived variables: 0
+Translator facts: 562
+Translator goal facts: 1
+Translator mutex groups: 73
+Translator total mutex groups size: 228
+Translator operators: 505
+Translator axioms: 0
+Translator task size: 178917
+Translator peak memory: 104128 KB
+Writing output... [0.170s CPU, 0.170s wall-clock]
+Done! [3.070s CPU, 3.108s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+229 variables of 235 necessary
+50 of 73 mutex groups necessary.
+505 of 505 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 550
+Preprocessor derived variables: 0
+Preprocessor task size: 178813
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/js/Desktop/planning-programs/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=1.04s]
+building causal graph...done! [t=1.56s]
+packing state variables...done! [t=1.56s]
+Variables: 229
+Facts: 550
+Bytes per state: 36
+done initalizing global data [t=1.56s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.10s
+Discovered 30 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+64 edges
+Landmark graph: 
+LM 25 NegatedAtom done-programming() (var151(228)->1) Achievers (0, 0)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		<-_nat LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 25 NegatedAtom done-programming() (var151(228)->1) Achievers (0, 0)
+		<-_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		<-_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		<-_gn  LM 27 Atom assignment(i0, v1) (var2(187)->0) Achievers (6, 6)
+		<-_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		<-_gn  LM 28 Atom assignment(i1, v0) (var6(192)->0) Achievers (6, 6)
+		<-_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+
+LM 14 NegatedAtom assignment(i4, v2) (var23(206)->1) Achievers (7, 1)
+		->_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+
+LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		<-_nat LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_nat LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 14 NegatedAtom assignment(i4, v2) (var23(206)->1) Achievers (7, 1)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_nat LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 16 NegatedAtom assignment(i3, v3) (var19(202)->1) Achievers (7, 7)
+		->_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+
+LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		<-_gn  LM 16 NegatedAtom assignment(i3, v3) (var19(202)->1) Achievers (7, 7)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 17 NegatedAtom assignment(i2, v4) (var15(199)->1) Achievers (6, 6)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+
+LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		<-_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 17 NegatedAtom assignment(i2, v4) (var15(199)->1) Achievers (6, 6)
+		<-_gn  LM 5 Atom test-0() (var216(139)->0) Achievers (0, 0)
+		<-_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		<-_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 28 Atom assignment(i1, v0) (var6(192)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 27 Atom assignment(i0, v1) (var2(187)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 18 NegatedAtom assignment(i3, v1) (var17(185)->1) Achievers (7, 7)
+		->_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+
+LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		<-_r   LM 11 NegatedAtom state-stack(state-3, row-0) (var215(172)->1) Achievers (1, 1)
+		<-_gn  LM 18 NegatedAtom assignment(i3, v1) (var17(185)->1) Achievers (7, 7)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 21 NegatedAtom assignment(i2, v0) (var11(184)->1) Achievers (7, 7)
+		->_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+
+LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		<-_gn  LM 21 NegatedAtom assignment(i2, v0) (var11(184)->1) Achievers (7, 7)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 20 NegatedAtom assignment(i1, v3) (var9(183)->1) Achievers (6, 6)
+		->_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+
+LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		<-_gn  LM 20 NegatedAtom assignment(i1, v3) (var9(183)->1) Achievers (6, 6)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 19 NegatedAtom assignment(i0, v2) (var3(182)->1) Achievers (6, 6)
+		->_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+
+LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		<-_gn  LM 19 NegatedAtom assignment(i0, v2) (var3(182)->1) Achievers (6, 6)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		->_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		->_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		->_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		->_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		->_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+
+LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 23 Atom state-stack(state-0, row-0) (var212(178)->0) Achievers (5, 5)
+		->_nat LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		->_nat LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		->_nat LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+
+LM 22 NegatedAtom done-evaluating-0(row-0) (var150(180)->1) Achievers (24, 8)
+		->_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+
+LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 23 Atom state-stack(state-0, row-0) (var212(178)->0) Achievers (5, 5)
+		<-_gn  LM 22 NegatedAtom done-evaluating-0(row-0) (var150(180)->1) Achievers (24, 8)
+		->_nat LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		->_nat LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		->_nat LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		->_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		->_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		->_nat LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		->_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		->_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+
+LM 23 Atom state-stack(state-0, row-0) (var212(178)->0) Achievers (5, 5)
+		->_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		->_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+
+LM 13 Atom empty-cond-stack(state-3) (var147(173)->5) Achievers (0, 0)
+		->_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+
+LM 11 NegatedAtom state-stack(state-3, row-0) (var215(172)->1) Achievers (1, 1)
+		->_r   LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+
+LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 11 NegatedAtom state-stack(state-3, row-0) (var215(172)->1) Achievers (1, 1)
+		<-_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		->_nat LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+
+LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_nat LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		<-_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		<-_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		<-_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 5 Atom test-0() (var216(139)->0) Achievers (0, 0)
+		->_nat LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 5 Atom test-0() (var216(139)->0) Achievers (0, 0)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 12 NegatedAtom end-cond-0-3() (var164(80)->1) Achievers (0, 0)
+		->_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+
+LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_nat LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 12 NegatedAtom end-cond-0-3() (var164(80)->1) Achievers (0, 0)
+		<-_gn  LM 13 Atom empty-cond-stack(state-3) (var147(173)->5) Achievers (0, 0)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		->_nat LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+17 initial landmarks, 1 goal landmarks
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.10s
+Discovered 30 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+64 edges
+Landmark graph: 
+LM 25 NegatedAtom done-programming() (var151(228)->1) Achievers (0, 0)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		<-_nat LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 25 NegatedAtom done-programming() (var151(228)->1) Achievers (0, 0)
+		<-_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		<-_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 27 Atom assignment(i0, v1) (var2(187)->0) Achievers (6, 6)
+		<-_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		<-_gn  LM 28 Atom assignment(i1, v0) (var6(192)->0) Achievers (6, 6)
+		<-_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+
+LM 14 NegatedAtom assignment(i4, v2) (var23(206)->1) Achievers (7, 1)
+		->_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+
+LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		<-_nat LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_nat LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 14 NegatedAtom assignment(i4, v2) (var23(206)->1) Achievers (7, 1)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_nat LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 16 NegatedAtom assignment(i3, v3) (var19(202)->1) Achievers (7, 7)
+		->_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+
+LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 16 NegatedAtom assignment(i3, v3) (var19(202)->1) Achievers (7, 7)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 17 NegatedAtom assignment(i2, v4) (var15(199)->1) Achievers (6, 6)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+
+LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		<-_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		<-_gn  LM 17 NegatedAtom assignment(i2, v4) (var15(199)->1) Achievers (6, 6)
+		<-_gn  LM 5 Atom test-0() (var216(139)->0) Achievers (0, 0)
+		<-_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 28 Atom assignment(i1, v0) (var6(192)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 27 Atom assignment(i0, v1) (var2(187)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 18 NegatedAtom assignment(i3, v1) (var17(185)->1) Achievers (7, 7)
+		->_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+
+LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		<-_r   LM 11 NegatedAtom state-stack(state-3, row-0) (var215(172)->1) Achievers (1, 1)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 18 NegatedAtom assignment(i3, v1) (var17(185)->1) Achievers (7, 7)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 21 NegatedAtom assignment(i2, v0) (var11(184)->1) Achievers (7, 7)
+		->_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+
+LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 21 NegatedAtom assignment(i2, v0) (var11(184)->1) Achievers (7, 7)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 20 NegatedAtom assignment(i1, v3) (var9(183)->1) Achievers (6, 6)
+		->_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+
+LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 20 NegatedAtom assignment(i1, v3) (var9(183)->1) Achievers (6, 6)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 19 NegatedAtom assignment(i0, v2) (var3(182)->1) Achievers (6, 6)
+		->_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+
+LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 19 NegatedAtom assignment(i0, v2) (var3(182)->1) Achievers (6, 6)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		->_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		->_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		->_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		->_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		->_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		->_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+
+LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 15 NegatedAtom done-applying-0(row-0) (var149(181)->1) Achievers (24, 8)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 23 Atom state-stack(state-0, row-0) (var212(178)->0) Achievers (5, 5)
+		->_nat LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		->_nat LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_nat LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+
+LM 22 NegatedAtom done-evaluating-0(row-0) (var150(180)->1) Achievers (24, 8)
+		->_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+
+LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 23 Atom state-stack(state-0, row-0) (var212(178)->0) Achievers (5, 5)
+		<-_gn  LM 22 NegatedAtom done-evaluating-0(row-0) (var150(180)->1) Achievers (24, 8)
+		->_nat LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		->_nat LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		->_gn  LM 29 Atom assignment(i3, v3) (var19(202)->0) Achievers (6, 6)
+		->_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		->_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		->_gn  LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		->_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		->_nat LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		->_nat LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+
+LM 23 Atom state-stack(state-0, row-0) (var212(178)->0) Achievers (5, 5)
+		->_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		->_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+
+LM 13 Atom empty-cond-stack(state-3) (var147(173)->5) Achievers (0, 0)
+		->_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+
+LM 11 NegatedAtom state-stack(state-3, row-0) (var215(172)->1) Achievers (1, 1)
+		->_r   LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+
+LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 11 NegatedAtom state-stack(state-3, row-0) (var215(172)->1) Achievers (1, 1)
+		<-_gn  LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		->_nat LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+
+LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		<-_nat LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		<-_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom assignment(i2, v0) (var11(184)->0) Achievers (6, 6)
+		<-_gn  LM 6 Atom assignment(i1, v3) (var9(183)->0) Achievers (6, 6)
+		<-_gn  LM 3 Atom assignment(i3, v1) (var17(185)->0) Achievers (6, 6)
+		<-_gn  LM 5 Atom test-0() (var216(139)->0) Achievers (0, 0)
+		<-_gn  LM 4 Atom assignment(i0, v2) (var3(182)->0) Achievers (6, 6)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		->_nat LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+LM 5 Atom test-0() (var216(139)->0) Achievers (0, 0)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+
+LM 12 NegatedAtom end-cond-0-3() (var164(80)->1) Achievers (0, 0)
+		->_gn  LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+
+LM 24 Atom end-cond-0-3() (var164(80)->0) Achievers (1, 1)
+		<-_nat LM 10 Atom done-applying-0(row-0) (var149(181)->0) Achievers (36, 12)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var215(172)->0) Achievers (6, 6)
+		<-_gn  LM 13 Atom empty-cond-stack(state-3) (var147(173)->5) Achievers (0, 0)
+		<-_gn  LM 12 NegatedAtom end-cond-0-3() (var164(80)->1) Achievers (0, 0)
+		<-_nat LM 9 Atom done-evaluating-0(row-0) (var150(180)->0) Achievers (188, 47)
+		->_nat LM 26 Atom assignment(i4, v2) (var23(206)->0) Achievers (6, 6)
+		->_gn  LM 2 Atom assignment(i2, v4) (var15(199)->0) Achievers (7, 1)
+		->_gn  LM 0 Atom test-1() (var216(139)->1) Achievers (1, 1)
+		->_gn  LM 8 Atom done-programming() (var151(228)->0)(goal) Achievers (1, 1)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+17 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 13/15 [g=0, 1 evaluated, 0 expanded, t=1.80s, 19640 KB]
+Best heuristic value: 13/14 [g=1, 2 evaluated, 1 expanded, t=1.80s, 19640 KB]
+Best heuristic value: 12/13 [g=2, 3 evaluated, 2 expanded, t=1.80s, 19640 KB]
+Best heuristic value: 11/13 [g=4, 9 evaluated, 8 expanded, t=1.80s, 19640 KB]
+Best heuristic value: 11/12 [g=5, 10 evaluated, 9 expanded, t=1.80s, 19640 KB]
+Best heuristic value: 11/10 [g=9, 17 evaluated, 16 expanded, t=1.82s, 19640 KB]
+Best heuristic value: 11/9 [g=15, 37 evaluated, 36 expanded, t=1.84s, 19640 KB]
+Best heuristic value: 10/9 [g=20, 48 evaluated, 46 expanded, t=1.86s, 19640 KB]
+Best heuristic value: 10/8 [g=15, 489 evaluated, 472 expanded, t=2.44s, 19772 KB]
+Best heuristic value: 10/7 [g=17, 491 evaluated, 474 expanded, t=2.44s, 19772 KB]
+Switch from bucket-based to heap-based queue at key = 406, num_pushes = 400
+Best heuristic value: 10/6 [g=34, 4156 evaluated, 3984 expanded, t=7.34s, 20196 KB]
+Best heuristic value: 9/6 [g=32, 4338 evaluated, 4156 expanded, t=7.56s, 20196 KB]
+Best heuristic value: 8/6 [g=33, 4339 evaluated, 4157 expanded, t=7.56s, 20196 KB]
+Best heuristic value: 7/6 [g=34, 4340 evaluated, 4158 expanded, t=7.58s, 20196 KB]
+Best heuristic value: 6/6 [g=35, 4341 evaluated, 4159 expanded, t=7.58s, 20196 KB]
+Best heuristic value: 5/6 [g=36, 4342 evaluated, 4160 expanded, t=7.58s, 20196 KB]
+Best heuristic value: 4/6 [g=38, 4344 evaluated, 4162 expanded, t=7.58s, 20196 KB]
+Best heuristic value: 4/5 [g=36, 36426 evaluated, 33324 expanded, t=48.32s, 24424 KB]
+Best heuristic value: 4/4 [g=38, 36428 evaluated, 33326 expanded, t=48.32s, 24424 KB]
+Best heuristic value: 2/3 [g=39, 36429 evaluated, 33327 expanded, t=48.32s, 24424 KB]
+Best heuristic value: 2/2 [g=60, 38794 evaluated, 35551 expanded, t=51.34s, 24820 KB]
+Best heuristic value: 1/1 [g=61, 38795 evaluated, 35552 expanded, t=51.34s, 24820 KB]
+Solution found!
+Actual search time: 49.54s [t=51.34s]
+program-nocond-0 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+program-true-swap-0 state-0 row-0 (0)
+repeat-true-swap-0 state-0 row-0 (0)
+program-true-goto-0 state-0 state-1 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+program-cond-greatereq-than-i1-i2-0 state-1 row-0 (0)
+eval-cond-greatereq-than-i1-i2-0 state-1 row-0 (0)
+program-false-dec-iter2-0 state-1 row-0 (0)
+repeat-false-dec-iter2-0 state-1 row-0 (0)
+program-false-goto-0 state-1 state-2 row-0 (0)
+repeat-false-goto-0 state-1 state-2 row-0 (0)
+program-nocond-0 state-2 row-0 (0)
+eval-nocond-0 state-2 row-0 (0)
+program-true-inc-iter1-0 state-2 row-0 (0)
+repeat-true-inc-iter1-0 state-2 row-0 (0)
+program-true-goto-0 state-2 state-0 row-0 (0)
+repeat-true-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-swap-0 state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-greatereq-than-i1-i2-0 state-1 row-0 (0)
+repeat-false-dec-iter2-0 state-1 row-0 (0)
+repeat-false-goto-0 state-1 state-2 row-0 (0)
+eval-nocond-0 state-2 row-0 (0)
+repeat-true-inc-iter1-0 state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-swap-0 state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-greatereq-than-i1-i2-0 state-1 row-0 (0)
+program-true-swap-0 state-1 row-0 (0)
+repeat-true-swap-0 state-1 row-0 (0)
+program-true-goto-0 state-1 state-3 row-0 (0)
+repeat-true-goto-0 state-1 state-3 row-0 (0)
+program-end-3 row-0 (1)
+repeat-end-main-0-0-3  (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-swap-0 state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-greatereq-than-i1-i2-0 state-1 row-0 (0)
+repeat-false-dec-iter2-0 state-1 row-0 (0)
+repeat-false-goto-0 state-1 state-2 row-0 (0)
+eval-nocond-0 state-2 row-0 (0)
+repeat-true-inc-iter1-0 state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-swap-0 state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-greatereq-than-i1-i2-0 state-1 row-0 (0)
+repeat-false-dec-iter2-0 state-1 row-0 (0)
+repeat-false-goto-0 state-1 state-2 row-0 (0)
+eval-nocond-0 state-2 row-0 (0)
+repeat-true-inc-iter1-0 state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-swap-0 state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-greatereq-than-i1-i2-0 state-1 row-0 (0)
+repeat-true-swap-0 state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-3 row-0 (0)
+repeat-end-main-1-0-3  (0)
+Plan length: 62 step(s).
+Plan cost: 1
+Initial state h value: 13/15.
+Expanded 35553 state(s).
+Reopened 0 state(s).
+Evaluated 38796 state(s).
+Evaluations: 77592
+Generated 58776 state(s).
+Dead ends: 3242 state(s).
+Best solution cost so far: 1
+Solution found - keep searching
+Starting search: lazy_greedy(list(hff2, hlm2), preferred = list(hff2, hlm2), reopen_closed = false)
+Conducting lazy best first search, (real) bound = 1
+Best heuristic value: 14/16 [g=0, 1 evaluated, 0 expanded, t=51.34s, 26956 KB]
+Best heuristic value: 14/15 [g=0, 2 evaluated, 1 expanded, t=51.34s, 26956 KB]
+Best heuristic value: 13/14 [g=0, 3 evaluated, 2 expanded, t=51.34s, 26956 KB]
+Best heuristic value: 12/14 [g=0, 9 evaluated, 8 expanded, t=51.36s, 26956 KB]
+Best heuristic value: 12/13 [g=0, 10 evaluated, 9 expanded, t=51.36s, 26956 KB]
+Best heuristic value: 12/11 [g=0, 17 evaluated, 16 expanded, t=51.36s, 26956 KB]
+Best heuristic value: 12/10 [g=0, 37 evaluated, 36 expanded, t=51.40s, 26956 KB]
+Best heuristic value: 11/10 [g=0, 48 evaluated, 46 expanded, t=51.40s, 26956 KB]
+Best heuristic value: 11/9 [g=0, 489 evaluated, 472 expanded, t=51.98s, 26956 KB]
+Best heuristic value: 11/8 [g=0, 491 evaluated, 474 expanded, t=51.98s, 26956 KB]
+Switch from bucket-based to heap-based queue at key = 410, num_pushes = 400
+Best heuristic value: 11/7 [g=0, 4150 evaluated, 3978 expanded, t=56.82s, 26956 KB]
+Best heuristic value: 10/7 [g=0, 4337 evaluated, 4155 expanded, t=57.06s, 26956 KB]

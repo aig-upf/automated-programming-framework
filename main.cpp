@@ -15,7 +15,7 @@ string Main::getError( int num ){
 
 string Main::getPlan(){
 	for( int i = 10; i > 0; i-- ){
-		string sas_plan = "sas_plan." + to_string( i );
+		string sas_plan = "sas_plan." + to_string( i ); 
 		ifstream ifs( sas_plan.c_str() );
 		if( ifs ){
 			ifs.close();

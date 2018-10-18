@@ -1,9 +1,33 @@
-NEG
+NEGLITE
 bin/compile
-domains/other/blocks/domain_cl.pddl
+domains/other/blocks/domain_cl-neg.pddl
 domain.pddl ins.pddl
 0
-6 900 5 1 domains/other/blocks/prob2c.pddl domains/other/blocks/prob2b.pddl domains/other/blocks/prob2.pddl  domains/other/blocks/prob3.pddl domains/other/blocks/prob3c.pddl  domains/other/blocks/prob2-neg.pddl
+6 200 1 1 domains/other/blocks/prob3.pddl domains/other/blocks/prob3b-neg.pddl
+0
+0
+0
+1 1 
+0 0 0
+
+NEG
+bin/compile
+domains/old/blocks/domain_old2.pddl
+domain.pddl ins.pddl
+0
+6 100 2 0 domains/old/blocks/prob1.pddl domains/old/blocks/prob3-2.pddl
+0
+0
+0
+1 1 
+0 0 0
+
+NEG
+bin/compile
+domains/old/blocks/domain_old2.pddl
+domain.pddl ins.pddl
+0
+6 100 1 0 domains/old/blocks/prob2b-2.pddl domains/old/blocks/prob3-2.pddl domains/old/blocks/prob3-2-neg.pddl  
 0
 0
 0
@@ -11,32 +35,16 @@ domain.pddl ins.pddl
 0 0 0
 
 
-
-************** EXTRA ***********************
-
-6 3600 5 3 domains/other/blocks/prob2c.pddl domains/other/blocks/prob2b.pddl domains/other/blocks/prob2.pddl  domains/other/blocks/prob3.pddl domains/other/blocks/prob3c.pddl  domains/other/blocks/prob2-neg.pddl domains/other/blocks/prob2b-neg.pddl domains/other/blocks/prob2c-neg.pddl 
-
-domains/other/blocks/prob2.pddl domains/other/blocks/prob2b.pddl domains/other/blocks/prob2c.pddl domains/other/blocks/prob3.pddl domains/other/blocks/prob3b.pddl  domains/other/blocks/prob2-neg.pddl domains/other/blocks/prob2b-neg.pddl domains/other/blocks/prob2c-neg.pddl domains/other/blocks/prob3-neg.pddl domains/other/blocks/prob3b-neg.pddl
-
-domains/other/blocks/prob2b.pddl domains/other/blocks/prob2c.pddl  domains/other/blocks/prob3b.pddl
-
-
-
-6 200 2 3 domains/other/blocks/prob2.pddl domains/other/blocks/prob3.pddl  domains/other/blocks/prob2-neg.pddl domains/other/blocks/prob2b-neg.pddl domains/other/blocks/prob2c-neg.pddl
-
-
-
-
-PLPR
+NEG
 bin/compile
 domains/other/blocks/domain_cl.pddl
 domain.pddl ins.pddl
-1
-4 10 6 domains/other/blocks/prob3-1.pddl domains/other/blocks/prob3b-1.pddl domains/other/blocks/prob3c-1.pddl domains/other/blocks/prob3d-1.pddl domains/other/blocks/prob3e-1.pddl domains/other/blocks/prob3f-1.pddl
-3 10 5 domains/other/blocks/prob2.pddl domains/other/blocks/prob2b.pddl domains/other/blocks/prob2c.pddl domains/other/blocks/prob3.pddl domains/other/blocks/prob3b.pddl 
-1 60 domains/other/blocks/prob100.pddl
+0
+6 100 1 0 domains/other/blocks/prob3.pddl
 0
 0
-2 2
-0 0
+0
+1 1 
+0 0 0
 
+6 900 5 1 domains/other/blocks/prob2c.pddl domains/other/blocks/prob2b.pddl domains/other/blocks/prob2.pddl  domains/other/blocks/prob3.pddl domains/other/blocks/prob3c.pddl  domains/other/blocks/prob2-neg.pddl

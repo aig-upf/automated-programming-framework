@@ -1,0 +1,48 @@
+Checking plan: experiments/neg/synthesis/gripper-lite/program-positive.txt
+Plan Validation details
+-----------------------
+
+Checking action PICK-RIGHT - Procedure: 0 - Line: 0
+Deleting (AT B1 ROOMA)
+Deleting (FREE RIGHT)
+Deleting (NEXT-BALL B1)
+Adding (CARRY B1 RIGHT)
+Adding (NEXT-BALL B2)
+
+Checking action MOVE - Procedure: 0 - Line: 1
+Deleting (AT-ROBBY ROOMA)
+Adding (AT-ROBBY ROOMB)
+
+Checking action DROP-RIGHT - Procedure: 0 - Line: 2
+Deleting (CARRY B1 RIGHT)
+Adding (AT B1 ROOMB)
+Adding (FREE RIGHT)
+
+Checking action PICK-RIGHT - Procedure: 0 - Line: 0
+
+Checking action MOVE - Procedure: 0 - Line: 1
+Deleting (AT-ROBBY ROOMB)
+Adding (AT-ROBBY ROOMA)
+
+Checking action DROP-RIGHT - Procedure: 0 - Line: 2
+
+Checking action PICK-RIGHT - Procedure: 0 - Line: 0
+Deleting (AT B2 ROOMA)
+Deleting (FREE RIGHT)
+Deleting (NEXT-BALL B2)
+Adding (CARRY B2 RIGHT)
+Adding (NEXT-BALL B3)
+
+Checking action MOVE - Procedure: 0 - Line: 1
+Deleting (AT-ROBBY ROOMA)
+Adding (AT-ROBBY ROOMB)
+
+Checking action DROP-RIGHT - Procedure: 0 - Line: 2
+Deleting (CARRY B2 RIGHT)
+Adding (AT B2 ROOMB)
+Adding (FREE RIGHT)
+
+Plan executed successfully - checking goal
+[1;32mSuccess: Plan valid[0m
+[1;32mValue: 13.000000
+[0m

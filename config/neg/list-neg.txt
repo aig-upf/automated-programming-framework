@@ -1,0 +1,23 @@
+NEG
+bin/compile
+domains/unsupervised/list/domain.pddl
+domain.pddl ins.pddl
+0
+3 60 1 1 domains/unsupervised/list/p1-2.pddl domains/unsupervised/list/p1-1-neg.pddl 
+0
+0
+0
+1 1
+0 0 0
+
+NEG
+bin/compile
+domains/unsupervised/list/domain.pddl
+domain.pddl ins.pddl
+0
+4 60 1 1 domains/unsupervised/list/p1-3.pddl domains/unsupervised/list/p1-3-neg.pddl
+12 600 domains/unsupervised/list/p1-1a.pddl domains/unsupervised/list/p1-1b.pddl domains/unsupervised/list/p1-2a.pddl domains/unsupervised/list/p1-2b.pddl domains/unsupervised/list/p1-3a.pddl domains/unsupervised/list/p1-3b.pddl domains/unsupervised/list/p1-4a.pddl domains/unsupervised/list/p1-4b.pddl domains/unsupervised/list/p1-5a.pddl domains/unsupervised/list/p1-5b.pddl domains/unsupervised/list/p1-6a.pddl domains/unsupervised/list/p1-6b.pddl
+0
+0
+1 1
+0 0 0

@@ -6,19 +6,19 @@
 class Actions{
 	protected:
 	MapStrSVec _action_names;	// Action prefixes to actions
-	Domain *od; 				// Original Domain
-	Domain *cd; 				// Compiled Domain
+	parser::pddl::Domain *od; 				// Original Domain
+	parser::pddl::Domain *cd; 				// Compiled Domain
 
 	public:
 	Actions() {}
-	Actions( Domain *_od, Domain *_cd ): od( _od ), cd(_cd){ }
+	Actions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): od( _od ), cd(_cd){ }
 
-	Action* getAction( Domain *d, const String &name ){
+	parser::pddl::Action* getAction( parser::pddl::Domain *d, const String &name ){
 		return d->actions.get( name );
 	}
 
-	Action* createAction( const String &name, const StringVec& parameters = StringVec() ){		
-		Action *act = cd->createAction( name, parameters );	
+	parser::pddl::Action* createAction( const String &name, const StringVec& parameters = StringVec() ){		
+		parser::pddl::Action *act = cd->createAction( name, parameters );	
 		_action_names[ name ].emplace_back( name );
 		return act;
 	}
@@ -81,17 +81,17 @@ class Actions{
 	}
 
 	void copyPreconditions( const String &oname, const String &cname ){
-		Action *act = od->actions.get( oname );
+		parser::pddl::Action *act = od->actions.get( oname );
 		cd->setPre( cname, act->pre );
 	}
 
 	void copyEffects( const String &oname, const String &cname ){
-		Action *act = od->actions.get( oname );
+		parser::pddl::Action *act = od->actions.get( oname );
 		cd->setEff( cname, act->eff );
 	}
 
 	void addParameters( const String& name, unsigned offset, unsigned extra_size , bool is_precondition = true ){
-		Action *act = cd->actions.get( name );
+		parser::pddl::Action *act = cd->actions.get( name );
 		if( is_precondition )
 			act->pre->addParams( offset, extra_size );
 		else

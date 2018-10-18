@@ -1,0 +1,13 @@
+[INFO] STARTING PROCEDURE 0
+[INFO] SYSTEM CALL: bin/compile PLPR domains/pointers/domain.pddl 4 domains/pointers/select/select2.pddl domains/pointers/select/select3.pddl domains/pointers/select/select4.pddl domains/pointers/select/select5.pddl 3 3 0 0 0 1 1 0 0 0 > domain.pddl 2> ins.pddl
+[INFO] COMPILER CALL RESULT: 0
+[INFO] COMPILED PROCEDURE 0
+[INFO] ACTIONS FOUND: 63
+[INFO] CREATING COMPILED DOMAIN
+	[INFO] DOMAIN READ
+	[INFO] INSTANCE READ
+	[INFO] READING 0 INSTRUCTIONS TO ADD
+[INFO] CALL TO PLANNER ./planner.sh domain.pddl ins.pddl 600
+[INFO] PLANNER CALL RESULT: 35072
+[INFO] PLANNER FINISHED IN PROCEDURE 0
+[INFO] EXTRACTING PLAN 

@@ -1,0 +1,1081 @@
+INFO     Running translator.
+INFO     translator inputs: ['domain.pddl', 'ins.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.020s CPU, 0.019s wall-clock]
+Normalizing task... [0.000s CPU, 0.002s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.020s wall-clock]
+Preparing model... [0.010s CPU, 0.010s wall-clock]
+Generated 541 rules.
+Computing model... [0.060s CPU, 0.058s wall-clock]
+2405 relevant atoms
+2561 auxiliary atoms
+4966 final queue length
+12307 total queue pushes
+Completing instantiation... [0.150s CPU, 0.150s wall-clock]
+Instantiating: [0.240s CPU, 0.243s wall-clock]
+Computing fact groups...
+Finding invariants...
+101 initial candidates
+Finding invariants: [0.020s CPU, 0.023s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+304 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.020s CPU, 0.029s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.009s wall-clock]
+Translating task: [0.230s CPU, 0.225s wall-clock]
+1569 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+28 propositions removed
+Detecting unreachable propositions: [0.030s CPU, 0.031s wall-clock]
+Translator variables: 312
+Translator derived variables: 0
+Translator facts: 662
+Translator goal facts: 1
+Translator mutex groups: 26
+Translator total mutex groups size: 81
+Translator operators: 1976
+Translator axioms: 0
+Translator task size: 26956
+Translator peak memory: 46452 KB
+Writing output... [0.040s CPU, 0.033s wall-clock]
+Done! [0.580s CPU, 0.591s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+312 variables of 312 necessary
+6 of 26 mutex groups necessary.
+1976 of 1976 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 662
+Preprocessor derived variables: 0
+Preprocessor task size: 26887
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/js/Desktop/planning-programs/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=0.10s]
+building causal graph...done! [t=0.10s]
+packing state variables...done! [t=0.10s]
+Variables: 312
+Facts: 662
+Bytes per state: 44
+done initalizing global data [t=0.10s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.02s
+Discovered 27 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+95 edges
+Landmark graph: 
+LM 7 NegatedAtom done-programming() (var194(311)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		<-_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 7 NegatedAtom done-programming() (var194(311)->1) Achievers (0, 0)
+		<-_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+
+LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+
+LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		<-_r   LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		<-_r   LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		<-_gn  LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_r   LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+
+LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+
+LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		<-_r   LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		<-_r   LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		<-_gn  LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		<-_r   LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+
+LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+
+LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_r   LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		<-_r   LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		<-_gn  LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		<-_r   LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 26 NegatedAtom done-applying-0(row-0) (var186(264)->1) Achievers (24, 8)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+
+LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 26 NegatedAtom done-applying-0(row-0) (var186(264)->1) Achievers (24, 8)
+		<-_gn  LM 24 Atom state-stack(state-0, row-0) (var261(229)->0) Achievers (7, 5)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_nat LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 25 NegatedAtom done-evaluating-0(row-0) (var190(248)->1) Achievers (24, 8)
+		->_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+
+LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 25 NegatedAtom done-evaluating-0(row-0) (var190(248)->1) Achievers (24, 8)
+		<-_gn  LM 24 Atom state-stack(state-0, row-0) (var261(229)->0) Achievers (7, 5)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_nat LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_nat LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_nat LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_nat LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_nat LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		->_nat LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 19 Atom empty-cond-stack(state-3) (var198(247)->0) Achievers (0, 0)
+		->_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+
+LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+
+LM 24 Atom state-stack(state-0, row-0) (var261(229)->0) Achievers (7, 5)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		->_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+
+LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+
+LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_r   LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		<-_r   LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		<-_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		<-_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		<-_r   LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_nat LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_nat LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		<-_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_gn  LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		->_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 18 NegatedAtom end-cond-0-3() (var211(140)->1) Achievers (0, 0)
+		->_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+
+LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_gn  LM 19 Atom empty-cond-stack(state-3) (var198(247)->0) Achievers (0, 0)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 18 NegatedAtom end-cond-0-3() (var211(140)->1) Achievers (0, 0)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+14 initial landmarks, 1 goal landmarks
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.02s
+Discovered 27 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+95 edges
+Landmark graph: 
+LM 7 NegatedAtom done-programming() (var194(311)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		<-_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		<-_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		<-_gn  LM 7 NegatedAtom done-programming() (var194(311)->1) Achievers (0, 0)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+
+LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+
+LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_r   LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		<-_r   LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		<-_gn  LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_r   LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		->_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+
+LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+
+LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		<-_r   LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		<-_r   LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		<-_gn  LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		<-_r   LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+
+LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_r   LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+
+LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_r   LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		<-_r   LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		<-_gn  LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_r   LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 26 NegatedAtom done-applying-0(row-0) (var186(264)->1) Achievers (24, 8)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+
+LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 26 NegatedAtom done-applying-0(row-0) (var186(264)->1) Achievers (24, 8)
+		<-_gn  LM 24 Atom state-stack(state-0, row-0) (var261(229)->0) Achievers (7, 5)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_nat LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+
+LM 25 NegatedAtom done-evaluating-0(row-0) (var190(248)->1) Achievers (24, 8)
+		->_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+
+LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 25 NegatedAtom done-evaluating-0(row-0) (var190(248)->1) Achievers (24, 8)
+		<-_gn  LM 24 Atom state-stack(state-0, row-0) (var261(229)->0) Achievers (7, 5)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_nat LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		->_nat LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_nat LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		->_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_nat LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_nat LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_nat LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		->_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+
+LM 19 Atom empty-cond-stack(state-3) (var198(247)->0) Achievers (0, 0)
+		->_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+
+LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		->_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+
+LM 24 Atom state-stack(state-0, row-0) (var261(229)->0) Achievers (7, 5)
+		->_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		->_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+
+LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		->_r   LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		->_r   LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_r   LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		->_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+
+LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_r   LM 17 NegatedAtom includes-1ary(visited, n5) (var249(295)->1) Achievers (3, 1)
+		<-_r   LM 23 NegatedAtom includes-1ary(visited, n3) (var247(278)->1) Achievers (3, 1)
+		<-_r   LM 21 NegatedAtom includes-1ary(visited, n2) (var246(277)->1) Achievers (3, 1)
+		<-_r   LM 20 NegatedAtom includes-1ary(visited, n1) (var245(279)->1) Achievers (3, 1)
+		<-_gn  LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 12 NegatedAtom state-stack(state-3, row-0) (var273(221)->1) Achievers (3, 1)
+		<-_r   LM 22 NegatedAtom includes-1ary(visited, n4) (var248(289)->1) Achievers (3, 1)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_nat LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		<-_nat LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		<-_nat LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_gn  LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		<-_gn  LM 3 Atom includes-1ary(visited, n5) (var249(295)->0) Achievers (48, 48)
+		<-_gn  LM 1 Atom state-stack(state-3, row-0) (var273(221)->0) Achievers (6, 6)
+		<-_gn  LM 10 Atom includes-1ary(visited, n3) (var247(278)->0) Achievers (48, 48)
+		<-_gn  LM 6 Atom includes-1ary(visited, n2) (var246(277)->0) Achievers (48, 48)
+		<-_gn  LM 9 Atom includes-1ary(visited, n4) (var248(289)->0) Achievers (48, 48)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 8 Atom top-stack(row-0) (var278(245)->0) Achievers (4, 4)
+		<-_gn  LM 5 Atom includes-1ary(visited, n1) (var245(279)->0) Achievers (48, 48)
+		->_nat LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 15 Atom test-0() (var277(141)->0) Achievers (0, 0)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_nat LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_nat LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+
+LM 18 NegatedAtom end-cond-0-3() (var211(140)->1) Achievers (0, 0)
+		->_gn  LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+
+LM 4 Atom end-cond-0-3() (var211(140)->0) Achievers (4, 4)
+		<-_nat LM 13 Atom done-applying-0(row-0) (var186(264)->0) Achievers (78, 26)
+		<-_nat LM 11 Atom done-evaluating-0(row-0) (var190(248)->0) Achievers (144, 36)
+		<-_gn  LM 19 Atom empty-cond-stack(state-3) (var198(247)->0) Achievers (0, 0)
+		<-_gn  LM 18 NegatedAtom end-cond-0-3() (var211(140)->1) Achievers (0, 0)
+		->_gn  LM 16 Atom test-1() (var277(141)->1) Achievers (1, 1)
+		->_gn  LM 14 Atom test-2() (var277(141)->2) Achievers (1, 1)
+		->_gn  LM 2 Atom test-3() (var277(141)->3) Achievers (1, 1)
+		->_gn  LM 0 Atom done-programming() (var194(311)->0)(goal) Achievers (1, 1)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+14 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+Switch from bucket-based to heap-based queue at key = 776, num_pushes = 647
+Best heuristic value: 13/25 [g=0, 1 evaluated, 0 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 13/22 [g=1, 2 evaluated, 1 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 12/22 [g=2, 3 evaluated, 2 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 12/19 [g=3, 5 evaluated, 4 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 10/17 [g=4, 6 evaluated, 5 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 10/16 [g=16, 24 evaluated, 23 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 10/13 [g=17, 25 evaluated, 24 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 10/11 [g=17, 32 evaluated, 29 expanded, t=0.14s, 8120 KB]
+Best heuristic value: 9/11 [g=20, 51 evaluated, 46 expanded, t=0.16s, 8120 KB]
+Best heuristic value: 8/11 [g=25, 4978 evaluated, 4642 expanded, t=1.24s, 8784 KB]
+Best heuristic value: 7/11 [g=29, 11794 evaluated, 10753 expanded, t=2.78s, 9580 KB]
+Best heuristic value: 7/10 [g=31, 52639 evaluated, 45580 expanded, t=12.02s, 14796 KB]
+Best heuristic value: 7/9 [g=40, 54825 evaluated, 47565 expanded, t=12.58s, 15192 KB]
+Best heuristic value: 6/8 [g=43, 54828 evaluated, 47568 expanded, t=12.58s, 15192 KB]
+Best heuristic value: 6/7 [g=61, 650179 evaluated, 524279 expanded, t=150.32s, 92092 KB]
+Best heuristic value: 6/6 [g=62, 650180 evaluated, 524280 expanded, t=150.32s, 92092 KB]
+Best heuristic value: 5/5 [g=63, 650181 evaluated, 524281 expanded, t=150.32s, 92092 KB]
+Best heuristic value: 4/4 [g=64, 650182 evaluated, 524282 expanded, t=150.32s, 92092 KB]
+Best heuristic value: 3/3 [g=139, 3255126 evaluated, 2702374 expanded, t=756.86s, 418824 KB]
+Best heuristic value: 2/2 [g=319, 4207989 evaluated, 3450008 expanded, t=978.58s, 536912 KB]
+Best heuristic value: 1/1 [g=421, 4208096 evaluated, 3450114 expanded, t=978.60s, 536912 KB]
+Solution found!
+Actual search time: 978.46s [t=978.60s]
+program-nocond-0 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+program-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+program-true-goto-0 state-0 state-1 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+program-cond-equal-0 current current state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+program-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+program-true-goto-0 state-1 state-2 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+program-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+program-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+program-true-goto-0 state-2 state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+program-false-call-0-0 child state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-true-goto-0 state-1 state-2 row-2 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-2 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-2 (0)
+repeat-true-goto-0 state-2 state-2 row-2 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-2 (0)
+repeat-false-call-0-0 child state-2 row-2 row-3 (0)
+eval-nocond-0 state-0 row-3 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-3 (0)
+repeat-true-goto-0 state-0 state-1 row-3 (0)
+eval-cond-equal-0 current current state-1 row-3 (0)
+program-false-achieve-1ary-0 visited current state-1 row-3 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-3 (0)
+program-false-goto-0 state-1 state-3 row-3 (0)
+repeat-false-goto-0 state-1 state-3 row-3 (0)
+program-end-3 row-3 (1)
+repeat-end-0-0-3 row-2 row-3 (0)
+program-false-goto-0 state-2 state-0 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-0-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-0-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-0-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-0-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-false-goto-0 state-1 state-3 row-0 (0)
+repeat-end-main-0-0-3  (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-1-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-1-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-1-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-1-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-1-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-false-goto-0 state-1 state-3 row-0 (0)
+repeat-end-main-1-0-3  (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-2-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-2-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-2-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-2-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-2-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-false-goto-0 state-1 state-3 row-0 (0)
+repeat-end-main-2-0-3  (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-true-goto-0 state-1 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-1 (0)
+repeat-true-goto-0 state-2 state-2 row-1 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-1 (0)
+repeat-false-call-0-0 child state-2 row-1 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-true-goto-0 state-1 state-2 row-2 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-2 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-2 (0)
+repeat-true-goto-0 state-2 state-2 row-2 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-2 (0)
+repeat-false-call-0-0 child state-2 row-2 row-3 (0)
+eval-nocond-0 state-0 row-3 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-3 (0)
+repeat-true-goto-0 state-0 state-1 row-3 (0)
+eval-cond-equal-0 current current state-1 row-3 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-3 (0)
+repeat-false-goto-0 state-1 state-3 row-3 (0)
+repeat-end-3-0-3 row-2 row-3 (0)
+repeat-false-goto-0 state-2 state-0 row-2 (0)
+eval-nocond-0 state-0 row-2 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-2 (0)
+repeat-true-goto-0 state-0 state-1 row-2 (0)
+eval-cond-equal-0 current current state-1 row-2 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-2 (0)
+repeat-false-goto-0 state-1 state-3 row-2 (0)
+repeat-end-3-0-3 row-1 row-2 (0)
+repeat-false-goto-0 state-2 state-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-3-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-3-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-true-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-true-goto-0 state-1 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-true-copy-2ary-0 right-child current current state-2 row-0 (0)
+repeat-true-goto-0 state-2 state-2 row-0 (0)
+eval-cond-satisfies-1ary-0 visited current state-2 row-0 (0)
+repeat-false-call-0-0 child state-2 row-0 row-1 (0)
+eval-nocond-0 state-0 row-1 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-1 (0)
+repeat-true-goto-0 state-0 state-1 row-1 (0)
+eval-cond-equal-0 current current state-1 row-1 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-1 (0)
+repeat-false-goto-0 state-1 state-3 row-1 (0)
+repeat-end-3-0-3 row-0 row-1 (0)
+repeat-false-goto-0 state-2 state-0 row-0 (0)
+eval-nocond-0 state-0 row-0 (0)
+repeat-true-copy-2ary-0 left-child child current state-0 row-0 (0)
+repeat-true-goto-0 state-0 state-1 row-0 (0)
+eval-cond-equal-0 current current state-1 row-0 (0)
+repeat-false-achieve-1ary-0 visited current state-1 row-0 (0)
+repeat-false-goto-0 state-1 state-3 row-0 (0)
+repeat-end-main-3-0-3  (0)
+Plan length: 422 step(s).
+Plan cost: 1
+Initial state h value: 13/25.
+Expanded 3450115 state(s).
+Reopened 0 state(s).
+Evaluated 4208097 state(s).
+Evaluations: 8416194
+Generated 4575430 state(s).
+Dead ends: 757981 state(s).
+Best solution cost so far: 1
+Solution found - keep searching
+Starting search: lazy_greedy(list(hff2, hlm2), preferred = list(hff2, hlm2), reopen_closed = false)
+Conducting lazy best first search, (real) bound = 1
+Switch from bucket-based to heap-based queue at key = 776, num_pushes = 647
+Best heuristic value: 14/26 [g=0, 1 evaluated, 0 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 14/23 [g=0, 2 evaluated, 1 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 13/23 [g=0, 3 evaluated, 2 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 13/20 [g=0, 5 evaluated, 4 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 11/18 [g=0, 6 evaluated, 5 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 11/17 [g=0, 24 evaluated, 23 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 11/16 [g=0, 25 evaluated, 24 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 10/16 [g=0, 51 evaluated, 46 expanded, t=978.78s, 767276 KB]
+Best heuristic value: 10/15 [g=0, 87 evaluated, 81 expanded, t=978.80s, 767276 KB]
+Best heuristic value: 10/14 [g=0, 88 evaluated, 82 expanded, t=978.80s, 767276 KB]
+Best heuristic value: 9/14 [g=0, 4880 evaluated, 4550 expanded, t=979.96s, 767276 KB]
+Best heuristic value: 9/13 [g=0, 14171 evaluated, 12570 expanded, t=982.18s, 767408 KB]
+Best heuristic value: 8/13 [g=0, 21701 evaluated, 19112 expanded, t=984.02s, 767408 KB]
+Best heuristic value: 8/12 [g=0, 55054 evaluated, 46999 expanded, t=991.74s, 767804 KB]
+Best heuristic value: 8/11 [g=0, 55055 evaluated, 47000 expanded, t=991.74s, 767804 KB]
+Best heuristic value: 8/10 [g=0, 58156 evaluated, 49836 expanded, t=992.48s, 767804 KB]
+Best heuristic value: 7/9 [g=0, 58159 evaluated, 49839 expanded, t=992.48s, 767804 KB]

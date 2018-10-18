@@ -1,0 +1,249 @@
+Domain: domains/other/blocks/domain_cl.pddl Problem: domains/other/blocks/prob100.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.003s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.002s wall-clock]
+Generated 19 rules.
+Computing model... [0.030s CPU, 0.025s wall-clock]
+709 relevant atoms
+501 auxiliary atoms
+1210 final queue length
+11310 total queue pushes
+Completing instantiation... [1.260s CPU, 1.264s wall-clock]
+goal relaxed reachable: True
+403 atoms
+Computing fact groups...
+Finding invariants...
+13 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+403 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.002s wall-clock]
+Computing fact groups: [0.010s CPU, 0.007s wall-clock]
+Axioms 1
+Deterministic 3 actions
+1 negated fluents created
+Invariants 403
+
+ Match tree built with 3 nodes.
+
+PDDL problem description loaded: 
+	Domain: blocks
+	Problem: p100
+	#Actions: 3
+	#Fluents: 404
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59][60][61][62][63][64][65][66][67][68][69][70][71][72][73][74][75][76][77][78][79][80][81][82][83][84][85][86][87][88][89][90][91][92][93][94][95][96][97][98][99][100][101][102][103][104][105][106][107][108][109][110][111][112][113][114][115][116][117][118][119][120][121][122][123][124][125][126][127][128][129][130][131][132][133][134][135][136][137][138][139][140][141][142][143][144][145][146][147][148][149][150][151][152][153][154][155][156][157][158][159][160][161][162][163][164][165][166][167][168][169][170][171][172][173][174][175][176][177][178][179][180][181][182][183][184][185][186][187][188][189][190][191][192][193][194][195][196][197][198][199]Plan found with cost: 198
+1. (unstack )
+2. (drop )
+3. (unstack )
+4. (drop )
+5. (unstack )
+6. (drop )
+7. (unstack )
+8. (drop )
+9. (unstack )
+10. (drop )
+11. (unstack )
+12. (drop )
+13. (unstack )
+14. (drop )
+15. (unstack )
+16. (drop )
+17. (unstack )
+18. (drop )
+19. (unstack )
+20. (drop )
+21. (unstack )
+22. (drop )
+23. (unstack )
+24. (drop )
+25. (unstack )
+26. (drop )
+27. (unstack )
+28. (drop )
+29. (unstack )
+30. (drop )
+31. (unstack )
+32. (drop )
+33. (unstack )
+34. (drop )
+35. (unstack )
+36. (drop )
+37. (unstack )
+38. (drop )
+39. (unstack )
+40. (drop )
+41. (unstack )
+42. (drop )
+43. (unstack )
+44. (drop )
+45. (unstack )
+46. (drop )
+47. (unstack )
+48. (drop )
+49. (unstack )
+50. (drop )
+51. (unstack )
+52. (drop )
+53. (unstack )
+54. (drop )
+55. (unstack )
+56. (drop )
+57. (unstack )
+58. (drop )
+59. (unstack )
+60. (drop )
+61. (unstack )
+62. (drop )
+63. (unstack )
+64. (drop )
+65. (unstack )
+66. (drop )
+67. (unstack )
+68. (drop )
+69. (unstack )
+70. (drop )
+71. (unstack )
+72. (drop )
+73. (unstack )
+74. (drop )
+75. (unstack )
+76. (drop )
+77. (unstack )
+78. (drop )
+79. (unstack )
+80. (drop )
+81. (unstack )
+82. (drop )
+83. (unstack )
+84. (drop )
+85. (unstack )
+86. (drop )
+87. (unstack )
+88. (drop )
+89. (unstack )
+90. (drop )
+91. (unstack )
+92. (drop )
+93. (unstack )
+94. (drop )
+95. (unstack )
+96. (drop )
+97. (unstack )
+98. (drop )
+99. (unstack )
+100. (drop )
+101. (unstack )
+102. (drop )
+103. (unstack )
+104. (drop )
+105. (unstack )
+106. (drop )
+107. (unstack )
+108. (drop )
+109. (unstack )
+110. (drop )
+111. (unstack )
+112. (drop )
+113. (unstack )
+114. (drop )
+115. (unstack )
+116. (drop )
+117. (unstack )
+118. (drop )
+119. (unstack )
+120. (drop )
+121. (unstack )
+122. (drop )
+123. (unstack )
+124. (drop )
+125. (unstack )
+126. (drop )
+127. (unstack )
+128. (drop )
+129. (unstack )
+130. (drop )
+131. (unstack )
+132. (drop )
+133. (unstack )
+134. (drop )
+135. (unstack )
+136. (drop )
+137. (unstack )
+138. (drop )
+139. (unstack )
+140. (drop )
+141. (unstack )
+142. (drop )
+143. (unstack )
+144. (drop )
+145. (unstack )
+146. (drop )
+147. (unstack )
+148. (drop )
+149. (unstack )
+150. (drop )
+151. (unstack )
+152. (drop )
+153. (unstack )
+154. (drop )
+155. (unstack )
+156. (drop )
+157. (unstack )
+158. (drop )
+159. (unstack )
+160. (drop )
+161. (unstack )
+162. (drop )
+163. (unstack )
+164. (drop )
+165. (unstack )
+166. (drop )
+167. (unstack )
+168. (drop )
+169. (unstack )
+170. (drop )
+171. (unstack )
+172. (drop )
+173. (unstack )
+174. (drop )
+175. (unstack )
+176. (drop )
+177. (unstack )
+178. (drop )
+179. (unstack )
+180. (drop )
+181. (unstack )
+182. (drop )
+183. (unstack )
+184. (drop )
+185. (unstack )
+186. (drop )
+187. (unstack )
+188. (drop )
+189. (unstack )
+190. (drop )
+191. (unstack )
+192. (drop )
+193. (unstack )
+194. (drop )
+195. (unstack )
+196. (drop )
+197. (unstack )
+198. (collect )
+Time: 0.016
+Generated: 591
+Expanded: 591
+Total time: 0.016
+Nodes generated during search: 592
+Nodes expanded during search: 591
+BRFS search completed in 0.016 secs, check 'bfs_f.log' for details

@@ -1,0 +1,159 @@
+Domain: experiments/aij17/validation/trees/domain.pddl Problem: experiments/aij17/validation/trees/ins.pddl
+Parsing...
+Parsing: [0.050s CPU, 0.044s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.030s CPU, 0.031s wall-clock]
+Preparing model... [0.020s CPU, 0.015s wall-clock]
+Generated 739 rules.
+Computing model... [0.270s CPU, 0.270s wall-clock]
+1042 relevant atoms
+7867 auxiliary atoms
+8909 final queue length
+60264 total queue pushes
+Completing instantiation... [0.200s CPU, 0.196s wall-clock]
+goal relaxed reachable: True
+660 atoms
+Computing fact groups...
+Finding invariants...
+29 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.007s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+660 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.010s CPU, 0.004s wall-clock]
+Computing fact groups: [0.020s CPU, 0.019s wall-clock]
+Axioms 0
+Deterministic 197 actions
+1 negated fluents created
+Invariants 660
+
+ Match tree built with 197 nodes.
+
+PDDL problem description loaded: 
+	Domain: trees_alt
+	Problem: prob20_alt
+	#Actions: 197
+	#Fluents: 661
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59][60][61][62][63][64][65][66][67][68][69][70][71][72][73][74][75][76][77][78][79][80][81][82][83][84][85][86][87][88][89][90][91][92][93][94][95][96][97][98][99][100][101][102][103][104][105][106][107][108][109][110]Plan found with cost: 108.001
+1. (repeat-visit-0-0 current row-0)
+2. (repeat-copy-left-0-1 current child row-0)
+3. (eval-cond-isinternal-0-2 current row-0)
+4. (dont-goto-0-2-6 row-0)
+5. (repeat-copy-right-0-3 current current row-0)
+6. (repeat-call-0-0-4 row-0 row-1 child)
+7. (repeat-visit-0-0 current row-1)
+8. (repeat-copy-left-0-1 current child row-1)
+9. (eval-cond-isinternal-0-2 current row-1)
+10. (do-goto-0-2-6 row-1)
+11. (repeat-end-0-0-6 row-0 row-1)
+12. (repeat-call-0-0-5 row-0 row-1 current)
+13. (repeat-visit-0-0 current row-1)
+14. (repeat-copy-left-0-1 current child row-1)
+15. (eval-cond-isinternal-0-2 current row-1)
+16. (dont-goto-0-2-6 row-1)
+17. (repeat-copy-right-0-3 current current row-1)
+18. (repeat-call-0-0-4 row-1 row-2 child)
+19. (repeat-visit-0-0 current row-2)
+20. (repeat-copy-left-0-1 current child row-2)
+21. (eval-cond-isinternal-0-2 current row-2)
+22. (dont-goto-0-2-6 row-2)
+23. (repeat-copy-right-0-3 current current row-2)
+24. (repeat-call-0-0-4 row-2 row-3 child)
+25. (repeat-visit-0-0 current row-3)
+26. (repeat-copy-left-0-1 current child row-3)
+27. (eval-cond-isinternal-0-2 current row-3)
+28. (do-goto-0-2-6 row-3)
+29. (repeat-end-0-0-6 row-2 row-3)
+30. (repeat-call-0-0-5 row-2 row-3 current)
+31. (repeat-visit-0-0 current row-3)
+32. (repeat-copy-left-0-1 current child row-3)
+33. (eval-cond-isinternal-0-2 current row-3)
+34. (dont-goto-0-2-6 row-3)
+35. (repeat-copy-right-0-3 current current row-3)
+36. (repeat-call-0-0-4 row-3 row-4 child)
+37. (repeat-visit-0-0 current row-4)
+38. (repeat-copy-left-0-1 current child row-4)
+39. (eval-cond-isinternal-0-2 current row-4)
+40. (do-goto-0-2-6 row-4)
+41. (repeat-end-0-0-6 row-3 row-4)
+42. (repeat-call-0-0-5 row-3 row-4 current)
+43. (repeat-visit-0-0 current row-4)
+44. (repeat-copy-left-0-1 current child row-4)
+45. (eval-cond-isinternal-0-2 current row-4)
+46. (dont-goto-0-2-6 row-4)
+47. (repeat-copy-right-0-3 current current row-4)
+48. (repeat-call-0-0-4 row-4 row-5 child)
+49. (repeat-visit-0-0 current row-5)
+50. (repeat-copy-left-0-1 current child row-5)
+51. (eval-cond-isinternal-0-2 current row-5)
+52. (do-goto-0-2-6 row-5)
+53. (repeat-end-0-0-6 row-4 row-5)
+54. (repeat-call-0-0-5 row-4 row-5 current)
+55. (repeat-visit-0-0 current row-5)
+56. (repeat-copy-left-0-1 current child row-5)
+57. (eval-cond-isinternal-0-2 current row-5)
+58. (dont-goto-0-2-6 row-5)
+59. (repeat-copy-right-0-3 current current row-5)
+60. (repeat-call-0-0-4 row-5 row-6 child)
+61. (repeat-visit-0-0 current row-6)
+62. (repeat-copy-left-0-1 current child row-6)
+63. (eval-cond-isinternal-0-2 current row-6)
+64. (do-goto-0-2-6 row-6)
+65. (repeat-end-0-0-6 row-5 row-6)
+66. (repeat-call-0-0-5 row-5 row-6 current)
+67. (repeat-visit-0-0 current row-6)
+68. (repeat-copy-left-0-1 current child row-6)
+69. (eval-cond-isinternal-0-2 current row-6)
+70. (dont-goto-0-2-6 row-6)
+71. (repeat-copy-right-0-3 current current row-6)
+72. (repeat-call-0-0-4 row-6 row-7 child)
+73. (repeat-visit-0-0 current row-7)
+74. (repeat-copy-left-0-1 current child row-7)
+75. (eval-cond-isinternal-0-2 current row-7)
+76. (do-goto-0-2-6 row-7)
+77. (repeat-end-0-0-6 row-6 row-7)
+78. (repeat-call-0-0-5 row-6 row-7 current)
+79. (repeat-visit-0-0 current row-7)
+80. (repeat-copy-left-0-1 current child row-7)
+81. (eval-cond-isinternal-0-2 current row-7)
+82. (dont-goto-0-2-6 row-7)
+83. (repeat-copy-right-0-3 current current row-7)
+84. (repeat-call-0-0-4 row-7 row-8 child)
+85. (repeat-visit-0-0 current row-8)
+86. (repeat-copy-left-0-1 current child row-8)
+87. (eval-cond-isinternal-0-2 current row-8)
+88. (do-goto-0-2-6 row-8)
+89. (repeat-end-0-0-6 row-7 row-8)
+90. (repeat-call-0-0-5 row-7 row-8 current)
+91. (repeat-visit-0-0 current row-8)
+92. (repeat-copy-left-0-1 current child row-8)
+93. (eval-cond-isinternal-0-2 current row-8)
+94. (do-goto-0-2-6 row-8)
+95. (repeat-end-0-0-6 row-7 row-8)
+96. (repeat-end-0-0-6 row-6 row-7)
+97. (repeat-end-0-0-6 row-5 row-6)
+98. (repeat-end-0-0-6 row-4 row-5)
+99. (repeat-end-0-0-6 row-3 row-4)
+100. (repeat-end-0-0-6 row-2 row-3)
+101. (repeat-end-0-0-6 row-1 row-2)
+102. (repeat-call-0-0-5 row-1 row-2 current)
+103. (repeat-visit-0-0 current row-2)
+104. (repeat-copy-left-0-1 current child row-2)
+105. (eval-cond-isinternal-0-2 current row-2)
+106. (do-goto-0-2-6 row-2)
+107. (repeat-end-0-0-6 row-1 row-2)
+108. (repeat-end-0-0-6 row-0 row-1)
+109. (repeat-end-main-0-6 row-0)
+Time: 0
+Generated: 126
+Expanded: 126
+Total time: 9.05991e-09
+Nodes generated during search: 127
+Nodes expanded during search: 126
+BRFS search completed in 9.05991e-09 secs, check 'bfs_f.log' for details

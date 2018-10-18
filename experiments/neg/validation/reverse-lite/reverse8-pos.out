@@ -1,0 +1,152 @@
+Checking plan: experiments/neg/synthesis/reverse-lite/program-positive.txt
+Plan Validation details
+-----------------------
+
+Checking action SWAP-A-B - Procedure: 0 - Line: 0
+Deleting (VECTOR-ASSIGNMENT V0 V1)
+Deleting (CONTENT A V1)
+Deleting (VECTOR-ASSIGNMENT V7 V6)
+Deleting (CONTENT B V6)
+Adding (VECTOR-ASSIGNMENT V0 V6)
+Adding (CONTENT A V6)
+Adding (VECTOR-ASSIGNMENT V7 V1)
+Adding (CONTENT B V1)
+
+Checking action DEC-POINTER-B - Procedure: 0 - Line: 1
+Deleting (CONTENT B V0)
+Deleting (CONTENT B V1)
+Deleting (CONTENT B V2)
+Deleting (CONTENT B V3)
+Deleting (CONTENT B V4)
+Deleting (CONTENT B V5)
+Deleting (CONTENT B V6)
+Deleting (CONTENT B V7)
+Deleting (ASSIGNMENT B V7)
+Adding (ASSIGNMENT B V6)
+Adding (CONTENT B V7)
+
+Checking action INC-POINTER-A - Procedure: 0 - Line: 2
+Deleting (CONTENT A V0)
+Deleting (CONTENT A V1)
+Deleting (CONTENT A V2)
+Deleting (CONTENT A V3)
+Deleting (CONTENT A V4)
+Deleting (CONTENT A V5)
+Deleting (CONTENT A V6)
+Deleting (CONTENT A V7)
+Deleting (ASSIGNMENT A V0)
+Adding (ASSIGNMENT A V1)
+Adding (CONTENT A V0)
+
+Checking action SWAP-A-B - Procedure: 0 - Line: 0
+Deleting (VECTOR-ASSIGNMENT V1 V0)
+Deleting (CONTENT A V0)
+Deleting (VECTOR-ASSIGNMENT V6 V7)
+Deleting (CONTENT B V7)
+Adding (VECTOR-ASSIGNMENT V1 V7)
+Adding (CONTENT A V7)
+Adding (VECTOR-ASSIGNMENT V6 V0)
+Adding (CONTENT B V0)
+
+Checking action DEC-POINTER-B - Procedure: 0 - Line: 1
+Deleting (CONTENT B V0)
+Deleting (CONTENT B V1)
+Deleting (CONTENT B V2)
+Deleting (CONTENT B V3)
+Deleting (CONTENT B V4)
+Deleting (CONTENT B V5)
+Deleting (CONTENT B V6)
+Deleting (CONTENT B V7)
+Deleting (ASSIGNMENT B V6)
+Adding (ASSIGNMENT B V5)
+Adding (CONTENT B V4)
+
+Checking action INC-POINTER-A - Procedure: 0 - Line: 2
+Deleting (CONTENT A V0)
+Deleting (CONTENT A V1)
+Deleting (CONTENT A V2)
+Deleting (CONTENT A V3)
+Deleting (CONTENT A V4)
+Deleting (CONTENT A V5)
+Deleting (CONTENT A V6)
+Deleting (CONTENT A V7)
+Deleting (ASSIGNMENT A V1)
+Adding (ASSIGNMENT A V2)
+Adding (CONTENT A V3)
+
+Checking action SWAP-A-B - Procedure: 0 - Line: 0
+Deleting (VECTOR-ASSIGNMENT V2 V3)
+Deleting (CONTENT A V3)
+Deleting (VECTOR-ASSIGNMENT V5 V4)
+Deleting (CONTENT B V4)
+Adding (VECTOR-ASSIGNMENT V2 V4)
+Adding (CONTENT A V4)
+Adding (VECTOR-ASSIGNMENT V5 V3)
+Adding (CONTENT B V3)
+
+Checking action DEC-POINTER-B - Procedure: 0 - Line: 1
+Deleting (CONTENT B V0)
+Deleting (CONTENT B V1)
+Deleting (CONTENT B V2)
+Deleting (CONTENT B V3)
+Deleting (CONTENT B V4)
+Deleting (CONTENT B V5)
+Deleting (CONTENT B V6)
+Deleting (CONTENT B V7)
+Deleting (ASSIGNMENT B V5)
+Adding (ASSIGNMENT B V4)
+Adding (CONTENT B V5)
+
+Checking action INC-POINTER-A - Procedure: 0 - Line: 2
+Deleting (CONTENT A V0)
+Deleting (CONTENT A V1)
+Deleting (CONTENT A V2)
+Deleting (CONTENT A V3)
+Deleting (CONTENT A V4)
+Deleting (CONTENT A V5)
+Deleting (CONTENT A V6)
+Deleting (CONTENT A V7)
+Deleting (ASSIGNMENT A V2)
+Adding (ASSIGNMENT A V3)
+Adding (CONTENT A V2)
+
+Checking action SWAP-A-B - Procedure: 0 - Line: 0
+Deleting (VECTOR-ASSIGNMENT V3 V2)
+Deleting (CONTENT A V2)
+Deleting (VECTOR-ASSIGNMENT V4 V5)
+Deleting (CONTENT B V5)
+Adding (VECTOR-ASSIGNMENT V3 V5)
+Adding (CONTENT A V5)
+Adding (VECTOR-ASSIGNMENT V4 V2)
+Adding (CONTENT B V2)
+
+Checking action DEC-POINTER-B - Procedure: 0 - Line: 1
+Deleting (CONTENT B V0)
+Deleting (CONTENT B V1)
+Deleting (CONTENT B V2)
+Deleting (CONTENT B V3)
+Deleting (CONTENT B V4)
+Deleting (CONTENT B V5)
+Deleting (CONTENT B V6)
+Deleting (CONTENT B V7)
+Deleting (ASSIGNMENT B V4)
+Adding (ASSIGNMENT B V3)
+Adding (CONTENT B V5)
+
+Checking action INC-POINTER-A - Procedure: 0 - Line: 2
+Deleting (CONTENT A V0)
+Deleting (CONTENT A V1)
+Deleting (CONTENT A V2)
+Deleting (CONTENT A V3)
+Deleting (CONTENT A V4)
+Deleting (CONTENT A V5)
+Deleting (CONTENT A V6)
+Deleting (CONTENT A V7)
+Deleting (ASSIGNMENT A V3)
+Adding (ASSIGNMENT A V4)
+Adding (CONTENT A V2)
+
+Plan executed successfully - checking goal
+[1;32mSuccess: Plan valid[0m
+[1;32mValue: 17.000000
+[0m

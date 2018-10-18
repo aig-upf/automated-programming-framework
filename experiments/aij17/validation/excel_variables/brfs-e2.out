@@ -1,0 +1,62 @@
+Domain: experiments/aij17/validation/excel_variables/fill02/domain.pddl Problem: experiments/aij17/validation/excel_variables/fill02/ins.pddl
+Parsing...
+Parsing: [0.050s CPU, 0.052s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.050s CPU, 0.045s wall-clock]
+Preparing model... [0.020s CPU, 0.020s wall-clock]
+Generated 1030 rules.
+Computing model... [0.030s CPU, 0.028s wall-clock]
+306 relevant atoms
+794 auxiliary atoms
+1100 final queue length
+2846 total queue pushes
+Completing instantiation... [0.030s CPU, 0.037s wall-clock]
+goal relaxed reachable: True
+105 atoms
+Computing fact groups...
+Finding invariants...
+36 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.020s CPU, 0.014s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+105 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.020s CPU, 0.016s wall-clock]
+Axioms 0
+Deterministic 10 actions
+1 negated fluents created
+Invariants 105
+
+ Match tree built with 10 nodes.
+
+PDDL problem description loaded: 
+	Domain: excel
+	Problem: fill02
+	#Actions: 10
+	#Fluents: 106
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13]Plan found with cost: 11.001
+1. (repeat-get-substr-1-0 str-var colon dot row-0)
+2. (repeat-call-0-1-1 row-0 row-1 str-var)
+3. (repeat-append-str-0-0 res str-var row-1)
+4. (repeat-inc-loindex-0-1 str-var row-1)
+5. (eval-cond-empty-0-2 str-var row-1)
+6. (do-goto-0-2-0 row-1)
+7. (repeat-append-str-0-0 res str-var row-1)
+8. (repeat-inc-loindex-0-1 str-var row-1)
+9. (eval-cond-empty-0-2 str-var row-1)
+10. (dont-goto-0-2-0 row-1)
+11. (repeat-end-0-0-3 row-0 row-1)
+12. (repeat-end-main-0-2 row-0)
+Time: 0
+Generated: 14
+Expanded: 14
+Total time: 1.43051e-09
+Nodes generated during search: 15
+Nodes expanded during search: 14
+BRFS search completed in 1.43051e-09 secs, check 'bfs_f.log' for details

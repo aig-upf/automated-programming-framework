@@ -1,0 +1,44 @@
+Domain: domains/dck/blocksworld/domain.pddl Problem: domains/dck/blocksworld/p100b.pddl
+Parsing...
+Parsing: [0.010s CPU, 0.032s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.005s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.002s wall-clock]
+Preparing model... [0.020s CPU, 0.010s wall-clock]
+Generated 33 rules.
+Computing model... [0.640s CPU, 0.646s wall-clock]
+31407 relevant atoms
+20701 auxiliary atoms
+52108 final queue length
+112392 total queue pushes
+Completing instantiation... [25.080s CPU, 25.078s wall-clock]
+goal relaxed reachable: True
+10404 atoms
+Computing fact groups...
+Finding invariants...
+12 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.003s wall-clock]
+Choosing groups...
+10404 uncovered facts
+Choosing groups: [0.000s CPU, 0.003s wall-clock]
+Building translation key... [0.060s CPU, 0.062s wall-clock]
+Computing fact groups: [0.230s CPU, 0.237s wall-clock]
+Axioms 102
+Deterministic 20200 actions
+0 negated fluents created
+Invariants 10404
+
+ Match tree built with 20200 nodes.
+
+PDDL problem description loaded: 
+	Domain: blocksworld
+	Problem: p100b
+	#Actions: 20200
+	#Fluents: 10404
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5]

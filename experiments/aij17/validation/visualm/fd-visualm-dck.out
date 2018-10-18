@@ -1,0 +1,1667 @@
+INFO     Running translator.
+INFO     translator inputs: ['experiments/aij17/validation/visualm/domain_dck.pddl', 'experiments/aij17/validation/visualm/ins_dck.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.070s CPU, 0.088s wall-clock]
+Normalizing task... [0.010s CPU, 0.006s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.007s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.080s CPU, 0.076s wall-clock]
+Preparing model... [0.040s CPU, 0.046s wall-clock]
+Generated 2077 rules.
+Computing model... [0.070s CPU, 0.069s wall-clock]
+190 relevant atoms
+2928 auxiliary atoms
+3118 final queue length
+12878 total queue pushes
+Completing instantiation... [0.010s CPU, 0.009s wall-clock]
+Instantiating: [0.200s CPU, 0.211s wall-clock]
+Computing fact groups...
+Finding invariants...
+30 initial candidates
+Finding invariants: [0.040s CPU, 0.038s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+20 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.040s CPU, 0.039s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.004s wall-clock]
+60 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+5 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.001s wall-clock]
+Translator variables: 22
+Translator derived variables: 0
+Translator facts: 62
+Translator goal facts: 1
+Translator mutex groups: 3
+Translator total mutex groups size: 24
+Translator operators: 48
+Translator axioms: 0
+Translator task size: 571
+Translator peak memory: 23036 KB
+Writing output... [0.000s CPU, 0.001s wall-clock]
+Done! [0.330s CPU, 0.351s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+20 variables of 22 necessary
+0 of 3 mutex groups necessary.
+48 of 48 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 58
+Preprocessor derived variables: 0
+Preprocessor task size: 497
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=0.00s]
+building causal graph...done! [t=0.00s]
+packing state variables...done! [t=0.00s]
+Variables: 20
+Facts: 58
+Bytes per state: 4
+done initalizing global data [t=0.00s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00s
+Discovered 28 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+78 edges
+Landmark graph: 
+LM 19 NegatedAtom done-programming() (var2(19)->1) Achievers (0, 0)
+		->_gn  LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+
+LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		<-_nat LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_nat LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_nat LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_nat LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		<-_gn  LM 19 NegatedAtom done-programming() (var2(19)->1) Achievers (0, 0)
+		<-_gn  LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		<-_nat LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_nat LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+
+LM 4 NegatedAtom marked() (var5(18)->1) Achievers (0, 0)
+		->_gn  LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+
+LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_nat LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_nat LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_gn  LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		<-_gn  LM 4 NegatedAtom marked() (var5(18)->1) Achievers (0, 0)
+		<-_nat LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_gn  LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		<-_gn  LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		->_gn  LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+
+LM 0 NegatedAtom stack-line-4(row-0) (var15(17)->1) Achievers (0, 0)
+		->_gn  LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_nat LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_gn  LM 2 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		<-_nat LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_nat LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 0 NegatedAtom stack-line-4(row-0) (var15(17)->1) Achievers (0, 0)
+		<-_gn  LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_gn  LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+
+LM 23 NegatedAtom stack-line-1(row-1) (var10(14)->1) Achievers (3, 3)
+		->_gn  LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+
+LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 23 NegatedAtom stack-line-1(row-1) (var10(14)->1) Achievers (3, 3)
+		<-_nat LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+
+LM 14 NegatedAtom obs-green() (var6(13)->1) Achievers (1, 1)
+		->_gn  LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+
+LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_gn  LM 14 NegatedAtom obs-green() (var6(13)->1) Achievers (1, 1)
+		<-_gn  LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_nat LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_gn  LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		->_gn  LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+
+LM 26 NegatedAtom stack-line-0(row-1) (var8(11)->1) Achievers (12, 2)
+		->_gn  LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+
+LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 17 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 26 NegatedAtom stack-line-0(row-1) (var8(11)->1) Achievers (12, 2)
+		->_nat LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_gn  LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_gn  LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		->_nat LM 2 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 13 NegatedAtom done-evaluating() (var1(10)->1) Achievers (8, 4)
+		->_gn  LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+
+LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 13 NegatedAtom done-evaluating() (var1(10)->1) Achievers (8, 4)
+		<-_nat LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_nat LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_nat LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_nat LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		->_nat LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 12 NegatedAtom accumulator() (var0(9)->1) Achievers (4, 4)
+		->_gn  LM 2 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+
+LM 2 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 12 NegatedAtom accumulator() (var0(9)->1) Achievers (4, 4)
+		<-_nat LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_nat LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_nat LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_gn  LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 11 NegatedAtom stack-line-3(row-0) (var13(8)->1) Achievers (2, 2)
+		->_gn  LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+
+LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_nat LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 9 Atom ypos(v0) (var21(7)->0) Achievers (0, 0)
+		<-_gn  LM 11 NegatedAtom stack-line-3(row-0) (var13(8)->1) Achievers (2, 2)
+		<-_nat LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		->_nat LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_nat LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 9 Atom ypos(v0) (var21(7)->0) Achievers (0, 0)
+		->_gn  LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+
+LM 24 NegatedAtom stack-line-2(row-0) (var11(6)->1) Achievers (10, 1)
+		->_gn  LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+
+LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 24 NegatedAtom stack-line-2(row-0) (var11(6)->1) Achievers (10, 1)
+		->_nat LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_gn  LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 17 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		->_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		->_gn  LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_gn  LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		->_gn  LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+
+LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 17 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		->_nat LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_gn  LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 2 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_gn  LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+
+LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		->_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		->_gn  LM 15 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_gn  LM 7 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		->_gn  LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_gn  LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_gn  LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		->_gn  LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+
+LM 16 NegatedAtom stack-procedure-0(row-1) (var17(2)->1) Achievers (1, 1)
+		->_gn  LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+
+LM 6 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 17 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 16 NegatedAtom stack-procedure-0(row-1) (var17(2)->1) Achievers (1, 1)
+		->_nat LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		->_gn  LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 2 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_nat LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		->_gn  LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+
+LM 27 NegatedAtom stack-line-1(row-0) (var9(0)->1) Achievers (1, 1)
+		->_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+
+LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 17 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 21 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 27 NegatedAtom stack-line-1(row-0) (var9(0)->1) Achievers (1, 1)
+		->_nat LM 3 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 1 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 22 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 5 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_gn  LM 10 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		->_nat LM 2 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_nat LM 18 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 20 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_nat LM 8 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+15 initial landmarks, 1 goal landmarks
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00s
+Discovered 28 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+78 edges
+Landmark graph: 
+LM 1 NegatedAtom done-programming() (var2(19)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+
+LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		<-_gn  LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		<-_nat LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_nat LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 1 NegatedAtom done-programming() (var2(19)->1) Achievers (0, 0)
+		<-_nat LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_nat LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		<-_nat LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		<-_nat LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+
+LM 9 NegatedAtom marked() (var5(18)->1) Achievers (0, 0)
+		->_gn  LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+
+LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		<-_nat LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_nat LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_nat LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_gn  LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		<-_nat LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_gn  LM 9 NegatedAtom marked() (var5(18)->1) Achievers (0, 0)
+		<-_gn  LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		<-_gn  LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		->_gn  LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+
+LM 5 NegatedAtom stack-line-4(row-0) (var15(17)->1) Achievers (0, 0)
+		->_gn  LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_nat LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_nat LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 5 NegatedAtom stack-line-4(row-0) (var15(17)->1) Achievers (0, 0)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_nat LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_gn  LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+
+LM 23 NegatedAtom stack-line-1(row-1) (var10(14)->1) Achievers (3, 3)
+		->_gn  LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+
+LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		<-_nat LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 23 NegatedAtom stack-line-1(row-1) (var10(14)->1) Achievers (3, 3)
+		<-_nat LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+
+LM 19 NegatedAtom obs-green() (var6(13)->1) Achievers (1, 1)
+		->_gn  LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+
+LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		<-_nat LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_nat LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_gn  LM 19 NegatedAtom obs-green() (var6(13)->1) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_gn  LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+
+LM 26 NegatedAtom stack-line-0(row-1) (var8(11)->1) Achievers (12, 2)
+		->_gn  LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+
+LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_gn  LM 22 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 26 NegatedAtom stack-line-0(row-1) (var8(11)->1) Achievers (12, 2)
+		->_nat LM 7 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_nat LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_gn  LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_gn  LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 18 NegatedAtom done-evaluating() (var1(10)->1) Achievers (8, 4)
+		->_gn  LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+
+LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		<-_gn  LM 18 NegatedAtom done-evaluating() (var1(10)->1) Achievers (8, 4)
+		<-_nat LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_nat LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_nat LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		->_nat LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 17 NegatedAtom accumulator() (var0(9)->1) Achievers (4, 4)
+		->_gn  LM 7 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+
+LM 7 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		<-_gn  LM 17 NegatedAtom accumulator() (var0(9)->1) Achievers (4, 4)
+		<-_nat LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_nat LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_gn  LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 16 NegatedAtom stack-line-3(row-0) (var13(8)->1) Achievers (2, 2)
+		->_gn  LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+
+LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		<-_nat LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		<-_nat LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_nat LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_nat LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 14 Atom ypos(v0) (var21(7)->0) Achievers (0, 0)
+		<-_gn  LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 16 NegatedAtom stack-line-3(row-0) (var13(8)->1) Achievers (2, 2)
+		->_nat LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_nat LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 14 Atom ypos(v0) (var21(7)->0) Achievers (0, 0)
+		->_gn  LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+
+LM 24 NegatedAtom stack-line-2(row-0) (var11(6)->1) Achievers (10, 1)
+		->_gn  LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+
+LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		<-_nat LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 24 NegatedAtom stack-line-2(row-0) (var11(6)->1) Achievers (10, 1)
+		->_nat LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_gn  LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+
+LM 22 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		->_gn  LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_gn  LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		->_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		->_gn  LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+
+LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		<-_gn  LM 22 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		->_nat LM 7 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_nat LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_gn  LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_gn  LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+
+LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		->_gn  LM 20 Atom stack-line-0(row-1) (var8(11)->0) Achievers (4, 1)
+		->_gn  LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		->_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		->_gn  LM 12 Atom top-stack(row-1) (var19(3)->1) Achievers (2, 1)
+		->_gn  LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_gn  LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_gn  LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_gn  LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+
+LM 21 NegatedAtom stack-procedure-0(row-1) (var17(2)->1) Achievers (1, 1)
+		->_gn  LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+
+LM 11 Atom stack-procedure-0(row-1) (var17(2)->0) Achievers (1, 1)
+		<-_gn  LM 22 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 21 NegatedAtom stack-procedure-0(row-1) (var17(2)->1) Achievers (1, 1)
+		->_nat LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		->_nat LM 7 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_nat LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_gn  LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_gn  LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+
+LM 27 NegatedAtom stack-line-1(row-0) (var9(0)->1) Achievers (1, 1)
+		->_gn  LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+
+LM 25 Atom stack-line-1(row-0) (var9(0)->0) Achievers (1, 1)
+		<-_gn  LM 22 Atom stack-line-0(row-0) (var7(4)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom top-stack(row-0) (var19(3)->0) Achievers (2, 2)
+		<-_gn  LM 27 NegatedAtom stack-line-1(row-0) (var9(0)->1) Achievers (1, 1)
+		->_nat LM 6 Atom stack-line-3(row-0) (var13(8)->0) Achievers (10, 1)
+		->_nat LM 4 Atom marked() (var5(18)->0) Achievers (1, 1)
+		->_nat LM 10 Atom obs-green() (var6(13)->0) Achievers (1, 1)
+		->_nat LM 7 Atom accumulator() (var0(9)->0) Achievers (4, 4)
+		->_gn  LM 15 Atom stack-line-2(row-0) (var11(6)->0) Achievers (1, 1)
+		->_nat LM 8 Atom done-evaluating() (var1(10)->0) Achievers (4, 2)
+		->_nat LM 2 Atom stack-line-4(row-0) (var15(17)->0) Achievers (1, 1)
+		->_nat LM 0 Atom done-programming() (var2(19)->0)(goal) Achievers (1, 1)
+		->_nat LM 13 Atom stack-line-1(row-1) (var10(14)->0) Achievers (11, 11)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+15 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+Switch from bucket-based to heap-based queue at key = 124, num_pushes = 54
+Best heuristic value: 13/25 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 10/25 [g=1, 2 evaluated, 1 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/25 [g=2, 3 evaluated, 2 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/24 [g=16, 17 evaluated, 16 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/23 [g=21, 22 evaluated, 21 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/22 [g=26, 27 evaluated, 26 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/21 [g=31, 32 evaluated, 31 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/20 [g=36, 37 evaluated, 36 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/19 [g=41, 42 evaluated, 41 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/18 [g=46, 47 evaluated, 46 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 9/17 [g=50, 51 evaluated, 50 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 8/17 [g=82, 83 evaluated, 82 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 8/16 [g=137, 138 evaluated, 137 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 8/15 [g=224, 225 evaluated, 224 expanded, t=0.00s, 3648 KB]
+Best heuristic value: 8/14 [g=311, 312 evaluated, 311 expanded, t=0.01s, 3648 KB]
+Best heuristic value: 8/13 [g=398, 399 evaluated, 398 expanded, t=0.01s, 3648 KB]
+Best heuristic value: 8/12 [g=485, 486 evaluated, 485 expanded, t=0.01s, 3648 KB]
+Best heuristic value: 8/11 [g=572, 573 evaluated, 572 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 8/8 [g=573, 574 evaluated, 573 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 6/8 [g=656, 657 evaluated, 656 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 6/7 [g=659, 660 evaluated, 659 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 4/6 [g=660, 661 evaluated, 660 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 4/5 [g=692, 693 evaluated, 692 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 3/5 [g=696, 697 evaluated, 696 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 3/4 [g=868, 869 evaluated, 868 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 3/3 [g=869, 870 evaluated, 869 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 2/2 [g=870, 871 evaluated, 870 expanded, t=0.02s, 3648 KB]
+Best heuristic value: 1/1 [g=871, 872 evaluated, 871 expanded, t=0.02s, 3648 KB]
+Solution found!
+Actual search time: 0.02s [t=0.02s]
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v0 v1 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v1 v2 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v2 v3 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v3 v4 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v4 v5 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v5 v6 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v6 v7 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+dont-goto-0-0-2 row-1 (1)
+repeat-mark-green-block-0-1 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v7 v8 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v8 v9 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+do-goto-2-3-0 row-0 (1)
+repeat-call-0-2-0 row-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v0 v1 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v1 v2 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v2 v3 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v3 v4 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v4 v5 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v5 v6 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v6 v7 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v7 v8 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v8 v9 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+do-goto-0-3-0 row-1 (1)
+eval-cond-obs-green-0-0 row-1 (1)
+do-goto-0-0-2 row-1 (1)
+repeat-right-0-2 v9 v10 row-1 (1)
+eval-cond-equalx-xmax-0-3 row-1 (1)
+dont-goto-0-3-0 row-1 (1)
+repeat-end-0-0-4 row-0 row-1 (1)
+repeat-call-1-2-1 row-0 row-1 (1)
+repeat-left-1-0 v9 v10 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v8 v9 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v7 v8 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v6 v7 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v5 v6 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v4 v5 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v3 v4 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v2 v3 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v1 v2 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+do-goto-1-1-0 row-1 (1)
+repeat-left-1-0 v0 v1 row-1 (1)
+eval-cond-xpos-1-1 v0 row-1 (1)
+dont-goto-1-1-0 row-1 (1)
+repeat-end-1-0-2 row-0 row-1 (1)
+repeat-up-2-2 v9 v10 row-0 (1)
+eval-cond-equaly-ymax-2-3 row-0 (1)
+dont-goto-2-3-0 row-0 (1)
+repeat-end-main-0-4 row-0 (0)
+Plan length: 872 step(s).
+Plan cost: 871
+Initial state h value: 13/25.
+Expanded 872 state(s).
+Reopened 0 state(s).
+Evaluated 873 state(s).
+Evaluations: 1746
+Generated 1182 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 871
+Solution found - keep searching
+Starting search: lazy_greedy(list(hff2, hlm2), preferred = list(hff2, hlm2), reopen_closed = false)
+Conducting lazy best first search, (real) bound = 871
+Switch from bucket-based to heap-based queue at key = 110, num_pushes = 49
+Best heuristic value: 25/49 [g=0, 1 evaluated, 0 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 18/49 [g=1, 2 evaluated, 1 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/49 [g=2, 3 evaluated, 2 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/47 [g=16, 17 evaluated, 16 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/45 [g=21, 22 evaluated, 21 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/43 [g=26, 27 evaluated, 26 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/41 [g=31, 32 evaluated, 31 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/39 [g=36, 37 evaluated, 36 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/37 [g=41, 42 evaluated, 41 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/35 [g=46, 47 evaluated, 46 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 16/33 [g=50, 51 evaluated, 50 expanded, t=0.02s, 3780 KB]
+Best heuristic value: 14/33 [g=82, 83 evaluated, 82 expanded, t=0.03s, 3780 KB]
+Best heuristic value: 14/31 [g=137, 138 evaluated, 137 expanded, t=0.03s, 3780 KB]
+Best heuristic value: 14/29 [g=224, 225 evaluated, 224 expanded, t=0.03s, 3780 KB]
+Best heuristic value: 14/27 [g=311, 312 evaluated, 311 expanded, t=0.03s, 3780 KB]
+Best heuristic value: 14/25 [g=398, 399 evaluated, 398 expanded, t=0.03s, 3780 KB]
+Best heuristic value: 14/23 [g=485, 486 evaluated, 485 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 14/21 [g=572, 573 evaluated, 572 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 14/15 [g=573, 574 evaluated, 573 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 10/15 [g=656, 657 evaluated, 656 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 10/13 [g=659, 660 evaluated, 659 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 6/11 [g=660, 661 evaluated, 660 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 6/9 [g=692, 693 evaluated, 692 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 5/9 [g=696, 697 evaluated, 696 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 5/7 [g=868, 869 evaluated, 868 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 5/5 [g=869, 870 evaluated, 869 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 3/3 [g=870, 871 evaluated, 870 expanded, t=0.04s, 3780 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.02s [t=0.04s]
+Initial state h value: 25/49.
+Expanded 871 state(s).
+Reopened 0 state(s).
+Evaluated 871 state(s).
+Evaluations: 1742
+Generated 1181 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 871
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 5)
+Conducting lazy best first search, (real) bound = 871
+Best heuristic value: 25/49 [g=0, 1 evaluated, 0 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 18/49 [g=1, 2 evaluated, 1 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 16/49 [g=2, 3 evaluated, 2 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 16/47 [g=16, 17 evaluated, 16 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 16/45 [g=21, 22 evaluated, 21 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 16/43 [g=26, 27 evaluated, 26 expanded, t=0.04s, 3780 KB]
+Best heuristic value: 16/41 [g=31, 32 evaluated, 31 expanded, t=0.04s, 3908 KB]
+Best heuristic value: 16/39 [g=36, 37 evaluated, 36 expanded, t=0.05s, 3908 KB]
+Best heuristic value: 16/37 [g=41, 42 evaluated, 41 expanded, t=0.05s, 3908 KB]
+Best heuristic value: 16/35 [g=46, 47 evaluated, 46 expanded, t=0.05s, 3908 KB]
+Best heuristic value: 16/33 [g=50, 51 evaluated, 50 expanded, t=0.05s, 3908 KB]
+Best heuristic value: 14/33 [g=82, 83 evaluated, 82 expanded, t=0.05s, 3908 KB]
+Best heuristic value: 14/31 [g=137, 138 evaluated, 137 expanded, t=0.05s, 3908 KB]
+Best heuristic value: 14/29 [g=224, 225 evaluated, 224 expanded, t=0.05s, 4032 KB]
+Best heuristic value: 14/27 [g=311, 312 evaluated, 311 expanded, t=0.05s, 4032 KB]
+Best heuristic value: 14/25 [g=398, 399 evaluated, 398 expanded, t=0.06s, 4160 KB]
+Best heuristic value: 14/23 [g=485, 486 evaluated, 485 expanded, t=0.06s, 4292 KB]
+Best heuristic value: 14/21 [g=572, 573 evaluated, 572 expanded, t=0.06s, 4292 KB]
+Best heuristic value: 14/15 [g=573, 574 evaluated, 573 expanded, t=0.06s, 4292 KB]
+Best heuristic value: 10/15 [g=656, 657 evaluated, 656 expanded, t=0.06s, 4424 KB]
+Best heuristic value: 10/13 [g=659, 660 evaluated, 659 expanded, t=0.06s, 4424 KB]
+Best heuristic value: 6/11 [g=660, 661 evaluated, 660 expanded, t=0.06s, 4424 KB]
+Best heuristic value: 6/9 [g=692, 693 evaluated, 692 expanded, t=0.06s, 4424 KB]
+Best heuristic value: 5/9 [g=696, 697 evaluated, 696 expanded, t=0.06s, 4424 KB]
+Best heuristic value: 5/7 [g=868, 869 evaluated, 868 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 5/5 [g=869, 870 evaluated, 869 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 3/3 [g=870, 871 evaluated, 870 expanded, t=0.07s, 4556 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.03s [t=0.07s]
+Initial state h value: 25/49.
+Expanded 871 state(s).
+Reopened 0 state(s).
+Evaluated 871 state(s).
+Evaluations: 1742
+Generated 1181 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 871
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 3)
+Conducting lazy best first search, (real) bound = 871
+Best heuristic value: 25/49 [g=0, 1 evaluated, 0 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 18/49 [g=1, 2 evaluated, 1 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/49 [g=2, 3 evaluated, 2 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/47 [g=16, 17 evaluated, 16 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/45 [g=21, 22 evaluated, 21 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/43 [g=26, 27 evaluated, 26 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/41 [g=31, 32 evaluated, 31 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/39 [g=36, 37 evaluated, 36 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/37 [g=41, 42 evaluated, 41 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/35 [g=46, 47 evaluated, 46 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 16/33 [g=50, 51 evaluated, 50 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 14/33 [g=82, 83 evaluated, 82 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 14/31 [g=137, 138 evaluated, 137 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 14/29 [g=224, 225 evaluated, 224 expanded, t=0.07s, 4556 KB]
+Best heuristic value: 14/27 [g=311, 312 evaluated, 311 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 14/25 [g=398, 399 evaluated, 398 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 14/23 [g=485, 486 evaluated, 485 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 14/21 [g=572, 573 evaluated, 572 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 14/15 [g=573, 574 evaluated, 573 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 10/15 [g=656, 657 evaluated, 656 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 10/13 [g=659, 660 evaluated, 659 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 6/11 [g=660, 661 evaluated, 660 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 6/9 [g=692, 693 evaluated, 692 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 5/9 [g=696, 697 evaluated, 696 expanded, t=0.08s, 4556 KB]
+Best heuristic value: 5/7 [g=868, 869 evaluated, 868 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 5/5 [g=869, 870 evaluated, 869 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 3/3 [g=870, 871 evaluated, 870 expanded, t=0.09s, 4556 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.02s [t=0.09s]
+Initial state h value: 25/49.
+Expanded 871 state(s).
+Reopened 0 state(s).
+Evaluated 871 state(s).
+Evaluations: 1742
+Generated 1181 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 871
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 2)
+Conducting lazy best first search, (real) bound = 871
+Best heuristic value: 25/49 [g=0, 1 evaluated, 0 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 18/49 [g=1, 2 evaluated, 1 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/49 [g=2, 3 evaluated, 2 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/47 [g=16, 17 evaluated, 16 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/45 [g=21, 22 evaluated, 21 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/43 [g=26, 27 evaluated, 26 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/41 [g=31, 32 evaluated, 31 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/39 [g=36, 37 evaluated, 36 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/37 [g=41, 42 evaluated, 41 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/35 [g=46, 47 evaluated, 46 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 16/33 [g=50, 51 evaluated, 50 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 14/33 [g=82, 83 evaluated, 82 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 14/31 [g=137, 138 evaluated, 137 expanded, t=0.09s, 4556 KB]
+Best heuristic value: 14/29 [g=224, 225 evaluated, 224 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 14/27 [g=311, 312 evaluated, 311 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 14/25 [g=398, 399 evaluated, 398 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 14/23 [g=485, 486 evaluated, 485 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 14/21 [g=572, 573 evaluated, 572 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 14/15 [g=573, 574 evaluated, 573 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 10/15 [g=656, 657 evaluated, 656 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 10/13 [g=659, 660 evaluated, 659 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 6/11 [g=660, 661 evaluated, 660 expanded, t=0.10s, 4556 KB]
+Best heuristic value: 6/9 [g=692, 693 evaluated, 692 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 5/9 [g=696, 697 evaluated, 696 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 5/7 [g=868, 869 evaluated, 868 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 5/5 [g=869, 870 evaluated, 869 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 3/3 [g=870, 871 evaluated, 870 expanded, t=0.11s, 4556 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.02s [t=0.11s]
+Initial state h value: 25/49.
+Expanded 871 state(s).
+Reopened 0 state(s).
+Evaluated 871 state(s).
+Evaluations: 1742
+Generated 1181 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 871
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+Conducting lazy best first search, (real) bound = 871
+Best heuristic value: 25/49 [g=0, 1 evaluated, 0 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 18/49 [g=1, 2 evaluated, 1 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/49 [g=2, 3 evaluated, 2 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/47 [g=16, 17 evaluated, 16 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/45 [g=21, 22 evaluated, 21 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/43 [g=26, 27 evaluated, 26 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/41 [g=31, 32 evaluated, 31 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/39 [g=36, 37 evaluated, 36 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/37 [g=41, 42 evaluated, 41 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/35 [g=46, 47 evaluated, 46 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 16/33 [g=50, 51 evaluated, 50 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 14/33 [g=82, 83 evaluated, 82 expanded, t=0.11s, 4556 KB]
+Best heuristic value: 14/31 [g=137, 138 evaluated, 137 expanded, t=0.12s, 4556 KB]
+Best heuristic value: 14/29 [g=224, 225 evaluated, 224 expanded, t=0.12s, 4556 KB]
+Best heuristic value: 14/27 [g=311, 312 evaluated, 311 expanded, t=0.12s, 4556 KB]
+Best heuristic value: 14/25 [g=398, 399 evaluated, 398 expanded, t=0.12s, 4556 KB]
+Best heuristic value: 14/23 [g=485, 486 evaluated, 485 expanded, t=0.12s, 4556 KB]
+Best heuristic value: 14/21 [g=572, 573 evaluated, 572 expanded, t=0.12s, 4556 KB]
+Best heuristic value: 14/15 [g=573, 574 evaluated, 573 expanded, t=0.12s, 4556 KB]
+Best heuristic value: 10/15 [g=656, 657 evaluated, 656 expanded, t=0.13s, 4556 KB]
+Best heuristic value: 10/13 [g=659, 660 evaluated, 659 expanded, t=0.13s, 4556 KB]
+Best heuristic value: 6/11 [g=660, 661 evaluated, 660 expanded, t=0.13s, 4556 KB]
+Best heuristic value: 6/9 [g=692, 693 evaluated, 692 expanded, t=0.13s, 4556 KB]
+Best heuristic value: 5/9 [g=696, 697 evaluated, 696 expanded, t=0.13s, 4556 KB]
+Best heuristic value: 5/7 [g=868, 869 evaluated, 868 expanded, t=0.13s, 4556 KB]
+Best heuristic value: 5/5 [g=869, 870 evaluated, 869 expanded, t=0.13s, 4556 KB]
+Best heuristic value: 3/3 [g=870, 871 evaluated, 870 expanded, t=0.13s, 4556 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.02s [t=0.13s]
+Initial state h value: 25/49.
+Expanded 871 state(s).
+Reopened 0 state(s).
+Evaluated 871 state(s).
+Evaluations: 1742
+Generated 1181 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 871
+No solution found - keep searching
+Actual search time: 0.13s [t=0.13s]
+Cumulative statistics:
+Expanded 5227 state(s).
+Reopened 0 state(s).
+Evaluated 5228 state(s).
+Evaluations: 10456
+Generated 7087 state(s).
+Dead ends: 0 state(s).
+Search time: 0.13s
+Total time: 0.13s
+Solution found.
+Peak memory: 4556 KB

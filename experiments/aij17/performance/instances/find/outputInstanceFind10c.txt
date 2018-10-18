@@ -1,0 +1,613 @@
+INFO     Running translator.
+INFO     translator inputs: ['domain.pddl', 'ins.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.140s CPU, 0.140s wall-clock]
+Normalizing task... [0.010s CPU, 0.012s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.011s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.090s CPU, 0.089s wall-clock]
+Preparing model... [0.060s CPU, 0.054s wall-clock]
+Generated 2417 rules.
+Computing model... [0.110s CPU, 0.107s wall-clock]
+2295 relevant atoms
+3284 auxiliary atoms
+5579 final queue length
+21242 total queue pushes
+Completing instantiation... [0.320s CPU, 0.318s wall-clock]
+Instantiating: [0.590s CPU, 0.583s wall-clock]
+Computing fact groups...
+Finding invariants...
+143 initial candidates
+Finding invariants: [2.610s CPU, 2.611s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.000s wall-clock]
+Choosing groups...
+526 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.004s wall-clock]
+Computing fact groups: [2.630s CPU, 2.625s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.012s wall-clock]
+Translating task: [5.330s CPU, 5.330s wall-clock]
+2940 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+10 propositions removed
+Detecting unreachable propositions: [1.500s CPU, 1.504s wall-clock]
+Translator variables: 528
+Translator derived variables: 0
+Translator facts: 1068
+Translator goal facts: 1
+Translator mutex groups: 65
+Translator total mutex groups size: 166
+Translator operators: 1712
+Translator axioms: 0
+Translator task size: 721430
+Translator peak memory: 84528 KB
+Writing output... [0.860s CPU, 0.856s wall-clock]
+Done! [11.090s CPU, 11.084s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+522 variables of 528 necessary
+47 of 65 mutex groups necessary.
+1712 of 1712 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 1056
+Preprocessor derived variables: 0
+Preprocessor task size: 720528
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/PhD/planning-programs/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=15.67s]
+building causal graph...done! [t=29.66s]
+packing state variables...done! [t=29.66s]
+Variables: 522
+Facts: 1056
+Bytes per state: 68
+done initalizing global data [t=29.66s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 12 reasonable or obedient reasonable orders
+Landmarks generation time: 0.30s
+Discovered 25 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+97 edges
+Landmark graph: 
+LM 6 NegatedAtom done-programming() (var444(521)->1) Achievers (0, 0)
+		->_gn  LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		<-_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_gn  LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		<-_gn  LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_gn  LM 6 NegatedAtom done-programming() (var444(521)->1) Achievers (0, 0)
+		<-_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		<-_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+
+LM 24 NegatedAtom assignment(a, v4) (var5(503)->1) Achievers (40, 4)
+		->_gn  LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+
+LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 24 NegatedAtom assignment(a, v4) (var5(503)->1) Achievers (40, 4)
+		->_gn  LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+
+LM 22 NegatedAtom assignment(a, v3) (var4(502)->1) Achievers (40, 4)
+		->_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+
+LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		<-_gn  LM 22 NegatedAtom assignment(a, v3) (var4(502)->1) Achievers (40, 4)
+		->_gn  LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_gn  LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_gn  LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_gn  LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+
+LM 7 NegatedAtom assignment(a, v2) (var3(495)->1) Achievers (40, 8)
+		->_gn  LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+
+LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		<-_r   LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_r   LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_r   LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		<-_r   LM 17 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		<-_r   LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_r   LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 7 NegatedAtom assignment(a, v2) (var3(495)->1) Achievers (40, 8)
+		->_gn  LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_gn  LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_gn  LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 17 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		->_r   LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		->_r   LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_gn  LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+
+LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		<-_r   LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 17 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		->_gn  LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_gn  LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 23 NegatedAtom assignment(c, v2) (var15(439)->1) Achievers (40, 8)
+		->_gn  LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+
+LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+		<-_gn  LM 23 NegatedAtom assignment(c, v2) (var15(439)->1) Achievers (40, 8)
+		->_gn  LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_gn  LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+
+LM 8 NegatedAtom assignment(c, v1) (var14(438)->1) Achievers (40, 8)
+		->_gn  LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+
+LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_r   LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_r   LM 17 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		<-_r   LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		<-_gn  LM 8 NegatedAtom assignment(c, v1) (var14(438)->1) Achievers (40, 8)
+		->_gn  LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_gn  LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_gn  LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		->_gn  LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		<-_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_gn  LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_gn  LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		<-_gn  LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		<-_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_gn  LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		<-_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_gn  LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		<-_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_gn  LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_gn  LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		<-_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_gn  LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_gn  LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+		<-_gn  LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_gn  LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		<-_gn  LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_r   LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_gn  LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_gn  LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+		<-_gn  LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_r   LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_gn  LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		->_nat LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_nat LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_gn  LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		->_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_gn  LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_r   LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+
+LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		->_gn  LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_nat LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 4 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_r   LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		->_r   LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+
+LM 9 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		->_nat LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 15 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 12 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_gn  LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		->_nat LM 13 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_nat LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 11 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_nat LM 5 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_r   LM 3 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		->_r   LM 2 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_r   LM 0 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_gn  LM 16 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_gn  LM 14 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_gn  LM 10 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		->_gn  LM 1 Atom test-8() (var491(437)->8) Achievers (4, 4)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+9 initial landmarks, 1 goal landmarks
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+Switch from bucket-based to heap-based queue at key = 1002, num_pushes = 522
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 8 reasonable or obedient reasonable orders
+Landmarks generation time: 0.28s
+Discovered 25 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+96 edges
+Landmark graph: 
+LM 3 NegatedAtom done-programming() (var444(521)->1) Achievers (0, 0)
+		->_gn  LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_gn  LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		<-_gn  LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		<-_gn  LM 3 NegatedAtom done-programming() (var444(521)->1) Achievers (0, 0)
+		<-_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+
+LM 24 NegatedAtom assignment(a, v4) (var5(503)->1) Achievers (40, 4)
+		->_gn  LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+
+LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 24 NegatedAtom assignment(a, v4) (var5(503)->1) Achievers (40, 4)
+		->_gn  LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+
+LM 22 NegatedAtom assignment(a, v3) (var4(502)->1) Achievers (40, 4)
+		->_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+
+LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		<-_gn  LM 22 NegatedAtom assignment(a, v3) (var4(502)->1) Achievers (40, 4)
+		->_gn  LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_gn  LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_gn  LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_gn  LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+
+LM 7 NegatedAtom assignment(a, v2) (var3(495)->1) Achievers (40, 8)
+		->_gn  LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+
+LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		<-_r   LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_r   LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_r   LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_r   LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		<-_r   LM 5 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		<-_r   LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_gn  LM 7 NegatedAtom assignment(a, v2) (var3(495)->1) Achievers (40, 8)
+		->_gn  LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_gn  LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_gn  LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 5 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		->_r   LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		->_r   LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_gn  LM 8 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+
+LM 8 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 5 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		->_gn  LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_gn  LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 23 NegatedAtom assignment(c, v2) (var15(439)->1) Achievers (40, 8)
+		->_gn  LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+
+LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+		<-_gn  LM 23 NegatedAtom assignment(c, v2) (var15(439)->1) Achievers (40, 8)
+		->_gn  LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_gn  LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+
+LM 4 NegatedAtom assignment(c, v1) (var14(438)->1) Achievers (40, 8)
+		->_gn  LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+
+LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_r   LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_r   LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		<-_r   LM 5 NegatedAtom assignment(a, v5) (var6(462)->1) Achievers (36, 4)
+		<-_gn  LM 4 NegatedAtom assignment(c, v1) (var14(438)->1) Achievers (40, 8)
+		->_gn  LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_gn  LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_gn  LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		->_gn  LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		<-_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_gn  LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_gn  LM 8 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		<-_gn  LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		<-_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_gn  LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+
+LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		<-_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_gn  LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		<-_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_gn  LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_gn  LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		<-_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+		<-_gn  LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_gn  LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		<-_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_r   LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_gn  LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		<-_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 20 Atom assignment(c, v2) (var15(439)->0) Achievers (4, 4)
+		<-_gn  LM 8 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_r   LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_gn  LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		<-_nat LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_gn  LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		->_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_gn  LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 8 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_nat LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		<-_nat LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		->_gn  LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 8 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_r   LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+
+LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		<-_gn  LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		<-_gn  LM 19 Atom assignment(a, v3) (var4(502)->0) Achievers (4, 4)
+		<-_gn  LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+		->_nat LM 6 Atom done-programming() (var444(521)->0)(goal) Achievers (4, 4)
+		->_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_nat LM 21 Atom assignment(a, v4) (var5(503)->0) Achievers (4, 4)
+		->_gn  LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 8 Atom assignment(a, v5) (var6(462)->0) Achievers (4, 4)
+		->_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_r   LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		->_r   LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+
+LM 10 Atom test-0() (var491(437)->0) Achievers (0, 0)
+		->_nat LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_nat LM 16 Atom test-6() (var491(437)->6) Achievers (4, 4)
+		->_nat LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_nat LM 14 Atom test-4() (var491(437)->4) Achievers (4, 4)
+		->_nat LM 12 Atom test-2() (var491(437)->2) Achievers (4, 4)
+		->_gn  LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		->_nat LM 13 Atom test-3() (var491(437)->3) Achievers (4, 4)
+		->_nat LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+		->_nat LM 2 Atom test-9() (var491(437)->9) Achievers (4, 4)
+
+LM 18 Atom assignment(c, v0) (var13(436)->0) Achievers (20, 4)
+		->_r   LM 1 Atom assignment(c, v1) (var14(438)->0) Achievers (4, 4)
+		->_gn  LM 17 Atom test-7() (var491(437)->7) Achievers (4, 4)
+		->_gn  LM 15 Atom test-5() (var491(437)->5) Achievers (4, 4)
+		->_r   LM 0 Atom assignment(a, v2) (var3(495)->0) Achievers (4, 4)
+		->_gn  LM 11 Atom test-1() (var491(437)->1) Achievers (4, 4)
+		->_gn  LM 9 Atom test-8() (var491(437)->8) Achievers (4, 4)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+9 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 16/17 [g=0, 1 evaluated, 0 expanded, t=30.33s, 43756 KB]
+Best heuristic value: 16/14 [g=1, 2 evaluated, 1 expanded, t=30.34s, 43756 KB]
+Best heuristic value: 15/14 [g=6, 16 evaluated, 11 expanded, t=30.40s, 43756 KB]
+Best heuristic value: 15/13 [g=7, 17 evaluated, 12 expanded, t=30.40s, 43756 KB]
+Switch from bucket-based to heap-based queue at key = 1051, num_pushes = 833
+Best heuristic value: 14/13 [g=23, 2630 evaluated, 1011 expanded, t=38.99s, 45080 KB]
+Best heuristic value: 14/11 [g=28, 3206 evaluated, 1420 expanded, t=41.19s, 45344 KB]
+Best heuristic value: 13/11 [g=37, 3217 evaluated, 1429 expanded, t=41.22s, 45344 KB]
+Best heuristic value: 13/10 [g=41, 4796 evaluated, 2207 expanded, t=46.63s, 46276 KB]
+Best heuristic value: 12/10 [g=50, 4805 evaluated, 2216 expanded, t=46.66s, 46276 KB]

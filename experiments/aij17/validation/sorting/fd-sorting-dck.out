@@ -1,0 +1,39 @@
+INFO     Running translator.
+INFO     translator inputs: ['experiments/aij17/validation/sorting/domain_dck.pddl', 'experiments/aij17/validation/sorting/ins_dck.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.060s CPU, 0.071s wall-clock]
+Normalizing task... [0.000s CPU, 0.004s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.006s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.060s CPU, 0.057s wall-clock]
+Preparing model... [0.030s CPU, 0.028s wall-clock]
+Generated 1557 rules.
+Computing model... [0.650s CPU, 0.657s wall-clock]
+26504 relevant atoms
+9614 auxiliary atoms
+36118 final queue length
+150992 total queue pushes
+Completing instantiation... [11.300s CPU, 11.288s wall-clock]
+Instantiating: [12.050s CPU, 12.046s wall-clock]
+Computing fact groups...
+Finding invariants...
+37 initial candidates
+Finding invariants: [0.070s CPU, 0.069s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+239 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.070s CPU, 0.073s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.270s CPU, 0.262s wall-clock]

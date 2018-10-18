@@ -1,0 +1,86 @@
+Domain: domain.pddl Problem: ins.pddl
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.019s wall-clock]
+Preparing model... [0.010s CPU, 0.013s wall-clock]
+Generated 553 rules.
+Computing model... [0.020s CPU, 0.020s wall-clock]
+362 relevant atoms
+619 auxiliary atoms
+981 final queue length
+2304 total queue pushes
+Completing instantiation... [0.090s CPU, 0.086s wall-clock]
+goal relaxed reachable: True
+155 atoms
+Computing fact groups...
+Finding invariants...
+81 initial candidates
+Finding invariants: [0.020s CPU, 0.026s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+82 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.020s CPU, 0.030s wall-clock]
+Deterministic 171 actions
+3 negated fluents created
+Invariants 111
+
+ Match tree built with 171 nodes.
+
+PDDL problem description loaded: 
+	Domain: summatory
+	Problem: p0-09092015121315
+	#Actions: 171
+	#Fluents: 158
+Goals found: 1
+Goals_Edges found: 1
+Starting search with BFWS-f5-landmarks...
+--[32 / 0]--
+--[32 / 1]--
+--[31 / 0]--
+--[31 / 1]--
+--[29 / 0]--
+--[29 / 2]--
+--[27 / 0]--
+--[27 / 2]--
+--[27 / 5]--
+--[26 / 0]--
+--[24 / 0]--
+--[24 / 1]--
+--[24 / 32]--
+--[23 / 0]--
+--[22 / 0]--
+--[21 / 0]--
+--[21 / 1]--
+--[21 / 2]--
+--[21 / 32]--
+--[19 / 0]--
+--[19 / 1]--
+--[19 / 2]--
+--[17 / 0]--
+--[17 / 1]--
+--[17 / 2]--
+--[17 / 5]--
+--[17 / 32]--
+--[17 / 34]--
+--[17 / 35]--
+--[17 / 37]--
+--[17 / 40]--
+--[15 / 0]--
+--[15 / 2]--
+--[14 / 0]--
+--[11 / 0]--
+--[9 / 0]--
+--[9 / 2]--
+--[9 / 10]--
+--[8 / 0]--
+--[5 / 0]--
+--[0 / 0]--
+Total time: 0.348
+Nodes generated during search: 17660
+Nodes expanded during search: 9272
+Plan found with cost: 57
+Fast-BFS search completed in 0.348 secs

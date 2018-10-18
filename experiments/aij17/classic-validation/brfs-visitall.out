@@ -1,0 +1,44 @@
+Domain: domains/variables-output/domain.pddl Problem: domains/variables-output/visitall/visitall30x30.pddl
+Parsing...
+Parsing: [0.020s CPU, 0.015s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.003s wall-clock]
+Preparing model... [0.010s CPU, 0.010s wall-clock]
+Generated 32 rules.
+Computing model... [0.020s CPU, 0.025s wall-clock]
+1234 relevant atoms
+494 auxiliary atoms
+1728 final queue length
+5448 total queue pushes
+Completing instantiation... [0.090s CPU, 0.093s wall-clock]
+goal relaxed reachable: True
+1029 atoms
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+1029 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.006s wall-clock]
+Computing fact groups: [0.020s CPU, 0.021s wall-clock]
+Axioms 64
+Deterministic 5 actions
+0 negated fluents created
+Invariants 1029
+
+ Match tree built with 5 nodes.
+
+PDDL problem description loaded: 
+	Domain: variables-output
+	Problem: p30x30a-26092016122256
+	#Actions: 5
+	#Fluents: 1029
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17]

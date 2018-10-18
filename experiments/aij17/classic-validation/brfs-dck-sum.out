@@ -1,0 +1,73 @@
+Domain: domains/variables/domain_dck.pddl Problem: domains/variables/sumatory/sumatory120.pddl
+Parsing...
+Parsing: [0.060s CPU, 0.056s wall-clock]
+Generating Datalog program... [0.010s CPU, 0.013s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.002s wall-clock]
+Preparing model... [0.090s CPU, 0.098s wall-clock]
+Generated 53 rules.
+Computing model... [0.510s CPU, 0.507s wall-clock]
+15860 relevant atoms
+32420 auxiliary atoms
+48280 final queue length
+55901 total queue pushes
+Completing instantiation... [0.300s CPU, 0.297s wall-clock]
+goal relaxed reachable: True
+242 atoms
+Computing fact groups...
+Finding invariants...
+3 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.003s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+242 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.000s CPU, 0.008s wall-clock]
+Axioms 0
+Deterministic 7861 actions
+0 negated fluents created
+Invariants 242
+
+ Match tree built with 7861 nodes.
+
+PDDL problem description loaded: 
+	Domain: variables
+	Problem: sumatory120
+	#Actions: 7861
+	#Fluents: 242
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24]Plan found with cost: 23
+1. (add-a-b v0 v15 v15)
+2. (add-a-b v15 v15 v30)
+3. (add-a-b v30 v15 v45)
+4. (add-a-b v45 v15 v60)
+5. (add-a-b v60 v15 v75)
+6. (add-a-b v75 v15 v90)
+7. (add-a-b v90 v15 v105)
+8. (add-a-b v105 v15 v120)
+9. (dec-b v14 v15)
+10. (dec-b v13 v14)
+11. (dec-b v12 v13)
+12. (dec-b v11 v12)
+13. (dec-b v10 v11)
+14. (dec-b v9 v10)
+15. (dec-b v8 v9)
+16. (dec-b v7 v8)
+17. (dec-b v6 v7)
+18. (dec-b v5 v6)
+19. (dec-b v4 v5)
+20. (dec-b v3 v4)
+21. (dec-b v2 v3)
+22. (dec-b v1 v2)
+23. (dec-b v0 v1)
+Time: 0.0239999
+Generated: 4509
+Expanded: 4353
+Total time: 0.024
+Nodes generated during search: 4510
+Nodes expanded during search: 4353
+BRFS search completed in 0.024 secs, check 'bfs_f.log' for details

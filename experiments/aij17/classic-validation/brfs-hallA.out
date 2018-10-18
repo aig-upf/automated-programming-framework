@@ -1,0 +1,44 @@
+Domain: domains/variables-output/domain.pddl Problem: domains/variables-output/hallA/hallA100x100.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.022s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.010s CPU, 0.003s wall-clock]
+Generated 32 rules.
+Computing model... [0.150s CPU, 0.156s wall-clock]
+10825 relevant atoms
+1598 auxiliary atoms
+12423 final queue length
+52023 total queue pushes
+Completing instantiation... [1.020s CPU, 1.024s wall-clock]
+goal relaxed reachable: True
+10206 atoms
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.005s wall-clock]
+Choosing groups...
+10206 uncovered facts
+Choosing groups: [0.010s CPU, 0.004s wall-clock]
+Building translation key... [0.070s CPU, 0.068s wall-clock]
+Computing fact groups: [0.290s CPU, 0.274s wall-clock]
+Axioms 202
+Deterministic 5 actions
+0 negated fluents created
+Invariants 10206
+
+ Match tree built with 5 nodes.
+
+PDDL problem description loaded: 
+	Domain: variables-output
+	Problem: p100x100
+	#Actions: 5
+	#Fluents: 10206
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13]

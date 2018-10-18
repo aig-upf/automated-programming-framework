@@ -1,0 +1,131 @@
+Domain: experiments/aij17/validation/reverse/domain.pddl Problem: experiments/aij17/validation/reverse/ins.pddl
+Parsing...
+Parsing: [0.040s CPU, 0.040s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.003s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.030s CPU, 0.027s wall-clock]
+Preparing model... [0.020s CPU, 0.020s wall-clock]
+Generated 857 rules.
+Computing model... [0.450s CPU, 0.455s wall-clock]
+1024 relevant atoms
+3858 auxiliary atoms
+4882 final queue length
+258302 total queue pushes
+Completing instantiation... [2.260s CPU, 2.266s wall-clock]
+goal relaxed reachable: True
+403 atoms
+Computing fact groups...
+Finding invariants...
+30 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.007s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+403 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.002s wall-clock]
+Computing fact groups: [0.010s CPU, 0.014s wall-clock]
+Axioms 0
+Deterministic 7 actions
+1 negated fluents created
+Invariants 403
+
+ Match tree built with 7 nodes.
+
+PDDL problem description loaded: 
+	Domain: pointers
+	Problem: reverse30
+	#Actions: 7
+	#Fluents: 404
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59][60][61][62][63][64][65][66][67][68][69][70][71][72][73][74][75][76][77][78][79][80][81][82]Plan found with cost: 80.001
+1. (repeat-swap-a-b-0-0 row-0)
+2. (repeat-inc-pointer-a-0-1 row-0)
+3. (repeat-dec-pointer-b-0-2 row-0)
+4. (eval-cond-lessthan-b-a-0-3 row-0)
+5. (do-goto-0-3-0 row-0)
+6. (repeat-swap-a-b-0-0 row-0)
+7. (repeat-inc-pointer-a-0-1 row-0)
+8. (repeat-dec-pointer-b-0-2 row-0)
+9. (eval-cond-lessthan-b-a-0-3 row-0)
+10. (do-goto-0-3-0 row-0)
+11. (repeat-swap-a-b-0-0 row-0)
+12. (repeat-inc-pointer-a-0-1 row-0)
+13. (repeat-dec-pointer-b-0-2 row-0)
+14. (eval-cond-lessthan-b-a-0-3 row-0)
+15. (do-goto-0-3-0 row-0)
+16. (repeat-swap-a-b-0-0 row-0)
+17. (repeat-inc-pointer-a-0-1 row-0)
+18. (repeat-dec-pointer-b-0-2 row-0)
+19. (eval-cond-lessthan-b-a-0-3 row-0)
+20. (do-goto-0-3-0 row-0)
+21. (repeat-swap-a-b-0-0 row-0)
+22. (repeat-inc-pointer-a-0-1 row-0)
+23. (repeat-dec-pointer-b-0-2 row-0)
+24. (eval-cond-lessthan-b-a-0-3 row-0)
+25. (do-goto-0-3-0 row-0)
+26. (repeat-swap-a-b-0-0 row-0)
+27. (repeat-inc-pointer-a-0-1 row-0)
+28. (repeat-dec-pointer-b-0-2 row-0)
+29. (eval-cond-lessthan-b-a-0-3 row-0)
+30. (do-goto-0-3-0 row-0)
+31. (repeat-swap-a-b-0-0 row-0)
+32. (repeat-inc-pointer-a-0-1 row-0)
+33. (repeat-dec-pointer-b-0-2 row-0)
+34. (eval-cond-lessthan-b-a-0-3 row-0)
+35. (do-goto-0-3-0 row-0)
+36. (repeat-swap-a-b-0-0 row-0)
+37. (repeat-inc-pointer-a-0-1 row-0)
+38. (repeat-dec-pointer-b-0-2 row-0)
+39. (eval-cond-lessthan-b-a-0-3 row-0)
+40. (do-goto-0-3-0 row-0)
+41. (repeat-swap-a-b-0-0 row-0)
+42. (repeat-inc-pointer-a-0-1 row-0)
+43. (repeat-dec-pointer-b-0-2 row-0)
+44. (eval-cond-lessthan-b-a-0-3 row-0)
+45. (do-goto-0-3-0 row-0)
+46. (repeat-swap-a-b-0-0 row-0)
+47. (repeat-inc-pointer-a-0-1 row-0)
+48. (repeat-dec-pointer-b-0-2 row-0)
+49. (eval-cond-lessthan-b-a-0-3 row-0)
+50. (do-goto-0-3-0 row-0)
+51. (repeat-swap-a-b-0-0 row-0)
+52. (repeat-inc-pointer-a-0-1 row-0)
+53. (repeat-dec-pointer-b-0-2 row-0)
+54. (eval-cond-lessthan-b-a-0-3 row-0)
+55. (do-goto-0-3-0 row-0)
+56. (repeat-swap-a-b-0-0 row-0)
+57. (repeat-inc-pointer-a-0-1 row-0)
+58. (repeat-dec-pointer-b-0-2 row-0)
+59. (eval-cond-lessthan-b-a-0-3 row-0)
+60. (do-goto-0-3-0 row-0)
+61. (repeat-swap-a-b-0-0 row-0)
+62. (repeat-inc-pointer-a-0-1 row-0)
+63. (repeat-dec-pointer-b-0-2 row-0)
+64. (eval-cond-lessthan-b-a-0-3 row-0)
+65. (do-goto-0-3-0 row-0)
+66. (repeat-swap-a-b-0-0 row-0)
+67. (repeat-inc-pointer-a-0-1 row-0)
+68. (repeat-dec-pointer-b-0-2 row-0)
+69. (eval-cond-lessthan-b-a-0-3 row-0)
+70. (do-goto-0-3-0 row-0)
+71. (repeat-swap-a-b-0-0 row-0)
+72. (repeat-inc-pointer-a-0-1 row-0)
+73. (repeat-dec-pointer-b-0-2 row-0)
+74. (eval-cond-lessthan-b-a-0-3 row-0)
+75. (do-goto-0-3-0 row-0)
+76. (repeat-swap-a-b-0-0 row-0)
+77. (repeat-inc-pointer-a-0-1 row-0)
+78. (repeat-dec-pointer-b-0-2 row-0)
+79. (eval-cond-lessthan-b-a-0-3 row-0)
+80. (dont-goto-0-3-0 row-0)
+81. (repeat-end-main-0-4 row-0)
+Time: 0.00399995
+Generated: 97
+Expanded: 97
+Total time: 0.00399998
+Nodes generated during search: 98
+Nodes expanded during search: 97
+BRFS search completed in 0.00399998 secs, check 'bfs_f.log' for details

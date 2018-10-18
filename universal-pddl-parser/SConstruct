@@ -1,72 +1,60 @@
-import os, glob, sys
+import os
+import glob
+import sys
+
+def which(program):
+	""" Helper function emulating unix 'which' command """
+	for path in os.environ["PATH"].split(os.pathsep):
+		path = path.strip('"')
+		exe_file = os.path.join(path, program)
+		if os.path.isfile(exe_file) and os.access(exe_file, os.X_OK):
+			return exe_file
+	return None
 
 pkgpath = os.environ.get( "PKG_CONFIG_PATH", "" )
 os.environ["PKG_CONFIG_PATH"] = pkgpath
 
-paths = [
-	"./",
-	"testenv/",
-	"tests/",
-]
+src_path = "./parser"
 
-mains = [
-	"./Domain.cpp",
-	"examples/compileSHE.cpp",
-	"examples/serialize.cpp",
-	"testenv/TestsRunner.cpp",
-]
+# Read the preferred compiler from the environment - if none specified, choose CLANG if possible
+#default_compiler = 'clang++' if which("clang++") else 'g++'
+default_compiler = 'g++'
+gcc = os.environ.get('CXX', default_compiler)
 
-sources = []
-for path in paths :
-	sources += [
-		item
-		for item in glob.glob( path + "*.cpp" )
-		if item not in mains
-	]
 
-env = Environment( tools=["default"] )
+base = Environment(tools=["default"], CXX=gcc)
 
-def print_cmd_line( commandline, target, source, env ) :
-	sys.stdout.write( "\033[33m%s\033[0m\n"%commandline )
-	sys.stdout.flush()
-env['PRINT_CMD_LINE_FUNC'] = print_cmd_line
+include_paths = ['.']
 
-env.AppendUnique(
-	CPPPATH=paths,
+base.AppendUnique(
+	CPPPATH = [ os.path.abspath(p) for p in include_paths ],
 	CXXFLAGS=[
 		"-Wall",
 		"-pedantic",
-		"-g",
-		"-Wno-long-long",
+		"-std=c++11",
+		"-g"
 	]
 )
 
-domain = env.Program( "Domain",
-	sources + ["./Domain.cpp"]
-)
 
-TPSHE = env.Program( "examples/compileSHE",
-	sources + ["examples/compileSHE.cpp"]
-)
+extra = base.Clone()
+extra.Append(LIBS=[File(os.path.abspath('./lib/libparser.a'))])
 
-serialize = env.Program( "examples/serialize",
-	sources + ["examples/serialize.cpp"]
-)
+# Register the different examples
+SConscript('tests/SConscript', exports='extra')
+SConscript('examples/parser/SConscript', exports='extra')
 
-alltests = env.Program( "AllTests",
-	sources + ["testenv/TestsRunner.cpp"]
-)
+# The compilation of the (static & dynamic) library
+build_dirname = 'build'
+base.VariantDir(build_dirname, '.')
 
-runtest = env.Command( "AllTests.passed", alltests, "valgrind -q --leak-check=yes ./AllTests" )
+sources = glob.glob( src_path + "/*.cpp" )
+build_files = [build_dirname + '/' + src for src in sources]
 
-env.Default( domain )
-env.AlwaysBuild( domain )
+shared_lib = base.SharedLibrary('lib/parser', build_files)
+static_lib = base.Library('lib/parser', build_files)
 
-env.Depends( TPSHE, domain )
-env.Alias( 'TPSHE', TPSHE )
+# Build both static and dynamic library
+base.Default([static_lib, shared_lib])
+base.AlwaysBuild([static_lib, shared_lib])
 
-env.Depends( serialize, domain )
-env.Alias( 'serial', serialize )
-
-env.Depends( runtest, domain )
-env.Alias( 'tests', runtest )

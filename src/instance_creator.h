@@ -2,17 +2,17 @@
 
 class InstanceCreator{
 	private:
-	Domain *od;
-	Domain *cd;
+	parser::pddl::Domain *od;
+	parser::pddl::Domain *cd;
 	Actions *actions;
 
 	public:
 	InstanceCreator( ){}
 
-	static void copyInitialState( Domain *d, Instance *oins, Instance *cins ){
+	static void copyInitialState( parser::pddl::Domain *d, parser::pddl::Instance *oins, parser::pddl::Instance *cins ){
 		for( unsigned i = 0; i < oins->init.size(); i++ ){
-			Ground *g = oins->init[ i ];
-			Type *t = d->getType( g->name );
+			parser::pddl::Ground *g = oins->init[ i ];
+			parser::pddl::Type *t = d->getType( g->name );
 			int predicate_idx = d->preds.index( t->name );
 			if( predicate_idx >= 0 ){
 				StringVec parameters = d->objectList( g );
@@ -34,9 +34,9 @@ class InstanceCreator{
 		}
 	}
 	
-	static Instance* create( Domain *od, Domain *cd, Instance *oins, const StringVec& rows, const StringVec& empty_lines, unsigned procedures, bool to_program = true, bool instance_metric = true, const StringVec& slots = StringVec(), unsigned noclasses = 0 ){
+	static parser::pddl::Instance* create( parser::pddl::Domain *od, parser::pddl::Domain *cd, parser::pddl::Instance *oins, const StringVec& rows, const StringVec& empty_lines, unsigned procedures, bool to_program = true, bool instance_metric = true, const StringVec& slots = StringVec(), unsigned noclasses = 0 ){
 
-		Instance *cins = new Instance( *cd );
+		parser::pddl::Instance *cins = new parser::pddl::Instance( *cd );
 		cins->name = oins->name;
 		cins->metric = instance_metric;
 
@@ -110,11 +110,11 @@ class InstanceCreator{
 			cins->addInit( "CURRENT-SLOT", StringVec( 1, slots[ 0 ] ) );
 		}
 
-		if( compiler_type == "NEG" ){
-			cins->addInit( "STORE-AVAILABLE", StringVec() );
+		if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
+			//cins->addInit( "STORE-AVAILABLE", StringVec() );
 			// We allow to SKIP on tests, and check false positives and negatives
 			if( !to_program ){
-				cins->addInit( "TO-SKIP", StringVec() );
+				cins->addInit( "NEGEX", StringVec() );
 			}
 		}
 
@@ -124,8 +124,8 @@ class InstanceCreator{
 		return cins;
 	}
 
-	static Instance* createFSCInstance(Domain *od, Domain *cd, Instance *oins, unsigned procedures, const StringVec& constant_states, const StringVec& rows, unsigned nstates, bool to_program = true, bool instance_metric = true ){
-		Instance *cins = new Instance( *cd );
+	static parser::pddl::Instance* createFSCInstance( parser::pddl::Domain *od, parser::pddl::Domain *cd, parser::pddl::Instance *oins, unsigned procedures, const StringVec& constant_states, const StringVec& rows, unsigned nstates, bool to_program = true, bool instance_metric = true ){
+		parser::pddl::Instance *cins = new parser::pddl::Instance( *cd );
 		cins->name = oins->name;
 		cins->metric = instance_metric;
 		
@@ -179,9 +179,9 @@ class InstanceCreator{
 		return cins;
 	}
 
-	static Instance* createCFGInstance( Domain *od, Domain *cd, Instance *oins, const StringVec& rows, const StringVec& empty_lines, bool to_program = true, bool instance_metric = true, const StringVec& select_programs = StringVec(), unsigned bound = 1){
+	static parser::pddl::Instance* createCFGInstance( parser::pddl::Domain *od, parser::pddl::Domain *cd, parser::pddl::Instance *oins, const StringVec& rows, const StringVec& empty_lines, bool to_program = true, bool instance_metric = true, const StringVec& select_programs = StringVec(), unsigned bound = 1){
 
-		Instance *cins = new Instance( *cd );
+		parser::pddl::Instance *cins = new parser::pddl::Instance( *cd );
 		cins->name = oins->name;
 		cins->metric = instance_metric;
 

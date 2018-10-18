@@ -1,0 +1,576 @@
+INFO     Running translator.
+INFO     translator inputs: ['domains/variables-output/domain.pddl', 'domains/variables-output/hallA/hallA100x100.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.000s CPU, 0.003s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.003s wall-clock]
+Generated 32 rules.
+Computing model... [0.150s CPU, 0.154s wall-clock]
+10825 relevant atoms
+1598 auxiliary atoms
+12423 final queue length
+52023 total queue pushes
+Completing instantiation... [1.000s CPU, 1.007s wall-clock]
+Instantiating: [1.170s CPU, 1.168s wall-clock]
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Finding invariants: [0.010s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.003s wall-clock]
+Choosing groups...
+10206 uncovered facts
+Choosing groups: [0.000s CPU, 0.003s wall-clock]
+Building translation key... [0.060s CPU, 0.065s wall-clock]
+Computing fact groups: [0.250s CPU, 0.253s wall-clock]
+Building STRIPS to SAS dictionary... [0.020s CPU, 0.015s wall-clock]
+Building dictionary for full mutex groups... [0.010s CPU, 0.014s wall-clock]
+Building mutex information...
+Building mutex information: [0.040s CPU, 0.040s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.012s wall-clock]
+Translating task: [0.310s CPU, 0.308s wall-clock]
+396 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+12 propositions removed
+Detecting unreachable propositions: [0.180s CPU, 0.186s wall-clock]
+Translator variables: 10200
+Translator derived variables: 0
+Translator facts: 20400
+Translator goal facts: 4
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 5
+Translator axioms: 0
+Translator task size: 62189
+Translator peak memory: 41868 KB
+Writing output... [0.100s CPU, 0.098s wall-clock]
+Done! [2.100s CPU, 2.101s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+204 variables of 10200 necessary
+0 of 0 mutex groups necessary.
+5 of 5 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 408
+Preprocessor derived variables: 0
+Preprocessor task size: 2213
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=0.00s]
+building causal graph...done! [t=0.02s]
+packing state variables...done! [t=0.02s]
+Variables: 204
+Facts: 408
+Bytes per state: 28
+done initalizing global data [t=0.02s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00s
+Discovered 8 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+4 edges
+Landmark graph: 
+LM 5 NegatedAtom output-two(v99, v0) (var10100(203)->1) Achievers (0, 0)
+		->_gn  LM 3 Atom output-two(v99, v0) (var10100(203)->0)(goal) Achievers (1, 1)
+
+LM 3 Atom output-two(v99, v0) (var10100(203)->0)(goal) Achievers (1, 1)
+		<-_gn  LM 5 NegatedAtom output-two(v99, v0) (var10100(203)->1) Achievers (0, 0)
+
+LM 7 NegatedAtom output-two(v99, v99) (var10199(202)->1) Achievers (0, 0)
+		->_gn  LM 2 Atom output-two(v99, v99) (var10199(202)->0)(goal) Achievers (1, 1)
+
+LM 2 Atom output-two(v99, v99) (var10199(202)->0)(goal) Achievers (1, 1)
+		<-_gn  LM 7 NegatedAtom output-two(v99, v99) (var10199(202)->1) Achievers (0, 0)
+
+LM 4 NegatedAtom output-two(v0, v0) (var200(201)->1) Achievers (0, 0)
+		->_gn  LM 1 Atom output-two(v0, v0) (var200(201)->0)(goal) Achievers (1, 1)
+
+LM 1 Atom output-two(v0, v0) (var200(201)->0)(goal) Achievers (1, 1)
+		<-_gn  LM 4 NegatedAtom output-two(v0, v0) (var200(201)->1) Achievers (0, 0)
+
+LM 6 NegatedAtom output-two(v0, v99) (var299(200)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom output-two(v0, v99) (var299(200)->0)(goal) Achievers (1, 1)
+
+LM 0 Atom output-two(v0, v99) (var299(200)->0)(goal) Achievers (1, 1)
+		<-_gn  LM 6 NegatedAtom output-two(v0, v99) (var299(200)->1) Achievers (0, 0)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+4 initial landmarks, 4 goal landmarks
+Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 4/5 [g=0, 1 evaluated, 0 expanded, t=0.02s, 5232 KB]
+Best heuristic value: 4/4 [g=49, 4852 evaluated, 4851 expanded, t=0.46s, 5232 KB]
+Best heuristic value: 4/3 [g=98, 5285 evaluated, 5284 expanded, t=0.49s, 5232 KB]
+Best heuristic value: 3/3 [g=99, 5289 evaluated, 5288 expanded, t=0.49s, 5232 KB]
+Best heuristic value: 2/3 [g=199, 7455 evaluated, 7454 expanded, t=0.62s, 5232 KB]
+Best heuristic value: 2/2 [g=298, 7696 evaluated, 7695 expanded, t=0.64s, 5232 KB]
+Best heuristic value: 1/2 [g=299, 7698 evaluated, 7697 expanded, t=0.64s, 5232 KB]
+Best heuristic value: 1/1 [g=398, 7797 evaluated, 7796 expanded, t=0.65s, 5364 KB]
+Solution found!
+Actual search time: 0.63s [t=0.65s]
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+inc-b  (1)
+output-a-b  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+dec-a  (1)
+output-a-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+dec-b  (1)
+output-a-b  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+inc-a  (1)
+output-a-b  (1)
+Plan length: 399 step(s).
+Plan cost: 399
+Initial state h value: 4/5.
+Expanded 7797 state(s).
+Reopened 0 state(s).
+Evaluated 7798 state(s).
+Evaluations: 15596
+Generated 38985 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 399
+Solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+Conducting lazy best first search, (real) bound = 399
+Best heuristic value: 4/5 [g=0, 1 evaluated, 0 expanded, t=0.65s, 5488 KB]
+Best heuristic value: 4/4 [g=49, 4852 evaluated, 4851 expanded, t=1.09s, 5620 KB]
+Best heuristic value: 4/3 [g=98, 10324 evaluated, 10323 expanded, 352 reopened, t=1.60s, 6148 KB]
+Best heuristic value: 3/3 [g=99, 10326 evaluated, 10325 expanded, 353 reopened, t=1.60s, 6148 KB]
+Best heuristic value: 2/3 [g=199, 28340 evaluated, 28339 expanded, 376 reopened, t=3.28s, 8200 KB]
+Best heuristic value: 2/2 [g=298, 78834 evaluated, 78833 expanded, 1088 reopened, t=7.80s, 14676 KB]
+Best heuristic value: 1/2 [g=299, 78836 evaluated, 78835 expanded, 1088 reopened, t=7.80s, 14676 KB]
+Best heuristic value: 1/1 [g=398, 106674 evaluated, 106673 expanded, 1148 reopened, t=10.26s, 18272 KB]
+Completely explored state space -- no solution!
+Actual search time: 14.18s [t=14.83s]
+Initial state h value: 4/5.
+Expanded 150750 state(s).
+Reopened 1148 state(s).
+Evaluated 150750 state(s).
+Evaluations: 301500
+Generated 753750 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 399
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 3)
+Conducting lazy best first search, (real) bound = 399
+Best heuristic value: 4/5 [g=0, 1 evaluated, 0 expanded, t=14.83s, 25904 KB]
+Best heuristic value: 4/4 [g=49, 4852 evaluated, 4851 expanded, t=15.27s, 25904 KB]
+Best heuristic value: 4/3 [g=98, 10254 evaluated, 10253 expanded, 274 reopened, t=15.78s, 25904 KB]
+Best heuristic value: 3/3 [g=99, 10256 evaluated, 10255 expanded, 274 reopened, t=15.78s, 25904 KB]
+Best heuristic value: 2/3 [g=199, 28963 evaluated, 28962 expanded, 279 reopened, t=17.54s, 25904 KB]

@@ -1,0 +1,63 @@
+Domain: domains/variables/domain.pddl Problem: domains/variables/fibonacci/fibonacci6.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.023s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.010s CPU, 0.002s wall-clock]
+Generated 33 rules.
+Computing model... [0.010s CPU, 0.017s wall-clock]
+224 relevant atoms
+484 auxiliary atoms
+708 final queue length
+7108 total queue pushes
+Completing instantiation... [0.200s CPU, 0.192s wall-clock]
+goal relaxed reachable: True
+56 atoms
+Computing fact groups...
+Finding invariants...
+3 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+56 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.002s wall-clock]
+Axioms 0
+Deterministic 8 actions
+0 negated fluents created
+Invariants 56
+
+ Match tree built with 8 nodes.
+
+PDDL problem description loaded: 
+	Domain: variables
+	Problem: p6
+	#Actions: 8
+	#Fluents: 56
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13]Plan found with cost: 12
+1. (dec-b )
+2. (dec-b )
+3. (add-a-b )
+4. (assign-a-to-c )
+5. (assign-c-to-d )
+6. (dec-b )
+7. (add-a-b )
+8. (assign-a-to-c )
+9. (add-a-d )
+10. (dec-b )
+11. (dec-b )
+12. (dec-b )
+Time: 0.196
+Generated: 22761
+Expanded: 17337
+Total time: 0.196
+Nodes generated during search: 22762
+Nodes expanded during search: 17337
+BRFS search completed in 0.196 secs, check 'bfs_f.log' for details

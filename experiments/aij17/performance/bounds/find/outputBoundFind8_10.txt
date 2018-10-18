@@ -1,0 +1,270 @@
+INFO     Running translator.
+INFO     translator inputs: ['domain.pddl', 'ins.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.200s CPU, 0.202s wall-clock]
+Normalizing task... [0.030s CPU, 0.025s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.019s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.170s CPU, 0.168s wall-clock]
+Preparing model... [0.110s CPU, 0.103s wall-clock]
+Generated 5369 rules.
+Computing model... [1.060s CPU, 1.056s wall-clock]
+41838 relevant atoms
+25632 auxiliary atoms
+67470 final queue length
+157226 total queue pushes
+Completing instantiation... [3.190s CPU, 3.194s wall-clock]
+Instantiating: [4.570s CPU, 4.570s wall-clock]
+Computing fact groups...
+Finding invariants...
+272 initial candidates
+Finding invariants: [0.260s CPU, 0.265s wall-clock]
+Checking invariant weight... [0.010s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+732 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.004s wall-clock]
+Computing fact groups: [0.280s CPU, 0.282s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.150s CPU, 0.144s wall-clock]
+Translating task: [7.490s CPU, 7.482s wall-clock]
+8344 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+9 propositions removed
+Detecting unreachable propositions: [1.420s CPU, 1.418s wall-clock]
+Translator variables: 740
+Translator derived variables: 0
+Translator facts: 1497
+Translator goal facts: 1
+Translator mutex groups: 147
+Translator total mutex groups size: 303
+Translator operators: 40792
+Translator axioms: 0
+Translator task size: 736787
+Translator peak memory: 196124 KB
+Writing output... [1.000s CPU, 1.006s wall-clock]
+Done! [15.120s CPU, 15.113s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+738 variables of 740 necessary
+135 of 147 mutex groups necessary.
+40792 of 40792 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 1493
+Preprocessor derived variables: 0
+Preprocessor task size: 731996
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/PhD/planning-programs/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=2.03s]
+building causal graph...done! [t=2.43s]
+packing state variables...done! [t=2.43s]
+Variables: 738
+Facts: 1493
+Bytes per state: 96
+done initalizing global data [t=2.43s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.30s
+Discovered 15 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+20 edges
+Landmark graph: 
+LM 1 NegatedAtom done-programming() (var515(737)->1) Achievers (0, 0)
+		->_gn  LM 4 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 4 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+		<-_nat LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 1 NegatedAtom done-programming() (var515(737)->1) Achievers (0, 0)
+		<-_gn  LM 0 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		<-_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		<-_gn  LM 2 Atom assignment(c, v0) (var9(178)->0) Achievers (16, 8)
+		<-_gn  LM 11 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+
+LM 12 NegatedAtom assignment(a, v2) (var3(725)->1) Achievers (96, 8)
+		->_gn  LM 13 Atom assignment(a, v2) (var3(725)->0) Achievers (80, 80)
+
+LM 13 Atom assignment(a, v2) (var3(725)->0) Achievers (80, 80)
+		<-_gn  LM 12 NegatedAtom assignment(a, v2) (var3(725)->1) Achievers (96, 8)
+		->_gn  LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+
+LM 5 NegatedAtom assignment(a, v3) (var4(705)->1) Achievers (16, 8)
+		->_gn  LM 11 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+
+LM 11 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+		<-_nat LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 5 NegatedAtom assignment(a, v3) (var4(705)->1) Achievers (16, 8)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		->_gn  LM 4 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 14 NegatedAtom assignment(c, v2) (var11(195)->1) Achievers (96, 8)
+		->_gn  LM 10 Atom assignment(c, v2) (var11(195)->0) Achievers (80, 80)
+
+LM 10 Atom assignment(c, v2) (var11(195)->0) Achievers (80, 80)
+		<-_gn  LM 14 NegatedAtom assignment(c, v2) (var11(195)->1) Achievers (96, 8)
+		->_gn  LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+
+LM 9 NegatedAtom assignment(c, v1) (var10(194)->1) Achievers (96, 88)
+		->_gn  LM 6 Atom assignment(c, v1) (var10(194)->0) Achievers (80, 80)
+
+LM 6 Atom assignment(c, v1) (var10(194)->0) Achievers (80, 80)
+		<-_gn  LM 9 NegatedAtom assignment(c, v1) (var10(194)->1) Achievers (96, 88)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+
+LM 2 Atom assignment(c, v0) (var9(178)->0) Achievers (16, 8)
+		->_gn  LM 4 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 0 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		->_gn  LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		->_gn  LM 4 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		<-_nat LM 8 Atom test-0() (var722(48)->0) Achievers (0, 0)
+		<-_gn  LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 11 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+		<-_gn  LM 6 Atom assignment(c, v1) (var10(194)->0) Achievers (80, 80)
+		<-_gn  LM 0 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		->_gn  LM 4 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 8 Atom test-0() (var722(48)->0) Achievers (0, 0)
+		<-_gn  LM 13 Atom assignment(a, v2) (var3(725)->0) Achievers (80, 80)
+		<-_gn  LM 0 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		<-_gn  LM 10 Atom assignment(c, v2) (var11(195)->0) Achievers (80, 80)
+		->_nat LM 11 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+		->_nat LM 4 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+
+LM 8 Atom test-0() (var722(48)->0) Achievers (0, 0)
+		->_gn  LM 7 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		->_nat LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+8 initial landmarks, 1 goal landmarks
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+Switch from bucket-based to heap-based queue at key = 1002, num_pushes = 738
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.35s
+Discovered 15 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+20 edges
+Landmark graph: 
+LM 4 NegatedAtom done-programming() (var515(737)->1) Achievers (0, 0)
+		->_gn  LM 5 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 5 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+		<-_gn  LM 4 NegatedAtom done-programming() (var515(737)->1) Achievers (0, 0)
+		<-_gn  LM 7 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		<-_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		<-_nat LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 2 Atom assignment(c, v0) (var9(178)->0) Achievers (16, 8)
+		<-_gn  LM 6 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+
+LM 11 NegatedAtom assignment(a, v2) (var3(725)->1) Achievers (96, 8)
+		->_gn  LM 14 Atom assignment(a, v2) (var3(725)->0) Achievers (80, 80)
+
+LM 14 Atom assignment(a, v2) (var3(725)->0) Achievers (80, 80)
+		<-_gn  LM 11 NegatedAtom assignment(a, v2) (var3(725)->1) Achievers (96, 8)
+		->_gn  LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+
+LM 0 NegatedAtom assignment(a, v3) (var4(705)->1) Achievers (16, 8)
+		->_gn  LM 6 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+
+LM 6 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+		<-_nat LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 0 NegatedAtom assignment(a, v3) (var4(705)->1) Achievers (16, 8)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		->_gn  LM 5 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 10 NegatedAtom assignment(c, v2) (var11(195)->1) Achievers (96, 8)
+		->_gn  LM 13 Atom assignment(c, v2) (var11(195)->0) Achievers (80, 80)
+
+LM 13 Atom assignment(c, v2) (var11(195)->0) Achievers (80, 80)
+		<-_gn  LM 10 NegatedAtom assignment(c, v2) (var11(195)->1) Achievers (96, 8)
+		->_gn  LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+
+LM 12 NegatedAtom assignment(c, v1) (var10(194)->1) Achievers (96, 88)
+		->_gn  LM 1 Atom assignment(c, v1) (var10(194)->0) Achievers (80, 80)
+
+LM 1 Atom assignment(c, v1) (var10(194)->0) Achievers (80, 80)
+		<-_gn  LM 12 NegatedAtom assignment(c, v1) (var10(194)->1) Achievers (96, 88)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+
+LM 2 Atom assignment(c, v0) (var9(178)->0) Achievers (16, 8)
+		->_gn  LM 5 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 7 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		->_gn  LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		->_gn  LM 5 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+		<-_nat LM 9 Atom test-0() (var722(48)->0) Achievers (0, 0)
+		<-_gn  LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 6 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+		<-_gn  LM 1 Atom assignment(c, v1) (var10(194)->0) Achievers (80, 80)
+		<-_gn  LM 7 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		->_gn  LM 5 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+
+LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		<-_gn  LM 9 Atom test-0() (var722(48)->0) Achievers (0, 0)
+		<-_gn  LM 14 Atom assignment(a, v2) (var3(725)->0) Achievers (80, 80)
+		<-_gn  LM 7 Atom top-stack(row-0) (var723(117)->0) Achievers (24, 24)
+		<-_gn  LM 13 Atom assignment(c, v2) (var11(195)->0) Achievers (80, 80)
+		->_nat LM 6 Atom assignment(a, v3) (var4(705)->0) Achievers (80, 80)
+		->_nat LM 5 Atom done-programming() (var515(737)->0)(goal) Achievers (8, 8)
+		->_gn  LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+
+LM 9 Atom test-0() (var722(48)->0) Achievers (0, 0)
+		->_gn  LM 8 Atom test-1() (var722(48)->1) Achievers (8, 8)
+		->_nat LM 3 Atom test-2() (var722(48)->2) Achievers (8, 8)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+8 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 7/10 [g=0, 1 evaluated, 0 expanded, t=3.22s, 80268 KB]
+Best heuristic value: 7/7 [g=1, 2 evaluated, 1 expanded, t=3.23s, 80268 KB]
+Best heuristic value: 6/7 [g=4, 16 evaluated, 13 expanded, t=3.34s, 80400 KB]
+Best heuristic value: 6/6 [g=9, 38 evaluated, 30 expanded, t=3.47s, 80400 KB]
+Best heuristic value: 4/6 [g=10, 39 evaluated, 31 expanded, t=3.48s, 80400 KB]
+Best heuristic value: 4/5 [g=11, 40 evaluated, 32 expanded, t=3.48s, 80400 KB]
+Best heuristic value: 4/4 [g=15, 81 evaluated, 67 expanded, t=3.70s, 80532 KB]
+Best heuristic value: 3/3 [g=16, 93 evaluated, 78 expanded, t=3.76s, 80532 KB]
+Best heuristic value: 3/2 [g=23, 34246 evaluated, 25886 expanded, t=133.56s, 109460 KB]
+Best heuristic value: 2/2 [g=24, 34248 evaluated, 25888 expanded, t=133.57s, 109460 KB]
+Switch from bucket-based to heap-based queue at key = 1297, num_pushes = 859
+WARNING: overflow on LAMA/FF synergy h^add! Costs clamped to 100000000
+WARNING: overflow on LAMA/FF synergy h^add! Costs clamped to 100000000

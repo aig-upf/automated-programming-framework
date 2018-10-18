@@ -1,0 +1,39 @@
+INFO     Running translator.
+INFO     translator inputs: ['domain.pddl', 'ins.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.090s CPU, 0.087s wall-clock]
+Normalizing task... [0.000s CPU, 0.008s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.008s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.070s CPU, 0.068s wall-clock]
+Preparing model... [0.040s CPU, 0.044s wall-clock]
+Generated 1837 rules.
+Computing model... [0.110s CPU, 0.104s wall-clock]
+2265 relevant atoms
+3176 auxiliary atoms
+5441 final queue length
+20950 total queue pushes
+Completing instantiation... [0.260s CPU, 0.263s wall-clock]
+Instantiating: [0.490s CPU, 0.489s wall-clock]
+Computing fact groups...
+Finding invariants...
+136 initial candidates
+Finding invariants: [0.190s CPU, 0.188s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+531 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.004s wall-clock]
+Computing fact groups: [0.200s CPU, 0.202s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.020s CPU, 0.010s wall-clock]

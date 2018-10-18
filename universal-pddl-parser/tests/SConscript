@@ -1,0 +1,15 @@
+
+# Build the testing binaries
+
+import glob
+
+Import('extra')
+
+sources = glob.glob( "./*.cpp" )
+sources += glob.glob( "../minicppunit/*.cpp" )
+
+test = extra.Program( "test.bin", sources)
+#env.Depends( test, env )
+#extra.Append(LIBPATH=['../lib'])
+
+extra.Alias( 'test', test )

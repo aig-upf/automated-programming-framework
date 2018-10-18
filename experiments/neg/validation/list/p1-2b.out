@@ -1,0 +1,21 @@
+Checking plan: experiments/neg/synthesis/list/program.txt
+Plan Validation details
+-----------------------
+
+Checking action VISIT-NODE - Procedure: 0 - Line: 0
+Deleting (NOT-VISITED N1)
+Adding (VISITED N1)
+
+Checking action MOVE-NEXT - Procedure: 0 - Line: 1
+Deleting (AT N1)
+Adding (AT N2)
+
+Checking action VISIT-NODE - Procedure: 0 - Line: 0
+Deleting (NOT-VISITED N2)
+Adding (VISITED N2)
+
+Checking action MOVE-NEXT - Procedure: 0 - Line: 1
+Deleting (AT N2)
+Adding (AT NLAST)
+
+Plan executed successfully - checking goal

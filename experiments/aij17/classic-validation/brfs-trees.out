@@ -1,0 +1,73 @@
+Domain: domains/other/trees/domain_alt.pddl Problem: domains/other/trees/prob20_alt.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.002s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.010s CPU, 0.001s wall-clock]
+Generated 17 rules.
+Computing model... [0.000s CPU, 0.006s wall-clock]
+189 relevant atoms
+138 auxiliary atoms
+327 final queue length
+1358 total queue pushes
+Completing instantiation... [0.040s CPU, 0.035s wall-clock]
+goal relaxed reachable: True
+61 atoms
+Computing fact groups...
+Finding invariants...
+5 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+61 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Axioms 21
+Deterministic 10 actions
+0 negated fluents created
+Invariants 61
+
+ Match tree built with 10 nodes.
+
+PDDL problem description loaded: 
+	Domain: trees_alt
+	Problem: prob20_alt
+	#Actions: 10
+	#Fluents: 61
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24]Plan found with cost: 23
+1. (visit current)
+2. (copy-left current child)
+3. (visit child)
+4. (copy-right current child)
+5. (visit child)
+6. (copy-left child current)
+7. (visit current)
+8. (copy-right child child)
+9. (visit child)
+10. (copy-left current child)
+11. (visit child)
+12. (copy-right current child)
+13. (visit child)
+14. (copy-right child child)
+15. (visit child)
+16. (copy-right child child)
+17. (visit child)
+18. (copy-right child child)
+19. (visit child)
+20. (copy-right child child)
+21. (visit child)
+22. (copy-right child child)
+23. (visit child)
+Time: 7.584
+Generated: 1047380
+Expanded: 993304
+Total time: 7.584
+Nodes generated during search: 1047381
+Nodes expanded during search: 993304
+BRFS search completed in 7.584 secs, check 'bfs_f.log' for details

@@ -3,7 +3,7 @@
 
 class CFGActions : public Actions{
 	public:
-	CFGActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ){}
+	CFGActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ){}
 
 	void createRepeatActions( unsigned procedures, unsigned lines, const StringDVec& allowed_lines, const StringVec& select_programs ){
 		for( unsigned procedure = 0; procedure < procedures; procedure++ ){

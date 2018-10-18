@@ -5,7 +5,7 @@
 
 class GotoActions : public Actions {
 	public:
-	GotoActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ){}
+	GotoActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ){}
 	
 	bool unsupervisedCheck( unsigned line_from, unsigned line_to, unsigned lines, unsigned noclasses ){
 		// Constraints for unsupervised gotos
@@ -73,7 +73,7 @@ class GotoActions : public Actions {
 	}
 
 	void createHLProgrammingAction( const String& name , unsigned procedures, unsigned line_from, unsigned line_to, const StringVec &empty_lines, const StringTVec& gotos, const StringVec &empty_slots  ){
-		Action *prog_goto = createAction( name, StringVec( 1, "STACKROW" ) );
+		parser::pddl::Action *prog_goto = createAction( name, StringVec( 1, "STACKROW" ) );
 		addPrecondition( name, "TOP-STACK", false, IntVec( 1, 0 ) );
 		addPrecondition( name, "STACK-MAIN", false, IntVec( 1, 0 ) );
 		addPrecondition( name, empty_lines[ line_from ] );
@@ -82,10 +82,10 @@ class GotoActions : public Actions {
 		addEffect( name, empty_lines[ line_from ], true );
 		addEffect( name, gotos[ procedures ][ line_from ][ line_to ] );
 		
-		Forall *f = new Forall;
+		parser::pddl::Forall *f = new parser::pddl::Forall;
 		f->params = IntVec( 1, cd->types.index( "CONDITION-SLOT" ) );
 		f->cond = cd->ground( empty_slots[ line_from ], IntVec( 1, 1 ) );
-		( ( And * )prog_goto->eff )->add( f );
+		( ( parser::pddl::And * )prog_goto->eff )->add( f );
 
 		addCost( name, 1001 );
 
@@ -196,7 +196,7 @@ class GotoActions : public Actions {
 
 					String name = "EVAL-COND-" + prefix_name + "-" + tostr( procedure ) + "-" + tostr( line );
 
-					Action *eval = createAction( name, parameters );
+					parser::pddl::Action *eval = createAction( name, parameters );
 					addPrecondition( name, conds[ effect_id ][ procedure ][ line ], false, incvec( 0, osize ) );
 					addPrecondition( name, "TOP-STACK", false, IntVec( 1, osize ) );
 					addPrecondition( name, stack_procedures[ procedure ], false, IntVec( 1, osize ) );
@@ -211,19 +211,19 @@ class GotoActions : public Actions {
 						addEffect( name, "TODO-DERIVED" );
 					}
 
-					When *w = new When;
-					w->cond = new And;
+					parser::pddl::When *w = new parser::pddl::When;
+					w->cond = new parser::pddl::And;
 
 					if( negated_goto )
-						( (And *) w->cond )->add( new Not( cd->ground( accu_pred ) ) );
+						( (parser::pddl::And *) w->cond )->add( new parser::pddl::Not( cd->ground( accu_pred ) ) );
 					else
-						( (And *) w->cond )->add( cd->ground( accu_pred ) );
+						( (parser::pddl::And *) w->cond )->add( cd->ground( accu_pred ) );
 				
 					if( unclean_effs.find( effect_id ) == unclean_effs.end() ){
 						// It is not a derived predicate
 						w->pars = cd->ground( prefix_name, incvec( 0, osize ) );
 						addStackRow( w , osize );
-						( ( And * )eval->eff )->add( w );
+						( ( parser::pddl::And * )eval->eff )->add( w );
 					}
 					else{
 						// Derived predicates as effects of eval actions
@@ -232,23 +232,23 @@ class GotoActions : public Actions {
 							unsigned dsize = od->derived[ derived_id ]->params.size();
 							IntVec derived_params = incvec( 0 , dsize );
 
-							( ( And * )eval->eff )->add( new Not( cd->ground( prefix_name, derived_params ) ) );
+							( ( parser::pddl::And * )eval->eff )->add( new parser::pddl::Not( cd->ground( prefix_name, derived_params ) ) );
 
-							( ( And *) w->cond)->add( cd->ground( prefix_name, derived_params ) );
+							( ( parser::pddl::And *) w->cond)->add( cd->ground( prefix_name, derived_params ) );
 						
-							Exists * exists = dynamic_cast< Exists * >( od->derived[ derived_id ]->cond );
+							parser::pddl::Exists * exists = dynamic_cast< parser::pddl::Exists * >( od->derived[ derived_id ]->cond );
 
 							if ( exists ) {
 								w->pars = exists->cond->copy( *cd );
 								w->addParams( dsize, 1 );
 
-								Forall * f = new Forall;
+								parser::pddl::Forall * f = new parser::pddl::Forall;
 								f->params = exists->params;
 								f->cond = w;
 
 								addStackRow( f, osize );
 
-								( ( And * )eval->eff )->add( f );
+								( ( parser::pddl::And * )eval->eff )->add( f );
 							}
 							else {
 								w->pars = od->derived[ derived_id ]->cond->copy( *cd );
@@ -256,7 +256,7 @@ class GotoActions : public Actions {
 
 								addStackRow( w, osize );
 
-								( ( And * )eval->eff )->add( w );
+								( ( parser::pddl::And * )eval->eff )->add( w );
 							}
 							break;
 						}
@@ -322,7 +322,7 @@ class GotoActions : public Actions {
 		ss << "PROGRAM-TRUE-GOTO-" << procedures;
 		name = ss.str();
 
-		Action *prog_tgoto = createAction( name , StringVec() = { "STACKSTATE" , "STACKSTATE", "STACKROW" } );
+		parser::pddl::Action *prog_tgoto = createAction( name , StringVec() = { "STACKSTATE" , "STACKSTATE", "STACKROW" } );
 
 		addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1 , 2 ) );
 		addPrecondition( name, accumulator_preds[ procedures ] , false, IntVec( 1 , 2 ) );
@@ -337,15 +337,15 @@ class GotoActions : public Actions {
 		addEffect( name, stack_empty_tgoto_pred, true, IntVec( 1 , 0 ) );
 		addEffect( name, tgotos[ procedures ], false, incvec( 0 , 2 ) );
 
-		When *wtgoto = new When;
+		parser::pddl::When *wtgoto = new parser::pddl::When;
 		wtgoto->pars = cd->ground( next_state_pred , IntVec() = { 1, 3 } );
 		wtgoto->cond = cd->ground( available_pred , IntVec() = { 3 } );
 
-		Forall *ftgoto = new Forall;
+		parser::pddl::Forall *ftgoto = new parser::pddl::Forall;
 		ftgoto->params = cd->preds.get( available_pred )->params;
 		ftgoto->cond = wtgoto;
 	
-		( ( And * ) prog_tgoto->eff )->add( ftgoto );
+		( ( parser::pddl::And * ) prog_tgoto->eff )->add( ftgoto );
 
 		// Add instruction
 		addActionToInstruction( name, tgotos[ procedures ] );
@@ -355,7 +355,7 @@ class GotoActions : public Actions {
 		ss << "PROGRAM-FALSE-GOTO-" << procedures;
 		name = ss.str();
 
-		Action *prog_fgoto = createAction( name , StringVec() = { "STACKSTATE" , "STACKSTATE", "STACKROW" } );
+		parser::pddl::Action *prog_fgoto = createAction( name , StringVec() = { "STACKSTATE" , "STACKSTATE", "STACKROW" } );
 
 		addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1 , 2 ) );
 		addPrecondition( name, accumulator_preds[ procedures ], true, IntVec( 1 , 2 ) );
@@ -369,15 +369,15 @@ class GotoActions : public Actions {
 		addEffect( name, stack_empty_fgoto_pred, true, IntVec( 1 , 0 ) );
 		addEffect( name, fgotos[ procedures ], false, incvec( 0 , 2 ) );
 
-		When *wfgoto = new When;
+		parser::pddl::When *wfgoto = new parser::pddl::When;
 		wfgoto->pars = cd->ground( next_state_pred , IntVec() = { 1, 3 } );
 		wfgoto->cond = cd->ground( available_pred , IntVec() = { 3 } );
 
-		Forall *ffgoto = new Forall;
+		parser::pddl::Forall *ffgoto = new parser::pddl::Forall;
 		ffgoto->params = cd->preds.get( available_pred )->params;
 		ffgoto->cond = wfgoto;
 	
-		( ( And * ) prog_fgoto->eff )->add( ffgoto );
+		( ( parser::pddl::And * ) prog_fgoto->eff )->add( ffgoto );
 
 		// Add instruction
 		addActionToInstruction( name, fgotos[ procedures ] );
@@ -459,7 +459,7 @@ class GotoActions : public Actions {
 				params_aux.push_back( "STACKROW" );
 				unsigned par_size = params_aux.size();
 
-				Action * eval = createAction( name, params_aux );
+				parser::pddl::Action * eval = createAction( name, params_aux );
 
 				addPrecondition( name, stack_top_pred, false, IntVec( 1 , par_size - 1 ) );
 				addPrecondition( name, stack_procedures[ p ], false, IntVec( 1, par_size - 1 ) );
@@ -469,35 +469,35 @@ class GotoActions : public Actions {
 		
 				addEffect( name, evaluating_preds[ p ], false, IntVec( 1 , par_size - 1 ) );
 
-				When * w = new When;
-				w->cond = new And;
+				parser::pddl::When * w = new parser::pddl::When;
+				w->cond = new parser::pddl::And;
 				if ( unclean_effs.find( *eff ) == unclean_effs.end() ) {
-					( (And *) w->cond)->add( cd->ground( accumulator_preds[ p ] , IntVec( 1 , par_size - 1 ) ) );
+					( ( parser::pddl::And *) w->cond)->add( cd->ground( accumulator_preds[ p ] , IntVec( 1 , par_size - 1 ) ) );
 					w->pars = cd->ground( od->preds[ *eff ]->name, incvec( 0, par_size - 2 ) );
 					addStackRow( w , par_size - 1 );
-					( ( And * )eval->eff )->add( w );
+					( ( parser::pddl::And * )eval->eff )->add( w );
 				}
 				else {
 					for ( unsigned j = 0; j < od->derived.size(); ++j ){
 						if ( od->derived[ j ]->name == od->preds[ *eff ]->name ) {
 							// To allow jumps over derived predicates
-							Exists * exists = dynamic_cast< Exists * >( od->derived[ j ]->cond );
+							parser::pddl::Exists * exists = dynamic_cast< parser::pddl::Exists * >( od->derived[ j ]->cond );
 							if ( exists ) {
 								w->pars = exists->cond->copy( *cd );
 								w->addParams( od->derived[j]->params.size(), 2 );
-								( (And *) w->cond )->add( cd->ground( accumulator_preds[ p ] , IntVec( 1 , par_size - 1 ) ) );
-								Forall * f = new Forall;
+								( ( parser::pddl::And *) w->cond )->add( cd->ground( accumulator_preds[ p ] , IntVec( 1 , par_size - 1 ) ) );
+								parser::pddl::Forall * f = new parser::pddl::Forall;
 								f->params = exists->params;
 								f->cond = w;
 								addStackRow( f, par_size - 1 );
-								( ( And * )eval->eff )->add( f );
+								( ( parser::pddl::And * )eval->eff )->add( f );
 							}
 							else {
 								w->pars = od->derived[ j ]->cond->copy( *cd );
 								w->addParams( od->derived[j]->params.size(), 2 );
-								( (And *) w->cond)->add( cd->ground( accumulator_preds[ p ] , IntVec( 1 , par_size - 1 ) ) );
+								( ( parser::pddl::And *) w->cond)->add( cd->ground( accumulator_preds[ p ] , IntVec( 1 , par_size - 1 ) ) );
 								addStackRow( w, par_size - 1 );
-								( ( And * ) eval->eff )->add( w );
+								( ( parser::pddl::And * ) eval->eff )->add( w );
 							}
 							break;
 						}

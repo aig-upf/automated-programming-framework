@@ -1,0 +1,96 @@
+Domain: domain.pddl Problem: ins.pddl
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.020s wall-clock]
+Preparing model... [0.010s CPU, 0.010s wall-clock]
+Generated 627 rules.
+Computing model... [0.010s CPU, 0.012s wall-clock]
+547 relevant atoms
+776 auxiliary atoms
+1323 final queue length
+1762 total queue pushes
+Completing instantiation... [0.020s CPU, 0.024s wall-clock]
+goal relaxed reachable: True
+211 atoms
+Computing fact groups...
+Finding invariants...
+97 initial candidates
+Finding invariants: [0.100s CPU, 0.105s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+112 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.000s wall-clock]
+Computing fact groups: [0.110s CPU, 0.109s wall-clock]
+Deterministic 308 actions
+4 negated fluents created
+Invariants 161
+
+ Match tree built with 308 nodes.
+
+PDDL problem description loaded: 
+	Domain: blocks
+	Problem: p2-09092015162521
+	#Actions: 308
+	#Fluents: 215
+Goals found: 1
+Goals_Edges found: 1
+Starting search with BFWS-f5-landmarks...
+--[38 / 0]--
+--[38 / 1]--
+--[37 / 0]--
+--[37 / 1]--
+--[35 / 0]--
+--[35 / 2]--
+--[35 / 6]--
+--[33 / 0]--
+--[33 / 2]--
+--[33 / 4]--
+--[31 / 0]--
+--[29 / 0]--
+--[29 / 1]--
+--[29 / 8]--
+--[28 / 0]--
+--[28 / 7]--
+--[28 / 8]--
+--[26 / 0]--
+--[26 / 1]--
+--[26 / 2]--
+--[25 / 0]--
+--[25 / 1]--
+--[25 / 2]--
+--[25 / 6]--
+--[25 / 8]--
+--[25 / 9]--
+--[24 / 0]--
+--[22 / 0]--
+--[21 / 0]--
+--[21 / 7]--
+--[21 / 8]--
+--[21 / 9]--
+--[20 / 0]--
+--[20 / 7]--
+--[20 / 8]--
+--[20 / 9]--
+--[19 / 0]--
+--[19 / 1]--
+--[19 / 2]--
+--[16 / 0]--
+--[15 / 0]--
+--[15 / 1]--
+--[15 / 3]--
+--[14 / 0]--
+--[11 / 0]--
+--[9 / 0]--
+--[9 / 1]--
+--[9 / 3]--
+--[8 / 0]--
+--[5 / 0]--
+--[0 / 0]--
+Total time: 4.452
+Nodes generated during search: 232551
+Nodes expanded during search: 125386
+Plan found with cost: 80
+Fast-BFS search completed in 4.452 secs

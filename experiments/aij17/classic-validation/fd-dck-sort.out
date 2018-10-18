@@ -1,0 +1,380 @@
+INFO     Running translator.
+INFO     translator inputs: ['domains/other/sorting/domain_dck.pddl', 'domains/other/sorting/sort15.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.000s CPU, 0.033s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.002s wall-clock]
+Preparing model... [0.000s CPU, 0.002s wall-clock]
+Generated 43 rules.
+Computing model... [0.420s CPU, 0.417s wall-clock]
+26501 relevant atoms
+587 auxiliary atoms
+27088 final queue length
+105236 total queue pushes
+Completing instantiation... [10.120s CPU, 10.131s wall-clock]
+Instantiating: [10.560s CPU, 10.557s wall-clock]
+Computing fact groups...
+Finding invariants...
+15 initial candidates
+Finding invariants: [0.020s CPU, 0.015s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+225 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.020s CPU, 0.019s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.210s CPU, 0.208s wall-clock]
+Translating task: [8.510s CPU, 8.508s wall-clock]
+689410 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+7 propositions removed
+Detecting unreachable propositions: [2.200s CPU, 2.202s wall-clock]
+Translator variables: 223
+Translator derived variables: 0
+Translator facts: 460
+Translator goal facts: 16
+Translator mutex groups: 1
+Translator total mutex groups size: 16
+Translator operators: 26060
+Translator axioms: 0
+Translator task size: 894945
+Translator peak memory: 338584 KB
+Writing output... [1.620s CPU, 1.619s wall-clock]
+Done! [23.180s CPU, 23.199s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+214 variables of 223 necessary
+0 of 1 mutex groups necessary.
+26060 of 26060 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 442
+Preprocessor derived variables: 0
+Preprocessor task size: 867002
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=5.00s]
+building causal graph...done! [t=5.70s]
+packing state variables...done! [t=5.70s]
+Variables: 214
+Facts: 442
+Bytes per state: 28
+done initalizing global data [t=5.70s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 1.65s
+Discovered 31 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+15 edges
+Landmark graph: 
+LM 22 NegatedAtom assignment(i0, v1) (var0(213)->1) Achievers (2781, 2781)
+		->_gn  LM 3 Atom assignment(i0, v1) (var0(213)->0)(goal) Achievers (319, 319)
+
+LM 3 Atom assignment(i0, v1) (var0(213)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 22 NegatedAtom assignment(i0, v1) (var0(213)->1) Achievers (2781, 2781)
+
+LM 2 NegatedAtom assignment(i9, v7) (var157(212)->1) Achievers (2781, 2781)
+		->_gn  LM 14 Atom assignment(i9, v7) (var157(212)->0)(goal) Achievers (319, 319)
+
+LM 14 Atom assignment(i9, v7) (var157(212)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 2 NegatedAtom assignment(i9, v7) (var157(212)->1) Achievers (2781, 2781)
+
+LM 1 NegatedAtom assignment(i8, v7) (var147(211)->1) Achievers (2781, 2781)
+		->_gn  LM 13 Atom assignment(i8, v7) (var147(211)->0)(goal) Achievers (319, 319)
+
+LM 13 Atom assignment(i8, v7) (var147(211)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 1 NegatedAtom assignment(i8, v7) (var147(211)->1) Achievers (2781, 2781)
+
+LM 0 NegatedAtom assignment(i7, v6) (var136(210)->1) Achievers (2781, 2781)
+		->_gn  LM 20 Atom assignment(i7, v6) (var136(210)->0)(goal) Achievers (319, 319)
+
+LM 20 Atom assignment(i7, v6) (var136(210)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 0 NegatedAtom assignment(i7, v6) (var136(210)->1) Achievers (2781, 2781)
+
+LM 27 NegatedAtom assignment(i6, v6) (var126(209)->1) Achievers (2781, 2781)
+		->_gn  LM 19 Atom assignment(i6, v6) (var126(209)->0)(goal) Achievers (319, 319)
+
+LM 19 Atom assignment(i6, v6) (var126(209)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 27 NegatedAtom assignment(i6, v6) (var126(209)->1) Achievers (2781, 2781)
+
+LM 29 Atom assignment(i5, v5) (var115(208)->0)(goal) Achievers (319, 319)
+
+LM 26 NegatedAtom assignment(i4, v5) (var105(207)->1) Achievers (2781, 2781)
+		->_gn  LM 28 Atom assignment(i4, v5) (var105(207)->0)(goal) Achievers (319, 319)
+
+LM 28 Atom assignment(i4, v5) (var105(207)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 26 NegatedAtom assignment(i4, v5) (var105(207)->1) Achievers (2781, 2781)
+
+LM 25 NegatedAtom assignment(i3, v4) (var94(206)->1) Achievers (2781, 2781)
+		->_gn  LM 6 Atom assignment(i3, v4) (var94(206)->0)(goal) Achievers (319, 319)
+
+LM 6 Atom assignment(i3, v4) (var94(206)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 25 NegatedAtom assignment(i3, v4) (var94(206)->1) Achievers (2781, 2781)
+
+LM 18 NegatedAtom assignment(i2, v3) (var83(205)->1) Achievers (2781, 2781)
+		->_gn  LM 5 Atom assignment(i2, v3) (var83(205)->0)(goal) Achievers (319, 319)
+
+LM 5 Atom assignment(i2, v3) (var83(205)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 18 NegatedAtom assignment(i2, v3) (var83(205)->1) Achievers (2781, 2781)
+
+LM 12 NegatedAtom assignment(i15, v10) (var71(204)->1) Achievers (2781, 2781)
+		->_gn  LM 8 Atom assignment(i15, v10) (var71(204)->0)(goal) Achievers (319, 319)
+
+LM 8 Atom assignment(i15, v10) (var71(204)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 12 NegatedAtom assignment(i15, v10) (var71(204)->1) Achievers (2781, 2781)
+
+LM 11 NegatedAtom assignment(i14, v10) (var61(203)->1) Achievers (2781, 2781)
+		->_gn  LM 7 Atom assignment(i14, v10) (var61(203)->0)(goal) Achievers (319, 319)
+
+LM 7 Atom assignment(i14, v10) (var61(203)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 11 NegatedAtom assignment(i14, v10) (var61(203)->1) Achievers (2781, 2781)
+
+LM 16 NegatedAtom assignment(i13, v9) (var59(202)->1) Achievers (2781, 2781)
+		->_gn  LM 30 Atom assignment(i13, v9) (var59(202)->0)(goal) Achievers (319, 319)
+
+LM 30 Atom assignment(i13, v9) (var59(202)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 16 NegatedAtom assignment(i13, v9) (var59(202)->1) Achievers (2781, 2781)
+
+LM 15 NegatedAtom assignment(i12, v9) (var49(201)->1) Achievers (2781, 2781)
+		->_gn  LM 23 Atom assignment(i12, v9) (var49(201)->0)(goal) Achievers (319, 319)
+
+LM 23 Atom assignment(i12, v9) (var49(201)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 15 NegatedAtom assignment(i12, v9) (var49(201)->1) Achievers (2781, 2781)
+
+LM 10 NegatedAtom assignment(i11, v8) (var38(200)->1) Achievers (2781, 2781)
+		->_gn  LM 17 Atom assignment(i11, v8) (var38(200)->0)(goal) Achievers (319, 319)
+
+LM 17 Atom assignment(i11, v8) (var38(200)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 10 NegatedAtom assignment(i11, v8) (var38(200)->1) Achievers (2781, 2781)
+
+LM 9 NegatedAtom assignment(i10, v8) (var28(199)->1) Achievers (2781, 2781)
+		->_gn  LM 21 Atom assignment(i10, v8) (var28(199)->0)(goal) Achievers (319, 319)
+
+LM 21 Atom assignment(i10, v8) (var28(199)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 9 NegatedAtom assignment(i10, v8) (var28(199)->1) Achievers (2781, 2781)
+
+LM 4 NegatedAtom assignment(i1, v2) (var12(198)->1) Achievers (2781, 2781)
+		->_gn  LM 24 Atom assignment(i1, v2) (var12(198)->0)(goal) Achievers (319, 319)
+
+LM 24 Atom assignment(i1, v2) (var12(198)->0)(goal) Achievers (319, 319)
+		<-_gn  LM 4 NegatedAtom assignment(i1, v2) (var12(198)->1) Achievers (2781, 2781)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+16 initial landmarks, 16 goal landmarks
+Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 15/30 [g=0, 1 evaluated, 0 expanded, t=7.52s, 180484 KB]
+Best heuristic value: 15/29 [g=18, 40 evaluated, 38 expanded, t=8.63s, 180484 KB]
+Best heuristic value: 14/28 [g=19, 41 evaluated, 39 expanded, t=8.66s, 180484 KB]
+Best heuristic value: 14/27 [g=20, 49 evaluated, 44 expanded, t=8.89s, 180484 KB]
+Best heuristic value: 13/27 [g=15, 267 evaluated, 253 expanded, t=15.14s, 180484 KB]
+Best heuristic value: 13/26 [g=26, 316 evaluated, 297 expanded, t=16.56s, 180484 KB]
+Best heuristic value: 12/26 [g=25, 1386 evaluated, 1312 expanded, t=47.26s, 180484 KB]
+Best heuristic value: 12/25 [g=26, 1387 evaluated, 1313 expanded, t=47.28s, 180484 KB]
+Best heuristic value: 12/24 [g=37, 1465 evaluated, 1386 expanded, t=49.32s, 180484 KB]
+Best heuristic value: 11/24 [g=30, 2371 evaluated, 2230 expanded, t=72.91s, 180484 KB]
+Best heuristic value: 11/23 [g=42, 2463 evaluated, 2315 expanded, t=75.29s, 180484 KB]
+Best heuristic value: 10/23 [g=40, 4210 evaluated, 3940 expanded, t=120.93s, 180484 KB]
+Best heuristic value: 10/22 [g=41, 4212 evaluated, 3942 expanded, t=120.97s, 180484 KB]
+Best heuristic value: 10/21 [g=52, 4286 evaluated, 4010 expanded, t=122.71s, 180484 KB]
+Best heuristic value: 9/21 [g=47, 4346 evaluated, 4067 expanded, t=124.11s, 180484 KB]
+Best heuristic value: 9/20 [g=51, 4387 evaluated, 4104 expanded, t=125.13s, 180484 KB]
+Best heuristic value: 8/20 [g=51, 4688 evaluated, 4329 expanded, t=132.36s, 180484 KB]
+Best heuristic value: 8/19 [g=52, 4691 evaluated, 4332 expanded, t=132.43s, 180484 KB]
+Best heuristic value: 7/18 [g=59, 4759 evaluated, 4396 expanded, t=133.88s, 180484 KB]
+Best heuristic value: 7/17 [g=60, 4767 evaluated, 4402 expanded, t=134.05s, 180484 KB]
+Best heuristic value: 6/16 [g=66, 5200 evaluated, 4754 expanded, t=143.18s, 180484 KB]
+Best heuristic value: 6/15 [g=67, 5201 evaluated, 4755 expanded, t=143.20s, 180484 KB]
+Best heuristic value: 6/14 [g=68, 5202 evaluated, 4756 expanded, t=143.22s, 180484 KB]
+Best heuristic value: 6/13 [g=69, 5203 evaluated, 4757 expanded, t=143.23s, 180484 KB]
+Best heuristic value: 6/12 [g=70, 5204 evaluated, 4758 expanded, t=143.24s, 180484 KB]
+Best heuristic value: 6/11 [g=71, 5205 evaluated, 4759 expanded, t=143.26s, 180484 KB]
+Best heuristic value: 5/11 [g=71, 5285 evaluated, 4831 expanded, t=144.72s, 180484 KB]
+Best heuristic value: 5/10 [g=74, 5340 evaluated, 4882 expanded, t=145.70s, 180484 KB]
+Best heuristic value: 4/10 [g=72, 5522 evaluated, 5045 expanded, t=149.02s, 180484 KB]
+Best heuristic value: 4/9 [g=78, 5528 evaluated, 5051 expanded, t=149.12s, 180484 KB]
+Best heuristic value: 4/8 [g=79, 5529 evaluated, 5052 expanded, t=149.13s, 180484 KB]
+Best heuristic value: 4/7 [g=86, 6377 evaluated, 5818 expanded, t=164.52s, 180484 KB]
+Best heuristic value: 3/7 [g=85, 6381 evaluated, 5822 expanded, t=164.56s, 180484 KB]
+Best heuristic value: 3/6 [g=88, 6388 evaluated, 5828 expanded, t=164.66s, 180484 KB]
+Best heuristic value: 3/5 [g=91, 6396 evaluated, 5834 expanded, t=164.76s, 180484 KB]
+Best heuristic value: 2/4 [g=92, 6397 evaluated, 5835 expanded, t=164.77s, 180484 KB]
+Best heuristic value: 2/3 [g=102, 6549 evaluated, 5937 expanded, t=166.44s, 180484 KB]
+Best heuristic value: 1/2 [g=103, 6550 evaluated, 5938 expanded, t=166.45s, 180484 KB]
+Best heuristic value: 1/1 [g=113, 6981 evaluated, 6317 expanded, t=172.72s, 180484 KB]
+Solution found!
+Actual search time: 165.24s [t=172.73s]
+iterinc i0 i1 v9 (1)
+iterinc i1 i2 v8 (1)
+iterinc i2 i3 v7 (1)
+iterinc i3 i4 v6 (1)
+mark-iterator-value i4 v6 (1)
+iterinc i4 i5 v5 (1)
+iterinc i5 i6 v4 (1)
+swap i0 i4 v10 v6 (1)
+mark-iterator-value i6 v4 (1)
+swap i0 i6 v6 v4 (1)
+iterinc i6 i7 v3 (1)
+iterinc i7 i8 v2 (1)
+iterinc i8 i9 v1 (1)
+mark-iterator-value i9 v1 (1)
+swap i0 i9 v4 v1 (1)
+outeriterinc i0 i1 v9 (1)
+iterinc i1 i2 v8 (1)
+iterinc i2 i3 v7 (1)
+iterinc i3 i4 v10 (1)
+iterinc i4 i5 v5 (1)
+iterinc i5 i6 v6 (1)
+mark-iterator-value i6 v6 (1)
+swap i1 i6 v9 v6 (1)
+swap i1 i6 v6 v6 (1)
+iterinc i6 i7 v3 (1)
+mark-iterator-value i7 v3 (1)
+swap i1 i7 v6 v3 (1)
+iterinc i7 i8 v2 (1)
+mark-iterator-value i8 v2 (1)
+swap i1 i8 v3 v2 (1)
+outeriterinc i1 i2 v8 (1)
+iterinc i2 i3 v7 (1)
+iterinc i3 i4 v10 (1)
+iterinc i4 i5 v5 (1)
+iterinc i5 i6 v6 (1)
+iterinc i6 i7 v6 (1)
+iterinc i7 i8 v3 (1)
+mark-iterator-value i8 v3 (1)
+iterinc i8 i9 v4 (1)
+swap i2 i8 v8 v3 (1)
+outeriterinc i2 i3 v7 (1)
+iterinc i3 i4 v10 (1)
+iterinc i4 i5 v5 (1)
+iterinc i5 i6 v6 (1)
+iterinc i6 i7 v6 (1)
+iterinc i7 i8 v8 (1)
+mark-iterator-value i8 v8 (1)
+iterinc i8 i9 v4 (1)
+swap i3 i8 v7 v8 (1)
+mark-iterator-value i9 v4 (1)
+swap i3 i9 v8 v4 (1)
+outeriterinc i3 i4 v10 (1)
+iterinc i4 i5 v5 (1)
+iterinc i5 i6 v6 (1)
+iterinc i6 i7 v6 (1)
+iterinc i7 i8 v7 (1)
+mark-iterator-value i8 v7 (1)
+iterinc i8 i9 v8 (1)
+swap i4 i8 v10 v7 (1)
+swap i4 i8 v7 v7 (1)
+mark-iterator-value i9 v8 (1)
+iterinc i9 i10 v10 (1)
+swap i4 i9 v7 v8 (1)
+mark-iterator-value i10 v10 (1)
+iterinc i10 i11 v9 (1)
+swap i4 i10 v8 v10 (1)
+iterinc i11 i12 v8 (1)
+iterinc i12 i13 v7 (1)
+iterinc i13 i14 v6 (1)
+iterinc i14 i15 v5 (1)
+mark-iterator-value i15 v5 (1)
+swap i4 i15 v10 v5 (1)
+outeriterinc i4 i5 v5 (1)
+outeriterinc i5 i6 v6 (1)
+iterinc i6 i7 v6 (1)
+iterinc i7 i8 v7 (1)
+iterinc i8 i9 v7 (1)
+iterinc i9 i10 v8 (1)
+mark-iterator-value i10 v8 (1)
+iterinc i10 i11 v9 (1)
+swap i6 i10 v6 v8 (1)
+swap i6 i10 v8 v8 (1)
+mark-iterator-value i11 v9 (1)
+iterinc i11 i12 v8 (1)
+swap i6 i11 v8 v9 (1)
+mark-iterator-value i12 v8 (1)
+iterinc i12 i13 v7 (1)
+swap i6 i12 v9 v8 (1)
+iterinc i13 i14 v6 (1)
+mark-iterator-value i14 v6 (1)
+iterinc i14 i15 v10 (1)
+swap i6 i14 v8 v6 (1)
+outeriterinc i6 i7 v6 (1)
+outeriterinc i7 i8 v7 (1)
+outeriterinc i8 i9 v7 (1)
+iterinc i9 i10 v8 (1)
+iterinc i10 i11 v8 (1)
+iterinc i11 i12 v9 (1)
+mark-iterator-value i12 v9 (1)
+iterinc i12 i13 v7 (1)
+swap i9 i12 v7 v9 (1)
+swap i9 i12 v9 v9 (1)
+mark-iterator-value i13 v7 (1)
+iterinc i13 i14 v8 (1)
+swap i9 i13 v9 v7 (1)
+iterinc i14 i15 v10 (1)
+outeriterinc i9 i10 v8 (1)
+outeriterinc i10 i11 v8 (1)
+outeriterinc i11 i12 v9 (1)
+outeriterinc i12 i13 v9 (1)
+outeriterinc i13 i14 v8 (1)
+iterinc i14 i15 v10 (1)
+mark-iterator-value i15 v10 (1)
+swap i14 i15 v8 v10 (1)
+swap i14 i15 v10 v10 (1)
+Plan length: 115 step(s).
+Plan cost: 115
+Initial state h value: 15/30.
+Expanded 6319 state(s).
+Reopened 0 state(s).
+Evaluated 6983 state(s).
+Evaluations: 13966
+Generated 23291 state(s).
+Dead ends: 663 state(s).
+Best solution cost so far: 115
+Solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+Conducting lazy best first search, (real) bound = 115
+Best heuristic value: 15/30 [g=0, 1 evaluated, 0 expanded, t=172.76s, 180484 KB]
+Best heuristic value: 15/29 [g=17, 43 evaluated, 40 expanded, 2 reopened, t=173.94s, 180484 KB]
+Best heuristic value: 14/28 [g=18, 45 evaluated, 42 expanded, 2 reopened, t=174.00s, 180484 KB]
+Best heuristic value: 14/27 [g=19, 55 evaluated, 49 expanded, 2 reopened, t=174.29s, 180484 KB]
+Best heuristic value: 13/27 [g=15, 186 evaluated, 176 expanded, 13 reopened, t=178.02s, 180484 KB]
+Best heuristic value: 13/26 [g=26, 253 evaluated, 238 expanded, 19 reopened, t=179.94s, 180484 KB]
+Best heuristic value: 12/26 [g=31, 1513 evaluated, 1440 expanded, 105 reopened, t=216.33s, 180612 KB]
+Best heuristic value: 12/25 [g=32, 1516 evaluated, 1442 expanded, 105 reopened, t=216.41s, 180612 KB]
+Best heuristic value: 12/24 [g=32, 1522 evaluated, 1448 expanded, 105 reopened, t=216.58s, 180612 KB]
+Best heuristic value: 11/24 [g=27, 1600 evaluated, 1523 expanded, 105 reopened, t=218.71s, 180612 KB]
+Best heuristic value: 11/23 [g=39, 1721 evaluated, 1638 expanded, 122 reopened, t=221.87s, 180612 KB]
+Best heuristic value: 10/23 [g=40, 2742 evaluated, 2592 expanded, 163 reopened, t=248.71s, 180748 KB]
+Best heuristic value: 10/22 [g=37, 2753 evaluated, 2602 expanded, 163 reopened, t=248.97s, 180748 KB]
+Best heuristic value: 9/22 [g=47, 2795 evaluated, 2642 expanded, 163 reopened, t=249.94s, 180748 KB]
+Best heuristic value: 9/21 [g=48, 2798 evaluated, 2644 expanded, 163 reopened, t=250.01s, 180748 KB]
+Best heuristic value: 9/20 [g=48, 2805 evaluated, 2651 expanded, 163 reopened, t=250.17s, 180748 KB]

@@ -1,0 +1,16 @@
+(define (problem pos1)
+  (:domain regularExpressions)
+  (:objects i0 i1 i2 - index )
+  (:init  
+	(at i0)
+	(current-content a)
+	(adjacent i0 i1)
+	(adjacent i1 i2)
+	(content i0 a)
+	(content i1 b)
+	(content i2 empty)
+  )
+  (:goal (and 
+	(at i2)
+  ))
+)

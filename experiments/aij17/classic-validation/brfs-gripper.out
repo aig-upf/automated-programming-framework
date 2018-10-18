@@ -1,0 +1,44 @@
+Domain: domains/other/gripper/domain.pddl Problem: domains/other/gripper/prob30.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.006s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.002s wall-clock]
+Preparing model... [0.010s CPU, 0.003s wall-clock]
+Generated 39 rules.
+Computing model... [0.020s CPU, 0.018s wall-clock]
+330 relevant atoms
+526 auxiliary atoms
+856 final queue length
+3232 total queue pushes
+Completing instantiation... [0.300s CPU, 0.299s wall-clock]
+goal relaxed reachable: True
+158 atoms
+Computing fact groups...
+Finding invariants...
+12 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+158 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.000s CPU, 0.003s wall-clock]
+Axioms 31
+Deterministic 5 actions
+0 negated fluents created
+Invariants 158
+
+ Match tree built with 5 nodes.
+
+PDDL problem description loaded: 
+	Domain: gripper
+	Problem: gripper-30
+	#Actions: 5
+	#Fluents: 158
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43]

@@ -1,0 +1,79 @@
+Domain: domain.pddl Problem: ins.pddl
+Generating Datalog program... [0.010s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.020s wall-clock]
+Preparing model... [0.010s CPU, 0.009s wall-clock]
+Generated 596 rules.
+Computing model... [0.020s CPU, 0.021s wall-clock]
+821 relevant atoms
+1173 auxiliary atoms
+1994 final queue length
+3236 total queue pushes
+Completing instantiation... [0.090s CPU, 0.096s wall-clock]
+goal relaxed reachable: True
+306 atoms
+Computing fact groups...
+Finding invariants...
+99 initial candidates
+Finding invariants: [0.030s CPU, 0.023s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+214 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.030s CPU, 0.028s wall-clock]
+Deterministic 457 actions
+4 negated fluents created
+Invariants 256
+
+ Match tree built with 457 nodes.
+
+PDDL problem description loaded: 
+	Domain: gripper
+	Problem: gripper-2
+	#Actions: 457
+	#Fluents: 310
+Goals found: 1
+Goals_Edges found: 1
+Starting search with BFWS-f5-landmarks...
+--[32 / 0]--
+--[32 / 1]--
+--[31 / 0]--
+--[31 / 1]--
+--[29 / 0]--
+--[29 / 2]--
+--[29 / 6]--
+--[27 / 0]--
+--[27 / 1]--
+--[27 / 2]--
+--[27 / 5]--
+--[25 / 0]--
+--[25 / 1]--
+--[25 / 2]--
+--[24 / 0]--
+--[24 / 1]--
+--[24 / 2]--
+--[23 / 0]--
+--[21 / 0]--
+--[21 / 1]--
+--[21 / 19]--
+--[20 / 0]--
+--[20 / 13]--
+--[19 / 0]--
+--[18 / 0]--
+--[16 / 0]--
+--[16 / 1]--
+--[16 / 2]--
+--[16 / 19]--
+--[15 / 0]--
+--[13 / 0]--
+--[12 / 0]--
+--[9 / 0]--
+--[0 / 0]--
+Total time: 34.86
+Nodes generated during search: 845048
+Nodes expanded during search: 500526
+Plan found with cost: 96
+Fast-BFS search completed in 34.86 secs

@@ -1,0 +1,243 @@
+INFO     Running translator.
+INFO     translator inputs: ['domains/other/visualm/domain.pddl', 'domains/other/visualm/p10x10.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.000s CPU, 0.015s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 28 rules.
+Computing model... [0.000s CPU, 0.003s wall-clock]
+132 relevant atoms
+133 auxiliary atoms
+265 final queue length
+709 total queue pushes
+Completing instantiation... [0.010s CPU, 0.008s wall-clock]
+Instantiating: [0.010s CPU, 0.014s wall-clock]
+Computing fact groups...
+Finding invariants...
+5 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+27 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.002s wall-clock]
+40 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+6 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.001s wall-clock]
+Translator variables: 24
+Translator derived variables: 1
+Translator facts: 48
+Translator goal facts: 1
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 5
+Translator axioms: 1
+Translator task size: 239
+Translator peak memory: 15788 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.020s CPU, 0.034s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+24 variables of 24 necessary
+0 of 0 mutex groups necessary.
+5 of 5 operators necessary.
+1 of 1 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 48
+Preprocessor derived variables: 1
+Preprocessor task size: 239
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=0.00s]
+building causal graph...done! [t=0.00s]
+packing state variables...done! [t=0.00s]
+Variables: 24
+Facts: 48
+Bytes per state: 4
+done initalizing global data [t=0.00s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00s
+Discovered 8 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+7 edges
+Landmark graph: 
+LM 1 NegatedAtom marked() (var0(23)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom marked() (var0(23)->0)(goal) Achievers (1, 1)
+
+LM 0 Atom marked() (var0(23)->0)(goal) Achievers (1, 1)
+		<-_gn  LM 2 Atom obs-green() (var1(22)->0) Achievers (1, 1)
+		<-_gn  LM 1 NegatedAtom marked() (var0(23)->1) Achievers (0, 0)
+
+LM 5 NegatedAtom obs-green() (var1(22)->1) Achievers (0, 0)
+		->_gn  LM 2 Atom obs-green() (var1(22)->0) Achievers (1, 1)
+
+LM 2 Atom obs-green() (var1(22)->0) Achievers (1, 1)
+		<-_gn  LM 5 NegatedAtom obs-green() (var1(22)->1) Achievers (0, 0)
+		<-_gn  LM 4 Atom ypos(v7) (var21(7)->0) Achievers (2, 2)
+		<-_gn  LM 3 Atom xpos(v9) (var12(14)->0) Achievers (2, 2)
+		->_gn  LM 0 Atom marked() (var0(23)->0)(goal) Achievers (1, 1)
+
+LM 6 NegatedAtom xpos(v9) (var12(14)->1) Achievers (2, 2)
+		->_gn  LM 3 Atom xpos(v9) (var12(14)->0) Achievers (2, 2)
+
+LM 3 Atom xpos(v9) (var12(14)->0) Achievers (2, 2)
+		<-_gn  LM 6 NegatedAtom xpos(v9) (var12(14)->1) Achievers (2, 2)
+		->_gn  LM 2 Atom obs-green() (var1(22)->0) Achievers (1, 1)
+
+LM 7 NegatedAtom ypos(v7) (var21(7)->1) Achievers (2, 2)
+		->_gn  LM 4 Atom ypos(v7) (var21(7)->0) Achievers (2, 2)
+
+LM 4 Atom ypos(v7) (var21(7)->0) Achievers (2, 2)
+		<-_gn  LM 7 NegatedAtom ypos(v7) (var21(7)->1) Achievers (2, 2)
+		->_gn  LM 2 Atom obs-green() (var1(22)->0) Achievers (1, 1)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+4 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 3/3 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3520 KB]
+Best heuristic value: 2/2 [g=7, 36 evaluated, 35 expanded, t=0.00s, 3520 KB]
+Best heuristic value: 2/1 [g=16, 45 evaluated, 44 expanded, t=0.00s, 3520 KB]
+Solution found!
+Actual search time: 0.00s [t=0.00s]
+up  (1)
+up  (1)
+up  (1)
+up  (1)
+up  (1)
+up  (1)
+up  (1)
+right  (1)
+right  (1)
+right  (1)
+right  (1)
+right  (1)
+right  (1)
+right  (1)
+right  (1)
+right  (1)
+mark-green-block  (1)
+Plan length: 17 step(s).
+Plan cost: 17
+Initial state h value: 3/3.
+Expanded 45 state(s).
+Reopened 0 state(s).
+Evaluated 46 state(s).
+Evaluations: 92
+Generated 181 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+Solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 3/3 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3520 KB]
+Best heuristic value: 2/2 [g=7, 36 evaluated, 35 expanded, t=0.00s, 3520 KB]
+Best heuristic value: 2/1 [g=16, 74 evaluated, 73 expanded, t=0.00s, 3520 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.00s [t=0.00s]
+Initial state h value: 3/3.
+Expanded 111 state(s).
+Reopened 0 state(s).
+Evaluated 111 state(s).
+Evaluations: 222
+Generated 445 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 3)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 3/3 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3520 KB]
+Best heuristic value: 2/2 [g=7, 36 evaluated, 35 expanded, t=0.00s, 3520 KB]
+Best heuristic value: 2/1 [g=16, 79 evaluated, 78 expanded, t=0.00s, 3520 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.00s [t=0.00s]
+Initial state h value: 3/3.
+Expanded 111 state(s).
+Reopened 0 state(s).
+Evaluated 111 state(s).
+Evaluations: 222
+Generated 445 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 2)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 3/3 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3520 KB]
+Best heuristic value: 2/2 [g=7, 36 evaluated, 35 expanded, t=0.01s, 3520 KB]
+Best heuristic value: 2/1 [g=16, 80 evaluated, 79 expanded, t=0.01s, 3520 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.01s [t=0.01s]
+Initial state h value: 3/3.
+Expanded 111 state(s).
+Reopened 0 state(s).
+Evaluated 111 state(s).
+Evaluations: 222
+Generated 445 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 1)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 3/3 [g=0, 1 evaluated, 0 expanded, t=0.01s, 3520 KB]
+Best heuristic value: 2/2 [g=7, 36 evaluated, 35 expanded, t=0.01s, 3520 KB]
+Best heuristic value: 2/1 [g=16, 80 evaluated, 79 expanded, t=0.01s, 3520 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.00s [t=0.01s]
+Initial state h value: 3/3.
+Expanded 111 state(s).
+Reopened 0 state(s).
+Evaluated 111 state(s).
+Evaluations: 222
+Generated 445 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Actual search time: 0.01s [t=0.01s]
+Cumulative statistics:
+Expanded 489 state(s).
+Reopened 0 state(s).
+Evaluated 490 state(s).
+Evaluations: 980
+Generated 1961 state(s).
+Dead ends: 0 state(s).
+Search time: 0.01s
+Total time: 0.01s
+Solution found.
+Peak memory: 3520 KB

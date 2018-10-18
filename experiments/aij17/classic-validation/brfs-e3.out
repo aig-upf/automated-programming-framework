@@ -1,0 +1,43 @@
+Domain: domains/other/excel_variables/domain_variables.pddl Problem: domains/other/excel_variables/fill03_alt_test_variables.pddl
+Parsing...
+Parsing: [0.010s CPU, 0.005s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.003s wall-clock]
+Preparing model... [0.000s CPU, 0.003s wall-clock]
+Generated 57 rules.
+Computing model... [0.090s CPU, 0.094s wall-clock]
+1209 relevant atoms
+1800 auxiliary atoms
+3009 final queue length
+32411 total queue pushes
+Completing instantiation... [3.540s CPU, 3.539s wall-clock]
+goal relaxed reachable: True
+798 atoms
+Computing fact groups...
+Finding invariants...
+13 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+798 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.010s CPU, 0.005s wall-clock]
+Computing fact groups: [0.020s CPU, 0.017s wall-clock]
+Axioms 29
+Deterministic 106 actions
+0 negated fluents created
+Invariants 798
+
+ Match tree built with 106 nodes.
+
+PDDL problem description loaded: 
+	Domain: excel
+	Problem: reverse
+	#Actions: 106
+	#Fluents: 798
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7]

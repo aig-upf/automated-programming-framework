@@ -5,7 +5,7 @@
 
 class ChoiceActions : public Actions {
 	public:
-	ChoiceActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ) {}
+	ChoiceActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ) {}
 
 	void createProgrammingActions( StringTVec& choiceInstr, unsigned procedures, unsigned lines, StringVec& empty_lines ){		
 		String prefix_name = "PROGRAM-CHOICE-";
@@ -58,7 +58,7 @@ class ChoiceActions : public Actions {
 					parameters.emplace_back( "STACKROW" );
 
 					String name = prefix_name + ss.str();
-					Action *choice = createAction( name, parameters );
+					parser::pddl::Action *choice = createAction( name, parameters );
 
 					addPrecondition( name, "TOP-STACK", false, IntVec( 1, 2 ) );
 					addPrecondition( name, "STACK-MAIN", false, IntVec( 1, 2 ) );
@@ -69,13 +69,13 @@ class ChoiceActions : public Actions {
 					addEffect( name, stack_lines[line], true, IntVec( 1, 2 ) );
 					addEffect( name, stack_lines[line+1], false, IntVec( 1, 2 ) );
 					addEffect( name, pars[ 0 ] + "-ASSIGNMENT", false, incvec( 0, parameters.size() ) );
-					Forall * f = new Forall;
+					parser::pddl::Forall * f = new parser::pddl::Forall;
 					f->params.push_back( cd->types.index( pars[0] ) );
 					IntVec vec( 1, 0 ); // variable
 					vec.emplace_back( parameters.size() ); // Forall parameter
 					vec.emplace_back( parameters.size() - 1 ); // STACKROW
-					f->cond = new Not( cd->ground( pars[ 0 ] + "-ASSIGNMENT", vec ) );
-					( ( And * )choice->eff )->conds.emplace_back( f );
+					f->cond = new parser::pddl::Not( cd->ground( pars[ 0 ] + "-ASSIGNMENT", vec ) );
+					( ( parser::pddl::And * )choice->eff )->conds.emplace_back( f );
 				}
 		}
 	}

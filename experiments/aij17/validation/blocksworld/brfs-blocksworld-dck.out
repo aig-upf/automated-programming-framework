@@ -1,0 +1,43 @@
+Domain: experiments/aij17/validation/blocksworld/domain_dck.pddl Problem: experiments/aij17/validation/blocksworld/ins_dck.pddl
+Parsing...
+Parsing: [0.070s CPU, 0.072s wall-clock]
+Generating Datalog program... [0.010s CPU, 0.008s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.040s CPU, 0.049s wall-clock]
+Preparing model... [0.040s CPU, 0.032s wall-clock]
+Generated 1305 rules.
+Computing model... [2.900s CPU, 2.903s wall-clock]
+31551 relevant atoms
+167097 auxiliary atoms
+198648 final queue length
+418031 total queue pushes
+Completing instantiation... [26.490s CPU, 26.491s wall-clock]
+goal relaxed reachable: True
+10421 atoms
+Computing fact groups...
+Finding invariants...
+33 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.020s CPU, 0.014s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.003s wall-clock]
+Choosing groups...
+10421 uncovered facts
+Choosing groups: [0.010s CPU, 0.003s wall-clock]
+Building translation key... [0.070s CPU, 0.065s wall-clock]
+Computing fact groups: [0.270s CPU, 0.262s wall-clock]
+Axioms 200
+Deterministic 20210 actions
+1 negated fluents created
+Invariants 10421
+
+ Match tree built with 20210 nodes.
+
+PDDL problem description loaded: 
+	Domain: blocksworld
+	Problem: p100b
+	#Actions: 20210
+	#Fluents: 10422
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59][60][61][62][63][64][65]

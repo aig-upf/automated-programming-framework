@@ -8,10 +8,10 @@ StringVec vars;
 StringVec types;
 StringVec type_preds;
 std::map< int, int > varmap;
-CondVec conditionals;
+parser::pddl::CondVec conditionals;
 
-Domain * d;
-Domain * cd;
+parser::pddl::Domain * d;
+parser::pddl::Domain * cd;
 
 bool contains( const StringVec & vec, const String & str ) {
 	for ( unsigned i = 0; i < vec.size(); ++i )
@@ -33,37 +33,37 @@ StringVec modifyPars( const IntVec & vec, IntVec & ixs, const IntSet & pres = In
 	return pars;
 }
 
-void conds( Condition * cond, IntSet & out ) {
-	And * a = dynamic_cast< And * >( cond );
+void conds( parser::pddl::Condition * cond, IntSet & out ) {
+	parser::pddl::And * a = dynamic_cast< parser::pddl::And * >( cond );
 	for ( unsigned i = 0; a && i < a->conds.size(); ++i )
 		conds( a->conds[i], out );
-	Exists * e = dynamic_cast< Exists * >( cond );
+	parser::pddl::Exists * e = dynamic_cast< parser::pddl::Exists * >( cond );
 	if ( e ) conds( e->cond, out );
-	Forall * f = dynamic_cast< Forall * >( cond );
+	parser::pddl::Forall * f = dynamic_cast< parser::pddl::Forall * >( cond );
 	if ( f ) conds( f->cond, out );
-	Ground * g = dynamic_cast< Ground * >( cond );
+	parser::pddl::Ground * g = dynamic_cast< parser::pddl::Ground * >( cond );
 	if ( g ) out.insert( g->params.begin(), g->params.end() );
-	Not * n = dynamic_cast< Not * >( cond );
+	parser::pddl::Not * n = dynamic_cast< parser::pddl::Not * >( cond );
 	if ( n ) conds( n->cond, out );
-	Or * o = dynamic_cast< Or * >( cond );
+	parser::pddl::Or * o = dynamic_cast< parser::pddl::Or * >( cond );
 	if ( o ) {
 		conds( o->first, out );
 		conds( o->second, out );
 	}
-	When * w = dynamic_cast< When * >( cond );
+	parser::pddl::When * w = dynamic_cast< parser::pddl::When * >( cond );
 	if ( w ) {
 		conds( w->pars, out );
 		conds( w->cond, out );
 	}
 }
 
-void processPrecon( const String & name, Condition * cond, const IntVec & vec, bool b ) {
-	And * a = dynamic_cast< And * >( cond );
+void processPrecon( const String & name, parser::pddl::Condition * cond, const IntVec & vec, bool b ) {
+	parser::pddl::And * a = dynamic_cast< parser::pddl::And * >( cond );
 	for ( unsigned i = 0; a && i < a->conds.size(); ++i )
 		processPrecon( name, a->conds[i], vec, b );
-	Not * n = dynamic_cast< Not * >( cond );
+	parser::pddl::Not * n = dynamic_cast< parser::pddl::Not * >( cond );
 	if ( n ) processPrecon( name, n->cond, vec, true );
-	Ground * g = dynamic_cast< Ground * >( cond );
+	parser::pddl::Ground * g = dynamic_cast< parser::pddl::Ground * >( cond );
 	if ( g ) {
 		bool z = 1;
 		for ( unsigned i = 0; i < g->params.size(); ++i )
@@ -71,20 +71,20 @@ void processPrecon( const String & name, Condition * cond, const IntVec & vec, b
 				z &= g->params[i] != vec[j];
 
 		if ( z ) cd->addPre( b, name, g->name, g->params );
-		else if ( b ) conditionals.push_back( new Not( g ) );
+		else if ( b ) conditionals.push_back( new parser::pddl::Not( g ) );
 		else conditionals.push_back( g );
 	}
 }
 
-Condition * insertedCond( Condition * cond, const IntVec & pars, const IntVec & vec, int off ) {
-	And * a = dynamic_cast< And * >( cond );
+parser::pddl::Condition * insertedCond( parser::pddl::Condition * cond, const IntVec & pars, const IntVec & vec, int off ) {
+	parser::pddl::And * a = dynamic_cast< parser::pddl::And * >( cond );
 	if ( a ) {
-		And * out = new And;
+		parser::pddl::And * out = new parser::pddl::And;
 		for ( unsigned i = 0; i < a->conds.size(); ++i )
 			out->conds.push_back( insertedCond( a->conds[i], pars, vec, off ) );
 		return out;
 	}
-	Ground * g = dynamic_cast< Ground * >( cond );
+	parser::pddl::Ground * g = dynamic_cast< parser::pddl::Ground * >( cond );
 	if ( g ) {
 		IntVec newPars;
 		for ( unsigned i = 0; i < g->params.size(); ++i ) {
@@ -95,22 +95,22 @@ Condition * insertedCond( Condition * cond, const IntVec & pars, const IntVec & 
 		}
 		return cd->ground( g->name, newPars );
 	}
-	Not * n = dynamic_cast< Not * >( cond );
-	if ( n ) return new Not( ( Ground * )insertedCond( n->cond, pars, vec, off ) );
-	Or * o = dynamic_cast< Or * >( cond );
+	parser::pddl::Not * n = dynamic_cast< parser::pddl::Not * >( cond );
+	if ( n ) return new parser::pddl::Not( ( parser::pddl::Ground * )insertedCond( n->cond, pars, vec, off ) );
+	parser::pddl::Or * o = dynamic_cast< parser::pddl::Or * >( cond );
 	if ( o ) {
-		Or * out = new Or;
+		parser::pddl::Or * out = new parser::pddl::Or;
 		out->first = insertedCond( o->first, pars, vec, off );
 		out->second = insertedCond( o->second, pars, vec, off );
 		return out;
 	}
-	return new Ground;
+	return new parser::pddl::Ground;
 }
 
-Condition * modifiedCond( Condition * cond, const IntVec & pars, const IntVec & vec ) {
-	And * a = dynamic_cast< And * >( cond );
+parser::pddl::Condition * modifiedCond( parser::pddl::Condition * cond, const IntVec & pars, const IntVec & vec ) {
+	parser::pddl::And * a = dynamic_cast< parser::pddl::And * >( cond );
 	if ( a ) {
-		And * out = new And;
+		parser::pddl::And * out = new parser::pddl::And;
 		for ( unsigned i = 0; i < a->conds.size(); ++i ) {
 			IntSet effs;
 			conds( a->conds[i], effs );
@@ -125,9 +125,9 @@ Condition * modifiedCond( Condition * cond, const IntVec & pars, const IntVec & 
 		}
 		return out;
 	}
-	Exists * e = dynamic_cast< Exists * >( cond );
+	parser::pddl::Exists * e = dynamic_cast< parser::pddl::Exists * >( cond );
 	if ( e ) {
-		Exists * out = new Exists;
+		parser::pddl::Exists * out = new parser::pddl::Exists;
 		out->params = e->params;
 		out->cond = insertedCond( e->cond, pars, vec, e->params.size() );
 
@@ -136,24 +136,24 @@ Condition * modifiedCond( Condition * cond, const IntVec & pars, const IntVec & 
 			newPars.push_back( pars.size() + out->params.size() );
 
 			out->params.push_back( pars[vec[i]] );
-			( ( And * )out->cond )->conds.push_back( cd->ground( type_preds[varmap[pars[vec[i]]]], newPars ) );
+			( ( parser::pddl::And * )out->cond )->conds.push_back( cd->ground( type_preds[varmap[pars[vec[i]]]], newPars ) );
 		}
 		return out;
 	}
-	Forall * f = dynamic_cast< Forall * >( cond );
+	parser::pddl::Forall * f = dynamic_cast< parser::pddl::Forall * >( cond );
 	if ( f ) {
-		Forall * out = new Forall;
+		parser::pddl::Forall * out = new parser::pddl::Forall;
 		out->params = f->params;
 
 		if ( vec.size() ) {
-			When * when = new When;
-			When * w = dynamic_cast< When * >( f->cond );
+			parser::pddl::When * when = new parser::pddl::When;
+			parser::pddl::When * w = dynamic_cast< parser::pddl::When * >( f->cond );
 			if ( w ) {
 				when->pars = insertedCond( w->pars, pars, vec, f->params.size() );
 				when->cond = insertedCond( w->cond, pars, vec, f->params.size() );
 			}
 			else {
-				when->pars = new And;
+				when->pars = new parser::pddl::And;
 				when->cond = insertedCond( f->cond, pars, vec, f->params.size() );
 			}
 
@@ -162,7 +162,7 @@ Condition * modifiedCond( Condition * cond, const IntVec & pars, const IntVec & 
 				newPars.push_back( pars.size() + out->params.size() );
 
 				out->params.push_back( pars[vec[i]] );
-				( ( And * )when->pars )->conds.push_back( cd->ground( type_preds[varmap[pars[vec[i]]]], newPars ) );
+				( ( parser::pddl::And * )when->pars )->conds.push_back( cd->ground( type_preds[varmap[pars[vec[i]]]], newPars ) );
 			}
 
 			out->cond = when;
@@ -170,22 +170,22 @@ Condition * modifiedCond( Condition * cond, const IntVec & pars, const IntVec & 
 		else out->cond = insertedCond( f->cond, pars, vec, f->params.size() );
 		return out;
 	}
-	Ground * g = dynamic_cast< Ground * >( cond );
-	Not * n = dynamic_cast< Not * >( cond );
-	Or * o = dynamic_cast< Or * >( cond );
+	parser::pddl::Ground * g = dynamic_cast< parser::pddl::Ground * >( cond );
+	parser::pddl::Not * n = dynamic_cast< parser::pddl::Not * >( cond );
+	parser::pddl::Or * o = dynamic_cast< parser::pddl::Or * >( cond );
 	if ( g || n || o ) {
-		Forall * out = new Forall;
-		When * when = new When;
-		when->pars = new And;
+		parser::pddl::Forall * out = new parser::pddl::Forall;
+		parser::pddl::When * when = new parser::pddl::When;
+		when->pars = new parser::pddl::And;
 		for ( unsigned i = 0; i < vec.size(); ++i ) {
 			IntVec newPars( 1, vec[i] );
 			newPars.push_back( pars.size() + out->params.size() );
 
 			out->params.push_back( pars[vec[i]] );
-			( ( And * )when->pars )->conds.push_back( cd->ground( type_preds[varmap[pars[vec[i]]]], newPars ) );
+			( ( parser::pddl::And * )when->pars )->conds.push_back( cd->ground( type_preds[varmap[pars[vec[i]]]], newPars ) );
 		}
 		for ( unsigned i = 0; i < conditionals.size(); ++i )
-			( ( And * )when->pars )->conds.emplace_back( insertedCond( conditionals[i], pars, vec, 0 ) );
+			( ( parser::pddl::And * )when->pars )->conds.emplace_back( insertedCond( conditionals[i], pars, vec, 0 ) );
 
 		when->cond = insertedCond( cond, pars, vec, 0 );
 
@@ -194,7 +194,7 @@ Condition * modifiedCond( Condition * cond, const IntVec & pars, const IntVec & 
 	}
 	//When * w = dynamic_cast< When * >( cond );
 	//if ( w ) {}
-	return new Ground;
+	return new parser::pddl::Ground;
 }
 
 int main( int argc, char *argv[] ) {
@@ -204,7 +204,7 @@ int main( int argc, char *argv[] ) {
 		exit( 1 );
 	}
 
-	d = new Domain( argv[1] );
+	d = new parser::pddl::Domain( argv[1] );
 
 	unsigned nfiles, nvars;
 
@@ -225,7 +225,7 @@ int main( int argc, char *argv[] ) {
 
 	// create new domain
 
-	cd = new Domain;
+	cd = new parser::pddl::Domain;
 	cd->name = d->name;
 	cd->condeffects = d->condeffects;
 	cd->typed = d->typed;
@@ -262,7 +262,7 @@ int main( int argc, char *argv[] ) {
 		IntVec vec;
 		StringVec pars = modifyPars( d->actions[i]->params, vec, pres );
 		//std::cout << pres << " " << d->actions[i]->params << " " << vec << " " << pars << "\n";
-		Action * act = cd->createAction( d->actions[i]->name, pars );
+		parser::pddl::Action * act = cd->createAction( d->actions[i]->name, pars );
 
 		processPrecon( d->actions[i]->name, d->actions[i]->pre, vec, false );
 
@@ -272,7 +272,7 @@ int main( int argc, char *argv[] ) {
 
 	for ( unsigned i = 0; i < d->derived.size(); ++i ) {
 		IntVec vec;
-		Derived * dv = new Derived( d->derived[i]->name );
+		parser::pddl::Derived * dv = new parser::pddl::Derived( d->derived[i]->name );
 		StringVec pars = modifyPars( d->derived[i]->params, vec );
 		for ( unsigned i = 0; i < pars.size(); ++i )
 			dv->params.push_back( cd->types.index( pars[i] ) );
@@ -285,11 +285,12 @@ int main( int argc, char *argv[] ) {
 	int ix = dom.find_last_of( '.' );
 	dom = dom.substr( 0, ix ) + "_variables.pddl";
 	std::ofstream file( dom );
-	cd->PDDLPrint( file );
+	//cd->PDDLPrint( file );
+	cd->print( file );
 	file.close();
 
 	for ( unsigned i = 0; i < files.size(); ++i ) {
-		Instance ins( *cd, files[i] );
+		parser::pddl::Instance ins( *cd, files[i] );
 		for ( unsigned j = 0; j < vars.size(); ++j ) {
 			int ix = cd->types.index( vars[j] );
 			for ( unsigned k = 0; k < cd->types[ix]->constants.size(); ++k ) {
@@ -308,7 +309,8 @@ int main( int argc, char *argv[] ) {
 
 		int ix = files[i].find_last_of( '.' );
 		std::ofstream insfile( files[i].substr( 0, ix ) + "_variables.pddl" );
-		ins.PDDLPrint( insfile );
+		//ins.PDDLPrint( insfile );
+		ins.print( insfile );
 		insfile.close();
 
 		for ( unsigned j = 0; j < vars.size(); ++j ) {

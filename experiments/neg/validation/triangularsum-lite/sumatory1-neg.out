@@ -1,0 +1,19 @@
+Checking plan: experiments/neg/synthesis/triangularsum-lite/program.txt
+Plan Validation details
+-----------------------
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT A V1)
+Adding (ASSIGNMENT A V3)
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V2)
+Adding (ASSIGNMENT B V1)
+
+Checking action ADD-A-B - Procedure: 0 - Line: 0
+
+Checking action DEC-B - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT B V1)
+Adding (ASSIGNMENT B V0)
+
+Plan executed successfully - checking goal

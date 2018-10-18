@@ -1,0 +1,5 @@
+(define (problem ab-regex-1)
+  (:domain regularExpressions)
+  (:objects i0 i1 - index)
+  (:init (at i0)(current-content a)(adjacent i0 i1)(content i0 a)(content i1 empty ) )
+  (:goal (and  (at i1) )))

@@ -1,0 +1,111 @@
+Domain: domain.pddl Problem: ins.pddl
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.018s wall-clock]
+Preparing model... [0.010s CPU, 0.008s wall-clock]
+Generated 553 rules.
+Computing model... [0.010s CPU, 0.011s wall-clock]
+362 relevant atoms
+619 auxiliary atoms
+981 final queue length
+2304 total queue pushes
+Completing instantiation... [0.060s CPU, 0.055s wall-clock]
+goal relaxed reachable: True
+155 atoms
+Computing fact groups...
+Finding invariants...
+81 initial candidates
+Finding invariants: [0.020s CPU, 0.024s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+82 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.030s CPU, 0.027s wall-clock]
+Deterministic 171 actions
+3 negated fluents created
+Invariants 111
+
+ Match tree built with 171 nodes.
+
+PDDL problem description loaded: 
+	Domain: summatory
+	Problem: p2-09092015121315
+	#Actions: 171
+	#Fluents: 158
+Goals found: 1
+Goals_Edges found: 1
+Starting search with BFWS-f5-landmarks...
+--[38 / 0]--
+--[38 / 1]--
+--[37 / 0]--
+--[37 / 1]--
+--[35 / 0]--
+--[35 / 2]--
+--[33 / 0]--
+--[33 / 2]--
+--[33 / 5]--
+--[32 / 0]--
+--[32 / 1]--
+--[32 / 2]--
+--[30 / 0]--
+--[30 / 1]--
+--[30 / 2]--
+--[30 / 5]--
+--[30 / 6]--
+--[29 / 0]--
+--[29 / 1]--
+--[29 / 2]--
+--[29 / 5]--
+--[29 / 6]--
+--[28 / 0]--
+--[28 / 1]--
+--[28 / 2]--
+--[28 / 6]--
+--[26 / 0]--
+--[26 / 1]--
+--[25 / 0]--
+--[24 / 0]--
+--[23 / 0]--
+--[23 / 2]--
+--[23 / 5]--
+--[23 / 6]--
+--[23 / 7]--
+--[22 / 0]--
+--[22 / 1]--
+--[22 / 2]--
+--[22 / 7]--
+--[21 / 0]--
+--[21 / 1]--
+--[21 / 2]--
+--[21 / 7]--
+--[21 / 9]--
+--[21 / 10]--
+--[20 / 0]--
+--[20 / 1]--
+--[20 / 2]--
+--[20 / 3]--
+--[19 / 0]--
+--[19 / 3]--
+--[19 / 10]--
+--[18 / 0]--
+--[16 / 0]--
+--[16 / 2]--
+--[15 / 0]--
+--[12 / 0]--
+--[12 / 1]--
+--[12 / 2]--
+--[12 / 9]--
+--[11 / 0]--
+--[8 / 0]--
+--[8 / 2]--
+--[8 / 3]--
+--[5 / 0]--
+--[0 / 0]--
+Total time: 3.74
+Nodes generated during search: 128594
+Nodes expanded during search: 89080
+Plan found with cost: 75
+Fast-BFS search completed in 3.74 secs

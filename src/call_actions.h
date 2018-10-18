@@ -2,7 +2,7 @@
 
 class CallActions : public Actions{
 	public:
-	CallActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ){}
+	CallActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ){}
 	
 	void createProgrammingActions(	unsigned procedures, unsigned lines, StringVec& empty_lines, StringTVec& calls ){		
 		StringVec parameters( 1, "STACKROW" );
@@ -76,19 +76,19 @@ class CallActions : public Actions{
 						addEffect( name, "TODO-DERIVED" );
 					}
 
-					Action *repcall = getAction( cd, name );
+					parser::pddl::Action *repcall = getAction( cd, name );
 
 					int predicate_idx = 0;
 					for( String predicate : stack_predicates ){
-						Lifted *l = cd->preds.get( predicate );
+						parser::pddl::Lifted *l = cd->preds.get( predicate );
 						if( l->params.size() <= 1 ){
-							When *w = new When;
-							( ( And * ) repcall->eff )->add( w );
+							parser::pddl::When *w = new parser::pddl::When;
+							( ( parser::pddl::And * ) repcall->eff )->add( w );
 							predicate_idx++;
 							continue;
 						}
 					
-						Forall *f = new Forall;
+						parser::pddl::Forall *f = new parser::pddl::Forall;
 
 						//Add the correct params to Forall
 						for( auto lparam : (l->params) ){
@@ -103,12 +103,12 @@ class CallActions : public Actions{
 								(f->params).emplace_back( lparam );
 						}
 
-						When *w = new When;
+						parser::pddl::When *w = new parser::pddl::When;
 						IntVec when_parameters_1;
 						IntVec when_parameters_2;
 
 						for( unsigned parameter = 2; parameter < parameters.size(); parameter++ ){
-							Type *t = cd->getType( parameters[ parameter ] );
+							parser::pddl::Type *t = cd->getType( parameters[ parameter ] );
 							int parameter2 = ( t->parseConstant( stack_constants[ predicate_idx ][ parameter - 2 ] ) ).second;
 							when_parameters_1.emplace_back( parameter );
 							when_parameters_2.emplace_back( parameter2 );
@@ -125,7 +125,7 @@ class CallActions : public Actions{
 						w->pars = cd->ground( l->name, when_parameters_1 );
 						w->cond = cd->ground( l->name, when_parameters_2 );
 						f->cond = w;
-						( ( And * ) repcall->eff )->add( f );
+						( ( parser::pddl::And * ) repcall->eff )->add( f );
 					
 						predicate_idx++;
 					}
@@ -195,7 +195,7 @@ class CallActions : public Actions{
 		params.push_back( "STACKROW" );
 		int par_size = (int)params.size();
 
-		Action *repcall = createAction( name, params );
+		parser::pddl::Action *repcall = createAction( name, params );
 	
 		if( is_true ){
 			addPrecondition( name, accumulator_pred[ p_from ], false, IntVec( 1 , par_size - 2 ) );
@@ -222,10 +222,10 @@ class CallActions : public Actions{
 		//[BUG][ToDo] This few lines have big chances of being future bugs
 		int predi = 0;
 		for( StringSet::iterator it = stack_predicates.begin(); it != stack_predicates.end(); it++, predi++){
-			Lifted *l = cd->preds.get( *it );
+			parser::pddl::Lifted *l = cd->preds.get( *it );
 			if( l->params.size() > 1 ){
-				Forall *f = new Forall;
-				When *w = new When;
+				parser::pddl::Forall *f = new parser::pddl::Forall;
+				parser::pddl::When *w = new parser::pddl::When;
 				IntVec wp1, wp2;
 				wp1 = incvec( 0 , stack_size );					
 				wp2 = incvec( 0 , stack_size );
@@ -252,7 +252,7 @@ class CallActions : public Actions{
 				w->pars = cd->ground( l->name, wp1 );
 				w->cond = cd->ground( l->name, wp2 );
 				f->cond = w;
-				( ( And * ) repcall->eff )->add( f );
+				( ( parser::pddl::And * ) repcall->eff )->add( f );
 			}
 		}
 	}

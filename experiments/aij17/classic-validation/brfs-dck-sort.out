@@ -1,0 +1,43 @@
+Domain: domains/other/sorting/domain_dck.pddl Problem: domains/other/sorting/sort15.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.088s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.004s wall-clock]
+Preparing model... [0.010s CPU, 0.004s wall-clock]
+Generated 43 rules.
+Computing model... [0.440s CPU, 0.442s wall-clock]
+26501 relevant atoms
+587 auxiliary atoms
+27088 final queue length
+105236 total queue pushes
+Completing instantiation... [9.500s CPU, 9.494s wall-clock]
+goal relaxed reachable: True
+241 atoms
+Computing fact groups...
+Finding invariants...
+15 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.010s CPU, 0.011s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+241 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.020s CPU, 0.015s wall-clock]
+Axioms 47
+Deterministic 26060 actions
+0 negated fluents created
+Invariants 241
+
+ Match tree built with 26060 nodes.
+
+PDDL problem description loaded: 
+	Domain: sorting
+	Problem: sort15
+	#Actions: 26060
+	#Fluents: 241
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26]

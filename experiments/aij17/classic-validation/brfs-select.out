@@ -1,0 +1,44 @@
+Domain: domains/pointers/domain.pddl Problem: domains/pointers/select/select30.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.004s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.002s wall-clock]
+Preparing model... [0.010s CPU, 0.002s wall-clock]
+Generated 62 rules.
+Computing model... [0.030s CPU, 0.035s wall-clock]
+454 relevant atoms
+756 auxiliary atoms
+1210 final queue length
+16624 total queue pushes
+Completing instantiation... [1.850s CPU, 1.848s wall-clock]
+goal relaxed reachable: True
+264 atoms
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+264 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.002s wall-clock]
+Computing fact groups: [0.000s CPU, 0.005s wall-clock]
+Axioms 31
+Deterministic 4 actions
+0 negated fluents created
+Invariants 264
+
+ Match tree built with 4 nodes.
+
+PDDL problem description loaded: 
+	Domain: pointers
+	Problem: select30
+	#Actions: 4
+	#Fluents: 264
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19]

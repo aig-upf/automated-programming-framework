@@ -1,0 +1,91 @@
+Domain: domain.pddl Problem: ins.pddl
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.030s CPU, 0.033s wall-clock]
+Preparing model... [0.020s CPU, 0.018s wall-clock]
+Generated 639 rules.
+Computing model... [0.040s CPU, 0.047s wall-clock]
+905 relevant atoms
+1189 auxiliary atoms
+2094 final queue length
+4754 total queue pushes
+Completing instantiation... [0.180s CPU, 0.194s wall-clock]
+goal relaxed reachable: True
+351 atoms
+Computing fact groups...
+Finding invariants...
+100 initial candidates
+Finding invariants: [0.040s CPU, 0.039s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+223 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.040s CPU, 0.046s wall-clock]
+Deterministic 505 actions
+3 negated fluents created
+Invariants 269
+
+ Match tree built with 505 nodes.
+
+PDDL problem description loaded: 
+	Domain: reverse
+	Problem: p4-09092015103622
+	#Actions: 505
+	#Fluents: 354
+Goals found: 1
+Goals_Edges found: 1
+Starting search with BFWS-f5-landmarks...
+--[41 / 0]--
+--[41 / 1]--
+--[40 / 0]--
+--[40 / 1]--
+--[38 / 0]--
+--[38 / 2]--
+--[34 / 0]--
+--[34 / 2]--
+--[34 / 5]--
+--[34 / 37]--
+--[34 / 39]--
+--[32 / 0]--
+--[32 / 1]--
+--[32 / 2]--
+--[32 / 37]--
+--[32 / 38]--
+--[32 / 41]--
+--[32 / 42]--
+--[31 / 0]--
+--[31 / 1]--
+--[31 / 2]--
+--[31 / 36]--
+--[29 / 0]--
+--[29 / 1]--
+--[29 / 2]--
+--[27 / 0]--
+--[27 / 1]--
+--[25 / 0]--
+--[14 / 0]--
+--[13 / 0]--
+--[11 / 0]--
+--[11 / 1]--
+--[11 / 2]--
+--[11 / 3]--
+--[11 / 37]--
+--[11 / 38]--
+--[11 / 61]--
+--[8 / 0]--
+--[8 / 3]--
+--[8 / 36]--
+--[8 / 37]--
+--[8 / 39]--
+--[8 / 41]--
+--[8 / 42]--
+--[7 / 0]--
+--[0 / 0]--
+Total time: 86.592
+Nodes generated during search: 1268630
+Nodes expanded during search: 585433
+Plan found with cost: 43
+Fast-BFS search completed in 86.592 secs

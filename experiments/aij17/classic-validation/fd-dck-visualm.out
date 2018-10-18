@@ -1,0 +1,542 @@
+INFO     Running translator.
+INFO     translator inputs: ['domains/other/visualm/domain_dck.pddl', 'domains/other/visualm/p10x10.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.000s CPU, 0.015s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.002s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 36 rules.
+Computing model... [0.000s CPU, 0.004s wall-clock]
+168 relevant atoms
+177 auxiliary atoms
+345 final queue length
+389 total queue pushes
+Completing instantiation... [0.010s CPU, 0.002s wall-clock]
+Instantiating: [0.010s CPU, 0.010s wall-clock]
+Computing fact groups...
+Finding invariants...
+5 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+5 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+8 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.000s wall-clock]
+Translator variables: 4
+Translator derived variables: 1
+Translator facts: 26
+Translator goal facts: 1
+Translator mutex groups: 2
+Translator total mutex groups size: 22
+Translator operators: 41
+Translator axioms: 1
+Translator task size: 179
+Translator peak memory: 15788 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.010s CPU, 0.029s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is acyclic.
+4 variables of 4 necessary
+0 of 2 mutex groups necessary.
+41 of 41 operators necessary.
+1 of 1 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 26
+Preprocessor derived variables: 1
+Preprocessor task size: 157
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=0.00s]
+building causal graph...done! [t=0.00s]
+packing state variables...done! [t=0.00s]
+Variables: 4
+Facts: 26
+Bytes per state: 4
+done initalizing global data [t=0.00s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00s
+Discovered 22 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+108 edges
+Landmark graph: 
+LM 18 NegatedAtom marked() (var0(3)->1) Achievers (0, 0)
+		->_gn  LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+
+LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		<-_nat LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		<-_nat LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		<-_nat LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		<-_nat LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		<-_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		<-_nat LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		<-_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_nat LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		<-_gn  LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		<-_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		<-_gn  LM 18 NegatedAtom marked() (var0(3)->1) Achievers (0, 0)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		<-_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		<-_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		<-_nat LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		<-_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+
+LM 19 NegatedAtom obs-green() (var1(2)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+
+LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		<-_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		<-_nat LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		<-_nat LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		<-_nat LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		<-_nat LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		<-_nat LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		<-_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		<-_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		<-_gn  LM 19 NegatedAtom obs-green() (var1(2)->1) Achievers (0, 0)
+		<-_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		<-_gn  LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		<-_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_gn  LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		<-_nat LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		<-_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		->_gn  LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+
+LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		<-_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		<-_gn  LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		<-_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		<-_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_gn  LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+
+LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		<-_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		<-_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		<-_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		<-_gn  LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_gn  LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+
+LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		<-_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		<-_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		<-_gn  LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_gn  LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+
+LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		<-_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_gn  LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_gn  LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+
+LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		<-_gn  LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		<-_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_gn  LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		->_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+
+LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		<-_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_gn  LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		->_gn  LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		->_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+
+LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		<-_nat LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_gn  LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_gn  LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		->_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		->_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		->_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+
+LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		<-_nat LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		<-_gn  LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		->_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		->_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		->_gn  LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		->_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+
+LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		<-_gn  LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		->_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		->_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		->_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		->_gn  LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+		->_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+
+LM 21 Atom xpos(v0) (var2(1)->0) Achievers (1, 1)
+		->_nat LM 6 Atom xpos(v4) (var2(1)->5) Achievers (2, 1)
+		->_nat LM 20 Atom xpos(v8) (var2(1)->9) Achievers (2, 1)
+		->_nat LM 9 Atom xpos(v7) (var2(1)->8) Achievers (2, 1)
+		->_nat LM 8 Atom xpos(v6) (var2(1)->7) Achievers (2, 1)
+		->_nat LM 7 Atom xpos(v5) (var2(1)->6) Achievers (2, 1)
+		->_gn  LM 3 Atom xpos(v1) (var2(1)->1) Achievers (2, 1)
+		->_nat LM 5 Atom xpos(v3) (var2(1)->4) Achievers (2, 1)
+		->_nat LM 1 Atom xpos(v9) (var2(1)->10) Achievers (2, 1)
+		->_nat LM 4 Atom xpos(v2) (var2(1)->3) Achievers (2, 1)
+
+LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		<-_nat LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		<-_nat LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		<-_nat LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		<-_nat LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		<-_nat LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		<-_gn  LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		<-_nat LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_gn  LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+
+LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		<-_nat LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		<-_gn  LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		<-_nat LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		<-_nat LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		<-_nat LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		<-_nat LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_gn  LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+
+LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		<-_gn  LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		<-_nat LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		<-_nat LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		<-_nat LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		<-_nat LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_gn  LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		->_nat LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+
+LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		<-_nat LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		<-_nat LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		<-_nat LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		<-_gn  LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		->_nat LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		->_gn  LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+
+LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		<-_nat LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		<-_nat LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		<-_gn  LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		->_nat LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		->_gn  LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+
+LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		<-_nat LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		<-_gn  LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		->_nat LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		->_gn  LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		->_nat LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+
+LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+		<-_gn  LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		->_nat LM 0 Atom obs-green() (var1(2)->0) Achievers (1, 1)
+		->_nat LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		->_nat LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		->_nat LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		->_nat LM 17 Atom marked() (var0(3)->0)(goal) Achievers (1, 1)
+		->_nat LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		->_gn  LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		->_nat LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+
+LM 11 Atom ypos(v0) (var3(0)->0) Achievers (1, 1)
+		->_nat LM 16 Atom ypos(v5) (var3(0)->6) Achievers (2, 1)
+		->_nat LM 15 Atom ypos(v4) (var3(0)->5) Achievers (2, 1)
+		->_nat LM 2 Atom ypos(v7) (var3(0)->8) Achievers (2, 1)
+		->_nat LM 14 Atom ypos(v3) (var3(0)->4) Achievers (2, 1)
+		->_nat LM 13 Atom ypos(v2) (var3(0)->3) Achievers (2, 1)
+		->_nat LM 10 Atom ypos(v6) (var3(0)->7) Achievers (2, 1)
+		->_gn  LM 12 Atom ypos(v1) (var3(0)->1) Achievers (2, 1)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+4 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 17/17 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 16/16 [g=1, 2 evaluated, 1 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 15/15 [g=2, 3 evaluated, 2 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 14/14 [g=3, 4 evaluated, 3 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 13/13 [g=4, 5 evaluated, 4 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 12/12 [g=5, 6 evaluated, 5 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 11/11 [g=6, 7 evaluated, 6 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 10/10 [g=7, 8 evaluated, 7 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 9/9 [g=8, 9 evaluated, 8 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 8/8 [g=9, 10 evaluated, 9 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 7/7 [g=10, 11 evaluated, 10 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 6/6 [g=11, 12 evaluated, 11 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 5/5 [g=12, 13 evaluated, 12 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 4/4 [g=13, 14 evaluated, 13 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 3/3 [g=14, 15 evaluated, 14 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 2/2 [g=15, 16 evaluated, 15 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 2/1 [g=16, 17 evaluated, 16 expanded, t=0.00s, 3516 KB]
+Solution found!
+Actual search time: 0.00s [t=0.00s]
+right v0 v1 (1)
+right v1 v2 (1)
+right v2 v3 (1)
+right v3 v4 (1)
+right v4 v5 (1)
+right v5 v6 (1)
+right v6 v7 (1)
+right v7 v8 (1)
+right v8 v9 (1)
+up v0 v1 (1)
+up v1 v2 (1)
+up v2 v3 (1)
+up v3 v4 (1)
+up v4 v5 (1)
+up v5 v6 (1)
+up v6 v7 (1)
+mark-green-block  (1)
+Plan length: 17 step(s).
+Plan cost: 17
+Initial state h value: 17/17.
+Expanded 17 state(s).
+Reopened 0 state(s).
+Evaluated 18 state(s).
+Evaluations: 36
+Generated 58 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+Solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 17/17 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 16/16 [g=1, 2 evaluated, 1 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 15/15 [g=2, 3 evaluated, 2 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 14/14 [g=3, 4 evaluated, 3 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 13/13 [g=4, 5 evaluated, 4 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 12/12 [g=5, 6 evaluated, 5 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 11/11 [g=6, 7 evaluated, 6 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 10/10 [g=7, 8 evaluated, 7 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 9/9 [g=8, 9 evaluated, 8 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 8/8 [g=9, 10 evaluated, 9 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 7/7 [g=10, 11 evaluated, 10 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 6/6 [g=11, 12 evaluated, 11 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 5/5 [g=12, 13 evaluated, 12 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 4/4 [g=13, 14 evaluated, 13 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 3/3 [g=14, 15 evaluated, 14 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 2/2 [g=15, 16 evaluated, 15 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 2/1 [g=16, 17 evaluated, 16 expanded, t=0.00s, 3516 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.00s [t=0.00s]
+Initial state h value: 17/17.
+Expanded 122 state(s).
+Reopened 11 state(s).
+Evaluated 122 state(s).
+Evaluations: 244
+Generated 446 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 3)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 17/17 [g=0, 1 evaluated, 0 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 16/16 [g=1, 2 evaluated, 1 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 15/15 [g=2, 3 evaluated, 2 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 14/14 [g=3, 4 evaluated, 3 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 13/13 [g=4, 5 evaluated, 4 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 12/12 [g=5, 6 evaluated, 5 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 11/11 [g=6, 7 evaluated, 6 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 10/10 [g=7, 8 evaluated, 7 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 9/9 [g=8, 9 evaluated, 8 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 8/8 [g=9, 10 evaluated, 9 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 7/7 [g=10, 11 evaluated, 10 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 6/6 [g=11, 12 evaluated, 11 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 5/5 [g=12, 13 evaluated, 12 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 4/4 [g=13, 14 evaluated, 13 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 3/3 [g=14, 15 evaluated, 14 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 2/2 [g=15, 16 evaluated, 15 expanded, t=0.00s, 3516 KB]
+Best heuristic value: 2/1 [g=16, 17 evaluated, 16 expanded, t=0.00s, 3516 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.01s [t=0.01s]
+Initial state h value: 17/17.
+Expanded 122 state(s).
+Reopened 11 state(s).
+Evaluated 122 state(s).
+Evaluations: 244
+Generated 446 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 2)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 17/17 [g=0, 1 evaluated, 0 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 16/16 [g=1, 2 evaluated, 1 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 15/15 [g=2, 3 evaluated, 2 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 14/14 [g=3, 4 evaluated, 3 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 13/13 [g=4, 5 evaluated, 4 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 12/12 [g=5, 6 evaluated, 5 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 11/11 [g=6, 7 evaluated, 6 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 10/10 [g=7, 8 evaluated, 7 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 9/9 [g=8, 9 evaluated, 8 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 8/8 [g=9, 10 evaluated, 9 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 7/7 [g=10, 11 evaluated, 10 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 6/6 [g=11, 12 evaluated, 11 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 5/5 [g=12, 13 evaluated, 12 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 4/4 [g=13, 14 evaluated, 13 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 3/3 [g=14, 15 evaluated, 14 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 2/2 [g=15, 16 evaluated, 15 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 2/1 [g=16, 17 evaluated, 16 expanded, t=0.01s, 3516 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.00s [t=0.01s]
+Initial state h value: 17/17.
+Expanded 111 state(s).
+Reopened 0 state(s).
+Evaluated 111 state(s).
+Evaluations: 222
+Generated 409 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 1)
+Conducting lazy best first search, (real) bound = 17
+Best heuristic value: 17/17 [g=0, 1 evaluated, 0 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 16/16 [g=1, 2 evaluated, 1 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 15/15 [g=2, 4 evaluated, 3 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 14/14 [g=3, 7 evaluated, 6 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 13/13 [g=4, 11 evaluated, 10 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 12/12 [g=5, 16 evaluated, 15 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 11/11 [g=6, 22 evaluated, 21 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 10/10 [g=7, 29 evaluated, 28 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 9/9 [g=8, 37 evaluated, 36 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 8/8 [g=9, 45 evaluated, 44 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 7/7 [g=10, 53 evaluated, 52 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 6/6 [g=11, 60 evaluated, 59 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 5/5 [g=12, 66 evaluated, 65 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 4/4 [g=13, 71 evaluated, 70 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 3/3 [g=14, 75 evaluated, 74 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 2/2 [g=15, 78 evaluated, 77 expanded, t=0.01s, 3516 KB]
+Best heuristic value: 2/1 [g=16, 80 evaluated, 79 expanded, t=0.01s, 3516 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.00s [t=0.01s]
+Initial state h value: 17/17.
+Expanded 111 state(s).
+Reopened 0 state(s).
+Evaluated 111 state(s).
+Evaluations: 222
+Generated 409 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 17
+No solution found - keep searching
+Actual search time: 0.01s [t=0.01s]
+Cumulative statistics:
+Expanded 483 state(s).
+Reopened 22 state(s).
+Evaluated 484 state(s).
+Evaluations: 968
+Generated 1768 state(s).
+Dead ends: 0 state(s).
+Search time: 0.01s
+Total time: 0.01s
+Solution found.
+Peak memory: 3516 KB

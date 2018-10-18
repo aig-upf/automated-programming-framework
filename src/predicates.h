@@ -4,11 +4,11 @@ class Predicates{
 	public:
 	Predicates(){}
 
-	void createPredicate( Domain *d, const String& predicate, const StringVec& parameters = StringVec() ){
+	void createPredicate( parser::pddl::Domain *d, const String& predicate, const StringVec& parameters = StringVec() ){
 		d->createPredicate( predicate, parameters );
 	}
 
-	void createValuedPredicates(	Domain *d , const String& predicate_name, StringVec& predicate_names,
+	void createValuedPredicates(	parser::pddl::Domain *d , const String& predicate_name, StringVec& predicate_names,
 									unsigned bound, int offset = 0, const StringVec& parameters = StringVec() ){
 		predicate_names.resize( bound );
 		for( unsigned i = offset; i < bound; i++ ){
@@ -20,7 +20,7 @@ class Predicates{
 		}
 	}
 	
-	void createDValuedPredicates( 	Domain *d, const String& predicate_prefix, StringDVec& predicate_names, 
+	void createDValuedPredicates( 	parser::pddl::Domain *d, const String& predicate_prefix, StringDVec& predicate_names, 
 									unsigned bound1, unsigned bound2, unsigned offset1 = 0, unsigned offset2 = 0, 
 									const StringVec& parameters = StringVec() ){
 		predicate_names.resize( bound1 );
@@ -31,7 +31,7 @@ class Predicates{
 		}
 	}
 
-	void createTValuedPredicates( 	Domain *od, Domain *cd, StringTVec& predicate_names, 
+	void createTValuedPredicates( 	parser::pddl::Domain *od, parser::pddl::Domain *cd, StringTVec& predicate_names, 
 									unsigned bound1, unsigned bound2, unsigned offset1 = 0, unsigned offset2 = 0 ){
 		predicate_names.resize( od->preds.size() );
 		for( int effect_id : effs ){
@@ -48,7 +48,7 @@ class Predicates{
 		}
 	}
 
-	void createTValuedPredicates( 	Domain *d, const String& predicate_prefix, StringTVec& predicate_names, 
+	void createTValuedPredicates( 	parser::pddl::Domain *d, const String& predicate_prefix, StringTVec& predicate_names, 
 									unsigned bound1, unsigned bound2, unsigned bound3,
 									unsigned offset1 = 0, unsigned offset2 = 0, unsigned offset3 = 0,
 									const StringVec& parameters = StringVec() ){
@@ -61,7 +61,7 @@ class Predicates{
 	}
 
 
-	void copyPredicates( Domain *od, Domain *cd ){
+	void copyPredicates( parser::pddl::Domain *od, parser::pddl::Domain *cd ){
 		for ( unsigned i = 0; i < od->preds.size(); ++i ){
 			String predicate_name = od->preds[ i ]->name;
 			StringVec parameter_types = od->typeList( od->preds[ i ] );
@@ -73,7 +73,7 @@ class Predicates{
 		}
 	}
 
-	void createPredicates(  Domain *od, Domain *cd, unsigned total_procedures, unsigned total_lines, 
+	void createPredicates(  parser::pddl::Domain *od, parser::pddl::Domain *cd, unsigned total_procedures, unsigned total_lines, 
 							unsigned total_instances, StringVec &tests, StringVec &empty_lines, 
 							StringDVec &end_instructions, StringTVec &calls, StringTVec &instructions, StringTVec &choiceInstr ){
 		

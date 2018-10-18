@@ -1,0 +1,395 @@
+INFO     Running translator.
+INFO     translator inputs: ['domains/other/blocks/domain_cl.pddl', 'domains/other/blocks/prob100.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.000s CPU, 0.028s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.003s wall-clock]
+Generated 19 rules.
+Computing model... [0.030s CPU, 0.025s wall-clock]
+709 relevant atoms
+501 auxiliary atoms
+1210 final queue length
+11310 total queue pushes
+Completing instantiation... [1.230s CPU, 1.234s wall-clock]
+Instantiating: [1.260s CPU, 1.265s wall-clock]
+Computing fact groups...
+Finding invariants...
+13 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.010s CPU, 0.002s wall-clock]
+Instantiating groups... [0.050s CPU, 0.052s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.000s wall-clock]
+Choosing groups...
+403 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.003s wall-clock]
+Computing fact groups: [0.070s CPU, 0.069s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.010s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.006s wall-clock]
+Translating task: [0.080s CPU, 0.082s wall-clock]
+402 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+2 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.013s wall-clock]
+Translator variables: 402
+Translator derived variables: 0
+Translator facts: 804
+Translator goal facts: 1
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 3
+Translator axioms: 0
+Translator task size: 7776
+Translator peak memory: 18356 KB
+Writing output... [0.020s CPU, 0.011s wall-clock]
+Done! [1.450s CPU, 1.473s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is not acyclic.
+303 variables of 402 necessary
+0 of 0 mutex groups necessary.
+3 of 3 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 606
+Preprocessor derived variables: 0
+Preprocessor task size: 7182
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=0.06s]
+building causal graph...done! [t=0.15s]
+packing state variables...done! [t=0.15s]
+Variables: 303
+Facts: 606
+Bytes per state: 40
+done initalizing global data [t=0.15s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00s
+Discovered 2 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+1 edges
+Landmark graph: 
+LM 1 NegatedAtom have(b99) (var201(302)->1) Achievers (0, 0)
+		->_gn  LM 0 Atom have(b99) (var201(302)->0)(goal) Achievers (1, 1)
+
+LM 0 Atom have(b99) (var201(302)->0)(goal) Achievers (1, 1)
+		<-_gn  LM 1 NegatedAtom have(b99) (var201(302)->1) Achievers (0, 0)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+1 initial landmarks, 1 goal landmarks
+Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 1/2 [g=0, 1 evaluated, 0 expanded, t=0.15s, 10644 KB]
+Best heuristic value: 1/1 [g=197, 296 evaluated, 197 expanded, t=0.18s, 10644 KB]
+Solution found!
+Actual search time: 0.03s [t=0.18s]
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+drop  (1)
+unstack  (1)
+collect  (1)
+Plan length: 198 step(s).
+Plan cost: 198
+Initial state h value: 1/2.
+Expanded 198 state(s).
+Reopened 0 state(s).
+Evaluated 297 state(s).
+Evaluations: 594
+Generated 594 state(s).
+Dead ends: 98 state(s).
+Best solution cost so far: 198
+Solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+Conducting lazy best first search, (real) bound = 198
+Best heuristic value: 1/2 [g=0, 1 evaluated, 0 expanded, t=0.18s, 10644 KB]
+Best heuristic value: 1/1 [g=197, 296 evaluated, 197 expanded, t=0.21s, 10644 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.03s [t=0.21s]
+Initial state h value: 1/2.
+Expanded 198 state(s).
+Reopened 0 state(s).
+Evaluated 296 state(s).
+Evaluations: 592
+Generated 594 state(s).
+Dead ends: 98 state(s).
+Best solution cost so far: 198
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 3)
+Conducting lazy best first search, (real) bound = 198
+Best heuristic value: 1/2 [g=0, 1 evaluated, 0 expanded, t=0.21s, 10644 KB]
+Best heuristic value: 1/1 [g=197, 296 evaluated, 197 expanded, t=0.24s, 10644 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.03s [t=0.24s]
+Initial state h value: 1/2.
+Expanded 198 state(s).
+Reopened 0 state(s).
+Evaluated 296 state(s).
+Evaluations: 592
+Generated 594 state(s).
+Dead ends: 98 state(s).
+Best solution cost so far: 198
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 2)
+Conducting lazy best first search, (real) bound = 198
+Best heuristic value: 1/2 [g=0, 1 evaluated, 0 expanded, t=0.24s, 10644 KB]
+Best heuristic value: 1/1 [g=197, 296 evaluated, 197 expanded, t=0.27s, 10644 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.03s [t=0.27s]
+Initial state h value: 1/2.
+Expanded 198 state(s).
+Reopened 0 state(s).
+Evaluated 296 state(s).
+Evaluations: 592
+Generated 594 state(s).
+Dead ends: 98 state(s).
+Best solution cost so far: 198
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 1)
+Conducting lazy best first search, (real) bound = 198
+Best heuristic value: 1/2 [g=0, 1 evaluated, 0 expanded, t=0.27s, 10644 KB]
+Best heuristic value: 1/1 [g=197, 296 evaluated, 197 expanded, t=0.30s, 10644 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.03s [t=0.30s]
+Initial state h value: 1/2.
+Expanded 198 state(s).
+Reopened 0 state(s).
+Evaluated 296 state(s).
+Evaluations: 592
+Generated 594 state(s).
+Dead ends: 98 state(s).
+Best solution cost so far: 198
+No solution found - keep searching
+Actual search time: 0.15s [t=0.30s]
+Cumulative statistics:
+Expanded 990 state(s).
+Reopened 0 state(s).
+Evaluated 1481 state(s).
+Evaluations: 2962
+Generated 2970 state(s).
+Dead ends: 0 state(s).
+Search time: 0.15s
+Total time: 0.30s
+Solution found.
+Peak memory: 10644 KB

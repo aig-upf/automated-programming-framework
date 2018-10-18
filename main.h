@@ -132,7 +132,7 @@ public:
 
 			cant = positive_instances[ p ];
 
-			if( compilation_type == "NEG" ){
+			if( ( compilation_type == "NEG" ) || ( compilation_type == "NEGLITE" ) ){
 				ifs >> negative_instances[ p ];
 				cant += negative_instances[ p ];
 			}		
@@ -233,7 +233,7 @@ public:
 		OSStream compiler;
 
 		compiler << exec_prog << " " << compilation_type << " " << orig_domain << " " << positive_instances[ p ];
-		if( compilation_type == "NEG" ) compiler << " " << negative_instances[ p ];
+		if( ( compilation_type == "NEG" ) || ( compilation_type == "NEGLITE" ) ) compiler << " " << negative_instances[ p ];
 
 		for( auto&& current_instance : instances[ p ] )
 			compiler << " " << current_instance;
@@ -277,9 +277,9 @@ public:
 	///////////////////////////////////////////////////////////
 	void callPlanner( int procedure , int timeout ){
 		if( _debug ) execution << "[INFO] CREATING COMPILED DOMAIN" << endl;
-		Domain *cd = new Domain( dest_domain.c_str() );
+		parser::pddl::Domain *cd = new parser::pddl::Domain( dest_domain.c_str() );
 		if( _debug ) execution << "\t[INFO] DOMAIN READ" << endl;
-		Instance* ins = new Instance( *cd , dest_ins.c_str() );
+		parser::pddl::Instance* ins = new parser::pddl::Instance( *cd , dest_ins.c_str() );
 		if( _debug ){
 			execution << "\t[INFO] INSTANCE READ" <<endl;
 			execution << "\t[INFO] READING " << new_instructions.size() << " INSTRUCTIONS TO ADD" << endl;
@@ -329,8 +329,12 @@ public:
 		if( procedure > 0 ){
 			if( _debug ) execution << "\t[INFO] ALL INSTRUCTIONS ADDED" << endl;
 			ofstream ofs( dest_ins.c_str() );
-			ins->PDDLPrint( ofs );
+			//ins->PDDLPrint( ofs );
+			ins->print( ofs );
 		}
+
+		delete cd;
+		delete ins;
 
 		string planner = getPlannerCommand( timeout );
 		//ostringstream planner;
@@ -356,7 +360,7 @@ public:
 		OSStream compiler;
 		
 		compiler << exec_prog << " " << compilation_type << " " << orig_domain << " " << ntest_inst;
-		if( compilation_type == "NEG" ) compiler << " " << 0;
+		if( ( compilation_type == "NEG" ) || ( compilation_type == "NEGLITE" ) ) compiler << " " << 0;
 
 		for( auto&& test_inst : test_instances ){
 			 compiler << " " << test_inst;

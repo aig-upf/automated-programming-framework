@@ -1,0 +1,54 @@
+Domain: experiments/aij17/validation/excel_variables/fill05/domain.pddl Problem: experiments/aij17/validation/excel_variables/fill05/ins.pddl
+Parsing...
+Parsing: [0.060s CPU, 0.052s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.005s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.040s CPU, 0.044s wall-clock]
+Preparing model... [0.020s CPU, 0.020s wall-clock]
+Generated 1030 rules.
+Computing model... [0.080s CPU, 0.073s wall-clock]
+590 relevant atoms
+1275 auxiliary atoms
+1865 final queue length
+6381 total queue pushes
+Completing instantiation... [0.520s CPU, 0.528s wall-clock]
+goal relaxed reachable: True
+347 atoms
+Computing fact groups...
+Finding invariants...
+36 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.020s CPU, 0.014s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+347 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.002s wall-clock]
+Computing fact groups: [0.020s CPU, 0.020s wall-clock]
+Axioms 0
+Deterministic 4 actions
+0 negated fluents created
+Invariants 347
+
+ Match tree built with 4 nodes.
+
+PDDL problem description loaded: 
+	Domain: excel
+	Problem: initials
+	#Actions: 4
+	#Fluents: 347
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5]Plan found with cost: 3.001
+1. (repeat-append-str-1-0 res str-var row-0)
+2. (repeat-append-char-1-1 res space row-0)
+3. (repeat-append-str-1-2 res str2-var row-0)
+4. (repeat-end-main-0-3 row-0)
+Time: 0
+Generated: 4
+Expanded: 4
+Total time: -2.81334e-08
+Nodes generated during search: 5
+Nodes expanded during search: 4
+BRFS search completed in -2.81334e-08 secs, check 'bfs_f.log' for details

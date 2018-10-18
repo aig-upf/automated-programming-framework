@@ -7,7 +7,7 @@ class TerminalActions : public Actions{
 
 	public:
 
-	TerminalActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ){}
+	TerminalActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ){}
 	
 	void createProgrammingActions( unsigned procedures, unsigned lines, StringVec& empty_lines, StringDVec& endinstr, const StringDVec& allowed_lines = StringDVec() ){
 		unsigned offset = 1;
@@ -79,7 +79,7 @@ class TerminalActions : public Actions{
 					ss << "REPEAT-END-" << p << "-" << t << "-" << j;
 					String name = ss.str();
 				
-					Action* endact = createAction( name, StringVec( 2, "STACKROW" ) );
+					parser::pddl::Action* endact = createAction( name, StringVec( 2, "STACKROW" ) );
 					addPrecondition( name, endinstr[ p ][ j ] );
 					addPrecondition( name, tests[ t ] );
 					addPrecondition( name, "NEXT-STACK-ROW", 	   false, incvec( 0, 2 ) );
@@ -94,17 +94,17 @@ class TerminalActions : public Actions{
 
 					// Delete all the stackable fluents of the current level
 					for( String pred : stack_predicates ){
-						Forall * f = new Forall;
-						Lifted *l = cd->preds.get( pred );
+						parser::pddl::Forall * f = new parser::pddl::Forall;
+						parser::pddl::Lifted *l = cd->preds.get( pred );
 						f->params = l->params;
 						(f->params).resize( (l->params).size() - 1 );
 						IntVec parameters;
 						for(size_t i = 0; i < f->params.size(); i++)
 							parameters.push_back( i + 2 );
 						parameters.push_back( 1 );
-						f->cond = new And;	
-						( ( And * )f->cond )->add( new Not( cd->ground( pred, parameters ) ) );
-						( ( And * )endact->eff )->add( f );
+						f->cond = new parser::pddl::And;	
+						( ( parser::pddl::And * )f->cond )->add( new parser::pddl::Not( cd->ground( pred, parameters ) ) );
+						( ( parser::pddl::And * )endact->eff )->add( f );
 					}
 
 					addCost( name, 1 );
@@ -122,7 +122,7 @@ class TerminalActions : public Actions{
 				ss << "REPEAT-END-MAIN-" << t << "-" << j;
 				String name = ss.str();
 			
-				Action *endact = createAction( name, StringVec( 1, "STACKROW" ) );
+				parser::pddl::Action *endact = createAction( name, StringVec( 1, "STACKROW" ) );
 				
 				addPrecondition( name, "TOP-STACK",  false, IntVec( 1, 0 ) );
 				addPrecondition( name, "TOP-STACK",  false, IntVec( 1, cd->constantIndex( "ROW-0", "STACKROW" ) ) );
@@ -130,12 +130,20 @@ class TerminalActions : public Actions{
 				addPrecondition( name, stack_lines[ j ], false, IntVec( 1, cd->constantIndex( "ROW-0", "STACKROW" ) ) );
 				addPrecondition( name, endinstr[ procedures ][ j ] );
 				addPrecondition( name, tests[ t ] );
+				
+				if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
+					addPrecondition( name, "HOLDS" );
+					addPrecondition( name, "CHECKED" );
+					if( compiler_type == "NEG" ){
+						addPrecondition( name, "STORED", true );
+					}
+				}
 
 				for ( unsigned i = 0; i < ins[ t ]->goal.size(); ++i ) {
-					Ground* goal = ins[ t ]->goal[ i ];
-					Type *t = od->getType( goal->name );
+					parser::pddl::Ground* goal = ins[ t ]->goal[ i ];
+					parser::pddl::Type *t = od->getType( goal->name );
 					StringVec objects = od->objectList( goal );
-					Lifted * l = od->preds.get( goal->name );
+					parser::pddl::Lifted * l = od->preds.get( goal->name );
 					IntVec constant_idxs;
 					for ( unsigned k = 0; k < objects.size(); k++ ){
 						int constant_idx = cd->constantIndex( objects[ k ], od->types[ l->params[ k ] ]->name );
@@ -146,63 +154,61 @@ class TerminalActions : public Actions{
 						constant_idxs.emplace_back( cd->constantIndex( "ROW-0", "STACKROW" ) );
 					}
 	
-					if( compiler_type != "NEG" )
+					if( compiler_type != "NEG" and compiler_type != "NEGLITE" )
 						addPrecondition( name, goal->name, false, constant_idxs );
-					else{
-						addPrecondition( name, "EXECUTE-ACTION" );
-						addPrecondition( name, "CHECKED-ACTION" );
-					}
 				}
 
 				if( t + 1 == total_instances ){
 					addEffect( name, goal_pred );
 				}
 				else{
-					if( compiler_type == "NEG" ){
-						addEffect( name, "EXECUTE-ACTION", true );
-						addEffect( name, "CHECKED-ACTION", true );
+					if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
+						addEffect( name, "HOLDS", true );
+						addEffect( name, "CHECKED", true );
 						if( ( t + 1 + negative_instances ) >= total_instances )
-							addEffect( name, "TO-SKIP", false );
-						addEffect( name, "STORED", true );
-						addEffect( name, "STORE-AVAILABLE" );
-						addEffect( name, "INF-CHECKED", true );
-						addEffect( name, "INF-CHECKED-AVAILABLE", true );
+							addEffect( name, "NEGEX", false );
+						addEffect( name, "ACTED", true );
+						if( compiler_type == "NEG" ){
+							addEffect( name, "STORED", true );
+							//addEffect( name, "STORE-AVAILABLE" );
+							addEffect( name, "LOOP", true );
 
-						// Delete fluents COPY and CORRECT of the current instance
-						for ( unsigned i = 0; i < od->preds.size(); i++ ) {
-							String predicate_name = od->preds[ i ]->name;
-							if( cd->preds[ i ]->params.size() ){
-								Forall * f = new Forall;
-								f->params = cd->preds[ i ]->params;
+							// Delete fluents COPY and CORRECT of the current instance
+							for ( unsigned i = 0; i < od->preds.size(); i++ ) {
+								String predicate_name = od->preds[ i ]->name;
+								if( cd->preds[ i ]->params.size() ){
+									parser::pddl::Forall * f = new parser::pddl::Forall;
+									f->params = cd->preds[ i ]->params;
 
-								When *w = new When();
-								w->pars = new And();
-								( ( And * ) w->pars )->add( cd->ground( "COPY-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
-								w->cond = new Not( cd->ground( "COPY-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
+									parser::pddl::When *w = new parser::pddl::When();
+									w->pars = new parser::pddl::And();
+									( ( parser::pddl::And * ) w->pars )->add( cd->ground( "COPY-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
+									w->cond = new parser::pddl::Not( cd->ground( "COPY-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
 
-								When *w2 = new When();
-								w2->pars = new And();
-								( ( And * ) w2->pars )->add( cd->ground( "CORRECT-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
-								w2->cond = new Not( cd->ground( "CORRECT-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
+									parser::pddl::When *w2 = new parser::pddl::When();
+									w2->pars = new parser::pddl::And();
+									( ( parser::pddl::And * ) w2->pars )->add( cd->ground( "CORRECT-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
+									w2->cond = new parser::pddl::Not( cd->ground( "CORRECT-" + predicate_name , incvec( 1, f->params.size() + 1 ) ) );
 
-								f->cond = new And();
-								( ( And * ) f->cond )->add( w );
-								( ( And * ) f->cond )->add( w2 );
-								( ( And * ) endact->eff )->add( f );
+									f->cond = new parser::pddl::And();
+									( ( parser::pddl::And * ) f->cond )->add( w );
+									( ( parser::pddl::And * ) f->cond )->add( w2 );
+									( ( parser::pddl::And * ) endact->eff )->add( f );
+								}
+								else{
+									cd->addEff( 1, name, "COPY-" + predicate_name );
+									cd->addEff( 1, name, "CORRECT-" + predicate_name );
+								}
 							}
-							else{
-								cd->addEff( 1, name, "COPY-" + predicate_name );
-								cd->addEff( 1, name, "CORRECT-" + predicate_name );
+							for( unsigned i = 0; i < stack_lines.size(); i++ ){
+								parser::pddl::Forall *f = new parser::pddl::Forall;
+								f->params = cd->convertTypes( StringVec( 1, "STACKROW" ) );
+								f->cond = new parser::pddl::And();
+								( ( parser::pddl::And * ) f->cond )->add( new parser::pddl::Not( cd->ground( "COPY-" + stack_lines[ i ], IntVec( 1, 0 ) ) ) );
+								( ( parser::pddl::And * ) f->cond )->add( new parser::pddl::Not( cd->ground( "CORRECT-" + stack_lines[ i ], IntVec( 1, 0 ) ) ) );
+								f->addParams( 0, 1 );
+								( ( parser::pddl::And * ) endact->eff)->add( f );
 							}
-						}
-						for( unsigned i = 0; i < stack_lines.size(); i++ ){
-							Forall *f = new Forall;
-							f->params = cd->convertTypes( StringVec( 1, "STACKROW" ) );
-							f->cond = new And();
-							( ( And * ) f->cond )->add( new Not( cd->ground( "COPY-" + stack_lines[ i ], IntVec( 1, 0 ) ) ) );
-							( ( And * ) f->cond )->add( new Not( cd->ground( "CORRECT-" + stack_lines[ i ], IntVec( 1, 0 ) ) ) );
-							f->addParams( 0, 1 );
-							( ( And * ) endact->eff)->add( f );
 						}
 
 					}
@@ -216,13 +222,13 @@ class TerminalActions : public Actions{
 					// Add effects of the next instance
 					unsigned ins_size = ins[ t + 1 ]->init.size();
 					for ( unsigned i = 0; i < ins_size; i++ ){ 
-						Ground* init = ins[ t + 1 ]->init[ i ]; 
+						parser::pddl::Ground* init = ins[ t + 1 ]->init[ i ]; 
 
-						Type *t = od->getType( init->name );
+						parser::pddl::Type *t = od->getType( init->name );
 
 						StringVec objects = od->objectList( init );
 
-						Lifted *l = od->preds.get( init->name );
+						parser::pddl::Lifted *l = od->preds.get( init->name );
 
 						IntVec constant_idxs;
 						for( unsigned k = 0; k < objects.size(); k++ ){
@@ -243,21 +249,21 @@ class TerminalActions : public Actions{
 					for ( unsigned i = 0; i < od->preds.size(); i++ ) {
 						//if( unclean_effs.find( i ) != unclean_effs.end() ) continue;
 						if( cd->preds[ i ]->params.size() ){
-							Forall * f = new Forall;
+							parser::pddl::Forall * f = new parser::pddl::Forall;
 							f->params = cd->preds[ i ]->params;
 
-							When *w = new When();
-							w->pars = new And();
-							( ( And * ) w->pars )->add( cd->ground( od->preds[ i ]->name, incvec( 1, f->params.size() + 1 ) ) );
+							parser::pddl::When *w = new parser::pddl::When();
+							w->pars = new parser::pddl::And();
+							( ( parser::pddl::And * ) w->pars )->add( cd->ground( od->preds[ i ]->name, incvec( 1, f->params.size() + 1 ) ) );
 							/**for( size_t k = 0; k < add_eff.size(); k++ ){
 								if( add_eff[ k ].first == od->preds[ i ]->name ){
 									( ( And * ) w->pars )->add( new Not( cd->ground( od->preds[ i ]->name, add_eff[ k ].second ) ) );
 								}
 							}*/
 
-							w->cond = new Not( cd->ground( od->preds[ i ]->name, incvec( 1, f->params.size() + 1 ) ) );
+							w->cond = new parser::pddl::Not( cd->ground( od->preds[ i ]->name, incvec( 1, f->params.size() + 1 ) ) );
 							f->cond = w;
-							( ( And * )endact->eff )->add( f );
+							( ( parser::pddl::And * )endact->eff )->add( f );
 						}
 						else
 							cd->addEff( 1, name, od->preds[ i ]->name );
@@ -278,29 +284,31 @@ class TerminalActions : public Actions{
 			for( unsigned line = 0; line < action_names.size(); line++ ){
 				String name = action_names[ line ];
 
-				Action *act = getAction( cd, name );
+				parser::pddl::Action *act = getAction( cd, name );
 				//copyPreconditions( oname, name );
 				addPrecondition( name, "TOP-STACK", false, IntVec( 1 , 0 ) );
 				addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1 , 0 ) );
 				addPrecondition( name, stack_lines[ line+1 ], false, IntVec( 1 , 0 ) );
 				addPrecondition( name, endinstr[ procedures ][ line+1 ] );
 				addPrecondition( name, tests[ t ] );
-				addPrecondition( name, "CHECKED-ACTION", true );
+				addPrecondition( name, "CHECKED", true );
+				if( compiler_type == "NEG" ){
+					addPrecondition( name, "LOOP", true );
+				}
+				addEffect( name, "CHECKED", false );
 
-				addEffect( name, "CHECKED-ACTION", false );
-
-				When *w = new When();
+				parser::pddl::When *w = new parser::pddl::When();
 				//And *old = dynamic_cast< And * >( oact->pre );
 				//w->pars = old->copy( *od );
-				w->pars = new And();
-				w->cond = new And();
-				( ( And * ) w->cond)->add( cd->ground( "EXECUTE-ACTION" ) );
+				w->pars = new parser::pddl::And();
+				w->cond = new parser::pddl::And();
+				( ( parser::pddl::And * ) w->cond)->add( cd->ground( "HOLDS" ) );
 
 				for ( unsigned i = 0; i < ins[ t ]->goal.size(); ++i ) {
-					Ground* goal = ins[ t ]->goal[ i ];
-					Type *t = od->getType( goal->name );
+					parser::pddl::Ground* goal = ins[ t ]->goal[ i ];
+					parser::pddl::Type *t = od->getType( goal->name );
 					StringVec objects = od->objectList( goal );
-					Lifted * l = od->preds.get( goal->name );
+					parser::pddl::Lifted * l = od->preds.get( goal->name );
 					IntVec constant_idxs;
 					for ( unsigned k = 0; k < objects.size(); k++ ){
 						int constant_idx = cd->constantIndex( objects[ k ], od->types[ l->params[ k ] ]->name );
@@ -312,10 +320,10 @@ class TerminalActions : public Actions{
 					//addPrecondition( name, goal->name, false, constant_idxs );
 					//std::cout << goal->name << std::endl;
 					//( ( And * ) w->pars )->add( cd->ground( goal->name, constant_idxs ) );
-					( ( And * ) w->pars )->add( cd->ground( goal->name, constant_idxs ) );
+					( ( parser::pddl::And * ) w->pars )->add( cd->ground( goal->name, constant_idxs ) );
 				}
 
-				( ( And * ) act->eff)->add( w );
+				( ( parser::pddl::And * ) act->eff)->add( w );
 			}
 		}
 	}
@@ -324,7 +332,7 @@ class TerminalActions : public Actions{
 								unsigned lines, StringDVec& endinstr, StringVec& tests, unsigned negative_instances = 0 ){
 		createRepeatTerminalMain( ins, procedures, total_instances, lines, endinstr, tests, negative_instances );
 		createRepeatTerminalAction( procedures, total_instances, lines, endinstr, tests );
-		if( compiler_type == "NEG" ){
+		if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
 			checkPreconditions(  procedures, lines, total_instances, endinstr, tests, ins );
 		}
 	}
@@ -344,7 +352,7 @@ class TerminalActions : public Actions{
 				ss << "REPEAT-END-MAIN-" << t << "-" << procedures << "-" << state;
 				String name = ss.str();
 
-				Action * endact = createAction( name );
+				parser::pddl::Action * endact = createAction( name );
 
 				addPrecondition( name, tests[ t ] );
 				addPrecondition( name, stack_top_pred, false, IntVec( 1, ci_row0 ) );
@@ -353,7 +361,7 @@ class TerminalActions : public Actions{
 
 				for ( unsigned g = 0; g < ins[ t ]->goal.size(); ++g ) {
 					String goal_name = ins[ t ]->goal[ g ]->name;
-					Lifted * l = od->preds.get( goal_name );
+					parser::pddl::Lifted * l = od->preds.get( goal_name );
 					StringVec params = od->objectList( ins[ t ]->goal[ g ] );
 					IntVec iv_parameters;
 					for ( unsigned j = 0; j < params.size(); ++j )
@@ -374,10 +382,10 @@ class TerminalActions : public Actions{
 						if( unclean_effs.find( p ) != unclean_effs.end() ) continue;
 						//if( effs.find(i) == effs.end() ) continue; //[PERFORMANCE] static fluents
 						if( cd->preds[ p ]->params.size() ){
-							Forall * f = new Forall;
+							parser::pddl::Forall * f = new parser::pddl::Forall;
 							f->params = cd->preds[ p ]->params;
-							f->cond = new Not( cd->ground( od->preds[ p ]->name, incvec( 0, f->params.size() ) ) );
-							( ( And * )endact->eff )->add( f );
+							f->cond = new parser::pddl::Not( cd->ground( od->preds[ p ]->name, incvec( 0, f->params.size() ) ) );
+							( ( parser::pddl::And * )endact->eff )->add( f );
 						}
 						else
 							addEffect( name, od->preds[ p ]->name, true );
@@ -385,7 +393,7 @@ class TerminalActions : public Actions{
 			
 					for ( unsigned i = 0; i < ins[ t + 1 ]->init.size(); ++i ){ 
 						String init_name = ins[ t + 1 ]->init[ i ]->name;
-						Lifted *l = od->preds.get( init_name ); 
+						parser::pddl::Lifted *l = od->preds.get( init_name ); 
 						StringVec params = od->objectList( ins[ t + 1 ]->init[ i ] ); 
 						IntVec iv_parameters;
 						for( unsigned j = 0; j < params.size(); ++j){ 
@@ -410,7 +418,7 @@ class TerminalActions : public Actions{
 					ss << "REPEAT-END-" << t << "-" << p << "-" << state;
 					String name = ss.str();
 		
-					Action * endact = createAction( name, StringVec( 2, "STACKROW" ) );
+					parser::pddl::Action * endact = createAction( name, StringVec( 2, "STACKROW" ) );
 
 					//IntVec stack_state_iv = { ci_endstN, 1 };
 
@@ -430,16 +438,16 @@ class TerminalActions : public Actions{
 
 					//[BUG] Add Forall delete ASSIGNMENT from this stackrow
 					for( StringSet::iterator it = stack_predicates.begin(); it != stack_predicates.end(); it++ ){
-						Forall * f = new Forall;
-						Lifted *l = od->preds.get( *it );
+						parser::pddl::Forall * f = new parser::pddl::Forall;
+						parser::pddl::Lifted *l = od->preds.get( *it );
 						f->params = l->params;
 						IntVec iv_parameters;
 						for( size_t i = 0; i < f->params.size(); i++ )
 							iv_parameters.push_back( i + 2 );
 						iv_parameters.push_back( 1 );
-						f->cond = new And;	
-						( ( And * )f->cond )->add( new Not( cd->ground( *it, iv_parameters ) ) );
-						( ( And * )endact->eff )->add( f );
+						f->cond = new parser::pddl::And;	
+						( ( parser::pddl::And * )f->cond )->add( new parser::pddl::Not( cd->ground( *it, iv_parameters ) ) );
+						( ( parser::pddl::And * )endact->eff )->add( f );
 					}
 				}
 

@@ -1,0 +1,111 @@
+Domain: experiments/aij17/validation/sumatory/domain_dck.pddl Problem: experiments/aij17/validation/sumatory/ins_dck.pddl
+Parsing...
+Parsing: [0.110s CPU, 0.114s wall-clock]
+Generating Datalog program... [0.010s CPU, 0.014s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.015s wall-clock]
+Preparing model... [0.100s CPU, 0.098s wall-clock]
+Generated 418 rules.
+Computing model... [1.300s CPU, 1.303s wall-clock]
+9747 relevant atoms
+101772 auxiliary atoms
+111519 final queue length
+115181 total queue pushes
+Completing instantiation... [0.200s CPU, 0.203s wall-clock]
+goal relaxed reachable: True
+146 atoms
+Computing fact groups...
+Finding invariants...
+18 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.010s CPU, 0.004s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.004s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+146 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.010s CPU, 0.010s wall-clock]
+Axioms 0
+Deterministic 1835 actions
+1 negated fluents created
+Invariants 146
+
+ Match tree built with 1835 nodes.
+
+PDDL problem description loaded: 
+	Domain: variables
+	Problem: sumatory120
+	#Actions: 1835
+	#Fluents: 147
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59][60][61][62]Plan found with cost: 60.001
+1. (repeat-add-a-b-0-0 v0 v15 v15 row-0)
+2. (repeat-dec-b-0-1 v14 v15 row-0)
+3. (eval-cond-assignment-0-2 b v0 row-0)
+4. (do-goto-0-2-0 row-0)
+5. (repeat-add-a-b-0-0 v15 v14 v29 row-0)
+6. (repeat-dec-b-0-1 v13 v14 row-0)
+7. (eval-cond-assignment-0-2 b v0 row-0)
+8. (do-goto-0-2-0 row-0)
+9. (repeat-add-a-b-0-0 v29 v13 v42 row-0)
+10. (repeat-dec-b-0-1 v12 v13 row-0)
+11. (eval-cond-assignment-0-2 b v0 row-0)
+12. (do-goto-0-2-0 row-0)
+13. (repeat-add-a-b-0-0 v42 v12 v54 row-0)
+14. (repeat-dec-b-0-1 v11 v12 row-0)
+15. (eval-cond-assignment-0-2 b v0 row-0)
+16. (do-goto-0-2-0 row-0)
+17. (repeat-add-a-b-0-0 v54 v11 v65 row-0)
+18. (repeat-dec-b-0-1 v10 v11 row-0)
+19. (eval-cond-assignment-0-2 b v0 row-0)
+20. (do-goto-0-2-0 row-0)
+21. (repeat-add-a-b-0-0 v65 v10 v75 row-0)
+22. (repeat-dec-b-0-1 v9 v10 row-0)
+23. (eval-cond-assignment-0-2 b v0 row-0)
+24. (do-goto-0-2-0 row-0)
+25. (repeat-add-a-b-0-0 v75 v9 v84 row-0)
+26. (repeat-dec-b-0-1 v8 v9 row-0)
+27. (eval-cond-assignment-0-2 b v0 row-0)
+28. (do-goto-0-2-0 row-0)
+29. (repeat-add-a-b-0-0 v84 v8 v92 row-0)
+30. (repeat-dec-b-0-1 v7 v8 row-0)
+31. (eval-cond-assignment-0-2 b v0 row-0)
+32. (do-goto-0-2-0 row-0)
+33. (repeat-add-a-b-0-0 v92 v7 v99 row-0)
+34. (repeat-dec-b-0-1 v6 v7 row-0)
+35. (eval-cond-assignment-0-2 b v0 row-0)
+36. (do-goto-0-2-0 row-0)
+37. (repeat-add-a-b-0-0 v99 v6 v105 row-0)
+38. (repeat-dec-b-0-1 v5 v6 row-0)
+39. (eval-cond-assignment-0-2 b v0 row-0)
+40. (do-goto-0-2-0 row-0)
+41. (repeat-add-a-b-0-0 v105 v5 v110 row-0)
+42. (repeat-dec-b-0-1 v4 v5 row-0)
+43. (eval-cond-assignment-0-2 b v0 row-0)
+44. (do-goto-0-2-0 row-0)
+45. (repeat-add-a-b-0-0 v110 v4 v114 row-0)
+46. (repeat-dec-b-0-1 v3 v4 row-0)
+47. (eval-cond-assignment-0-2 b v0 row-0)
+48. (do-goto-0-2-0 row-0)
+49. (repeat-add-a-b-0-0 v114 v3 v117 row-0)
+50. (repeat-dec-b-0-1 v2 v3 row-0)
+51. (eval-cond-assignment-0-2 b v0 row-0)
+52. (do-goto-0-2-0 row-0)
+53. (repeat-add-a-b-0-0 v117 v2 v119 row-0)
+54. (repeat-dec-b-0-1 v1 v2 row-0)
+55. (eval-cond-assignment-0-2 b v0 row-0)
+56. (do-goto-0-2-0 row-0)
+57. (repeat-add-a-b-0-0 v119 v1 v120 row-0)
+58. (repeat-dec-b-0-1 v0 v1 row-0)
+59. (eval-cond-assignment-0-2 b v0 row-0)
+60. (dont-goto-0-2-0 row-0)
+61. (repeat-end-main-0-3 row-0)
+Time: 0
+Generated: 76
+Expanded: 76
+Total time: -8.58307e-09
+Nodes generated during search: 77
+Nodes expanded during search: 76
+BRFS search completed in -8.58307e-09 secs, check 'bfs_f.log' for details

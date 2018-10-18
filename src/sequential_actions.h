@@ -5,12 +5,12 @@
 
 class SequentialActions : public Actions {
 	public:
-	SequentialActions( Domain *_od, Domain *_cd ): Actions( _od, _cd ){}
+	SequentialActions( parser::pddl::Domain *_od, parser::pddl::Domain *_cd ): Actions( _od, _cd ){}
 
 	void createProgrammingActions( unsigned procedures, unsigned lines, StringVec& empty_lines, StringTVec& instruction ){
 		for( unsigned action_id = 0; action_id < od->actions.size(); action_id++ ){
 			// Get original action data
-			Action *oact = od->actions[ action_id ];
+			parser::pddl::Action *oact = od->actions[ action_id ];
 			String oname = oact->name;
 			unsigned osize = oact->params.size();
 			StringVec parameters = od->typeList( oact );
@@ -57,7 +57,7 @@ class SequentialActions : public Actions {
 	void createRepeatActions( unsigned procedures, unsigned lines, StringTVec& instruction ){
 		for( unsigned action_id = 0; action_id < od->actions.size(); action_id++ ){
 			// Get original action data
-			Action *oact = od->actions[ action_id ];
+			parser::pddl::Action *oact = od->actions[ action_id ];
 			String oname = oact->name;
 			unsigned osize = oact->params.size();
 			StringVec parameters = od->typeList( oact );
@@ -73,7 +73,7 @@ class SequentialActions : public Actions {
 				for( unsigned line = 0; line < action_names.size(); line++ ){
 					String name = action_names[ line ];
 
-					Action *act = getAction( cd, name );
+					parser::pddl::Action *act = getAction( cd, name );
 					copyPreconditions( oname, name ); 
 					addParameters( name, osize, 1 ); 
 
@@ -231,7 +231,7 @@ class SequentialActions : public Actions {
 			params.push_back( "STACKROW" );
 			unsigned par_size = params.size();
 			
-			Action *repeat_act = createAction( name, params );
+			parser::pddl::Action *repeat_act = createAction( name, params );
 		
 			copyPreconditions( od->actions[ act ]->name, name );
 			addParameters( name, par_size - 2, 2 );
@@ -288,14 +288,14 @@ class SequentialActions : public Actions {
 
 		for( unsigned action_id = 0; action_id < od->actions.size(); action_id++ ){
 			// Get original action data
-			Action *oact = od->actions[ action_id ];
+			parser::pddl::Action *oact = od->actions[ action_id ];
 			String oname = oact->name;
 			unsigned osize = oact->params.size();
 			StringVec parameters = od->typeList( oact );
 			parameters.push_back( "STACKROW" );
 		
 			// Prepare new repeating action
-			String name_prefix = "REPEAT-" + oname;
+			String name_prefix = "EXECUTE-" + oname;
 			createDValuedActions( name_prefix, procedures + 1, lines, 0, 0, parameters );
 			StringVec action_prefixes = getNames( name_prefix );
 			for( unsigned procedure = 0; procedure < action_prefixes.size(); procedure++ ){
@@ -303,12 +303,12 @@ class SequentialActions : public Actions {
 				for( unsigned line = 0; line < action_names.size(); line++ ){
 					String name = action_names[ line ];
 
-					Action *act = getAction( cd, name );
+					parser::pddl::Action *act = getAction( cd, name );
 					//copyPreconditions( oname, name ); 
 					addParameters( name, osize, 1 ); 
 
-					addPrecondition( name, "CHECKED-ACTION", false );
-					addPrecondition( name, "EXECUTE-ACTION", false );
+					addPrecondition( name, "CHECKED", false );
+					addPrecondition( name, "HOLDS", false );
 					addPrecondition( name, "TOP-STACK", false, IntVec( 1 , osize ) );
 					addPrecondition( name, stack_procedures[ procedure ], false, IntVec( 1 , osize ) );
 					addPrecondition( name, stack_lines[ line ], false, IntVec( 1 , osize ) );
@@ -318,17 +318,18 @@ class SequentialActions : public Actions {
 					addParameters( name, osize, 1, false );
 					addEffect( name, stack_lines[ line ], true, IntVec( 1, osize ) );
 					addEffect( name, stack_lines[ line + 1 ], false, IntVec( 1, osize ) );
-					addEffect( name, "CHECKED-ACTION", true );
-					addEffect( name, "EXECUTE-ACTION", true );
+					addEffect( name, "CHECKED", true );
+					addEffect( name, "HOLDS", true );
+					addEffect( name, "ACTED" );		
+			
+					/*parser::pddl::When *w = new parser::pddl::When();
+					w->pars = new parser::pddl::And();
+					( ( parser::pddl::And * ) w->pars )->add( cd->ground( "STORED" ) );
+					( ( parser::pddl::And * ) w->pars )->add( new parser::pddl::Not( cd->ground( "INF-CHECKED-AVAILABLE" ) ) );
+					w->cond = new parser::pddl::And();
+					( ( parser::pddl::And * ) w->cond)->add( cd->ground( "INF-CHECKED-AVAILABLE" ) );
 
-					When *w = new When();
-					w->pars = new And();
-					( ( And * ) w->pars )->add( cd->ground( "STORED" ) );
-					( ( And * ) w->pars )->add( new Not( cd->ground( "INF-CHECKED-AVAILABLE" ) ) );
-					w->cond = new And();
-					( ( And * ) w->cond)->add( cd->ground( "INF-CHECKED-AVAILABLE" ) );
-
-					( ( And * ) act->eff)->add( w );
+					( ( parser::pddl::And * ) act->eff)->add( w );*/
 
 					addStackRow( act->pre, osize );
 					addStackRow( act->eff, osize );
@@ -347,22 +348,25 @@ class SequentialActions : public Actions {
 				for( unsigned line = 0; line < action_names.size(); line++ ){
 					String name = action_names[ line ];
 
-					Action *act = getAction( cd, name );
+					parser::pddl::Action *act = getAction( cd, name );
 					//copyPreconditions( oname, name );
 					addPrecondition( name, "TOP-STACK", false, IntVec( 1 , osize ) );
 					addPrecondition( name, stack_procedures[ procedure ], false, IntVec( 1 , osize ) );
 					addPrecondition( name, stack_lines[ line ], false, IntVec( 1 , osize ) );
 					addPrecondition( name, instruction[ action_id ][ procedure ][ line ], false, incvec( 0 , ( !LIFTED_INSTR && ( IS_HIGH_LEVEL || INSTR_WITH_PARAMS ) ) ? osize : 0 ) ); 
-					addPrecondition( name, "CHECKED-ACTION", true );
+					addPrecondition( name, "CHECKED", true );
+					if( compiler_type == "NEG" ){
+						addPrecondition( name, "LOOP", true );
+					}
 
-					addEffect( name, "CHECKED-ACTION", false );
+					addEffect( name, "CHECKED", false );
 
-					When *w = new When();
-					And *old = dynamic_cast< And * >( oact->pre ); 
+					parser::pddl::When *w = new parser::pddl::When();
+					parser::pddl::And *old = dynamic_cast< parser::pddl::And * >( oact->pre ); 
 					w->pars = (old->copy( *od ));
-					w->cond = new And();
-					( ( And * ) w->cond)->add( cd->ground( "EXECUTE-ACTION" ) );
-					( ( And * ) act->eff)->add( w );
+					w->cond = new parser::pddl::And();
+					( ( parser::pddl::And * ) w->cond)->add( cd->ground( "HOLDS" ) );
+					( ( parser::pddl::And * ) act->eff)->add( w );
 				}
 			}
 		}

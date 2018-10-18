@@ -1,0 +1,8 @@
+
+import glob
+
+Import('extra')
+
+program = extra.Program( "parser.bin", glob.glob( "./*.cpp" ))
+
+extra.Alias('parser', program)

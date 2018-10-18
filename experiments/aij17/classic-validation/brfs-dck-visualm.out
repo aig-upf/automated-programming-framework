@@ -1,0 +1,46 @@
+Domain: domains/other/visualm/domain_dck.pddl Problem: domains/other/visualm/p10x10.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.086s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.003s wall-clock]
+Preparing model... [0.000s CPU, 0.002s wall-clock]
+Generated 36 rules.
+Computing model... [0.010s CPU, 0.007s wall-clock]
+168 relevant atoms
+177 auxiliary atoms
+345 final queue length
+389 total queue pushes
+Completing instantiation... [0.000s CPU, 0.004s wall-clock]
+goal relaxed reachable: True
+27 atoms
+Computing fact groups...
+Finding invariants...
+5 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+27 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Axioms 28
+Deterministic 41 actions
+0 negated fluents created
+Invariants 27
+
+ Match tree built with 41 nodes.
+
+PDDL problem description loaded: 
+	Domain: visual-marker
+	Problem: p10x10
+	#Actions: 41
+	#Fluents: 27
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21]Total time: -1.78814e-10
+Nodes generated during search: 121
+Nodes expanded during search: 121
+BRFS search completed in -1.78814e-10 secs, check 'bfs_f.log' for details

@@ -1,0 +1,84 @@
+Checking plan: experiments/neg/synthesis/ab-regex-p/program.txt
+Plan Validation details
+-----------------------
+
+Checking action PROCESS-A - Procedure: 0 - Line: 0
+Deleting (AT I0)
+Deleting (CURRENT-CONTENT A)
+Adding (AT I1)
+Adding (CURRENT-CONTENT B)
+
+Checking action PROCESS-B - Procedure: 0 - Line: 1
+Deleting (AT I1)
+Deleting (CURRENT-CONTENT B)
+Adding (AT I2)
+Adding (CURRENT-CONTENT A)
+
+Checking action PROCESS-A - Procedure: 0 - Line: 0
+Deleting (AT I2)
+Deleting (CURRENT-CONTENT A)
+Adding (AT I3)
+Adding (CURRENT-CONTENT B)
+
+Checking action PROCESS-B - Procedure: 0 - Line: 1
+Deleting (AT I3)
+Deleting (CURRENT-CONTENT B)
+Adding (AT I4)
+Adding (CURRENT-CONTENT A)
+
+Checking action PROCESS-A - Procedure: 0 - Line: 0
+Deleting (AT I4)
+Deleting (CURRENT-CONTENT A)
+Adding (AT I5)
+Adding (CURRENT-CONTENT B)
+
+Checking action PROCESS-B - Procedure: 0 - Line: 1
+Deleting (AT I5)
+Deleting (CURRENT-CONTENT B)
+Adding (AT I6)
+Adding (CURRENT-CONTENT A)
+
+Checking action PROCESS-A - Procedure: 0 - Line: 0
+Deleting (AT I6)
+Deleting (CURRENT-CONTENT A)
+Adding (AT I7)
+Adding (CURRENT-CONTENT B)
+
+Checking action PROCESS-B - Procedure: 0 - Line: 1
+Deleting (AT I7)
+Deleting (CURRENT-CONTENT B)
+Adding (AT I8)
+Adding (CURRENT-CONTENT A)
+
+Checking action PROCESS-A - Procedure: 0 - Line: 0
+Deleting (AT I8)
+Deleting (CURRENT-CONTENT A)
+Adding (AT I9)
+Adding (CURRENT-CONTENT B)
+
+Checking action PROCESS-B - Procedure: 0 - Line: 1
+Deleting (AT I9)
+Deleting (CURRENT-CONTENT B)
+Adding (AT I10)
+Adding (CURRENT-CONTENT A)
+
+Checking action PROCESS-A - Procedure: 0 - Line: 0
+Deleting (AT I10)
+Deleting (CURRENT-CONTENT A)
+Adding (AT I11)
+Adding (CURRENT-CONTENT B)
+
+Checking action PROCESS-B - Procedure: 0 - Line: 1
+Deleting (AT I11)
+Deleting (CURRENT-CONTENT B)
+Adding (AT I12)
+Adding (CURRENT-CONTENT A)
+
+Checking action PROCESS-A - Procedure: 0 - Line: 0
+Deleting (AT I12)
+Deleting (CURRENT-CONTENT A)
+Adding (AT I13)
+Adding (CURRENT-CONTENT EMPTY)
+
+Checking action PROCESS-B - Procedure: 0 - Line: 1
+

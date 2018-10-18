@@ -1,0 +1,54 @@
+Domain: domains/other/excel_variables/domain_variables.pddl Problem: domains/other/excel_variables/fill02b_test_variables.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.004s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.003s wall-clock]
+Preparing model... [0.000s CPU, 0.002s wall-clock]
+Generated 57 rules.
+Computing model... [0.020s CPU, 0.010s wall-clock]
+357 relevant atoms
+330 auxiliary atoms
+687 final queue length
+1954 total queue pushes
+Completing instantiation... [0.070s CPU, 0.078s wall-clock]
+goal relaxed reachable: True
+117 atoms
+Computing fact groups...
+Finding invariants...
+13 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.010s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+117 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.010s CPU, 0.003s wall-clock]
+Axioms 8
+Deterministic 56 actions
+0 negated fluents created
+Invariants 117
+
+ Match tree built with 56 nodes.
+
+PDDL problem description loaded: 
+	Domain: excel
+	Problem: fill02
+	#Actions: 56
+	#Fluents: 117
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5]Plan found with cost: 4
+1. (get-suffix str-var colon)
+2. (append-str res str-var)
+3. (inc-loindex str-var)
+4. (append-str res str-var)
+Time: 0.012
+Generated: 2912
+Expanded: 379
+Total time: 0.012
+Nodes generated during search: 2913
+Nodes expanded during search: 379
+BRFS search completed in 0.012 secs, check 'bfs_f.log' for details

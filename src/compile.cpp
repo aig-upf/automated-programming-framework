@@ -17,9 +17,9 @@
 #include "neg_actions.h"
 
 /****** COMPILER GLOBAL VARIABLES ***********/
-Domain * d;						// Original domain
-Domain * cd;					// Compiled domain
-Instance * cins;				// Compiled instance
+parser::pddl::Domain * d;						// Original domain
+parser::pddl::Domain * cd;					// Compiled domain
+parser::pddl::Instance * cins;				// Compiled instance
 InstVec ins;					// Vector of instances
 
 unsigned max_bound;				// Max number of lines for the planning program
@@ -104,11 +104,11 @@ void init(int argc, char *argv[]){
 	compiler_type = String( argv[ offset++ ] );
 
 	// read input domain
-	d = new Domain( argv[ offset++ ] );
+	d = new parser::pddl::Domain( argv[ offset++ ] );
 
 	// extract the total number of instances
 	ISStream is( argv[ offset++ ] );
-	if( compiler_type == "NEG" ){
+	if( ( compiler_type == "NEG" ) || ( compiler_type == "NEGLITE" ) ){
 		is >> positive_instances;
 		is.clear();
 		is.str( argv[ offset++ ] );
@@ -120,7 +120,7 @@ void init(int argc, char *argv[]){
 	}
 	// read input instances
 	for(unsigned i = 0 ; i < total_instances; i++){
-		ins.push_back( new Instance( *d, argv[ offset++ ] ) );
+		ins.push_back( new parser::pddl::Instance( *d, argv[ offset++ ] ) );
 	}
 
 	// extract max number of lines per procedure and main (bound)
@@ -226,7 +226,7 @@ void create_instance( ){
 	else if( compiler_type == "CFG" ){
 		cins = InstanceCreator::createCFGInstance( d, cd, ins[ 0 ], rows, empty_lines, to_program, true, select_programs, bound );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
 		cins = InstanceCreator::create( d, cd, ins[ 0 ], rows, empty_lines, procedures, to_program, true, constant_slots, noclasses );
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -277,7 +277,7 @@ void add_types(){
 		//types->createType( cd, "PROGRAM" );
 		//types->addValuedConstants( cd, "PROGRAM", "PROG", constant_programs, bound+1 , 0 );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
 		
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -451,36 +451,38 @@ void add_predicates(){
 		//predicates->createValuedPredicates( cd, "ALLOWED-LINE", allowed_lines, bound + 1  );
 		predicates->createDValuedPredicates( cd, "ALLOWED-LINE", allowed_lines, procedures + 1, max_bound + 1 );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
 		predicates->createPredicates( d, cd, procedures, max_bound, total_instances, tests, empty_lines, endinstr, calls, instr, choiceInstr );
 		predicates->createTValuedPredicates( cd, "GOTO", gotos, procedures + 1, max_bound, max_bound + 1 );
 		predicates->createTValuedPredicates( d, cd, conds, procedures + 1, max_bound, 0, 0 );
-		predicates->createPredicate( cd, "EXECUTE-ACTION" );
-		predicates->createPredicate( cd, "CHECKED-ACTION" );
-		predicates->createPredicate( cd, "TO-SKIP" );
+		predicates->createPredicate( cd, "HOLDS" );
+		predicates->createPredicate( cd, "CHECKED" );
+		predicates->createPredicate( cd, "NEGEX" );
+		predicates->createPredicate( cd, "ACTED" );
 		// Predicates to detect inifinite executions
-		predicates->createPredicate( cd, "STORED" );
-		predicates->createPredicate( cd, "STORE-AVAILABLE" );
-		predicates->createPredicate( cd, "INF-CHECKED" );
-		predicates->createPredicate( cd, "INF-CHECKED-AVAILABLE" );
+		if(  compiler_type == "NEG" ){
+			predicates->createPredicate( cd, "STORED" );
+			//predicates->createPredicate( cd, "STORE-AVAILABLE" );
+			predicates->createPredicate( cd, "LOOP" );
 
-		for ( unsigned i = 0; i < d->preds.size(); ++i ){
-			String predicate_name = d->preds[ i ]->name;
-			StringVec parameter_types = d->typeList( d->preds[ i ] );
-			// Check if the predicate must be stackable
-			if( stack_predicates.find( predicate_name ) != stack_predicates.end() ){
-				parameter_types.push_back( "STACKROW" );
+			for ( unsigned i = 0; i < d->preds.size(); ++i ){
+				String predicate_name = d->preds[ i ]->name;
+				StringVec parameter_types = d->typeList( d->preds[ i ] );
+				// Check if the predicate must be stackable
+				if( stack_predicates.find( predicate_name ) != stack_predicates.end() ){
+					parameter_types.push_back( "STACKROW" );
+				}
+				predicates->createPredicate( cd, "COPY-"+predicate_name, parameter_types );
+				copiedPredicates.emplace_back( "COPY-"+predicate_name );
+
+				predicates->createPredicate( cd, "CORRECT-"+predicate_name, parameter_types );
+				correctPredicates.emplace_back( "CORRECT-"+predicate_name );
 			}
-			predicates->createPredicate( cd, "COPY-"+predicate_name, parameter_types );
-			copiedPredicates.emplace_back( "COPY-"+predicate_name );
 
-			predicates->createPredicate( cd, "CORRECT-"+predicate_name, parameter_types );
-			correctPredicates.emplace_back( "CORRECT-"+predicate_name );
-		}
-
-		for( unsigned i = 0; i < stack_lines.size(); i++ ){
-			predicates->createPredicate( cd, "COPY-"+stack_lines[ i ], StringVec( 1, "STACKROW" ) );
-			predicates->createPredicate( cd, "CORRECT-"+stack_lines[ i ], StringVec( 1, "STACKROW" ) );
+			for( unsigned i = 0; i < stack_lines.size(); i++ ){
+				predicates->createPredicate( cd, "COPY-"+stack_lines[ i ], StringVec( 1, "STACKROW" ) );
+				predicates->createPredicate( cd, "CORRECT-"+stack_lines[ i ], StringVec( 1, "STACKROW" ) );
+			}
 		}
 	}
 }
@@ -506,7 +508,7 @@ void add_program_actions(){
 	else if( compiler_type == "CFG" ){
 		sequential_actions->createProgrammingActions( procedures, bound, empty_lines, instr );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
 		sequential_actions->createProgrammingActions( procedures, bound, empty_lines, instr );
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -524,7 +526,7 @@ void add_repeat_actions(){
 	else if( compiler_type == "CFG" ){
 		sequential_actions->createRepeatActions( procedures, max_bound, instr );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
 		sequential_actions->createRepeatNegActions( procedures, max_bound, instr );
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -540,7 +542,7 @@ void add_program_goto_actions(){ // goto actions
 		goto_actions->createFSCProgrammingActions( procedures, fsc_evaluating_preds, fsc_accumulator_preds, fsc_action_preds, fsc_noconds_preds, fsc_conds_preds, fsc_tgotos, fsc_fgotos );
 	}
 	else if( compiler_type == "CFG" ){}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
 		goto_actions->createProgrammingActions( procedures, bound, empty_lines, conds, gotos, empty_slots, noclasses );
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -558,7 +560,7 @@ void add_do_goto_actions(){
 		goto_actions->createFSCFalseGotoActions( procedures, fsc_evaluating_preds, fsc_accumulator_preds, fsc_action_preds, fsc_fgotos);
 		goto_actions->createFSCEvalConditions( procedures, fsc_evaluating_preds, fsc_accumulator_preds, fsc_action_preds, fsc_noconds_preds, fsc_conds_preds );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
 		goto_actions->createRepeatActions( procedures, max_bound, gotos, conds, noclasses );
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -586,7 +588,7 @@ void add_repeat_end_actions(){
 	else if( compiler_type == "CFG" ){
 		terminal_actions->createRepeatActions(	ins, procedures, total_instances, max_bound, endinstr, tests );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
 		terminal_actions->createRepeatActions(	ins, procedures, total_instances, max_bound, endinstr, tests, negative_instances );
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -622,7 +624,7 @@ void add_repeat_call_actions(){
 	else if( compiler_type == "CFG" ){
 		call_actions->createRepeatActions( procedures, max_bound, calls );
 	}
-	else if( compiler_type == "NEG" ){
+	else if( compiler_type == "NEG"  or compiler_type == "NEGLITE" ){
 		call_actions->createRepeatActions( procedures, max_bound, calls );
 	}
 	else if( compiler_type == "LIFTED" ){
@@ -652,11 +654,13 @@ void add_eval_high_level_conditions(){
 
 
 void print_domain(){
-	cd->PDDLPrint( std::cout );
+	//cd->PDDLPrint( std::cout );
+	cd->print( std::cout );
 }
 
 void print_instance(){
-	cins->PDDLPrint( std::cerr );
+	//cins->PDDLPrint( std::cerr );
+	cins->print( std::cerr );
 }
 
 void print_act2ins(){
@@ -780,8 +784,10 @@ void neg_compilation(){
 	add_do_goto_actions();
 	add_repeat_end_actions();
 	//add_repeat_call_actions();
-	neg_actions->createRepeatActions( ins, procedures, total_instances, max_bound, endinstr, tests, negative_instances  );
-	neg_actions->createInfiniteDetectionActions( copiedPredicates, correctPredicates, ins, procedures, total_instances, max_bound, endinstr, tests, negative_instances );
+	neg_actions->createRepeatActions( ins, procedures, total_instances, max_bound, endinstr, tests, negative_instances  ); 
+	if( compiler_type == "NEG" ){
+		neg_actions->createInfiniteDetectionActions( copiedPredicates, correctPredicates, ins, procedures, total_instances, max_bound, endinstr, tests, negative_instances );
+	}
 }
 
 
@@ -803,7 +809,7 @@ int main( int argc, char *argv[] ) {
 		hierachical_fsc_compilation();
 	else if( compiler_type == "CFG" )
 		cfg_compilation();
-	else if( compiler_type == "NEG" )
+	else if( ( compiler_type == "NEG" ) || ( compiler_type == "NEGLITE" ) )
 		neg_compilation();
 	else if( compiler_type == "LIFTED" )
 		planning_programs_compilation();

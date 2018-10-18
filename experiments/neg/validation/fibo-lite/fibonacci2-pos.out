@@ -1,0 +1,36 @@
+Checking plan: experiments/neg/synthesis/fibo-lite/program-positive.txt
+Plan Validation details
+-----------------------
+
+Checking action ASSIGN-C-TO-D - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT D V0)
+Adding (ASSIGNMENT D V0)
+
+Checking action ASSIGN-A-TO-C - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT C V0)
+Adding (ASSIGNMENT C V1)
+
+Checking action DEC-B - Procedure: 0 - Line: 2
+Deleting (ASSIGNMENT B V2)
+Adding (ASSIGNMENT B V1)
+
+Checking action ASSIGN-C-TO-D - Procedure: 0 - Line: 0
+Deleting (ASSIGNMENT D V0)
+Adding (ASSIGNMENT D V1)
+
+Checking action ASSIGN-A-TO-C - Procedure: 0 - Line: 1
+Deleting (ASSIGNMENT C V1)
+Adding (ASSIGNMENT C V1)
+
+Checking action DEC-B - Procedure: 0 - Line: 2
+Deleting (ASSIGNMENT B V1)
+Adding (ASSIGNMENT B V0)
+
+Checking action ADD-A-D - Procedure: 0 - Line: 4
+Deleting (ASSIGNMENT A V1)
+Adding (ASSIGNMENT A V2)
+
+Plan executed successfully - checking goal
+[1;32mSuccess: Plan valid[0m
+[1;32mValue: 10.000000
+[0m

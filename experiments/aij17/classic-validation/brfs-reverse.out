@@ -1,0 +1,44 @@
+Domain: domains/pointers/domain.pddl Problem: domains/pointers/reverse/reverse30.pddl
+Parsing...
+Parsing: [0.000s CPU, 0.025s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.010s CPU, 0.002s wall-clock]
+Preparing model... [0.010s CPU, 0.008s wall-clock]
+Generated 62 rules.
+Computing model... [0.060s CPU, 0.068s wall-clock]
+1513 relevant atoms
+1439 auxiliary atoms
+2952 final queue length
+26662 total queue pushes
+Completing instantiation... [2.160s CPU, 2.153s wall-clock]
+goal relaxed reachable: True
+394 atoms
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Time limit reached, aborting invariant generation
+Finding invariants: [0.010s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+394 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.002s wall-clock]
+Computing fact groups: [0.010s CPU, 0.008s wall-clock]
+Axioms 510
+Deterministic 4 actions
+0 negated fluents created
+Invariants 394
+
+ Match tree built with 4 nodes.
+
+PDDL problem description loaded: 
+	Domain: pointers
+	Problem: reverse30
+	#Actions: 4
+	#Fluents: 394
+Starting search with BRFS (time budget is 60 secs)...
+[2][3][4][5][6][7][8][9][10][11][12][13][14]

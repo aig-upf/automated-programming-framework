@@ -1,0 +1,18 @@
+INFO     Running translator.
+INFO     translator inputs: ['experiments/aij17/validation/sumatory/domain.pddl', 'experiments/aij17/validation/sumatory/ins.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.080s CPU, 0.085s wall-clock]
+Normalizing task... [0.000s CPU, 0.002s wall-clock]
+Instantiating...
+Generating Datalog program... [0.020s CPU, 0.014s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.012s wall-clock]
+Preparing model... [0.100s CPU, 0.097s wall-clock]
+Generated 388 rules.
+Computing model... [13.470s CPU, 13.467s wall-clock]
+8022 relevant atoms
+50567 auxiliary atoms
+58589 final queue length
+8202029 total queue pushes
+Completing instantiation... 

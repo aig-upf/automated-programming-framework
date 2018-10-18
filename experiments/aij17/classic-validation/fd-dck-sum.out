@@ -1,0 +1,631 @@
+INFO     Running translator.
+INFO     translator inputs: ['domains/variables/domain_dck.pddl', 'domains/variables/sumatory/sumatory120.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.060s CPU, 0.065s wall-clock]
+Normalizing task... [0.000s CPU, 0.001s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.013s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.002s wall-clock]
+Preparing model... [0.090s CPU, 0.095s wall-clock]
+Generated 53 rules.
+Computing model... [0.510s CPU, 0.523s wall-clock]
+15860 relevant atoms
+32420 auxiliary atoms
+48280 final queue length
+55901 total queue pushes
+Completing instantiation... [0.330s CPU, 0.328s wall-clock]
+Instantiating: [0.960s CPU, 0.972s wall-clock]
+Computing fact groups...
+Finding invariants...
+3 initial candidates
+Finding invariants: [0.000s CPU, 0.003s wall-clock]
+Checking invariant weight... [0.010s CPU, 0.004s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+0 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.000s wall-clock]
+Computing fact groups: [0.020s CPU, 0.011s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.014s wall-clock]
+Translating task: [0.270s CPU, 0.273s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+2 propositions removed
+Detecting unreachable propositions: [0.030s CPU, 0.034s wall-clock]
+Translator variables: 2
+Translator derived variables: 0
+Translator facts: 242
+Translator goal facts: 2
+Translator mutex groups: 2
+Translator total mutex groups size: 242
+Translator operators: 7740
+Translator axioms: 0
+Translator task size: 30968
+Translator peak memory: 41796 KB
+Writing output... [0.060s CPU, 0.060s wall-clock]
+Done! [1.410s CPU, 1.431s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: []
+Building causal graph...
+The causal graph is acyclic.
+2 variables of 2 necessary
+0 of 2 mutex groups necessary.
+7740 of 7740 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Preprocessor facts: 242
+Preprocessor derived variables: 0
+Preprocessor task size: 30726
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search executable: /home/javi/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/src/search/downward-release
+INFO     search arguments: ['--if-unit-cost', '--heuristic', 'hlm,hff=lm_ff_syn(lm_rhw(reasonable_orders=true))', '--search', 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)', '--if-non-unit-cost', '--heuristic', 'hlm1,hff1=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=one,cost_type=one))', '--heuristic', 'hlm2,hff2=lm_ff_syn(lm_rhw(reasonable_orders=true,lm_cost_type=plusone,cost_type=plusone))', '--search', 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)', '--always', '--internal-plan-file', 'sas_plan']
+reading input... [t=0.00s]
+Simplifying transitions... done!
+done reading input! [t=0.06s]
+building causal graph...done! [t=0.06s]
+packing state variables...done! [t=0.06s]
+Variables: 2
+Facts: 242
+Bytes per state: 4
+done initalizing global data [t=0.06s]
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.02s
+Discovered 18 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+121 edges
+Landmark graph: 
+LM 0 Atom assignment(a, v120) (var0(1)->25)(goal) Achievers (121, 121)
+		<-_nat LM 17 Atom assignment(a, v0) (var0(1)->0) Achievers (1, 1)
+
+LM 17 Atom assignment(a, v0) (var0(1)->0) Achievers (1, 1)
+		->_nat LM 0 Atom assignment(a, v120) (var0(1)->25)(goal) Achievers (121, 121)
+
+LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_gn  LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_gn  LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+
+LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_gn  LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_gn  LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+
+LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_gn  LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		->_gn  LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+
+LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		<-_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_gn  LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_gn  LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+
+LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		<-_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_gn  LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_gn  LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+
+LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_gn  LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		<-_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		->_gn  LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+
+LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		<-_gn  LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		<-_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_gn  LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+
+LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		<-_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_gn  LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		<-_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_gn  LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+
+LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		->_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		->_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_gn  LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		->_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+
+LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_gn  LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		->_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		->_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_gn  LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		->_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+
+LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_gn  LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		->_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		->_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_gn  LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+
+LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_gn  LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		->_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_gn  LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+
+LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_gn  LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		->_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_gn  LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		->_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+
+LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_gn  LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		->_gn  LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		->_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		->_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		->_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		->_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		->_nat LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		->_nat LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		->_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		->_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+
+LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		<-_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_gn  LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		<-_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+		<-_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		->_gn  LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+
+LM 2 Atom assignment(b, v0) (var1(0)->0)(goal) Achievers (1, 1)
+		<-_nat LM 16 Atom assignment(b, v9) (var1(0)->110) Achievers (2, 1)
+		<-_nat LM 15 Atom assignment(b, v8) (var1(0)->99) Achievers (2, 1)
+		<-_nat LM 14 Atom assignment(b, v7) (var1(0)->88) Achievers (2, 1)
+		<-_nat LM 13 Atom assignment(b, v6) (var1(0)->77) Achievers (2, 1)
+		<-_nat LM 12 Atom assignment(b, v5) (var1(0)->66) Achievers (2, 1)
+		<-_nat LM 5 Atom assignment(b, v12) (var1(0)->24) Achievers (2, 1)
+		<-_nat LM 4 Atom assignment(b, v10) (var1(0)->2) Achievers (2, 1)
+		<-_nat LM 8 Atom assignment(b, v15) (var1(0)->28) Achievers (2, 2)
+		<-_nat LM 9 Atom assignment(b, v2) (var1(0)->33) Achievers (2, 1)
+		<-_nat LM 6 Atom assignment(b, v13) (var1(0)->26) Achievers (2, 1)
+		<-_gn  LM 1 Atom assignment(b, v1) (var1(0)->1) Achievers (2, 1)
+		<-_nat LM 7 Atom assignment(b, v14) (var1(0)->27) Achievers (2, 1)
+		<-_nat LM 3 Atom assignment(b, v11) (var1(0)->13) Achievers (2, 1)
+		<-_nat LM 10 Atom assignment(b, v3) (var1(0)->44) Achievers (2, 1)
+		<-_nat LM 11 Atom assignment(b, v4) (var1(0)->55) Achievers (2, 1)
+
+Landmark graph end.
+Initializing LAMA-FF Synergy Object
+Initializing landmarks count heuristic...
+2 initial landmarks, 2 goal landmarks
+Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+Conducting lazy best first search, (real) bound = 2147483647
+Best heuristic value: 16/23 [g=0, 1 evaluated, 0 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 16/22 [g=1, 2 evaluated, 1 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 16/21 [g=2, 3 evaluated, 2 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 15/21 [g=1, 4 evaluated, 3 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 15/20 [g=3, 5 evaluated, 4 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 15/19 [g=4, 7 evaluated, 6 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 14/19 [g=2, 8 evaluated, 7 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 14/18 [g=5, 9 evaluated, 8 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 14/17 [g=6, 11 evaluated, 10 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 13/17 [g=3, 12 evaluated, 11 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 13/16 [g=7, 13 evaluated, 12 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 13/15 [g=8, 15 evaluated, 14 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 12/15 [g=4, 16 evaluated, 15 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 12/14 [g=9, 17 evaluated, 16 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 12/13 [g=10, 19 evaluated, 18 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 11/13 [g=5, 20 evaluated, 19 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 11/12 [g=11, 21 evaluated, 20 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 11/11 [g=12, 23 evaluated, 22 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 10/11 [g=6, 24 evaluated, 23 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 10/10 [g=13, 25 evaluated, 24 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 9/9 [g=14, 27 evaluated, 26 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 8/8 [g=15, 28 evaluated, 27 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 7/7 [g=16, 29 evaluated, 28 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 6/6 [g=17, 30 evaluated, 29 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 5/5 [g=18, 31 evaluated, 30 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 4/4 [g=19, 32 evaluated, 31 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 3/3 [g=20, 33 evaluated, 32 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 2/2 [g=21, 34 evaluated, 33 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 1/1 [g=22, 35 evaluated, 34 expanded, t=0.09s, 7032 KB]
+Solution found!
+Actual search time: 0.00s [t=0.09s]
+add-a-b v0 v15 v15 (1)
+add-a-b v15 v15 v30 (1)
+add-a-b v30 v15 v45 (1)
+add-a-b v45 v15 v60 (1)
+add-a-b v60 v15 v75 (1)
+add-a-b v75 v15 v90 (1)
+add-a-b v90 v15 v105 (1)
+add-a-b v105 v15 v120 (1)
+dec-b v14 v15 (1)
+dec-b v13 v14 (1)
+dec-b v12 v13 (1)
+dec-b v11 v12 (1)
+dec-b v10 v11 (1)
+dec-b v9 v10 (1)
+dec-b v8 v9 (1)
+dec-b v7 v8 (1)
+dec-b v6 v7 (1)
+dec-b v5 v6 (1)
+dec-b v4 v5 (1)
+dec-b v3 v4 (1)
+dec-b v2 v3 (1)
+dec-b v1 v2 (1)
+dec-b v0 v1 (1)
+Plan length: 23 step(s).
+Plan cost: 23
+Initial state h value: 16/23.
+Expanded 35 state(s).
+Reopened 0 state(s).
+Evaluated 36 state(s).
+Evaluations: 72
+Generated 138 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 23
+Solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+Conducting lazy best first search, (real) bound = 23
+Best heuristic value: 16/23 [g=0, 1 evaluated, 0 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 16/22 [g=1, 2 evaluated, 1 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 16/21 [g=2, 3 evaluated, 2 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 15/21 [g=1, 4 evaluated, 3 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 15/20 [g=3, 5 evaluated, 4 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 15/19 [g=4, 7 evaluated, 6 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 14/19 [g=2, 8 evaluated, 7 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 14/18 [g=5, 9 evaluated, 8 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 14/17 [g=6, 11 evaluated, 10 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 13/17 [g=3, 12 evaluated, 11 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 13/16 [g=7, 13 evaluated, 12 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 13/15 [g=8, 15 evaluated, 14 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 12/15 [g=4, 16 evaluated, 15 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 12/14 [g=9, 17 evaluated, 16 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 12/13 [g=10, 19 evaluated, 18 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 11/13 [g=5, 20 evaluated, 19 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 11/12 [g=11, 21 evaluated, 20 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 11/11 [g=12, 23 evaluated, 22 expanded, t=0.09s, 7032 KB]
+Best heuristic value: 10/11 [g=6, 24 evaluated, 23 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 10/10 [g=13, 25 evaluated, 24 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 9/9 [g=14, 27 evaluated, 26 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 8/8 [g=15, 29 evaluated, 28 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 7/7 [g=16, 31 evaluated, 30 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 6/6 [g=17, 32 evaluated, 31 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 5/5 [g=18, 33 evaluated, 32 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 4/4 [g=19, 34 evaluated, 33 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 3/3 [g=20, 35 evaluated, 34 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 2/2 [g=21, 36 evaluated, 35 expanded, t=0.10s, 7032 KB]
+Best heuristic value: 1/1 [g=22, 37 evaluated, 36 expanded, t=0.10s, 7032 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.91s [t=1.00s]
+Initial state h value: 16/23.
+Expanded 8776 state(s).
+Reopened 4514 state(s).
+Evaluated 8776 state(s).
+Evaluations: 17552
+Generated 41969 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 23
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 3)
+Conducting lazy best first search, (real) bound = 23
+Best heuristic value: 16/23 [g=0, 1 evaluated, 0 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 16/22 [g=1, 2 evaluated, 1 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 16/21 [g=2, 3 evaluated, 2 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 15/21 [g=1, 4 evaluated, 3 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 15/20 [g=3, 5 evaluated, 4 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 15/19 [g=4, 7 evaluated, 6 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 14/19 [g=2, 8 evaluated, 7 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 14/18 [g=5, 9 evaluated, 8 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 14/17 [g=6, 11 evaluated, 10 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 13/17 [g=3, 12 evaluated, 11 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 13/16 [g=7, 13 evaluated, 12 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 13/15 [g=8, 15 evaluated, 14 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 12/15 [g=4, 16 evaluated, 15 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 12/14 [g=9, 17 evaluated, 16 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 12/13 [g=10, 19 evaluated, 18 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 11/13 [g=5, 20 evaluated, 19 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 11/12 [g=11, 21 evaluated, 20 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 11/11 [g=12, 23 evaluated, 22 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 10/11 [g=6, 24 evaluated, 23 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 10/10 [g=13, 25 evaluated, 24 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 9/9 [g=14, 27 evaluated, 26 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 8/8 [g=15, 29 evaluated, 28 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 7/7 [g=16, 31 evaluated, 30 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 6/6 [g=17, 33 evaluated, 32 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 5/5 [g=18, 35 evaluated, 34 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 4/4 [g=19, 37 evaluated, 36 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 3/3 [g=20, 39 evaluated, 38 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 2/2 [g=21, 40 evaluated, 39 expanded, t=1.00s, 7828 KB]
+Best heuristic value: 1/1 [g=22, 41 evaluated, 40 expanded, t=1.00s, 7828 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.87s [t=1.87s]
+Initial state h value: 16/23.
+Expanded 8297 state(s).
+Reopened 4035 state(s).
+Evaluated 8297 state(s).
+Evaluations: 16594
+Generated 39630 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 23
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 2)
+Conducting lazy best first search, (real) bound = 23
+Best heuristic value: 16/23 [g=0, 1 evaluated, 0 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 16/22 [g=1, 2 evaluated, 1 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 16/21 [g=2, 3 evaluated, 2 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 15/21 [g=1, 4 evaluated, 3 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 15/20 [g=3, 5 evaluated, 4 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 15/19 [g=4, 7 evaluated, 6 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 14/19 [g=2, 8 evaluated, 7 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 14/18 [g=5, 9 evaluated, 8 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 14/17 [g=6, 11 evaluated, 10 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 13/17 [g=3, 12 evaluated, 11 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 13/16 [g=7, 13 evaluated, 12 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 13/15 [g=8, 15 evaluated, 14 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 12/15 [g=4, 16 evaluated, 15 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 12/14 [g=9, 17 evaluated, 16 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 12/13 [g=10, 19 evaluated, 18 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 11/13 [g=5, 20 evaluated, 19 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 11/12 [g=11, 21 evaluated, 20 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 11/11 [g=12, 23 evaluated, 22 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 10/11 [g=6, 24 evaluated, 23 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 10/10 [g=13, 25 evaluated, 24 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 9/9 [g=14, 27 evaluated, 26 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 8/8 [g=15, 29 evaluated, 28 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 7/7 [g=16, 31 evaluated, 30 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 6/6 [g=17, 33 evaluated, 32 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 5/5 [g=18, 35 evaluated, 34 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 4/4 [g=19, 37 evaluated, 36 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 3/3 [g=20, 39 evaluated, 38 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 2/2 [g=21, 41 evaluated, 40 expanded, t=1.87s, 7960 KB]
+Best heuristic value: 1/1 [g=22, 43 evaluated, 42 expanded, t=1.87s, 7960 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.81s [t=2.68s]
+Initial state h value: 16/23.
+Expanded 7716 state(s).
+Reopened 3454 state(s).
+Evaluated 7716 state(s).
+Evaluations: 15432
+Generated 36798 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 23
+No solution found - keep searching
+Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 1)
+Conducting lazy best first search, (real) bound = 23
+Best heuristic value: 16/23 [g=0, 1 evaluated, 0 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 16/22 [g=1, 2 evaluated, 1 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 15/22 [g=1, 3 evaluated, 2 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 15/21 [g=2, 4 evaluated, 3 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 14/21 [g=2, 7 evaluated, 6 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 14/20 [g=3, 8 evaluated, 7 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 13/20 [g=3, 11 evaluated, 10 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 13/19 [g=4, 12 evaluated, 11 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 13/18 [g=5, 15 evaluated, 14 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 12/18 [g=4, 16 evaluated, 15 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 12/17 [g=6, 19 evaluated, 18 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 11/17 [g=5, 20 evaluated, 19 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 11/16 [g=7, 23 evaluated, 22 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 10/16 [g=6, 24 evaluated, 23 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 10/15 [g=8, 27 evaluated, 26 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 9/15 [g=7, 28 evaluated, 27 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 9/14 [g=9, 30 evaluated, 29 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 9/13 [g=10, 32 evaluated, 31 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 8/13 [g=8, 33 evaluated, 32 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 8/12 [g=11, 34 evaluated, 33 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 8/11 [g=12, 36 evaluated, 35 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 7/11 [g=9, 37 evaluated, 36 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 7/10 [g=13, 38 evaluated, 37 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 7/9 [g=14, 39 evaluated, 38 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 7/8 [g=15, 41 evaluated, 40 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 6/8 [g=10, 42 evaluated, 41 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 6/7 [g=16, 43 evaluated, 42 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 6/6 [g=17, 45 evaluated, 44 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 5/6 [g=11, 46 evaluated, 45 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 5/5 [g=18, 47 evaluated, 46 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 4/4 [g=19, 49 evaluated, 48 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 3/3 [g=20, 51 evaluated, 50 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 2/2 [g=21, 53 evaluated, 52 expanded, t=2.68s, 7960 KB]
+Best heuristic value: 1/1 [g=22, 55 evaluated, 54 expanded, t=2.68s, 7960 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.60s [t=3.28s]
+Initial state h value: 16/23.
+Expanded 5977 state(s).
+Reopened 1715 state(s).
+Evaluated 5977 state(s).
+Evaluations: 11954
+Generated 28684 state(s).
+Dead ends: 0 state(s).
+Best solution cost so far: 23
+No solution found - keep searching
+Actual search time: 3.19s [t=3.28s]
+Cumulative statistics:
+Expanded 30801 state(s).
+Reopened 13718 state(s).
+Evaluated 30802 state(s).
+Evaluations: 61604
+Generated 147219 state(s).
+Dead ends: 0 state(s).
+Search time: 3.19s
+Total time: 3.28s
+Solution found.
+Peak memory: 7960 KB

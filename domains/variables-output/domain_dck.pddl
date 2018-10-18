@@ -10,8 +10,7 @@
 		(next ?val1 ?val2 - value)
 
 		;; Dynamic relations between values
-		(output-two ?val1 ?val2 - value)
-		(not-output-two ?val1 ?val2 - value)
+		(output-two ?val1 ?val2 - value)		
 
 		;; Derived relations between variables
 		(equal-a-c)
@@ -52,7 +51,7 @@
 	(:action output-a-b
 		:parameters (?val1 ?val2 - value)
 		:precondition (and (assignment a ?val1) (assignment b ?val2))
-		:effect (and (output-two ?val1 ?val2)(not (not-output-two ?val1 ?val2)) ))
+		:effect (and (output-two ?val1 ?val2) ))
 
 
 	;;
