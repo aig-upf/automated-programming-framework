@@ -181,7 +181,7 @@ This repository can be downloaded from [https://github.com/aig-upf/universal-pla
 
 * Jiménez, S., Segovia-Aguas, J., and Jonsson, A. (2019), [A review of generalized planning](https://www.researchgate.net/publication/331683822_A_review_of_generalized_planning), KER 2019
 
-* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2020) Generalized Planning with Positive and Negative Examples (to be published), AAAI20
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2020) Generalized Planning with Positive and Negative Examples (to be published), AAAI 2020
 
 
 
