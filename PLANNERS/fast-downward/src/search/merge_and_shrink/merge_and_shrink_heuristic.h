@@ -3,29 +3,29 @@
 
 #include "../heuristic.h"
 
-class TransitionSystem;
-class Labels;
-class MergeStrategy;
-class ShrinkStrategy;
+#include <memory>
+
+namespace utils {
+enum class Verbosity;
+}
+
+namespace merge_and_shrink {
+class FactoredTransitionSystem;
+class MergeAndShrinkRepresentation;
 
 class MergeAndShrinkHeuristic : public Heuristic {
-    MergeStrategy *const merge_strategy;
-    ShrinkStrategy *const shrink_strategy;
-    const bool use_expensive_statistics;
-    bool terminate;
-    Labels *labels;
+    const utils::Verbosity verbosity;
 
-    TransitionSystem *final_transition_system;
-    TransitionSystem *build_transition_system();
+    // The final merge-and-shrink representations, storing goal distances.
+    std::vector<std::unique_ptr<MergeAndShrinkRepresentation>> mas_representations;
 
-    void dump_options() const;
-    void warn_on_unusual_options() const;
+    void finalize_factor(FactoredTransitionSystem &fts, int index);
+    void finalize(FactoredTransitionSystem &fts);
 protected:
-    virtual void initialize();
-    virtual int compute_heuristic(const GlobalState &state);
+    virtual int compute_heuristic(const GlobalState &global_state) override;
 public:
-    MergeAndShrinkHeuristic(const Options &opts);
-    ~MergeAndShrinkHeuristic();
+    explicit MergeAndShrinkHeuristic(const options::Options &opts);
 };
+}
 
 #endif

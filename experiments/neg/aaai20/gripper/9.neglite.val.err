@@ -1,0 +1,167 @@
+[1;31mError [GRIPPER5-NEG-A]: Goal not satisifed - Plan invalid
+[0m
+[1;31mError[GRIPPER5-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER5-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER5-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER6-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER6-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER6-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER6-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER7-NEG-A]: Infinite loop detected
+[0m
+[1;31mError [GRIPPER7-NEG-B]: Goal not satisifed - Plan invalid
+[0m
+[1;31mError[GRIPPER7-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER7-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER8-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER8-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER8-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER8-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER9-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER9-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER9-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER9-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER10-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER10-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER10-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER10-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER11-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER11-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER11-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER11-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER12-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER12-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER12-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER12-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER13-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER13-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER13-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER13-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER14-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER14-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER14-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER14-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER15-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER15-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER15-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER15-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER16-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER16-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER16-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER16-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER17-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER17-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER17-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER17-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER18-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER18-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER18-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER18-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER19-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER19-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER19-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER19-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER20-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER20-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER20-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER20-NEG-D]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER21-NEG-A]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER21-NEG-B]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER21-NEG-C]: Infinite loop detected
+[0m
+[1;31mError[GRIPPER21-NEG-D]: Infinite loop detected
+[0m
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-pos-a.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEGLITE-1-2-d-val.sh: line 88: 15894 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-pos-a.pddl $1
+[1;31mError [GRIPPER3-NEG-C]: Goal not satisifed - Plan invalid
+[0m
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-neg-c.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEGLITE-1-2-d-val.sh: line 90: 15897 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-neg-d.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEGLITE-1-2-d-val.sh: line 91: 15899 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-neg-d.pddl $1
+[1;31mError[GRIPPER4-NEG-A]: Infinite loop detected
+[0m
+[1;31mError [GRIPPER4-NEG-B]: Goal not satisifed - Plan invalid
+[0m
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-neg-b.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEGLITE-1-2-d-val.sh: line 95: 15904 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-neg-b.pddl $1
+[1;31mError [GRIPPER4-NEG-D]: Goal not satisifed - Plan invalid
+[0m
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-neg-a.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEGLITE-1-2-d-val.sh: line 97: 15907 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-neg-a.pddl $1
+[1;31mError [GRIPPER3-NEG-D]: Goal not satisifed - Plan invalid
+[0m
+[1;31mError [GRIPPER2-NEG-D]: Goal not satisifed - Plan invalid
+[0m
+[1;31mError[GRIPPER3-NEG-B]: Infinite loop detected
+[0m
+[1;31mError [GRIPPER2-NEG-B]: Goal not satisifed - Plan invalid
+[0m

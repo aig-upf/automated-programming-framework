@@ -1,0 +1,306 @@
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 1: 22209 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-5-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 2: 22211 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-5-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 3: 22213 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-5-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 4: 22215 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-5-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 5: 22217 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-5-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 6: 22219 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-6-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 7: 22221 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-6-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 8: 22223 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-6-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 9: 22225 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-6-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 10: 22227 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-6-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 11: 22229 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-7-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 12: 22231 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-7-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 13: 22233 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-7-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 14: 22235 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-7-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 15: 22237 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-7-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 16: 22239 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-8-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 17: 22241 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-8-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 18: 22243 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-8-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 19: 22245 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-8-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 20: 22247 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-8-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 21: 22249 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-9-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 22: 22251 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-9-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 23: 22253 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-9-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 24: 22255 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-9-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 25: 22257 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-9-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 26: 22259 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-10-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 27: 22261 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-10-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 28: 22263 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-10-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 29: 22265 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-10-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 30: 22267 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-10-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 31: 22269 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-11-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 32: 22271 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-11-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 33: 22273 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-11-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 34: 22275 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-11-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 35: 22277 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-11-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 36: 22279 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-12-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 37: 22281 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-12-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 38: 22283 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-12-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 39: 22285 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-12-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 40: 22287 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-12-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 41: 22289 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-13-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 42: 22291 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-13-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 43: 22293 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-13-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 44: 22295 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-13-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 45: 22297 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-13-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 46: 22299 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-14-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 47: 22301 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-14-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 48: 22303 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-14-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 49: 22305 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-14-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 50: 22307 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-14-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 51: 22309 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-15-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 52: 22311 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-15-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 53: 22313 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-15-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 54: 22315 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-15-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 55: 22317 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-15-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 56: 22319 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-16-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 57: 22321 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-16-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 58: 22323 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-16-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 59: 22325 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-16-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 60: 22327 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-16-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 61: 22329 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-17-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 62: 22331 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-17-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 63: 22333 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-17-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 64: 22335 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-17-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 65: 22337 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-17-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 66: 22339 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-18-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 67: 22341 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-18-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 68: 22343 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-18-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 69: 22345 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-18-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 70: 22347 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-18-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 71: 22349 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-19-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 72: 22351 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-19-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 73: 22353 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-19-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 74: 22355 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-19-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 75: 22357 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-19-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 76: 22359 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-20-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 77: 22361 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-20-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 78: 22363 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-20-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 79: 22365 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-20-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 80: 22367 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-20-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 81: 22369 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-21-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 82: 22371 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-21-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 83: 22373 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-21-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 84: 22375 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-21-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 85: 22377 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-21-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 86: 22379 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-2-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 87: 22381 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-4-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-pos-a.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 88: 22383 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 89: 22385 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-2-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-neg-d.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 90: 22387 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 91: 22389 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-3-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 92: 22391 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-4-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 93: 22393 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-4-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 94: 22395 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-3-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 95: 22397 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-2-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 96: 22399 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-4-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 97: 22401 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-2-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 98: 22403 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-3-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 99: 22405 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-2-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 100: 22407 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-3-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'domains/neg/gripper/gripper-1-neg-a.pddl'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 101: 22409 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-1-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gripper/6.neg.program'
+./scripts/neg/ijcai19/gripper-val/gripper-NEG-1-2-b-val.sh: line 102: 22411 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gripper/domain.pddl domains/neg/gripper/gripper-4-neg-c.pddl $1

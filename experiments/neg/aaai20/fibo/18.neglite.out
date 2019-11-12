@@ -1,0 +1,106 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/translate/translate.py domain.pddl ins.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.070s CPU, 0.071s wall-clock]
+Normalizing task... [0.010s CPU, 0.005s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.040s CPU, 0.040s wall-clock]
+Preparing model... [0.020s CPU, 0.020s wall-clock]
+Generated 1923 rules.
+Computing model... [0.040s CPU, 0.035s wall-clock]
+1085 relevant atoms
+1880 auxiliary atoms
+2965 final queue length
+8036 total queue pushes
+Completing instantiation... [0.090s CPU, 0.085s wall-clock]
+Instantiating: [0.190s CPU, 0.188s wall-clock]
+Computing fact groups...
+Finding invariants...
+121 initial candidates
+Finding invariants: [0.340s CPU, 0.340s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+224 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.340s CPU, 0.344s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.010s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.003s wall-clock]
+Translating task: [0.150s CPU, 0.155s wall-clock]
+725 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+8 propositions removed
+Detecting unreachable propositions: [0.040s CPU, 0.043s wall-clock]
+Reordering and filtering variables...
+227 of 228 variables necessary.
+59 of 69 mutex groups necessary.
+810 of 810 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.030s CPU, 0.025s wall-clock]
+Translator variables: 227
+Translator derived variables: 0
+Translator facts: 462
+Translator goal facts: 1
+Translator mutex groups: 59
+Translator total mutex groups size: 118
+Translator operators: 810
+Translator axioms: 0
+Translator task size: 29056
+Translator peak memory: 53152 KB
+Writing output... [0.020s CPU, 0.024s wall-clock]
+Done! [0.860s CPU, 0.860s wall-clock]
+
+translate exit code: 0
+INFO     Running search (release32).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/downward --evaluator 'hlm=lmcount(lm_factory=lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=false)' --evaluator 'hff=ff(transform=adapt_costs(one))' --search 'lazy_greedy([hff,hlm],preferred=[hff,hlm],cost_type=one,reopen_closed=false)' --internal-plan-file sas_plan < output.sas
+reading input... [t=2.1957e-05s]
+done reading input! [t=0.0171733s]
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.0135606s
+Discovered 13 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+38 edges
+Simplifying 6798 unary operators... done! [5464 unary operators]
+Initializing additive heuristic...
+Initializing FF heuristic...
+Building successor generator...done! [t=0.0384032s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 0.000206589s
+Variables: 227
+FactPairs: 462
+Bytes per state: 32
+Conducting lazy best first search, (real) bound = 2147483647
+5 initial landmarks, 1 goal landmarks
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 8
+New best heuristic value for ff(transform = adapt_costs(one)): 12
+[g=0, 1 evaluated, 0 expanded, t=0.0386176s, 6432 KB]
+Initial heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 8
+Initial heuristic value for ff(transform = adapt_costs(one)): 12
+New best heuristic value for ff(transform = adapt_costs(one)): 8
+[g=1, 2 evaluated, 1 expanded, t=0.0387895s, 6432 KB]
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 7
+New best heuristic value for ff(transform = adapt_costs(one)): 7
+[g=2, 3 evaluated, 2 expanded, t=0.0389183s, 6432 KB]

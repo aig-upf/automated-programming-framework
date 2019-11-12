@@ -8,17 +8,19 @@
 
 #include <vector>
 
-class GlobalOperator;
 class GlobalState;
+class OperatorProxy;
+class TaskProxy;
 
 
 class SearchNode {
+    const StateRegistry &state_registry;
     StateID state_id;
     SearchNodeInfo &info;
-    OperatorCost cost_type;
 public:
-    SearchNode(StateID state_id_, SearchNodeInfo &info_,
-               OperatorCost cost_type_);
+    SearchNode(const StateRegistry &state_registry,
+               StateID state_id,
+               SearchNodeInfo &info);
 
     StateID get_state_id() const {
         return state_id;
@@ -30,40 +32,39 @@ public:
     bool is_closed() const;
     bool is_dead_end() const;
 
-    bool is_h_dirty() const;
-    void set_h_dirty();
-    void clear_h_dirty();
     int get_g() const;
     int get_real_g() const;
-    int get_h() const;
 
-    void open_initial(int h);
-    void open(int h, const SearchNode &parent_node,
-              const GlobalOperator *parent_op);
+    void open_initial();
+    void open(const SearchNode &parent_node,
+              const OperatorProxy &parent_op,
+              int adjusted_cost);
     void reopen(const SearchNode &parent_node,
-                const GlobalOperator *parent_op);
+                const OperatorProxy &parent_op,
+                int adjusted_cost);
     void update_parent(const SearchNode &parent_node,
-                       const GlobalOperator *parent_op);
-    void increase_h(int h);
+                       const OperatorProxy &parent_op,
+                       int adjusted_cost);
     void close();
     void mark_as_dead_end();
 
-    void dump() const;
+    void dump(const TaskProxy &task_proxy) const;
 };
 
 
 class SearchSpace {
     PerStateInformation<SearchNodeInfo> search_node_infos;
 
-    OperatorCost cost_type;
+    StateRegistry &state_registry;
 public:
-    SearchSpace(OperatorCost cost_type_);
+    explicit SearchSpace(StateRegistry &state_registry);
+
     SearchNode get_node(const GlobalState &state);
     void trace_path(const GlobalState &goal_state,
-                    std::vector<const GlobalOperator *> &path) const;
+                    std::vector<OperatorID> &path) const;
 
-    void dump() const;
-    void statistics() const;
+    void dump(const TaskProxy &task_proxy) const;
+    void print_statistics() const;
 };
 
 #endif

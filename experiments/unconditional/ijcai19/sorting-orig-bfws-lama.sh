@@ -1,0 +1,11 @@
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p11-11a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p11-11b.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p12-12a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p12-12b.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p13-13a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p13-13b.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p14-14a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p14-14b.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p15-15a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p15-15b.pddl  | grep 'search completed'
+

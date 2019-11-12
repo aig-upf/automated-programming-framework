@@ -1,8 +1,9 @@
 #include "global_state.h"
 
-#include "globals.h"
-#include "utilities.h"
 #include "state_registry.h"
+#include "task_proxy.h"
+
+#include "task_utils/task_properties.h"
 
 #include <algorithm>
 #include <iostream>
@@ -10,32 +11,36 @@
 using namespace std;
 
 
-GlobalState::GlobalState(const PackedStateBin *buffer_, const StateRegistry &registry_,
-                         StateID id_)
-    : buffer(buffer_),
-      registry(&registry_),
-      id(id_) {
+GlobalState::GlobalState(
+    const PackedStateBin *buffer, const StateRegistry &registry, StateID id)
+    : buffer(buffer),
+      registry(&registry),
+      id(id) {
     assert(buffer);
     assert(id != StateID::no_state);
 }
 
-GlobalState::~GlobalState() {
+int GlobalState::operator[](int var) const {
+    assert(var >= 0);
+    assert(var < registry->get_num_variables());
+    return registry->get_state_value(buffer, var);
 }
 
-int GlobalState::operator[](size_t index) const {
-    return g_state_packer->get(buffer, index);
+State GlobalState::unpack() const {
+    int num_variables = registry->get_num_variables();
+    vector<int> values(num_variables);
+    for (int var = 0; var < num_variables; ++var)
+        values[var] = (*this)[var];
+    TaskProxy task_proxy = registry->get_task_proxy();
+    return task_proxy.create_state(move(values));
 }
 
 void GlobalState::dump_pddl() const {
-    for (size_t i = 0; i < g_variable_domain.size(); ++i) {
-        const string &fact_name = g_fact_names[i][(*this)[i]];
-        if (fact_name != "<none of those>")
-            cout << fact_name << endl;
-    }
+    State state = unpack();
+    task_properties::dump_pddl(state);
 }
 
 void GlobalState::dump_fdr() const {
-    for (size_t i = 0; i < g_variable_domain.size(); ++i)
-        cout << "  #" << i << " [" << g_variable_name[i] << "] -> "
-             << (*this)[i] << endl;
+    State state = unpack();
+    task_properties::dump_fdr(state);
 }

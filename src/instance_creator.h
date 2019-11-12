@@ -9,9 +9,14 @@ class InstanceCreator{
 	public:
 	InstanceCreator( ){}
 
-	static void copyInitialState( parser::pddl::Domain *d, parser::pddl::Instance *oins, parser::pddl::Instance *cins ){
-		for( unsigned i = 0; i < oins->init.size(); i++ ){
-			parser::pddl::Ground *g = oins->init[ i ];
+	static void copyConditions( parser::pddl::Domain *d, parser::pddl::Instance *oins, parser::pddl::Instance *cins, bool init = true ){
+		size_t nconditions;
+		if( init ) nconditions = oins->init.size();
+		else nconditions = oins->goal.size();
+		for( unsigned i = 0; i < nconditions; i++ ){
+			parser::pddl::Ground *g;
+			if( init ) g = oins->init[ i ];
+			else g = oins->goal[ i ];
 			parser::pddl::Type *t = d->getType( g->name );
 			int predicate_idx = d->preds.index( t->name );
 			if( predicate_idx >= 0 ){
@@ -29,18 +34,19 @@ class InstanceCreator{
 					}
 					parameters.emplace_back( "ROW-0" );
 				}
-				cins->addInit( t->name, parameters );
+				if( init ) cins->addInit( t->name, parameters );
+				else cins->addGoal( t->name, parameters );
 			}	
 		}
 	}
 	
-	static parser::pddl::Instance* create( parser::pddl::Domain *od, parser::pddl::Domain *cd, parser::pddl::Instance *oins, const StringVec& rows, const StringVec& empty_lines, unsigned procedures, bool to_program = true, bool instance_metric = true, const StringVec& slots = StringVec(), unsigned noclasses = 0 ){
+	static parser::pddl::Instance* create( parser::pddl::Domain *od, parser::pddl::Domain *cd, parser::pddl::Instance *oins, const StringVec& rows, const StringVec& empty_lines, unsigned procedures, bool to_program = true, bool instance_metric = true, const StringVec& slots = StringVec(), unsigned noclasses = 0, parser::pddl::Instance *olins = nullptr ){
 
 		parser::pddl::Instance *cins = new parser::pddl::Instance( *cd );
 		cins->name = oins->name;
 		cins->metric = instance_metric;
 
-		copyInitialState( od, oins, cins );
+		copyConditions( od, oins, cins );
 
 		// Add ToDo derived to evaluate derived as first step	
 		if( EVAL_DERIVED && !IS_HIGH_LEVEL )
@@ -69,8 +75,18 @@ class InstanceCreator{
 		if( to_program ){
 			if( !IS_UNSUPERVISED ){
 				// Instructions start empty
-				for ( unsigned k = 0; k < empty_lines.size(); ++k ) {
-					cins->addInit( empty_lines[ k ] );
+				if( compiler_type == "PL-CTRL" ){
+					for ( unsigned k = 1; k + 2 < empty_lines.size(); ++k ) {
+						cins->addInit( empty_lines[ k ] );
+					}
+					cins->addInit( "GOTO-0-0-" + std::to_string(empty_lines.size() - 2) );
+					cins->addInit( "GOTO-0-" + std::to_string(empty_lines.size() - 2) + "-0" );
+					cins->addInit( "INS-END-" + std::to_string( empty_lines.size() - 1 ) );
+				}
+				else{
+					for ( unsigned k = 0; k < empty_lines.size(); ++k ) {
+						cins->addInit( empty_lines[ k ] );
+					}
 				}
 				//[PERFORMANCE] Adding no-gotos
 				/*for( unsigned line_from = 0; line_from + 1 < empty_lines.size(); line_from++ ){
@@ -83,12 +99,6 @@ class InstanceCreator{
 				//[END-OF-PERFORMANCE]
 			}
 			else{ // UNSUPERVISED
-				for( unsigned k = 0; k < noclasses; k++ ){
-					SStream ss;
-					ss << "PROG-" << k;
-					cins->addInit( "CHOSEN-PROGRAM", StringVec( 2, ss.str() ) );
-				}
-
 				unsigned program_lines = ((empty_lines.size()) / noclasses);
 				// Initial instruction is a choice of a program (classifier)
 				cins->addInit( "INS-SELECT-PROGRAM" );
@@ -105,6 +115,13 @@ class InstanceCreator{
 				}
 			}
 		}
+		if( IS_UNSUPERVISED ){
+			for( unsigned k = 0; k < noclasses; k++ ){
+				SStream ss;
+				ss << "PROG-" << k;
+				cins->addInit( "CHOSEN-PROGRAM", StringVec( 2, ss.str() ) );
+			}
+		}
 
 		if( IS_HIGH_LEVEL ){			
 			cins->addInit( "CURRENT-SLOT", StringVec( 1, slots[ 0 ] ) );
@@ -118,8 +135,36 @@ class InstanceCreator{
 			}
 		}
 
+		if( compiler_type == "TWO-STEPS" ){
+			if( max_gotos > 0 ){
+				for( unsigned i = 0; i < max_gotos + 1; i++ ){
+					cins->addInit( "NEXT-NUM-GOTOS", StringVec() = { "CG-" + std::to_string( i ), "CG-" + std::to_string( i + 1 ) });
+				}
+				cins->addInit ( "CURRENT-GOTOS", StringVec() = { "CG-0" } );
+			}
+		}
+
+		if( compiler_type == "TWO-STEPS-2" ){
+			if( to_program ) cins->addInit( "MODE-STRUCTURE" ); // programming phase
+			else cins->addInit( "MODE-COND" ); // validation phase
+		}
+
+
+		if( compiler_type == "NTM" ){
+			if( to_program ) cins->addInit( "PROG-MODE" );
+			else cins->addInit( "VAL-MODE" );
+		}
+
+		if( compiler_type == "OPT" ){
+			cins->addInit( "STEP-0" );
+		}
+
 		// We are done programming
 		cins->addGoal( "DONE-PROGRAMMING" );
+		
+		if( olins != nullptr ){	
+			copyConditions( od, olins, cins, false );
+		}
 		
 		return cins;
 	}
@@ -129,36 +174,50 @@ class InstanceCreator{
 		cins->name = oins->name;
 		cins->metric = instance_metric;
 		
-		copyInitialState( od, oins, cins );
+		copyConditions( od, oins, cins );
 
 		// add initial test
 		cins->addInit( "TEST-0" );
 
-		// start of first line
-		cins->addInit( stack_state_pred, StringVec() = { "STATE-0", "ROW-0" } );
+		if( compiler_type == "HFSC" ){
+			// start of first line
+			cins->addInit( stack_state_pred, StringVec() = { "STATE-0", "ROW-0" } );
 
-		// start programming with main
-		cins->addInit( stack_procedures[ procedures ], StringVec( 1 , "ROW-0" ) );
+			// start programming with main
+			cins->addInit( stack_procedures[ procedures ], StringVec( 1 , "ROW-0" ) );
 
 
-		// set the top row of the stack
-		cins->addInit( stack_top_pred, StringVec( 1 , "ROW-0" ) );
+			// set the top row of the stack
+			cins->addInit( stack_top_pred, StringVec( 1 , "ROW-0" ) );
+		}
+		else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+			// start of first line
+			cins->addInit( stack_state_pred, StringVec() = { "STATE-0" } );
+			if( compiler_type == "NFA2" )
+				cins->addInit( "MODE-STRUCTURE" );
+		}
 
 		// instructions are empty
 		if( to_program ){
 			for ( unsigned s = 0; s < nstates; ++s ){
-				cins->addInit( stack_empty_cond_pred , StringVec( 1 , constant_states[ s ] ) );
+				if( compiler_type == "HFSC" or compiler_type == "NFA2" ){
+					cins->addInit( stack_empty_cond_pred , StringVec( 1 , constant_states[ s ] ) );
+				}
 				cins->addInit( stack_empty_tgoto_pred , StringVec( 1 , constant_states[ s ] ) );
 				cins->addInit( stack_empty_fgoto_pred , StringVec( 1 , constant_states[ s ] ) );
 				cins->addInit( stack_empty_tact_pred , StringVec( 1 , constant_states[ s ] ) );
 				cins->addInit( stack_empty_fact_pred , StringVec( 1 , constant_states[ s ] ) );
 			}
-			cins->addInit( stack_empty_cond_pred, StringVec( 1, constant_states[ nstates ] ) ); // Allows to program end in last state
+			if( compiler_type == "HFSC" or compiler_type == "NFA2" ){
+				cins->addInit( stack_empty_cond_pred, StringVec( 1, constant_states[ nstates ] ) ); // Allows to program end in last state
+			}
 		}
 
-		// add stack rows connections
-		for( unsigned i = 1; i < stack_size; i++){
-			cins->addInit( stack_row_pred , StringVec() = { rows[ i - 1 ], rows[ i ] });
+		if( compiler_type == "HFSC" ){
+			// add stack rows connections
+			for( unsigned i = 1; i < stack_size; i++){
+				cins->addInit( stack_row_pred , StringVec() = { rows[ i - 1 ], rows[ i ] });
+			}
 		}
 
 		// Availability of the states
@@ -176,6 +235,10 @@ class InstanceCreator{
 		// we are done programming (only for mains)
 		cins->addGoal( goal_pred );
 	
+		if( compiler_type == "NFA2" ){
+			cins->addGoal( "DONE-STRUCTURE" );
+		}
+	
 		return cins;
 	}
 
@@ -185,7 +248,7 @@ class InstanceCreator{
 		cins->name = oins->name;
 		cins->metric = instance_metric;
 
-		copyInitialState( od, oins, cins );
+		copyConditions( od, oins, cins );
 
 		// Add initial test
 		cins->addInit( "TEST-0" );

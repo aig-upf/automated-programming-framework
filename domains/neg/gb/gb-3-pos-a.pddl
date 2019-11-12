@@ -1,0 +1,7 @@
+(define (problem gb3-pos-a)
+  (:domain blocks)
+  (:objects b1 b2 b3 - block )
+  (:init (clear b1) (ontable b3)       ( on b1 b2 )
+      ( on b2 b3 )
+(empty) (green b3) ) 
+  (:goal (and (have b3))))

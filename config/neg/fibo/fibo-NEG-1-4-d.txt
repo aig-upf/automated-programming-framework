@@ -1,0 +1,12 @@
+NEG
+bin/compile
+domains/neg/fibo/domain.pddl
+domain.pddl ins.pddl
+0
+5 600 1 4
+domains/neg/fibo/fibo-3-pos-a.pddl
+domains/neg/fibo/fibo-3-neg-d.pddl
+domains/neg/fibo/fibo-3-neg-a.pddl
+domains/neg/fibo/fibo-1-neg-c.pddl
+domains/neg/fibo/fibo-2-neg-d.pddl
+0 0 0 1 1 0 0 0

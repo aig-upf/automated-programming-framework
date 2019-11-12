@@ -42,7 +42,7 @@ InstructionResult ActionInstruction::run( Domain * d, Instance * ins, State * cu
         pa.apply( currentState, d, ins );
     }
 	else{
-		showErrorMsg( "Error: Inapplicable action " + name + " - Procedure: " + std::to_string( procedureId ) + " - Line: " + std::to_string( line ) ); 
+		showErrorMsg( "Error[" + ins->name + "]: Inapplicable action " + name + " - Procedure: " + std::to_string( procedureId ) + " - Line: " + std::to_string( line ) ); 
 	}
 
     if ( verbose ) {

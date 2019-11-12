@@ -46,6 +46,8 @@ String next_state_pred = "NEXT-STATE"; 						// next state relation predicate
 String true_no_act_pred = "TRUE-NO-ACT";					// predicate for true no action execution
 String false_no_act_pred = "FALSE-NO-ACT";	   				// predicate for false no action execution
 
+unsigned max_gotos;			// Bound on the number of programmed gotos
+
 IntSet effs; 				// non-static fluents
 IntSet unclean_effs; 		// avoid unclean derived predicates effects
 bool EVAL_DERIVED = false;

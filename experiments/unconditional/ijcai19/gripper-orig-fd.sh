@@ -1,0 +1,12 @@
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p10.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p20.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p30.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p40.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p50.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p60.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p70.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p80.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p90.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p100.pddl 300 | grep 'Search time:'
+./planner.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p200.pddl 300 | grep 'Search time:'
+

@@ -1,0 +1,5 @@
+(define (problem list8-neg-a)
+  (:domain list)
+  (:objects  n1 n2 n3 n4 n5 n6 n7 n8 - node )
+  (:init ( at n3) ( not-visited n4 ) ( tail n4)( adjacent n3 n1)( not-visited n3 )( adjacent n1 n7)( not-visited n1 )( adjacent n7 n5)( not-visited n7 )( adjacent n5 n6)( not-visited n5 )( adjacent n6 n2)( not-visited n6 )( adjacent n2 n8)( not-visited n2 )( adjacent n8 n4)( not-visited n8 ) )
+  (:goal (and ( visited n3 )( not-visited n1 )( visited n7 )( not-visited n5 )( not-visited n6 )( visited n2 )( visited n8 )( visited n4 ))))

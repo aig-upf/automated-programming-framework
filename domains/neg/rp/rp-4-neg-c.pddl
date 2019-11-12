@@ -1,0 +1,5 @@
+(define (problem rp4-neg-c)
+  (:domain robopainter)
+  (:objects i0 i1 i2 i3 i4 - index)
+  (:init (at i0)(last i4)(adjacent i0 i1)(white-cell i0)(adjacent i1 i2)(white-cell i1)(adjacent i2 i3)(white-cell i2)(adjacent i3 i4)(white-cell i3))
+(:goal (and  (at i4) (painted-black i0)(painted-black i1)(white-cell i2)(white-cell i3)  )))

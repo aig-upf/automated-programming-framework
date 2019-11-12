@@ -1,6 +1,11 @@
 #ifndef LANDMARKS_LANDMARK_GRAPH_H
 #define LANDMARKS_LANDMARK_GRAPH_H
 
+#include "../global_state.h"
+#include "../task_proxy.h"
+
+#include "../utils/hash.h"
+
 #include <cassert>
 #include <list>
 #include <map>
@@ -9,13 +14,8 @@
 #include <unordered_set>
 #include <vector>
 
-#include "exploration.h"
-#include "landmark_types.h"
-#include "../global_operator.h"
-#include "../option_parser.h"
-#include "../utilities_hash.h"
-
-enum edge_type {
+namespace landmarks {
+enum class EdgeType {
     /* NOTE: The code relies on the fact that larger numbers are
        stronger in the sense that, e.g., every greedy-necessary
        ordering is also natural and reasonable. (It is a sad fact of
@@ -35,18 +35,17 @@ enum landmark_status {lm_reached = 0, lm_not_reached = 1, lm_needed_again = 2};
 class LandmarkNode {
     int id;
 public:
-    LandmarkNode(std::vector<int> &variables, std::vector<int> &values, bool disj, bool conj = false)
-        : id(-1), vars(variables), vals(values), disjunctive(disj), conjunctive(conj), in_goal(false),
+    LandmarkNode(std::vector<FactPair> &facts, bool disj, bool conj = false)
+        : id(-1), facts(facts), disjunctive(disj), conjunctive(conj), in_goal(false),
           min_cost(1), shared_cost(0.0), status(lm_not_reached),
           is_derived(false) {
     }
 
-    std::vector<int> vars;
-    std::vector<int> vals;
+    std::vector<FactPair> facts;
     bool disjunctive;
     bool conjunctive;
-    std::unordered_map<LandmarkNode *, edge_type> parents;
-    std::unordered_map<LandmarkNode *, edge_type> children;
+    std::unordered_map<LandmarkNode *, EdgeType> parents;
+    std::unordered_map<LandmarkNode *, EdgeType> children;
     bool in_goal;
     int min_cost; // minimal cost of achieving operators
     double shared_cost;
@@ -54,7 +53,7 @@ public:
     landmark_status status;
     bool is_derived;
 
-    std::unordered_set<std::pair<int, int> > forward_orders;
+    utils::HashSet<FactPair> forward_orders;
     std::set<int> first_achievers;
     std::set<int> possible_achievers;
 
@@ -71,17 +70,35 @@ public:
         return in_goal;
     }
 
-    bool is_true_in_state(const GlobalState &state) const {
+    bool is_true_in_state(const GlobalState &global_state) const {
         if (disjunctive) {
-            for (size_t i = 0; i < vars.size(); ++i) {
-                if (state[vars[i]] == vals[i]) {
+            for (const FactPair &fact : facts) {
+                if (global_state[fact.var] == fact.value) {
                     return true;
                 }
             }
             return false;
         } else { // conjunctive or simple
-            for (size_t i = 0; i < vars.size(); ++i) {
-                if (state[vars[i]] != vals[i]) {
+            for (const FactPair &fact : facts) {
+                if (global_state[fact.var] != fact.value) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    bool is_true_in_state(const State &state) const {
+        if (disjunctive) {
+            for (const FactPair &fact : facts) {
+                if (state[fact.var].get_value() == fact.value) {
+                    return true;
+                }
+            }
+            return false;
+        } else { // conjunctive or simple
+            for (const FactPair &fact : facts) {
+                if (state[fact.var].get_value() != fact.value) {
                     return false;
                 }
             }
@@ -96,143 +113,99 @@ public:
 
 struct LandmarkNodeComparer {
     bool operator()(LandmarkNode *a, LandmarkNode *b) const {
-        if (a->vars.size() > b->vars.size()) {
-            return true;
+        if (a->facts.size() != b->facts.size())
+            return a->facts.size() > b->facts.size();
+        for (size_t i = 0; i < a->facts.size(); ++i) {
+            if (a->facts[i].var != b->facts[i].var)
+                return a->facts[i].var > b->facts[i].var;
         }
-        if (a->vars.size() < b->vars.size()) {
-            return false;
-        }
-        for (size_t i = 0; i < a->vars.size(); ++i) {
-            if (a->vars[i] > b->vars[i])
-                return true;
-            if (a->vars[i] < b->vars[i])
-                return false;
-        }
-        for (size_t i = 0; i < a->vals.size(); ++i) {
-            if (a->vals[i] > b->vals[i])
-                return true;
-            if (a->vals[i] < b->vals[i])
-                return false;
+        for (size_t i = 0; i < a->facts.size(); ++i) {
+            if (a->facts[i].value != b->facts[i].value)
+                return a->facts[i].value > b->facts[i].value;
         }
         return false;
     }
 };
 
 
-typedef std::unordered_set<LandmarkNode *> LandmarkSet;
+using LandmarkSet = std::unordered_set<const LandmarkNode *>;
 
 class LandmarkGraph {
 public:
-    static void add_options_to_parser(OptionParser &parser);
-
+    using Nodes = std::vector<std::unique_ptr<LandmarkNode>>;
     // ------------------------------------------------------------------------------
     // methods needed only by non-landmarkgraph-factories
-    inline int cost_of_landmarks() const {return landmarks_cost; }
+    inline int cost_of_landmarks() const {return landmarks_cost;}
     void count_costs();
-    LandmarkNode *get_lm_for_index(int);
-    int get_needed_cost() const {return needed_cost; }
-    int get_reached_cost() const {return reached_cost; }
-    LandmarkNode *get_landmark(const std::pair<int, int> &prop) const;
-
-    // TODO: the following method should not exist. Ideally, we want the
-    // information about support for conditional effects to reside in the
-    // landmark factory classes. For now, this cannot easily be done since the
-    // factories do not exist anymore when the landmark heuristic is
-    // constructed.
-    bool supports_conditional_effects() {return conditional_effects_supported; }
+    LandmarkNode *get_lm_for_index(int) const;
+    int get_needed_cost() const {return needed_cost;}
+    int get_reached_cost() const {return reached_cost;}
+    LandmarkNode *get_landmark(const FactPair &fact) const;
 
     // ------------------------------------------------------------------------------
     // methods needed by both landmarkgraph-factories and non-landmarkgraph-factories
-    inline const std::set<LandmarkNode *> &get_nodes() const {
+    inline const Nodes &get_nodes() const {
         return nodes;
     }
-    inline const GlobalOperator &get_operator_for_lookup_index(int op_no) const {
-        int num_ops = g_operators.size();
-        if (op_no < num_ops)
-            return g_operators[op_no];
-        else
-            return g_axioms[op_no - num_ops];
-    }
+
     inline int number_of_landmarks() const {
-        assert(landmarks_count == static_cast<int>(nodes.size()));
-        return landmarks_count;
+        return nodes.size();
     }
-    Exploration *get_exploration() const {return exploration; }
-    bool is_using_reasonable_orderings() const {return reasonable_orders; }
 
     // ------------------------------------------------------------------------------
     // methods needed only by landmarkgraph-factories
-    LandmarkGraph(const Options &opts);
-    virtual ~LandmarkGraph() {}
+    explicit LandmarkGraph(const TaskProxy &task_proxy);
 
-    inline LandmarkNode &get_simple_lm_node(const std::pair<int, int> &a) const {
+    inline LandmarkNode &get_simple_lm_node(const FactPair &a) const {
         assert(simple_landmark_exists(a));
         return *(simple_lms_to_nodes.find(a)->second);
     }
-    inline LandmarkNode &get_disj_lm_node(const std::pair<int, int> &a) const {
+    inline LandmarkNode &get_disj_lm_node(const FactPair &a) const {
         // Note: this only works because every proposition appears in only one disj. LM
         assert(!simple_landmark_exists(a));
         assert(disj_lms_to_nodes.find(a) != disj_lms_to_nodes.end());
         return *(disj_lms_to_nodes.find(a)->second);
     }
-    inline const std::vector<int> &get_operators_including_eff(const std::pair<int, int> &eff) const {
-        return operators_eff_lookup[eff.first][eff.second];
+    inline const std::vector<int> &get_operators_including_eff(const FactPair &eff) const {
+        return operators_eff_lookup[eff.var][eff.value];
     }
 
-    bool use_orders() const {return !no_orders; }  // only needed by HMLandmark
-    bool use_only_causal_landmarks() const {return only_causal_landmarks; }
-    bool use_disjunctive_landmarks() const {return disjunctive_landmarks; }
-    bool use_conjunctive_landmarks() const {return conjunctive_landmarks; }
-
     int number_of_disj_landmarks() const {
-        return landmarks_count - (simple_lms_to_nodes.size() + conj_lms);
+        return number_of_landmarks() - (simple_lms_to_nodes.size() + conj_lms);
     }
     int number_of_conj_landmarks() const {
         return conj_lms;
     }
     int number_of_edges() const;
 
-    // HACK! (Temporary accessor needed for LandmarkFactorySasp.)
-    OperatorCost get_lm_cost_type() const {
-        return lm_cost_type;
-    }
+    bool simple_landmark_exists(const FactPair &lm) const; // not needed by HMLandmark
+    bool disj_landmark_exists(const std::set<FactPair> &lm) const;  // not needed by HMLandmark
+    bool landmark_exists(const FactPair &lm) const; // not needed by HMLandmark
+    bool exact_same_disj_landmark_exists(const std::set<FactPair> &lm) const;
 
-    bool simple_landmark_exists(const std::pair<int, int> &lm) const; // not needed by HMLandmark
-    bool disj_landmark_exists(const std::set<std::pair<int, int> > &lm) const; // not needed by HMLandmark
-    bool landmark_exists(const std::pair<int, int> &lm) const; // not needed by HMLandmark
-    bool exact_same_disj_landmark_exists(const std::set<std::pair<int, int> > &lm) const;
-
-    LandmarkNode &landmark_add_simple(const std::pair<int, int> &lm);
-    LandmarkNode &landmark_add_disjunctive(const std::set<std::pair<int, int> > &lm);
-    LandmarkNode &landmark_add_conjunctive(const std::set<std::pair<int, int> > &lm);
-    void rm_landmark_node(LandmarkNode *node);
-    LandmarkNode &make_disj_node_simple(std::pair<int, int> lm); // only needed by LandmarkFactorySasp
+    LandmarkNode &landmark_add_simple(const FactPair &lm);
+    LandmarkNode &landmark_add_disjunctive(const std::set<FactPair> &lm);
+    LandmarkNode &landmark_add_conjunctive(const std::set<FactPair> &lm);
+    void remove_node_if(const std::function<bool (const LandmarkNode &)> &remove_node);
+    LandmarkNode &make_disj_node_simple(const FactPair &lm); // only needed by LandmarkFactorySasp
     void set_landmark_ids();
     void set_landmark_cost(int cost) {
         landmarks_cost = cost;
     }
-    void dump_node(const LandmarkNode *node_p) const;
-    void dump() const;
+    void dump_node(const VariablesProxy &variables, const LandmarkNode *node_p) const;
+    void dump(const VariablesProxy &variables) const;
 private:
-    void generate_operators_lookups();
-    Exploration *exploration;
-    int landmarks_count;
+    void generate_operators_lookups(const TaskProxy &task_proxy);
+    void remove_node_occurrences(LandmarkNode *node);
     int conj_lms;
-    bool reasonable_orders;
-    bool only_causal_landmarks;
-    bool disjunctive_landmarks;
-    bool conjunctive_landmarks;
-    bool no_orders;
-    OperatorCost lm_cost_type;
-    bool conditional_effects_supported;
     int reached_cost;
     int needed_cost;
     int landmarks_cost;
-    std::unordered_map<std::pair<int, int>, LandmarkNode *> simple_lms_to_nodes;
-    std::unordered_map<std::pair<int, int>, LandmarkNode *> disj_lms_to_nodes;
-    std::set<LandmarkNode *> nodes;
-    std::vector<LandmarkNode *> ordered_nodes;
-    std::vector<std::vector<std::vector<int> > > operators_eff_lookup;
+    utils::HashMap<FactPair, LandmarkNode *> simple_lms_to_nodes;
+    utils::HashMap<FactPair, LandmarkNode *> disj_lms_to_nodes;
+    Nodes nodes;
+    std::vector<std::vector<std::vector<int>>> operators_eff_lookup;
 };
+}
 
 #endif

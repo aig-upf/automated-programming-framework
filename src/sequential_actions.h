@@ -32,6 +32,10 @@ class SequentialActions : public Actions {
 				addPrecondition( name, "TOP-STACK", 		 false, IntVec( 1, osize ) ); 
 				addPrecondition( name, "STACK-MAIN", 		 false, IntVec( 1, osize ) ); 
 			
+				if( compiler_type == "TWO-STEPS-2" ){
+					addPrecondition( name, "MODE-STRUCTURE", false );
+				}
+
 				addEffect( name, empty_lines[ line ], true );
 				//addEffect( name, instruction[ action_id ][ procedures ][ line ], false, incvec( 0 , ( !LIFTED_INSTR && ( IS_HIGH_LEVEL || INSTR_WITH_PARAMS ) ) ? osize : 0 ) );
 				
@@ -115,15 +119,24 @@ class SequentialActions : public Actions {
 		ss << "PROGRAM-TRUE-NO-ACT-" << procedures;
 		String name = ss.str();
 
-		createAction( name, StringVec() = { "STACKSTATE", "STACKROW" } );
+		if( compiler_type == "HFSC" ){
+			createAction( name, StringVec() = { "STACKSTATE", "STACKROW" } );
 
-		addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
-		addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
-		addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, 1 ) );
-		addPrecondition( name, stack_state_pred, false, incvec( 0, 2 ) );
-		addPrecondition( name, stack_empty_tact_pred, false, IntVec( 1, 0 ) );
-		addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1, 1 ) );
-		addPrecondition( name, accumulator_preds[ procedures ], false, IntVec( 1, 1 ) );
+			addPrecondition( name, stack_empty_tact_pred, false, IntVec( 1, 0 ) );
+			addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
+			addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, 1 ) );
+			addPrecondition( name, stack_state_pred, false, incvec( 0, 2 ) );
+			addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1, 1 ) );
+			addPrecondition( name, accumulator_preds[ procedures ], false, IntVec( 1, 1 ) );
+		}
+		else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+			createAction( name, StringVec() = { "STACKSTATE" } );
+
+			addPrecondition( name, stack_empty_tact_pred, false, IntVec( 1, 0 ) );
+			addPrecondition( name, stack_state_pred, false, incvec( 0, 1 ) );
+			addPrecondition( name, "EVAL-TRUE" );
+
+		}
 
 		addEffect( name, stack_empty_tact_pred, true, IntVec( 1, 0 ) );
 		addEffect( name, true_no_act_preds[ procedures ], false, incvec( 0, 1 ) );
@@ -136,14 +149,25 @@ class SequentialActions : public Actions {
 		ss << "PROGRAM-FALSE-NO-ACT-" << procedures;
 		name = ss.str();
 
-		createAction( name, StringVec() = { "STACKSTATE", "STACKROW" }  );
-		
-		addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
-		addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, 1 ) );
-		addPrecondition( name, stack_state_pred, false, incvec( 0, 2 ) );
-		addPrecondition( name, stack_empty_fact_pred, false, IntVec( 1, 0 ) );
-		addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1, 1 ) );
-		addPrecondition( name, accumulator_preds[ procedures ], true, IntVec( 1, 1 ) );
+		if( compiler_type == "HFSC" ){
+
+			createAction( name, StringVec() = { "STACKSTATE", "STACKROW" }  );
+			
+			addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
+			addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, 1 ) );
+			addPrecondition( name, stack_state_pred, false, incvec( 0, 2 ) );
+			addPrecondition( name, stack_empty_fact_pred, false, IntVec( 1, 0 ) );
+			addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1, 1 ) );
+			addPrecondition( name, accumulator_preds[ procedures ], true, IntVec( 1, 1 ) );
+		}
+		else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+			createAction( name, StringVec() = { "STACKSTATE" } );
+
+			addPrecondition( name, stack_empty_fact_pred, false, IntVec( 1, 0 ) );
+			addPrecondition( name, stack_state_pred, false, incvec( 0, 1 ) );
+			addPrecondition( name, "EVAL-FALSE" );
+
+		}
 
 		addEffect( name, stack_empty_fact_pred, true, IntVec( 1, 0 ) );
 		addEffect( name, false_no_act_preds[ procedures ], false, incvec( 0, 1 ) );
@@ -156,49 +180,80 @@ class SequentialActions : public Actions {
 
 			// Program true actions
 			ss.str("");
-			ss << "PROGRAM-TRUE-" << od->actions[ i ]->name << "-" << procedures;
+			if( compiler_type == "HFSC" )
+				ss << "PROGRAM-TRUE-" << od->actions[ i ]->name << "-" << procedures;
+			else if( compiler_type == "NFA"  or compiler_type == "NFA2" )
+				ss << "PROGRAM-TRUE-" << od->actions[ i ]->name;
 			name = ss.str();
 			
 			StringVec params = od->typeList( od->actions[i] );
 			params.push_back( "STACKSTATE" );
-			params.push_back( "STACKROW" );
+			if( compiler_type == "HFSC" )
+				params.push_back( "STACKROW" );
 			unsigned par_size = params.size();
 			
 			createAction( name, params );
 			
 			copyPreconditions( od->actions[ i ]->name, name );
 
-			addPrecondition( name, stack_top_pred, false, IntVec( 1 , par_size - 1 ) );
-			addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, par_size - 1 ) );
-			addPrecondition( name, stack_state_pred, false, incvec( par_size - 2 , par_size ) );
-			addPrecondition( name, stack_empty_tact_pred, false, IntVec( 1 , par_size - 2 ) );
-			addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1 , par_size - 1 ) );
-			addPrecondition( name, accumulator_preds[ procedures ], false, IntVec( 1 , par_size - 1 ) );
+			if( compiler_type == "HFSC" ){
+				addParameters( name, par_size - 2, 2, true );
 
-			addEffect( name, stack_empty_tact_pred, true, IntVec( 1 , par_size - 2 ) );
-			addEffect( name, tacts[ i ][ procedures ], false, incvec( 0, par_size - 1) );
+				addPrecondition( name, stack_empty_tact_pred, false, IntVec( 1 , par_size - 2 ) );
+				addPrecondition( name, stack_top_pred, false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, par_size - 1 ) );
+				addPrecondition( name, stack_state_pred, false, incvec( par_size - 2 , par_size ) );
+				addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, accumulator_preds[ procedures ], false, IntVec( 1 , par_size - 1 ) );
+
+				addEffect( name, stack_empty_tact_pred, true, IntVec( 1 , par_size - 2 ) );
+				addEffect( name, tacts[ i ][ procedures ], false, incvec( 0, par_size - 1) );
+			}
+			else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+				addParameters( name, par_size - 1, 1, true );
+
+				addPrecondition( name, stack_empty_tact_pred, false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, stack_state_pred, false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, "EVAL-TRUE" );
+
+				addEffect( name, stack_empty_tact_pred, true, IntVec( 1 , par_size - 1 ) );
+				addEffect( name, tacts[ i ][ procedures ], false, incvec( 0, par_size ) );
+			}
 
 			// Add instruction
 			addActionToInstruction( name, tacts[ i ][ procedures ]  );
 
 			// Program false actions
 			ss.str( "" );
-			ss << "PROGRAM-FALSE-" << od->actions[ i ]->name << "-" << procedures;
+			if( compiler_type == "HFSC" )
+				ss << "PROGRAM-FALSE-" << od->actions[ i ]->name << "-" << procedures;
+			else if( compiler_type == "NFA"  or compiler_type == "NFA2" )
+				ss << "PROGRAM-FALSE-" << od->actions[ i ]->name;
 			name = ss.str();
 			
 			createAction( name, params );
 			
 			copyPreconditions( od->actions[ i ]->name, name );
-			
-			addPrecondition( name, stack_top_pred, false, IntVec( 1 , par_size - 1 ) );
-			addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, par_size - 1 ) );
-			addPrecondition( name, stack_state_pred, false, incvec( par_size - 2 , par_size ) );
-			addPrecondition( name, stack_empty_fact_pred, false, IntVec( 1 , par_size - 2 ) );
-			addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1 , par_size - 1 ) );
-			addPrecondition( name, accumulator_preds[ procedures ], true, IntVec( 1 , par_size - 1 ) );
 
-			addEffect( name, stack_empty_fact_pred, true, IntVec( 1 , par_size - 2 ) );
-			addEffect( name, facts[ i ][ procedures ], false, incvec( 0 , par_size - 1 ) );
+			if( compiler_type == "HFSC" ){			
+				addPrecondition( name, stack_top_pred, false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, par_size - 1 ) );
+				addPrecondition( name, stack_state_pred, false, incvec( par_size - 2 , par_size ) );
+				addPrecondition( name, stack_empty_fact_pred, false, IntVec( 1 , par_size - 2 ) );
+				addPrecondition( name, evaluating_preds[ procedures ], false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, accumulator_preds[ procedures ], true, IntVec( 1 , par_size - 1 ) );
+
+				addEffect( name, stack_empty_fact_pred, true, IntVec( 1 , par_size - 2 ) );
+				addEffect( name, facts[ i ][ procedures ], false, incvec( 0 , par_size - 1 ) );
+			}
+			else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+				addPrecondition( name, stack_empty_fact_pred, false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, stack_state_pred, false, incvec( par_size - 1 , par_size ) );
+				addPrecondition( name, "EVAL-FALSE" );
+
+				addEffect( name, stack_empty_fact_pred, true, IntVec( 1 , par_size - 1 ) );
+				addEffect( name, facts[ i ][ procedures ], false, incvec( 0 , par_size ) );
+			}
 		
 			// Add instruction
 			addActionToInstruction( name, facts[ i ][ procedures ]  );
@@ -207,79 +262,151 @@ class SequentialActions : public Actions {
 
 	void createRepeatFSCNoAct( const String &name, int proc, bool is_true, const StringVec &accumulator_preds, const StringVec &evaluating_preds, const StringVec &action_preds, const StringVec& true_no_act_preds, const StringVec & false_no_act_preds ){
 		// Repeat true and false no actions
-		createAction( name, StringVec() = { "STACKSTATE", "STACKROW" } );
+		if( compiler_type == "HFSC" ){
+			createAction( name, StringVec() = { "STACKSTATE", "STACKROW" } );
 
-		addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
-		addPrecondition( name, stack_procedures[ proc ], false, IntVec( 1, 1 ) );
-		addPrecondition( name, stack_state_pred, false, incvec( 0, 2 ) );
-		addPrecondition( name, evaluating_preds[ proc ], false, IntVec( 1, 1 ) );
-		addPrecondition( name, action_preds[ proc ], true, IntVec( 1, 1 ) );
-		if( is_true ){
-			addPrecondition( name, accumulator_preds[ proc ], false, IntVec( 1, 1 ) );
-			addPrecondition( name, true_no_act_preds[ proc ], false, incvec( 0, 1 ) );
+			addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
+			addPrecondition( name, stack_procedures[ proc ], false, IntVec( 1, 1 ) );
+			addPrecondition( name, stack_state_pred, false, incvec( 0, 2 ) );
+			addPrecondition( name, evaluating_preds[ proc ], false, IntVec( 1, 1 ) );
+			addPrecondition( name, action_preds[ proc ], true, IntVec( 1, 1 ) );
+			if( is_true ){
+				addPrecondition( name, accumulator_preds[ proc ], false, IntVec( 1, 1 ) );
+				addPrecondition( name, true_no_act_preds[ proc ], false, incvec( 0, 1 ) );
+			}
+			else{
+				addPrecondition( name, accumulator_preds[ proc ], true, IntVec( 1, 1 ) );
+				addPrecondition( name, false_no_act_preds[ proc ], false, incvec( 0, 1 ) );
+			}
+			addEffect( name, action_preds[ proc ], false, IntVec( 1, 1 ) );	
 		}
-		else{
-			addPrecondition( name, accumulator_preds[ proc ], true, IntVec( 1, 1 ) );
-			addPrecondition( name, false_no_act_preds[ proc ], false, incvec( 0, 1 ) );
+		else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+			createAction( name, StringVec() = { "STACKSTATE" } );
+
+			addPrecondition( name, stack_state_pred, false, incvec( 0, 1 ) );
+
+			if( is_true ){
+				addPrecondition( name, true_no_act_preds[ proc ], false, incvec( 0, 1 ) );
+				addPrecondition( name, "EVAL-TRUE" );
+				addPrecondition( name, "TRUE-APPLIED", true );
+				addEffect( name, "TRUE-APPLIED" );
+			}
+			else{
+				addPrecondition( name, false_no_act_preds[ proc ], false, incvec( 0, 1 ) );
+				addPrecondition( name, "EVAL-FALSE" );
+				addPrecondition( name, "FALSE-APPLIED", true );
+
+				addEffect( name, "FALSE-APPLIED" );
+			}			
 		}
-		addEffect( name, action_preds[ proc ], false, IntVec( 1, 1 ) );	
 	}
 
 	void createRepeatFSCAction( const String &name, int act, int proc, bool is_true, const StringVec &accumulator_preds, const StringVec &evaluating_preds, const StringVec &action_preds, const StringDVec &tacts, const StringDVec &facts  ){
 			StringVec params = od->typeList( od->actions[ act ] );
 			params.push_back( "STACKSTATE" );
-			params.push_back( "STACKROW" );
+			if( compiler_type == "HFSC" )
+				params.push_back( "STACKROW" );
 			unsigned par_size = params.size();
 			
 			parser::pddl::Action *repeat_act = createAction( name, params );
 		
 			copyPreconditions( od->actions[ act ]->name, name );
-			addParameters( name, par_size - 2, 2 );
 
-			addPrecondition( name, stack_top_pred, false, IntVec( 1, par_size - 1 ) );
-			addPrecondition( name, stack_procedures[ proc ], false, IntVec( 1 , par_size - 1 ) );
-			addPrecondition( name, stack_state_pred, false, incvec( par_size - 2 , par_size ) );
-			addPrecondition( name, evaluating_preds[ proc ], false, IntVec( 1 , par_size - 1 ) );
+			if( compiler_type == "HFSC" ){
+				addParameters( name, par_size - 2, 2 );
 
-			addPrecondition( name, action_preds[ proc ], true, IntVec( 1 , par_size - 1 ) );
-			if( is_true ){
-				addPrecondition( name, accumulator_preds[ proc ], false, IntVec( 1 , par_size - 1 ) );
-				addPrecondition( name, tacts[ act ][ proc ], false, incvec( 0, par_size - 1 ) );
+				addPrecondition( name, stack_top_pred, false, IntVec( 1, par_size - 1 ) );
+				addPrecondition( name, stack_procedures[ proc ], false, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, stack_state_pred, false, incvec( par_size - 2 , par_size ) );
+				addPrecondition( name, action_preds[ proc ], true, IntVec( 1 , par_size - 1 ) );
+				addPrecondition( name, evaluating_preds[ proc ], false, IntVec( 1 , par_size - 1 ) );
+				if( is_true ){
+					addPrecondition( name, accumulator_preds[ proc ], false, IntVec( 1 , par_size - 1 ) );
+					addPrecondition( name, tacts[ act ][ proc ], false, incvec( 0, par_size - 1 ) );
+				}
+				else{
+					addPrecondition( name, accumulator_preds[ proc ], true, IntVec( 1 , par_size - 1 ) );
+					addPrecondition( name, facts[ act ][ proc ], false, incvec( 0, par_size - 1 ) );
+				}
+
+				addStackRow( repeat_act->pre, par_size - 1 );
+
+				copyEffects( od->actions[ act ]->name, name );
+				addParameters( name, par_size - 2, 2, false );
+
+				addEffect( name, action_preds[ proc ], false, IntVec( 1, par_size - 1 ) ) ;
+
+				addStackRow( repeat_act->eff, par_size - 1 );
 			}
-			else{
-				addPrecondition( name, accumulator_preds[ proc ], true, IntVec( 1 , par_size - 1 ) );
-				addPrecondition( name, facts[ act ][ proc ], false, incvec( 0, par_size - 1 ) );
-			}
+			else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+				addParameters( name, par_size - 1, 1, true );
 
-			addStackRow( repeat_act->pre, par_size - 1 );
+				addPrecondition( name, stack_state_pred, false, incvec( par_size - 1 , par_size ) );
+				
+				if( is_true ){
+					addPrecondition( name, tacts[ act ][ proc ], false, incvec( 0, par_size ) );
+					addPrecondition( name, "EVAL-TRUE" );
+					addPrecondition( name, "TRUE-APPLIED", true );
 
-			copyEffects( od->actions[ act ]->name, name );
-			addParameters( name, par_size - 2, 2, false );
+					copyEffects( od->actions[ act ]->name, name );
+					addParameters( name, par_size - 1, 1, false );
+					addEffect( name, "TRUE-APPLIED" );
+				}
+				else{
+					addPrecondition( name, facts[ act ][ proc ], false, incvec( 0, par_size ) );
+					addPrecondition( name, "EVAL-FALSE" );
+					addPrecondition( name, "FALSE-APPLIED", true );
 
-			addEffect( name, action_preds[ proc ], false, IntVec( 1, par_size - 1 ) ) ;
-
-			addStackRow( repeat_act->eff, par_size - 1 );	
+					copyEffects( od->actions[ act ]->name, name );
+					addParameters( name, par_size - 1, 1, false );
+					addEffect( name, "FALSE-APPLIED" );
+				}
+			}	
 	}
 
 	void createRepeatFSCActions( unsigned procedures, const StringVec &accumulator_preds, const StringVec &evaluating_preds, const StringVec &action_preds, const StringDVec &tacts, const StringDVec &facts, const StringVec& true_no_act_preds, const StringVec & false_no_act_preds ){ 
-		// Repeat no actions
-		for( unsigned p = 0; p < procedures + 1; p++ ){
-			SStream ss;
-			ss << "REPEAT-TRUE-NO-ACT-" << p;
-			createRepeatFSCNoAct( ss.str() , p, true, accumulator_preds, evaluating_preds, action_preds, true_no_act_preds, false_no_act_preds );
-			ss.str( "" );
-			ss << "REPEAT-FALSE-NO-ACT-" << p;
-			createRepeatFSCNoAct( ss.str() , p, false, accumulator_preds, evaluating_preds, action_preds, true_no_act_preds, false_no_act_preds  );
-		}
-		// Repeat actions
-		for ( unsigned act = 0; act < od->actions.size(); ++act ){
+		if( compiler_type == "HFSC" ){
+			// Repeat no actions
 			for( unsigned p = 0; p < procedures + 1; p++ ){
 				SStream ss;
-				ss << "REPEAT-TRUE-" << od->actions[ act ]->name << "-" << p;
-				createRepeatFSCAction( ss.str(), act, p, true, accumulator_preds, evaluating_preds, action_preds, tacts, facts );
-				ss.str("");
-				ss << "REPEAT-FALSE-" << od->actions[ act ]->name << "-" << p;
-				createRepeatFSCAction( ss.str(), act, p, false, accumulator_preds, evaluating_preds, action_preds, tacts, facts );
+				ss << "REPEAT-TRUE-NO-ACT-" << p;
+				createRepeatFSCNoAct( ss.str() , p, true, accumulator_preds, evaluating_preds, action_preds, true_no_act_preds, false_no_act_preds );
+				ss.str( "" );
+				ss << "REPEAT-FALSE-NO-ACT-" << p;
+				createRepeatFSCNoAct( ss.str() , p, false, accumulator_preds, evaluating_preds, action_preds, true_no_act_preds, false_no_act_preds  );
+			}
+			// Repeat actions
+			for ( unsigned act = 0; act < od->actions.size(); ++act ){
+				for( unsigned p = 0; p < procedures + 1; p++ ){
+					SStream ss;
+					ss << "REPEAT-TRUE-" << od->actions[ act ]->name << "-" << p;
+					createRepeatFSCAction( ss.str(), act, p, true, accumulator_preds, evaluating_preds, action_preds, tacts, facts );
+					ss.str("");
+					ss << "REPEAT-FALSE-" << od->actions[ act ]->name << "-" << p;
+					createRepeatFSCAction( ss.str(), act, p, false, accumulator_preds, evaluating_preds, action_preds, tacts, facts );
+				}
+			}
+		}
+		else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+			// Repeat no actions
+			for( unsigned p = 0; p < procedures + 1; p++ ){
+				SStream ss;
+				ss << "EXECUTE-TRUE-NO-ACT-" << p;
+				createRepeatFSCNoAct( ss.str() , p, true, accumulator_preds, evaluating_preds, action_preds, true_no_act_preds, false_no_act_preds );
+				ss.str( "" );
+				ss << "EXECUTE-FALSE-NO-ACT-" << p;
+				createRepeatFSCNoAct( ss.str() , p, false, accumulator_preds, evaluating_preds, action_preds, true_no_act_preds, false_no_act_preds  );
+			}
+			// Repeat actions
+			for ( unsigned act = 0; act < od->actions.size(); ++act ){
+				for( unsigned p = 0; p < procedures + 1; p++ ){
+					SStream ss;
+					ss << "EXECUTE-TRUE-" << od->actions[ act ]->name << "-" << p;
+					createRepeatFSCAction( ss.str(), act, p, true, accumulator_preds, evaluating_preds, action_preds, tacts, facts );
+					ss.str("");
+					ss << "EXECUTE-FALSE-" << od->actions[ act ]->name << "-" << p;
+					createRepeatFSCAction( ss.str(), act, p, false, accumulator_preds, evaluating_preds, action_preds, tacts, facts );
+				}
 			}
 		}
 	}

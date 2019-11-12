@@ -1,7 +1,5 @@
 
 #include "Domain.h"
-//#include <parser/And.h>
-#include "And.h"
 
 namespace parser { namespace pddl {
 

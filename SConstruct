@@ -50,7 +50,7 @@ env.AppendUnique(
 	]
 )
 
-fastdownward = env.Command( 'fast-downward.out',[], './PLANNERS/fast-downward/src/build_all' )
+fastdownward = env.Command( 'fast-downward.out',[], './PLANNERS/fast-downward/build.py' )
 compile = env.Program( "bin/compile", sources + ["src/compile.cpp"] )
 compileVariable = env.Program( "bin/compile_variable", sources + ["src/compile_variable.cpp"] )
 main = env.Program( "main", sources + ["main.cpp"] )
@@ -69,4 +69,26 @@ env.AlwaysBuild( main )
 env.AlwaysBuild( main_nir )
 env.AlwaysBuild( main_perf )
 #env.AlwaysBuild( clean )
+
+
+# SCRIPT FOR TESTS
+default_compiler = 'g++'
+gcc = os.environ.get('CXX', default_compiler)
+base = Environment(tools=["default"], CXX=gcc)
+base['pddl_parser_path'] = os.path.abspath(os.environ.get('PDDL_PARSER_PATH', 'universal-pddl-parser/'))
+include_paths = ['.', base['pddl_parser_path']]
+base.AppendUnique(
+	CPPPATH = [ os.path.abspath(p) for p in include_paths ],
+	CXXFLAGS= ["-Wall", "-pedantic", "-std=c++11", "-g"],
+#    LIBS=[File(os.path.join(base['pddl_parser_path'], 'lib/libparser.a'))]
+)
+extra = base.Clone()
+#extra.Append(LIBS=[
+#	File(base['pddl_parser_path'] + '/lib/libparser.a'),
+#    File(os.path.abspath('./lib/libvalidator.a'))
+#])
+
+# Register the different examples and tests
+SConscript('tests/SConscript', exports='extra')
+
 

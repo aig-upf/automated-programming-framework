@@ -40,11 +40,11 @@ bool PlanValidator::getVerbose() const {
 
 void PlanValidator::checkGoal( Domain * d, Instance * ins, Plan * p, State * finalState ) const {
     if ( finalState->satisfiesGoal( d, ins ) ) {
-        showSuccessMsg( "Success: Plan valid" );
+        showSuccessMsg( "Success [" + ins->name + "]: Plan valid" );
         showSuccessMsg( "Value: " + std::to_string( getPlanCost( d, p, finalState ) )  + '\n' );
     }
     else {
-        showErrorMsg( "Error: Goal not satisifed - Plan invalid\n" );
+        showErrorMsg( "Error [" + ins->name + "]: Goal not satisifed - Plan invalid\n" );
     }
 }
 

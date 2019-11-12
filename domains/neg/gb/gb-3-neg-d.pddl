@@ -1,0 +1,7 @@
+(define (problem gb3-neg-d)
+  (:domain blocks)
+  (:objects b1 b2 b3 - block )
+  (:init (clear b1) (ontable b3)       ( on b1 b2 )
+      ( on b2 b3 )
+(empty) (green b2) ) 
+  (:goal (and (have b3))))

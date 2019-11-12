@@ -42,11 +42,11 @@
 		:effect (and (not (assignment c ?val1)) (assignment c ?val2)))	
 
 	(:action assign-a-to-b
-		:parameters (?val - value)
-		:precondition (and (content a ?val)(assignment a ?val))
+		:parameters (?val1 ?val2 - value)
+		:precondition (and (assignment a ?val1)(content a ?val2))
 		:effect (and (forall (?val - value) (not (content b ?val)))
 			     (forall (?val - value) (not (assignment b ?val)))
-			     (content b ?val)(assignment b ?val)))
+			     (content b ?val2)(assignment b ?val1)))
 
 	(:action swap-a-b
 		:parameters (?v1 ?v2 ?v3 ?v4 - value)
@@ -58,24 +58,4 @@
 			(not (vector-assignment ?v3 ?v4)) (not (content b ?v4))
 			(vector-assignment ?v1 ?v4)(content a ?v4)
 			(vector-assignment ?v3 ?v2)(content b ?v2)))
- 
-
-	;;
-	;; Checking derived relations
-	;;
-       (:derived (istail-a)
-		 (exists (?val - value) 
-                        (and (assignment a ?val) (assignment tail ?val))))
-
-	(:derived (found-a)
-		(exists (?val - value)
-		        (and (content a ?val) (assignment target ?val))))
-
-	(:derived (lessthan-b-a)
-		(exists (?val1 ?val2 - value)
-		        (and (assignment b ?val1) (assignment a ?val2) (less ?val1 ?val2))))
-
-	(:derived (lessthan-content-a-b)
-		(exists (?val1 ?val2 - value)
-		        (and (content a ?val1) (content b ?val2) (less ?val1 ?val2))))
 )

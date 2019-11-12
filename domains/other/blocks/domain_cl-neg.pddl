@@ -8,7 +8,7 @@
                (green ?x - block)
                (have ?x - block)
                (empty)(finished)
-               (obs-greenish))
+               (obs-greenish)(holding-greenish))
 
   (:action unstack
     :parameters ()
@@ -45,6 +45,8 @@
 
   (:derived (obs-greenish)
     (exists (?x - block) (and (clear ?x) (green ?x))))
+  (:derived (holding-greenish)
+    (exists (?x - block) (and (hold ?x) (green ?x))))
 
 )
 

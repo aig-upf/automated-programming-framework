@@ -1,0 +1,12 @@
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p10.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p20.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p30.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p40.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p50.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p60.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p70.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p80.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p90.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p100.pddl  | grep 'search completed'
+./bfws.sh  domains/unconditional/gripper/domain.pddl  domains/unconditional/gripper/p200.pddl  | grep 'search completed'
+

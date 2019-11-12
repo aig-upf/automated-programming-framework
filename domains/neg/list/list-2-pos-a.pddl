@@ -1,0 +1,5 @@
+(define (problem list2-pos-a)
+  (:domain list)
+  (:objects  n1 n2 - node )
+  (:init ( at n1) ( not-visited n2 ) ( tail n2)( adjacent n1 n2)( not-visited n1 ) )
+  (:goal (and ( visited n1 )( visited n2 ))))

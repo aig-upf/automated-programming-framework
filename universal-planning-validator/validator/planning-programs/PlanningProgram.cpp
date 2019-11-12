@@ -134,7 +134,7 @@ bool PlanningProgram::run( Domain * d, Instance * ins, State * currentState ) {
     while ( !executionCompleted ) {
 		std::pair< std::map< std::string, std::set< StringVec > >, long > psl = std::make_pair( currentState->getFluents() , currentLine );
 		if( visitedProgramStates.find( psl ) != visitedProgramStates.end() ){
-            showErrorMsg( "Error: Infinite loop detected\n" );
+            showErrorMsg( "Error[" + ins->name + "]: Infinite loop detected\n" );
             return false;
 		}
 		else visitedProgramStates.insert( psl );
@@ -164,7 +164,7 @@ bool PlanningProgram::run( Domain * d, Instance * ins, State * currentState ) {
             }
         }
         else {
-            showErrorMsg( "Error: Plan failed to execute\n" );
+            showErrorMsg( "Error[" + ins->name + "]: Plan failed to execute\n" );
             return false;
         }
 

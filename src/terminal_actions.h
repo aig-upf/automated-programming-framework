@@ -25,6 +25,10 @@ class TerminalActions : public Actions{
 			addPrecondition( name, empty_lines[ line ] ); // assign corresponding empty
 			addPrecondition( name, stack_lines[ line ], false, IntVec( 1, 0 ) ); // stack line
 
+			if( compiler_type == "TWO-STEPS-2" ){
+				addPrecondition( name, "MODE-STRUCTURE", false );
+			}
+
 			addEffect( name, empty_lines[ line ], true );
 			addEffect( name, endinstr[ procedures ][ line ], false );
 
@@ -46,7 +50,10 @@ class TerminalActions : public Actions{
 	void createFSCProgrammingActions( unsigned procedures, unsigned nstates, const StringDVec& endinstr, const StringVec& constant_states ){
 		//unsigned offset = 1; // Allows to program from first state
 		unsigned offset = nstates; // Forces to program end in last state
-		createValuedActions( "PROGRAM-END", nstates + 1, offset, StringVec() = { "STACKROW" } );
+		if( compiler_type == "HFSC" )
+			createValuedActions( "PROGRAM-END", nstates + 1, offset, StringVec() = { "STACKROW" } );
+		else if( compiler_type == "NFA"  or compiler_type == "NFA2")
+			createValuedActions( "PROGRAM-END", nstates + 1, offset );
 
 		StringVec action_names = getNames( "PROGRAM-END" );
 
@@ -55,12 +62,23 @@ class TerminalActions : public Actions{
 			unsigned state = idx + offset;			
 			int stateIdx = cd->constantIndex( constant_states[ state ] , "STACKSTATE" );
 
-			addPrecondition( name, stack_top_pred, false, IntVec( 1 , 0 ) );
-			addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, 0 ) );			
-			addPrecondition( name, stack_state_pred, false, IntVec() = { stateIdx, 0 } );
-			addPrecondition( name, stack_empty_cond_pred, false, IntVec( 1 , stateIdx ) );
+			if( compiler_type == "HFSC" ){
+				addPrecondition( name, stack_top_pred, false, IntVec( 1 , 0 ) );
+				addPrecondition( name, stack_procedures[ procedures ], false, IntVec( 1, 0 ) );			
+				addPrecondition( name, stack_state_pred, false, IntVec() = { stateIdx, 0 } );				
+				addPrecondition( name, stack_empty_cond_pred, false, IntVec( 1 , stateIdx ) );
 
-			addEffect( name, stack_empty_cond_pred, true, IntVec( 1 , stateIdx ) );
+				addEffect( name, stack_empty_cond_pred, true, IntVec( 1 , stateIdx ) );
+			}
+			else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+				addPrecondition( name, stack_state_pred, false, IntVec() = { stateIdx } );	
+				if( compiler_type == "NFA2" ){			
+					addPrecondition( name, stack_empty_cond_pred, false, IntVec( 1 , stateIdx ) );
+
+					addEffect( name, stack_empty_cond_pred, true, IntVec( 1 , stateIdx ) );
+				}
+			}
+
 			addEffect( name, endinstr[ procedures ][ state ] );
 
 			addCost( name, 1 );
@@ -69,6 +87,8 @@ class TerminalActions : public Actions{
 			addActionToInstruction( name, endinstr[ procedures ][ state ] );
 		}
 	}
+	
+	
 
 	void createRepeatTerminalAction( unsigned procedures, unsigned total_instances, unsigned lines, StringDVec& endinstr, StringVec& tests ){
 		// Repeat ends for other procedures or the main recursion
@@ -114,12 +134,18 @@ class TerminalActions : public Actions{
 	}
 	
 	void createRepeatTerminalMain(	InstVec &ins, unsigned procedures, unsigned total_instances, 
-									unsigned lines, StringDVec& endinstr, StringVec& tests, unsigned negative_instances = 0 ){
+									unsigned lines, StringDVec& endinstr, StringVec& tests, unsigned negative_instances = 0, bool mode_conds = false ){
 		// Action for the Main in the first stack level
 		for( unsigned t = 0; t + negative_instances < total_instances; t++ ){
 			for( unsigned j = 1; j < lines + 1; j++ ){
 				SStream ss;
-				ss << "REPEAT-END-MAIN-" << t << "-" << j;
+				if( compiler_type == "TWO-STEPS-2" ){
+					if( mode_conds ) ss << "REPEAT-END-MAIN-COND-" << t << "-" << j;
+					else ss << "REPEAT-END-MAIN-STRUCTURE-" << t << "-" << j;
+				}
+				else{
+					ss << "REPEAT-END-MAIN-" << t << "-" << j;
+				}
 				String name = ss.str();
 			
 				parser::pddl::Action *endact = createAction( name, StringVec( 1, "STACKROW" ) );
@@ -131,6 +157,11 @@ class TerminalActions : public Actions{
 				addPrecondition( name, endinstr[ procedures ][ j ] );
 				addPrecondition( name, tests[ t ] );
 				
+				if( compiler_type == "TWO-STEPS-2" ){
+					if( mode_conds ) addPrecondition( name, "MODE-COND" );
+					else addPrecondition( name, "MODE-STRUCTURE" );
+				}
+
 				if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
 					addPrecondition( name, "HOLDS" );
 					addPrecondition( name, "CHECKED" );
@@ -158,9 +189,12 @@ class TerminalActions : public Actions{
 						addPrecondition( name, goal->name, false, constant_idxs );
 				}
 
-				if( t + 1 == total_instances ){
+				if( t + 1 == total_instances && compiler_type != "TWO-STEPS-2" ){
 					addEffect( name, goal_pred );
 				}
+				else if( t + 1 == total_instances && mode_conds && compiler_type == "TWO-STEPS-2" ){
+					addEffect( name, goal_pred );
+				}		
 				else{
 					if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
 						addEffect( name, "HOLDS", true );
@@ -212,17 +246,26 @@ class TerminalActions : public Actions{
 						}
 
 					}
+
+					unsigned next_instance = t + 1;
+
+					if( next_instance == total_instances && compiler_type == "TWO-STEPS-2" && !mode_conds){
+						next_instance = 0; 
+						addEffect( name, "MODE-STRUCTURE", true );
+						addEffect( name, "MODE-COND", false );
+					}
+
 					addEffect( name, tests[ t ], true );
-					addEffect( name, tests[ t + 1 ] );
+					addEffect( name, tests[ next_instance ] );
 					addEffect( name, stack_lines[ j ], true, IntVec( 1, 0 ) );
 					addEffect( name, stack_lines[ 0 ], false, IntVec( 1, 0 ) );
 				
 					std::vector< std::pair< String , IntVec > > add_eff;
 				
 					// Add effects of the next instance
-					unsigned ins_size = ins[ t + 1 ]->init.size();
+					unsigned ins_size = ins[ next_instance ]->init.size();
 					for ( unsigned i = 0; i < ins_size; i++ ){ 
-						parser::pddl::Ground* init = ins[ t + 1 ]->init[ i ]; 
+						parser::pddl::Ground* init = ins[ next_instance ]->init[ i ]; 
 
 						parser::pddl::Type *t = od->getType( init->name );
 
@@ -329,15 +372,47 @@ class TerminalActions : public Actions{
 	}
 
 	void createRepeatActions(	InstVec &ins, unsigned procedures, unsigned total_instances, 
-								unsigned lines, StringDVec& endinstr, StringVec& tests, unsigned negative_instances = 0 ){
-		createRepeatTerminalMain( ins, procedures, total_instances, lines, endinstr, tests, negative_instances );
+								unsigned lines, StringDVec& endinstr, StringVec& tests, unsigned negative_instances = 0, bool mode_conds = false ){
+		createRepeatTerminalMain( ins, procedures, total_instances, lines, endinstr, tests, negative_instances, mode_conds );
 		createRepeatTerminalAction( procedures, total_instances, lines, endinstr, tests );
 		if( compiler_type == "NEG" or compiler_type == "NEGLITE" ){
 			checkPreconditions(  procedures, lines, total_instances, endinstr, tests, ins );
 		}
 	}
 
-	void createFSCRepeatActions( InstVec &ins, unsigned procedures, unsigned total_instances, unsigned bound, unsigned max_bound, const StringVec &constant_states, const StringVec &tests, const StringDVec &endinstr ){
+	void nextFSCInstance( InstVec &ins, parser::pddl::Action *endact, const String &action_name, int next_instance_id ){
+		for ( unsigned p = 0; p < od->preds.size(); ++p ) {
+			if( unclean_effs.find( p ) != unclean_effs.end() ) continue;
+			//if( effs.find(i) == effs.end() ) continue; //[PERFORMANCE] static fluents
+			if( cd->preds[ p ]->params.size() ){
+				parser::pddl::Forall * f = new parser::pddl::Forall;
+				f->params = cd->preds[ p ]->params;
+				f->cond = new parser::pddl::Not( cd->ground( od->preds[ p ]->name, incvec( 0, f->params.size() ) ) );
+				( ( parser::pddl::And * )endact->eff )->add( f );
+			}
+			else
+				addEffect( action_name, od->preds[ p ]->name, true );
+		}
+		for ( unsigned i = 0; i < ins[ next_instance_id ]->init.size(); ++i ){ 
+			String init_name = ins[ next_instance_id ]->init[ i ]->name;
+			parser::pddl::Lifted *l = od->preds.get( init_name ); 
+			StringVec params = od->objectList( ins[ next_instance_id ]->init[ i ] ); 
+			IntVec iv_parameters;
+			for( unsigned j = 0; j < params.size(); ++j){ 
+				iv_parameters.push_back( cd->constantIndex( params[ j ], od->types[ l->params[ j ] ]->name ) );
+			}
+			if( compiler_type == "HFSC" ){
+				// Add rows[ 0 ] to this stackable predicate
+				if( stack_predicates.find( init_name ) != stack_predicates.end() ){
+					int ci_row0 = cd->constantIndex( "ROW-0" , "STACKROW" ); 
+					iv_parameters.push_back( ci_row0 );
+				}
+			}
+			addEffect( action_name, init_name, false, iv_parameters );	
+		}		
+	}
+
+	void createFSCRepeatActions( InstVec &ins, unsigned procedures, unsigned total_instances, unsigned bound, unsigned max_bound, const StringVec &constant_states, const StringVec &tests, const StringDVec &endinstr, bool mode_structure = false ){
 
 		int ci_row0 = cd->constantIndex( "ROW-0" , "STACKROW" ); 
 		//int ci_endstN = cd->constantIndex( constant_states[ bound ] , "STACKSTATE" ); 
@@ -347,17 +422,35 @@ class TerminalActions : public Actions{
 
 		for( unsigned t = 0; t < total_instances; t++){
 			for( unsigned state = 1; state < bound + 1; state++ ){
-				IntVec iv_pre = { cd->constantIndex( constant_states[ state ], "STACKSTATE" ), ci_row0 }; 
+				int ci_currentstate = cd->constantIndex( constant_states[ state ], "STACKSTATE" );
+				IntVec iv_pre = { ci_currentstate, ci_row0 }; 
 				SStream ss;
-				ss << "REPEAT-END-MAIN-" << t << "-" << procedures << "-" << state;
+				if( compiler_type == "HFSC" )
+					ss << "REPEAT-END-MAIN-" << t << "-" << procedures << "-" << state;
+				else if( compiler_type == "NFA" )
+					ss << "EXECUTE-END-" << t << "-" << state;
+				else if( compiler_type == "NFA2" )
+					ss << "EXECUTE-END-" << (mode_structure?"STRUCTURE":"CONDITION") << "-" << t << "-" << state;					
 				String name = ss.str();
 
 				parser::pddl::Action * endact = createAction( name );
 
 				addPrecondition( name, tests[ t ] );
-				addPrecondition( name, stack_top_pred, false, IntVec( 1, ci_row0 ) );
-				addPrecondition( name, stack_state_pred, false, iv_pre );
 				addPrecondition( name, endinstr[ procedures ][ state ] );
+
+				if( compiler_type == "HFSC" ){
+					addPrecondition( name, stack_top_pred, false, IntVec( 1, ci_row0 ) );
+					addPrecondition( name, stack_state_pred, false, iv_pre );
+				}
+				else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+					addPrecondition( name, stack_state_pred, false, IntVec() = { ci_currentstate } );
+					if( compiler_type == "NFA2" ){
+						if( mode_structure ) 
+							addPrecondition( name, "MODE-STRUCTURE" );
+						else
+							addPrecondition( name, "DONE-STRUCTURE" );
+					}
+				}
 
 				for ( unsigned g = 0; g < ins[ t ]->goal.size(); ++g ) {
 					String goal_name = ins[ t ]->goal[ g ]->name;
@@ -370,15 +463,38 @@ class TerminalActions : public Actions{
 				}
 
 				if( t + 1 == total_instances ){
-					addEffect( name, goal_pred );
+					if( compiler_type == "NFA2" and mode_structure ){
+						addEffect( name, "DONE-STRUCTURE" );
+						addEffect( name, "MODE-STRUCTURE", true );
+						addEffect( name, tests[ t ], true );
+						addEffect( name, tests[ 0 ] );
+						addEffect( name, stack_state_pred, true, IntVec() = { ci_currentstate } );
+						addEffect( name, stack_state_pred, false, IntVec() = { ci_endst0 } );
+						addEffect( name, "EVAL-TRUE", true );
+						addEffect( name, "EVAL-FALSE", true );			
+
+						nextFSCInstance( ins, endact, name, 0 );									
+					}
+					else{
+						addEffect( name, goal_pred );
+					}
 				}
 				else{
 					addEffect( name, tests[ t ], true );
 					addEffect( name, tests[ t + 1 ] );
-					addEffect( name, stack_state_pred, true, iv_pre );
-					addEffect( name, stack_state_pred, false, iv_eff );
+					if( compiler_type == "HFSC" ){
+						addEffect( name, stack_state_pred, true, iv_pre );
+						addEffect( name, stack_state_pred, false, iv_eff );
+					}
+					else if( compiler_type == "NFA"  or compiler_type == "NFA2" ){
+						addEffect( name, stack_state_pred, true, IntVec() = { ci_currentstate } );
+						addEffect( name, stack_state_pred, false, IntVec() = { ci_endst0 } );
+						addEffect( name, "EVAL-TRUE", true );
+						addEffect( name, "EVAL-FALSE", true );
+					}
 
-					for ( unsigned p = 0; p < od->preds.size(); ++p ) {
+					nextFSCInstance( ins, endact, name, t + 1 );
+					/*for ( unsigned p = 0; p < od->preds.size(); ++p ) {
 						if( unclean_effs.find( p ) != unclean_effs.end() ) continue;
 						//if( effs.find(i) == effs.end() ) continue; //[PERFORMANCE] static fluents
 						if( cd->preds[ p ]->params.size() ){
@@ -404,56 +520,158 @@ class TerminalActions : public Actions{
 							iv_parameters.push_back( ci_row0 );
 						}
 						addEffect( name, init_name, false, iv_parameters );	
-					}
+					}*/
 				}
 			}
 		}
 
-		for( unsigned t = 0; t < total_instances; t++ ){
-			for( unsigned p = 0; p < procedures + 1; p++){
-				for( unsigned state = 1; state < max_bound + 1; state++ ){
+		if( compiler_type == "HFSC" ){
+			for( unsigned t = 0; t < total_instances; t++ ){
+				for( unsigned p = 0; p < procedures + 1; p++){
+					for( unsigned state = 1; state < max_bound + 1; state++ ){
 
 
-					SStream ss;
-					ss << "REPEAT-END-" << t << "-" << p << "-" << state;
-					String name = ss.str();
-		
-					parser::pddl::Action * endact = createAction( name, StringVec( 2, "STACKROW" ) );
+						SStream ss;
+						ss << "REPEAT-END-" << t << "-" << p << "-" << state;
+						String name = ss.str();
+			
+						parser::pddl::Action * endact = createAction( name, StringVec( 2, "STACKROW" ) );
 
-					//IntVec stack_state_iv = { ci_endstN, 1 };
+						//IntVec stack_state_iv = { ci_endstN, 1 };
 
-					IntVec stack_state_iv = { cd->constantIndex( constant_states[ state ] , "STACKSTATE" ), 1 }; 
+						IntVec stack_state_iv = { cd->constantIndex( constant_states[ state ] , "STACKSTATE" ), 1 }; 
 
-					addPrecondition( name, tests[ t ] );
-					addPrecondition( name, stack_row_pred, false, incvec( 0, 2 ) );					
-					addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
-					addPrecondition( name, stack_procedures[ p ], false, IntVec( 1, 1 ) );
-					addPrecondition( name, stack_state_pred, false, stack_state_iv );
-					addPrecondition( name, endinstr[ p ][ state ] );
+						addPrecondition( name, tests[ t ] );
+						addPrecondition( name, stack_row_pred, false, incvec( 0, 2 ) );					
+						addPrecondition( name, stack_top_pred, false, IntVec( 1, 1 ) );
+						addPrecondition( name, stack_procedures[ p ], false, IntVec( 1, 1 ) );
+						addPrecondition( name, stack_state_pred, false, stack_state_iv );
+						addPrecondition( name, endinstr[ p ][ state ] );
 
-					addEffect( name, stack_top_pred, true, IntVec( 1, 1 ) );
-					addEffect( name, stack_top_pred, false, IntVec( 1, 0 ) );
-					addEffect( name, stack_state_pred, true, stack_state_iv );
-					addEffect( name, stack_procedures[ p ], true, IntVec( 1, 1 ) );
+						addEffect( name, stack_top_pred, true, IntVec( 1, 1 ) );
+						addEffect( name, stack_top_pred, false, IntVec( 1, 0 ) );
+						addEffect( name, stack_state_pred, true, stack_state_iv );
+						addEffect( name, stack_procedures[ p ], true, IntVec( 1, 1 ) );
 
-					//[BUG] Add Forall delete ASSIGNMENT from this stackrow
-					for( StringSet::iterator it = stack_predicates.begin(); it != stack_predicates.end(); it++ ){
-						parser::pddl::Forall * f = new parser::pddl::Forall;
-						parser::pddl::Lifted *l = od->preds.get( *it );
-						f->params = l->params;
-						IntVec iv_parameters;
-						for( size_t i = 0; i < f->params.size(); i++ )
-							iv_parameters.push_back( i + 2 );
-						iv_parameters.push_back( 1 );
-						f->cond = new parser::pddl::And;	
-						( ( parser::pddl::And * )f->cond )->add( new parser::pddl::Not( cd->ground( *it, iv_parameters ) ) );
-						( ( parser::pddl::And * )endact->eff )->add( f );
+						//[BUG] Add Forall delete ASSIGNMENT from this stackrow
+						for( StringSet::iterator it = stack_predicates.begin(); it != stack_predicates.end(); it++ ){
+							parser::pddl::Forall * f = new parser::pddl::Forall;
+							parser::pddl::Lifted *l = od->preds.get( *it );
+							f->params = l->params;
+							IntVec iv_parameters;
+							for( size_t i = 0; i < f->params.size(); i++ )
+								iv_parameters.push_back( i + 2 );
+							iv_parameters.push_back( 1 );
+							f->cond = new parser::pddl::And;	
+							( ( parser::pddl::And * )f->cond )->add( new parser::pddl::Not( cd->ground( *it, iv_parameters ) ) );
+							( ( parser::pddl::And * )endact->eff )->add( f );
+						}
 					}
-				}
 
+				}
 			}
 		}
 	}
+	
+	void createNoGoalRepeatActions( InstVec &ins, unsigned procedures, unsigned total_instances, unsigned lines, StringDVec& endinstr, StringVec& tests ){
+		for( unsigned t = 0; t < total_instances; t++ ){
+			for( unsigned j = 1; j < lines + 1; j++ ){
+				for ( unsigned i = 0; i < ins[ t ]->goal.size(); ++i ){
+					String name = "EXECUTE-END-MAIN-" + tostr( t ) + "-" + tostr( j ) + "-" + tostr( i );
+					createNoGoalRepeatTerminalMain( name, t, j, i, false, ins, procedures, total_instances, lines, endinstr, tests );
+					name = "SKIP-END-MAIN-" + tostr( t ) + "-" + tostr( j ) + "-" + tostr( i );
+					createNoGoalRepeatTerminalMain( name, t, j, i, true, ins, procedures, total_instances, lines, endinstr, tests );
+				}
+			}
+		}
+		
+	}
+
+	void createNoGoalRepeatTerminalMain( String &name, unsigned t, unsigned j, unsigned i, bool neg, InstVec &ins, unsigned procedures, unsigned total_instances, unsigned lines, StringDVec& endinstr, StringVec& tests ){
+		parser::pddl::Action *endact = createAction( name, StringVec( 1, "STACKROW" ) );
+				
+		addPrecondition( name, "TOP-STACK",  false, IntVec( 1, 0 ) );
+		addPrecondition( name, "TOP-STACK",  false, IntVec( 1, cd->constantIndex( "ROW-0", "STACKROW" ) ) );
+		addPrecondition( name, "STACK-MAIN", false, IntVec( 1, cd->constantIndex( "ROW-0", "STACKROW" ) ) );
+		addPrecondition( name, stack_lines[ j ], false, IntVec( 1, cd->constantIndex( "ROW-0", "STACKROW" ) ) );
+		addPrecondition( name, endinstr[ procedures ][ j ] );
+		addPrecondition( name, tests[ t ] );
+
+		parser::pddl::Ground* goal = ins[ t ]->goal[ i ];
+		parser::pddl::Type *tp1 = od->getType( goal->name );
+		StringVec objects = od->objectList( goal );
+		parser::pddl::Lifted * l = od->preds.get( goal->name );
+		IntVec constant_idxs;
+		for ( unsigned k = 0; k < objects.size(); k++ ){
+			int constant_idx = cd->constantIndex( objects[ k ], od->types[ l->params[ k ] ]->name );
+			constant_idxs.emplace_back( constant_idx );
+		}
+
+		if( stack_predicates.find( tp1->name ) != stack_predicates.end() ){ // Add stack row
+			constant_idxs.emplace_back( cd->constantIndex( "ROW-0", "STACKROW" ) );
+		}
+	
+		addPrecondition( name, goal->name, neg, constant_idxs );
+		addPrecondition( name, "STEP-"+tostr(i), false );
+
+		if( i + 1 < ins[ t ]->goal.size() ){
+			addEffect( name, "STEP-"+tostr(i), true );
+			addEffect( name, "STEP-"+tostr(i+1) );
+		}
+		else if( t + 1 == total_instances ){
+			addEffect( name, goal_pred );
+		}
+		else{
+			unsigned next_instance = t + 1;
+			addEffect( name, "STEP-"+tostr( i ), true );
+			addEffect( name, "STEP-0" );
+			addEffect( name, tests[ t ], true );
+			addEffect( name, tests[ next_instance ] );
+			addEffect( name, stack_lines[ j ], true, IntVec( 1, 0 ) );
+			addEffect( name, stack_lines[ 0 ], false, IntVec( 1, 0 ) );
+				
+			std::vector< std::pair< String , IntVec > > add_eff;
+				
+			// Add effects of the next instance
+			unsigned ins_size = ins[ next_instance ]->init.size();
+			for ( unsigned p = 0; p < ins_size; p++ ){ 
+				parser::pddl::Ground* init = ins[ next_instance ]->init[ p ]; 
+				parser::pddl::Type *tp2 = od->getType( init->name );
+				StringVec objects = od->objectList( init );
+				parser::pddl::Lifted *l = od->preds.get( init->name );
+				IntVec constant_idxs;
+				for( unsigned k = 0; k < objects.size(); k++ ){
+					int constant_idx = cd->constantIndex( objects[ k ], od->types[ l->params[ k ] ]->name );
+					constant_idxs.emplace_back( constant_idx );
+				}
+				if( stack_predicates.find( tp2->name ) != stack_predicates.end() ){ // Add stack row
+					constant_idxs.emplace_back( cd->constantIndex( "ROW-0", "STACKROW" ) );
+				}
+
+				addEffect( name, init->name, false, constant_idxs );
+				add_eff.emplace_back( std::make_pair( init->name, constant_idxs ) );
+			}
+				
+			// Delete fluents of the current instance
+			for ( unsigned p = 0; p < od->preds.size(); p++ ) {
+				//if( unclean_effs.find( i ) != unclean_effs.end() ) continue;
+				if( cd->preds[ p ]->params.size() ){
+					parser::pddl::Forall * f = new parser::pddl::Forall;
+					f->params = cd->preds[ p ]->params;
+					parser::pddl::When *w = new parser::pddl::When();
+					w->pars = new parser::pddl::And();
+					( ( parser::pddl::And * ) w->pars )->add( cd->ground( od->preds[ p ]->name, incvec( 1, f->params.size() + 1 ) ) );
+					w->cond = new parser::pddl::Not( cd->ground( od->preds[ p ]->name, incvec( 1, f->params.size() + 1 ) ) );
+					f->cond = w;
+					( ( parser::pddl::And * )endact->eff )->add( f );
+				}
+				else
+					cd->addEff( 1, name, od->preds[ p ]->name );
+			}
+		}
+		if( neg ) addCost( name, 10001 );
+		else addCost( name, 1 );
+	}	
 };
 
 #endif

@@ -72,7 +72,7 @@ public:
 	void addNewInstruction( const string &instruction ){
 		new_instructions.push_back( instruction );
 	}
-	void addNewIntructionParameters( const vector< string > &instruction_parameters ){
+	void addNewInstructionParameters( const vector< string > &instruction_parameters ){
 		instruction_params.push_back( instruction_parameters );
 	}
 	void assignInstructionParameters( unsigned position, const vector< string > &instruction_parameters ){
@@ -184,6 +184,13 @@ public:
 		else{
 			number_classes = 0;
 		}
+	
+		if( !ifs.eof() ){
+			ifs >> max_gotos;
+		}
+		else{
+			max_gotos = 0;
+		}
 
 		ifs.close();
 	}
@@ -255,7 +262,7 @@ public:
 //			compiler << " " << vstack_vars[ i ];	
 //		}
 	
-		compiler << " " << stack_size << " " << to_program << " " << number_variables << " " << number_slots << " " << number_classes << " > " << dest_domain << " 2> " << dest_ins;
+		compiler << " " << stack_size << " " << to_program << " " << number_variables << " " << number_slots << " " << number_classes << " " << max_gotos << " > " << dest_domain << " 2> " << dest_ins;
 
 		if( _debug )
 			execution << "[INFO] SYSTEM CALL: " << compiler.str() << endl;
@@ -378,7 +385,7 @@ public:
 			compiler << " " << variable;	
 		}
 	
-		compiler << " " << test_stack_size << " " << to_program << " " << number_variables << " " << number_slots << " " << number_classes << " > " << dest_domain << " 2> " << dest_ins;
+		compiler << " " << test_stack_size << " " << to_program << " " << number_variables << " " << number_slots << " " << number_classes << " " << max_gotos << " > " << dest_domain << " 2> " << dest_ins;
 
 		if( _debug ) execution << "[INFO] TEST SYSTEM CALL: " << compiler.str() << endl;
 
@@ -524,44 +531,59 @@ public:
 								SStream ss;
 								ss << "ALLOWED-LINE-" << p << "-" << getInstructionLine( vi[ i ] );
 								addNewInstruction( ss.str() );
-								addNewIntructionParameters( vector< string >() );
+								addNewInstructionParameters( vector< string >() );
 								pos++;
 							}
 						}
 
 						if( _debug ) execution << "[INFO] FOUND!!! => " << vi[ i ] << " converted " << converted_instruction << endl;
 
-						addNewInstruction( converted_instruction );
-						addNewIntructionParameters( vector< string >() );
+						if( !( number_classes > 0 and converted_instruction == "INS-SELECT-PROGRAM" ) ){
+							addNewInstruction( converted_instruction );
+							addNewInstructionParameters( vector< string >() );
 
-						if( i + 1 == int( vi.size() ) ){
-							assignInstructionParameters( pos, vp );
+							if( i + 1 == int( vi.size() ) ){
+								assignInstructionParameters( pos, vp );
+							}
+						
+							pos++;
 						}
-
-						pos++;
 					}
 				}
 			}
-	
+
+			// add end instructions for unsupervised
+			if( number_classes > 0 ){ 
+				addNewInstruction( "INS-SELECT-PROGRAM" );
+				addNewInstructionParameters( vector<string>() );
+				int program_lines = (max_bound + 1) / number_classes;
+				for( int k = program_lines; k < max_bound + 1; k += program_lines ){
+					// the last line of  classified program is an end
+					addNewInstruction( "INS-END-"+to_string( k ) );
+					addNewInstructionParameters( vector<string>() );
+				}
+			}	
 			// add alloweds and ends
-			if( compilation_type == "CFG" && p < procedures ){
+			if( compilation_type == "CFG" && p <= procedures ){
 				SStream ss;
 				ss << "ALLOWED-LINE-" << p << "-1";
 				addNewInstruction( ss.str() );
-				addNewIntructionParameters( vector< string >() );
+				addNewInstructionParameters( vector< string >() );
 				pos++;
 				ss.str("");
 				int current_bound = getBound( p );
 				if( current_bound > 1 ){
 					ss << "ALLOWED-LINE-" << p << "-" << current_bound;
 					addNewInstruction( ss.str() );
-					addNewIntructionParameters( vector< string >() );
+					addNewInstructionParameters( vector< string >() );
 					pos++;
 				}
 				ss.str("");
-				ss << "INS-END-" << p << "-" << current_bound;
+				if( p < procedures ) ss << "INS-END-" << p << "-" << current_bound;
+				else ss << "INS-END-" << current_bound;
+
 				addNewInstruction( ss.str() );
-				addNewIntructionParameters( vector< string >() );
+				addNewInstructionParameters( vector< string >() );
 				pos++;
 			}
 
@@ -576,12 +598,40 @@ public:
 
 		if( _debug ){
 			execution << "[INFO] PRINT INSTRUCTIONS FINISHED" << endl;
-			// TEST
-			execution << "[INFO] STARTING TESTS..." << endl;
 		}
 
 		if( isTesting() ){
-			callTestCompiler( );
+			if( _debug ) execution << "[INFO] STARTING TESTS..." << endl;
+			// Testing one by one, otherwise the complexity for non-deterministic planning programs becomes huge
+			auto aux_instances = test_instances;
+			test_instances.clear(); ntest_inst = 1;
+			int test_solved = 0, total_tests = 0;
+			for( auto&& test_inst : aux_instances ){
+				test_instances.push_back( test_inst );
+				callTestCompiler( );
+				total_tests++;
+				string plan = getPlan();
+				system( ("cp " + plan  + " " + to_string( total_tests ) + ".plan").c_str() );
+				system( ("cp domain.pddl " + to_string( total_tests ) + "-domain.pddl" ).c_str() );
+				system( ("cp ins.pddl " + to_string( total_tests ) + "-ins.pddl" ).c_str() );
+				bool planExists = false;
+				if( plan.length() > 0 ){
+					//int lines = system( ( "more " + plan + " | wc -l " ).c_str() );
+					ifstream ifs( plan );
+					string line;
+					if( getline( ifs, line ) ){
+						test_solved++;
+						if( _debug ) execution << "[INFO] TESTING " << test_inst << ": SOLVED" << endl;
+						planExists = true;
+					}
+				}
+				if( !planExists ){
+					if( _debug ) execution << "[INFO] TESTING " << test_inst << ": UNSOLVED" << endl;
+				}
+				system( "rm -f plan.ipc sas_plan.*" );
+				test_instances.clear();
+			}
+			if( _debug ) execution << "[INFO] TESTING RESULTS: " << test_solved << "/" << total_tests << endl;
 		}
 
 		if( _debug ){

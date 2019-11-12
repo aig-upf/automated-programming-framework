@@ -1,0 +1,134 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/translate/translate.py domain.pddl ins.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.050s CPU, 0.050s wall-clock]
+Normalizing task... [0.010s CPU, 0.003s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Normalizing Datalog program...
+Unbound effect variables: Adding @object predicate.
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.020s CPU, 0.018s wall-clock]
+Preparing model... [0.000s CPU, 0.009s wall-clock]
+Generated 876 rules.
+Computing model... [0.010s CPU, 0.009s wall-clock]
+607 relevant atoms
+740 auxiliary atoms
+1347 final queue length
+2425 total queue pushes
+Completing instantiation... [0.030s CPU, 0.022s wall-clock]
+Instantiating: [0.060s CPU, 0.062s wall-clock]
+Computing fact groups...
+Finding invariants...
+118 initial candidates
+Finding invariants: [26.310s CPU, 26.317s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+217 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [26.320s CPU, 26.321s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.003s wall-clock]
+Translating task: [0.040s CPU, 0.038s wall-clock]
+1410 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+87 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.012s wall-clock]
+Reordering and filtering variables...
+185 of 185 variables necessary.
+23 of 30 mutex groups necessary.
+233 of 233 operators necessary.
+10 of 10 axiom rules necessary.
+Reordering and filtering variables: [0.010s CPU, 0.012s wall-clock]
+Translator variables: 185
+Translator derived variables: 10
+Translator facts: 421
+Translator goal facts: 1
+Translator mutex groups: 23
+Translator total mutex groups size: 76
+Translator operators: 233
+Translator axioms: 10
+Translator task size: 5279
+Translator peak memory: 203912 KB
+Writing output... [0.010s CPU, 0.006s wall-clock]
+Done! [26.510s CPU, 26.506s wall-clock]
+
+translate exit code: 0
+INFO     Running search (release32).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/downward --evaluator 'hlm=lmcount(lm_factory=lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=false)' --evaluator 'hff=ff(transform=adapt_costs(one))' --search 'lazy_greedy([hff,hlm],preferred=[hff,hlm],cost_type=one,reopen_closed=false)' --internal-plan-file sas_plan < output.sas
+reading input... [t=2.1068e-05s]
+done reading input! [t=0.00427027s]
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00409119s
+Discovered 16 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+43 edges
+Simplifying 2379 unary operators... done! [2131 unary operators]
+Initializing additive heuristic...
+Initializing FF heuristic...
+Building successor generator...done! [t=0.0116927s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 8.6323e-05s
+Variables: 185
+FactPairs: 421
+Bytes per state: 28
+Conducting lazy best first search, (real) bound = 2147483647
+8 initial landmarks, 1 goal landmarks
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 8
+New best heuristic value for ff(transform = adapt_costs(one)): 12
+[g=0, 1 evaluated, 0 expanded, t=0.0118255s, 5264 KB]
+Initial heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 8
+Initial heuristic value for ff(transform = adapt_costs(one)): 12
+New best heuristic value for ff(transform = adapt_costs(one)): 10
+[g=1, 2 evaluated, 1 expanded, t=0.0119263s, 5264 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 8
+[g=3, 4 evaluated, 3 expanded, t=0.0120612s, 5264 KB]
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 7
+New best heuristic value for ff(transform = adapt_costs(one)): 7
+[g=2, 9 evaluated, 8 expanded, t=0.0123732s, 5264 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 6
+[g=40, 10150 evaluated, 10149 expanded, t=0.45992s, 5948 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 5
+[g=41, 10151 evaluated, 10150 expanded, t=0.460024s, 5948 KB]
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 6
+[g=43, 10153 evaluated, 10152 expanded, t=0.460169s, 5948 KB]
+Completely explored state space -- no solution!
+Actual search time: 3.30119s [t=3.31296s]
+Expanded 98003 state(s).
+Reopened 0 state(s).
+Evaluated 98003 state(s).
+Evaluations: 196006
+Generated 142176 state(s).
+Dead ends: 0 state(s).
+Number of registered states: 98003
+Int hash set load factor: 98003/131072 = 0.747704
+Int hash set resizes: 17
+Search time: 3.30122s
+Total time: 3.31297s
+Search stopped without finding a solution.
+Peak memory: 11564 KB
+
+search exit code: 12
+Driver aborting after search

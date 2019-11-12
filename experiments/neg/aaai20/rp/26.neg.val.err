@@ -1,0 +1,306 @@
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 1: 15402 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-9-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 2: 15404 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-9-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 3: 15406 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-9-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 4: 15408 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-9-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 5: 15410 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-9-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 6: 15412 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-10-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 7: 15414 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-10-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 8: 15416 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-10-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 9: 15418 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-10-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 10: 15420 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-10-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 11: 15422 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-11-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 12: 15424 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-11-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 13: 15426 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-11-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 14: 15428 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-11-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 15: 15430 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-11-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 16: 15432 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-12-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 17: 15434 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-12-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 18: 15436 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-12-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 19: 15438 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-12-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 20: 15440 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-12-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 21: 15442 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-13-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 22: 15444 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-13-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 23: 15446 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-13-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 24: 15448 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-13-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 25: 15450 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-13-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 26: 15452 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-14-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 27: 15454 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-14-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 28: 15456 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-14-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 29: 15458 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-14-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 30: 15460 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-14-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 31: 15462 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-15-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 32: 15464 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-15-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 33: 15466 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-15-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 34: 15468 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-15-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 35: 15470 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-15-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 36: 15472 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-16-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 37: 15474 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-16-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 38: 15476 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-16-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 39: 15478 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-16-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 40: 15480 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-16-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 41: 15482 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-17-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 42: 15484 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-17-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 43: 15486 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-17-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 44: 15488 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-17-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 45: 15490 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-17-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 46: 15492 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-18-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 47: 15494 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-18-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 48: 15496 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-18-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 49: 15498 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-18-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 50: 15500 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-18-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 51: 15502 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-19-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 52: 15504 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-19-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 53: 15506 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-19-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 54: 15508 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-19-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 55: 15510 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-19-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 56: 15512 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-20-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 57: 15514 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-20-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 58: 15516 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-20-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 59: 15518 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-20-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 60: 15520 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-20-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 61: 15522 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-21-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 62: 15524 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-21-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 63: 15526 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-21-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 64: 15528 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-21-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 65: 15530 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-21-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 66: 15532 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-5-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 67: 15534 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-6-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 68: 15536 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-1-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 69: 15538 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-3-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 70: 15540 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-7-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 71: 15542 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-2-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 72: 15544 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-6-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 73: 15546 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-2-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 74: 15548 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-4-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 75: 15550 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-6-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 76: 15552 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-3-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 77: 15554 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-6-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 78: 15556 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-5-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 79: 15558 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-1-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 80: 15560 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-6-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 81: 15562 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-1-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 82: 15564 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-7-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 83: 15566 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-4-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 84: 15568 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-5-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 85: 15570 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-2-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 86: 15572 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-3-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 87: 15574 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-4-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 88: 15576 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-3-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 89: 15578 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-3-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 90: 15580 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-5-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 91: 15582 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-1-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 92: 15584 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-7-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 93: 15586 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-2-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 94: 15588 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-8-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 95: 15590 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-7-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 96: 15592 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-7-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 97: 15594 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-4-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 98: 15596 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-5-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 99: 15598 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-8-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 100: 15600 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-2-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 101: 15602 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-8-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/rp/26.neg.program'
+./scripts/neg/ijcai19/rp-val/rp-NEG-2-1-b-val.sh: line 102: 15604 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/rp/domain.pddl domains/neg/rp/rp-1-neg-d.pddl $1

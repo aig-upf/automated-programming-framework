@@ -3,7 +3,11 @@
 
 #include "shrink_strategy.h"
 
+namespace options {
 class Options;
+}
+
+namespace merge_and_shrink {
 struct Signature;
 
 class ShrinkBisimulation : public ShrinkStrategy {
@@ -12,37 +16,44 @@ class ShrinkBisimulation : public ShrinkStrategy {
         USE_UP
     };
 
-    /*
-      threshold: Shrink the transition system iff it is larger than this
-      size. Note that this is set independently from max_states, which
-      is the number of states to which the transition system is shrunk.
-    */
-
     const bool greedy;
-    const int threshold;
-    const bool group_by_h;
     const AtLimit at_limit;
 
-    void compute_abstraction(TransitionSystem &ts,
-                             int target_size,
-                             StateEquivalenceRelation &equivalence_relation);
+    void compute_abstraction(
+        const TransitionSystem &ts,
+        const Distances &distances,
+        int target_size,
+        StateEquivalenceRelation &equivalence_relation) const;
 
-    int initialize_groups(const TransitionSystem &ts,
-                          std::vector<int> &state_to_group);
-    void compute_signatures(const TransitionSystem &ts,
-                            std::vector<Signature> &signatures,
-                            std::vector<int> &state_to_group);
+    int initialize_groups(
+        const TransitionSystem &ts,
+        const Distances &distances,
+        std::vector<int> &state_to_group) const;
+
+    void compute_signatures(
+        const TransitionSystem &ts,
+        const Distances &distances,
+        std::vector<Signature> &signatures,
+        const std::vector<int> &state_to_group) const;
+protected:
+    virtual void dump_strategy_specific_options() const override;
+    virtual std::string name() const override;
 public:
-    ShrinkBisimulation(const Options &opts);
-    virtual ~ShrinkBisimulation();
+    explicit ShrinkBisimulation(const options::Options &opts);
+    virtual ~ShrinkBisimulation() override = default;
+    virtual StateEquivalenceRelation compute_equivalence_relation(
+        const TransitionSystem &ts,
+        const Distances &distances,
+        int target_size) const override;
 
-    virtual std::string name() const;
-    virtual void dump_strategy_specific_options() const;
+    virtual bool requires_init_distances() const override {
+        return false;
+    }
 
-    virtual bool reduce_labels_before_shrinking() const;
-
-    virtual void shrink(TransitionSystem &ts, int target);
-    virtual void shrink_before_merge(TransitionSystem &ts1, TransitionSystem &ts2);
+    virtual bool requires_goal_distances() const override {
+        return true;
+    }
 };
+}
 
 #endif

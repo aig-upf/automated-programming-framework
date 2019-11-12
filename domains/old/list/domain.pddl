@@ -2,12 +2,13 @@
 	(:requirements :typing)
 	(:types node )
 	(:predicates
+		(goal ?n - node)
 		(at ?n - node)
 		(visited ?n - node)
-		(adjacent ?n1 ?n2 - node)
-		(goal ?n - node)
-		(not-equal-goal)
 		(checked ?n - node)
+		(adjacent ?n1 ?n2 - node)
+		(not-equal-goal)
+		(equal-goal)
 	)
 
 
@@ -45,10 +46,14 @@
 		)
 	)
 
-	;(:derived (not-equal-goal)
-	;	(exists (?n - node) 
-	;			(and (at ?n)(not (goal ?n)) )
-	;	)
-	;)
-
+	(:derived (not-equal-goal)
+		(exists (?n - node) 
+				(and (at ?n)(not (goal ?n)) )
+		)
+	)
+	(:derived (equal-goal)
+		(exists (?n - node) 
+				(and (at ?n)(goal ?n) )
+		)
+	)
 )

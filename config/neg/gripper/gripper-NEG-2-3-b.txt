@@ -1,0 +1,12 @@
+NEG
+bin/compile
+domains/neg/gripper/domain.pddl
+domain.pddl ins.pddl
+0
+4 600 2 3
+domains/neg/gripper/gripper-4-pos-a.pddl
+domains/neg/gripper/gripper-3-pos-a.pddl
+domains/neg/gripper/gripper-3-neg-a.pddl
+domains/neg/gripper/gripper-4-neg-b.pddl
+domains/neg/gripper/gripper-1-neg-d.pddl
+0 0 0 1 1 0 0 0

@@ -23,8 +23,11 @@ string Main::getPlan(){
 }
 
 string Main::getPlannerCommand( unsigned timeout ){
-	//return "python2.7 PLANNERS/BFWS/fd-version/bfws.py domain.pddl ins.pddl DUAL-BFWS";
-	return "python2.7 PLANNERS/BFWS/fd-version/bfws.py domain.pddl ins.pddl BFWS-f5-landmarks";
+	//return "python2.7 PLANNERS/tmp/fd-version/bfws.py domain.pddl ins.pddl DUAL-BFWS";
+	return "python2.7 PLANNERS/bfws/fd-version/bfws.py domain.pddl ins.pddl DUAL-BFWS";
+	//return "ulimit -Sv 4000000 & python2.7 PLANNERS/bfws/fd-version/bfws.py domain.pddl ins.pddl DUAL-BFWS";
+	//return "python2.7 PLANNERS/bfws/fd-version/bfws.py domain.pddl ins.pddl BFWS-f5-landmarks";
+	//return "./PLANNERS/bfws/ff-version/bfws --domain domain.pddl --problem ins.pddl BFWS-f5-landmarks 1 --output plan.ipc";
 	//return "python2.7 PLANNERS/BFWS/fd-version/bfws.py domain.pddl ins.pddl BFWS-f5";
 	//return "python2.7 PLANNERS/lapkt/planners/brfs/brfs.py domain.pddl ins.pddl out";
 }

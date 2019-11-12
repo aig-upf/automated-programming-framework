@@ -1,0 +1,288 @@
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 1:  3193 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-7-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 2:  3195 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-7-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 3:  3197 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-7-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 4:  3199 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-7-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 5:  3201 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-7-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 6:  3203 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-8-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 7:  3205 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-8-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 8:  3207 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-8-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 9:  3209 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-8-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 10:  3211 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-8-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 11:  3213 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-9-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 12:  3215 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-9-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 13:  3217 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-9-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 14:  3219 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-9-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 15:  3221 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-9-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 16:  3223 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-10-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 17:  3225 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-10-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 18:  3227 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-10-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 19:  3229 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-10-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 20:  3231 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-10-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 21:  3233 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-11-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 22:  3235 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-11-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 23:  3237 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-11-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 24:  3239 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-11-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 25:  3241 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-11-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 26:  3243 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-12-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 27:  3245 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-12-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 28:  3247 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-12-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 29:  3249 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-12-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 30:  3251 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-12-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 31:  3253 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-13-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 32:  3255 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-13-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 33:  3257 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-13-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 34:  3259 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-13-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 35:  3261 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-13-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 36:  3263 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-14-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 37:  3265 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-14-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 38:  3267 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-14-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 39:  3269 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-14-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 40:  3271 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-14-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 41:  3273 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-15-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 42:  3275 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-15-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 43:  3277 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-15-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 44:  3279 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-15-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 45:  3282 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-15-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 46:  3287 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-16-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 47:  3289 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-16-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 48:  3291 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-16-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 49:  3293 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-16-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 50:  3295 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-16-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 51:  3297 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-17-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 52:  3299 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-17-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 53:  3301 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-17-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 54:  3303 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-17-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 55:  3305 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-17-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 56:  3307 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-18-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 57:  3309 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-18-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 58:  3311 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-18-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 59:  3313 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-18-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 60:  3315 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-18-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 61:  3317 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-19-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 62:  3319 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-19-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 63:  3321 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-19-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 64:  3323 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-19-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 65:  3325 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-19-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 66:  3327 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-20-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 67:  3329 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-20-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 68:  3331 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-20-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 69:  3333 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-20-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 70:  3335 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-20-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 71:  3337 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-21-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 72:  3339 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-21-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 73:  3341 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-21-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 74:  3343 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-21-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 75:  3345 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-21-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 76:  3347 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-2-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 77:  3349 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-4-pos-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 78:  3351 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-3-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 79:  3353 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-4-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 80:  3355 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-6-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 81:  3357 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-2-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 82:  3359 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-2-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 83:  3361 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-4-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 84:  3363 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-2-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 85:  3365 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-6-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 86:  3367 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-4-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 87:  3369 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-3-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 88:  3371 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-2-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 89:  3373 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-3-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 90:  3375 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-5-neg-c.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 91:  3377 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-3-neg-a.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 92:  3379 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-6-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 93:  3381 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-6-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 94:  3383 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-5-neg-d.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 95:  3385 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-4-neg-b.pddl $1
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to open file 'experiments/neg/ijcai19/gb/8.neglite.program'
+./scripts/neg/ijcai19/gb-val/gb-NEGLITE-3-1-a-val.sh: line 96:  3387 Aborted                 (core dumped) ./universal-planning-validator/validator/validate.bin -p domains/neg/gb/domain.pddl domains/neg/gb/gb-5-neg-a.pddl $1

@@ -1,0 +1,132 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/translate/translate.py domain.pddl ins.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.020s CPU, 0.023s wall-clock]
+Normalizing task... [0.000s CPU, 0.001s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.014s wall-clock]
+Preparing model... [0.010s CPU, 0.006s wall-clock]
+Generated 587 rules.
+Computing model... [0.010s CPU, 0.007s wall-clock]
+354 relevant atoms
+522 auxiliary atoms
+876 final queue length
+1645 total queue pushes
+Completing instantiation... [0.010s CPU, 0.008s wall-clock]
+Instantiating: [0.040s CPU, 0.037s wall-clock]
+Computing fact groups...
+Finding invariants...
+72 initial candidates
+Finding invariants: [0.170s CPU, 0.171s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+55 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.170s CPU, 0.173s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.001s wall-clock]
+Translating task: [0.010s CPU, 0.013s wall-clock]
+168 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+6 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.005s wall-clock]
+Reordering and filtering variables...
+62 of 64 variables necessary.
+23 of 28 mutex groups necessary.
+216 of 216 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.003s wall-clock]
+Translator variables: 62
+Translator derived variables: 0
+Translator facts: 172
+Translator goal facts: 1
+Translator mutex groups: 23
+Translator total mutex groups size: 76
+Translator operators: 216
+Translator axioms: 0
+Translator task size: 1981
+Translator peak memory: 43616 KB
+Writing output... [0.000s CPU, 0.002s wall-clock]
+Done! [0.250s CPU, 0.260s wall-clock]
+
+translate exit code: 0
+INFO     Running search (release32).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/downward --evaluator 'hlm=lmcount(lm_factory=lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=false)' --evaluator 'hff=ff(transform=adapt_costs(one))' --search 'lazy_greedy([hff,hlm],preferred=[hff,hlm],cost_type=one,reopen_closed=false)' --internal-plan-file sas_plan < output.sas
+reading input... [t=2.1561e-05s]
+done reading input! [t=0.00197966s]
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.000989574s
+Discovered 8 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+10 edges
+Simplifying 701 unary operators... done! [453 unary operators]
+Initializing additive heuristic...
+Initializing FF heuristic...
+Building successor generator...done! [t=0.00444202s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 6.9849e-05s
+Variables: 62
+FactPairs: 172
+Bytes per state: 12
+Conducting lazy best first search, (real) bound = 2147483647
+4 initial landmarks, 1 goal landmarks
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 4
+New best heuristic value for ff(transform = adapt_costs(one)): 9
+[g=0, 1 evaluated, 0 expanded, t=0.00452888s, 4660 KB]
+Initial heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 4
+Initial heuristic value for ff(transform = adapt_costs(one)): 9
+New best heuristic value for ff(transform = adapt_costs(one)): 7
+[g=1, 2 evaluated, 1 expanded, t=0.00459241s, 4660 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 6
+[g=2, 3 evaluated, 2 expanded, t=0.00462959s, 4660 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 5
+[g=1, 7 evaluated, 5 expanded, t=0.00471192s, 4660 KB]
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 2
+New best heuristic value for ff(transform = adapt_costs(one)): 4
+[g=2, 8 evaluated, 6 expanded, t=0.00474714s, 4660 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 3
+[g=40, 18780 evaluated, 12094 expanded, t=0.185136s, 5996 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 2
+[g=41, 18781 evaluated, 12095 expanded, t=0.185184s, 5996 KB]
+Completely explored state space -- no solution!
+Actual search time: 0.314704s [t=0.319206s]
+Expanded 17807 state(s).
+Reopened 0 state(s).
+Evaluated 34271 state(s).
+Evaluations: 52078
+Generated 41098 state(s).
+Dead ends: 16464 state(s).
+Number of registered states: 34271
+Int hash set load factor: 34271/65536 = 0.522934
+Int hash set resizes: 16
+Search time: 0.314723s
+Total time: 0.319209s
+Search stopped without finding a solution.
+Peak memory: 6920 KB
+
+search exit code: 12
+Driver aborting after search

@@ -15,7 +15,7 @@ except:
 
 str_problem=""
 str_problem=str_problem + "(define (problem p" + str( nblocks ) + "-" + str( lettername ) + ")\n"
-str_problem=str_problem + "  (:domain greenblock )\n"
+str_problem=str_problem + "  (:domain blocks )\n"
 str_problem=str_problem + "  (:objects "
 
 for j in xrange(0,nblocks):

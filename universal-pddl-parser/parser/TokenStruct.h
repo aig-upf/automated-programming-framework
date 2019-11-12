@@ -75,6 +75,9 @@ public:
 
 	T get( const std::string & s ) const {
 		return tokens[index( s )];
+		/*int idx = index( s );
+		if( idx != -1 ) return tokens[index( s )];
+		return nullptr;*/
 	}
 
 };

@@ -1,0 +1,5 @@
+(define (problem rp16-neg-c)
+  (:domain robopainter)
+  (:objects i0 i1 i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i12 i13 i14 i15 i16 - index)
+  (:init (at i0)(last i16)(adjacent i0 i1)(white-cell i0)(adjacent i1 i2)(white-cell i1)(adjacent i2 i3)(white-cell i2)(adjacent i3 i4)(white-cell i3)(adjacent i4 i5)(white-cell i4)(adjacent i5 i6)(white-cell i5)(adjacent i6 i7)(white-cell i6)(adjacent i7 i8)(white-cell i7)(adjacent i8 i9)(white-cell i8)(adjacent i9 i10)(white-cell i9)(adjacent i10 i11)(white-cell i10)(adjacent i11 i12)(white-cell i11)(adjacent i12 i13)(white-cell i12)(adjacent i13 i14)(white-cell i13)(adjacent i14 i15)(white-cell i14)(adjacent i15 i16)(white-cell i15))
+(:goal (and  (at i16) (white-cell i0)(painted-black i1)(painted-black i2)(white-cell i3)(white-cell i4)(painted-black i5)(painted-black i6)(painted-black i7)(painted-black i8)(painted-black i9)(painted-black i10)(painted-black i11)(painted-black i12)(white-cell i13)(white-cell i14)(white-cell i15)  )))

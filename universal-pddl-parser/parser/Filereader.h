@@ -61,7 +61,7 @@ public:
 
 	// print line and column
 	void printLine() {
-		std::cout << "Line " << r << ", column " << c+1 << ": ";
+		std::cout << "Line " << r << ", column " << c+1 << ": " << s;
 	}
 
 	void tokenExit( const std::string & t ) {

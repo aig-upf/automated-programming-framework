@@ -1,0 +1,11 @@
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p11-11a.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p11-11b.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p12-12a.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p12-12b.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p13-13a.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p13-13b.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p14-14a.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p14-14b.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p15-15a.pddl 1800 | grep 'Search time:'
+./planner.sh  domains/unconditional/sorting/domain.pddl domains/unconditional/sorting/p15-15b.pddl 1800 | grep 'Search time:'
+

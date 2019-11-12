@@ -1,0 +1,13 @@
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p10a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p10b.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p10c.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p10d.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p20a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p20b.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p20c.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p20d.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p30a.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p30b.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p30c.pddl  | grep 'search completed'
+./bfws_lama.sh  domains/unconditional/reverse/domain.pddl domains/unconditional/reverse/p30d.pddl  | grep 'search completed'
+

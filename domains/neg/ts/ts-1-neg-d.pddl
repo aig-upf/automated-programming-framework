@@ -1,0 +1,5 @@
+(define (problem ts1-neg-d)
+  (:domain variables)
+  (:objects - value)
+  (:init (assignment a v1) (assignment b v0) (sum v0 v0 v0)(sum v0 v1 v1)(sum v1 v0 v1))
+  (:goal (and  (assignment a v0) (assignment b v0))))

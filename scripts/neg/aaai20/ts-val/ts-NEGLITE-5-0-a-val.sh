@@ -1,0 +1,16 @@
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-4-neg-c.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-3-neg-b.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-2-neg-b.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-4-neg-a.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-3-neg-d.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-4-neg-d.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-2-neg-c.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-1-neg-d.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-3-neg-c.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-1-neg-a.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-3-neg-a.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-1-neg-b.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-4-neg-b.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-1-neg-c.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-2-neg-d.pddl program.txt
+./universal-planning-validator/validator/validate.bin -p domains/neg/ts/domain.pddl domains/neg/ts/ts-2-neg-a.pddl program.txt

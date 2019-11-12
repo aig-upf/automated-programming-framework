@@ -1,44 +1,27 @@
 #include "shrink_bucket_based.h"
 
-#include "transition_system.h"
-
-#include "../globals.h"
-#include "../rng.h"
+#include "../utils/rng.h"
+#include "../utils/rng_options.h"
 
 #include <cassert>
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-
-ShrinkBucketBased::ShrinkBucketBased(const Options &opts)
-    : ShrinkStrategy(opts) {
+namespace merge_and_shrink {
+ShrinkBucketBased::ShrinkBucketBased(const options::Options &opts)
+    : rng(utils::parse_rng_from_options(opts)) {
 }
 
-ShrinkBucketBased::~ShrinkBucketBased() {
+void ShrinkBucketBased::add_options_to_parser(options::OptionParser &parser) {
+    utils::add_rng_options(parser);
 }
 
-bool ShrinkBucketBased::reduce_labels_before_shrinking() const {
-    return false;
-}
-
-void ShrinkBucketBased::shrink(TransitionSystem &ts, int threshold) {
-    if (must_shrink(ts, threshold)) {
-        vector<Bucket> buckets;
-        partition_into_buckets(ts, buckets);
-
-        StateEquivalenceRelation equiv_relation;
-        compute_abstraction(buckets, threshold, equiv_relation);
-        apply(ts, equiv_relation, threshold);
-    }
-}
-
-void ShrinkBucketBased::compute_abstraction(
-    const vector<Bucket> &buckets, int target_size,
-    StateEquivalenceRelation &equiv_relation) const {
+StateEquivalenceRelation ShrinkBucketBased::compute_abstraction(
+    const vector<Bucket> &buckets, int target_size) const {
     bool show_combine_buckets_warning = true;
-
-    assert(equiv_relation.empty());
+    StateEquivalenceRelation equiv_relation;
     equiv_relation.reserve(target_size);
 
     size_t num_states_to_go = 0;
@@ -46,7 +29,7 @@ void ShrinkBucketBased::compute_abstraction(
         num_states_to_go += buckets[bucket_no].size();
 
     for (size_t bucket_no = 0; bucket_no < buckets.size(); ++bucket_no) {
-        const vector<AbstractStateRef> &bucket = buckets[bucket_no];
+        const vector<int> &bucket = buckets[bucket_no];
         int states_used_up = static_cast<int>(equiv_relation.size());
         int remaining_state_budget = target_size - states_used_up;
         num_states_to_go -= bucket.size();
@@ -86,10 +69,10 @@ void ShrinkBucketBased::compute_abstraction(
             assert(budget_for_this_bucket >= 2 &&
                    budget_for_this_bucket < static_cast<int>(groups.size()));
             while (static_cast<int>(groups.size()) > budget_for_this_bucket) {
-                auto it1 = g_rng.choose(groups);
+                auto it1 = rng->choose(groups);
                 auto it2 = it1;
                 while (it1 == it2) {
-                    it2 = g_rng.choose(groups);
+                    it2 = rng->choose(groups);
                 }
                 it1->splice_after(it1->before_begin(), *it2);
                 swap(*it2, groups.back());
@@ -104,4 +87,14 @@ void ShrinkBucketBased::compute_abstraction(
             }
         }
     }
+    return equiv_relation;
+}
+
+StateEquivalenceRelation ShrinkBucketBased::compute_equivalence_relation(
+    const TransitionSystem &ts,
+    const Distances &distances,
+    int target_size) const {
+    vector<Bucket> buckets = partition_into_buckets(ts, distances);
+    return compute_abstraction(buckets, target_size);
+}
 }

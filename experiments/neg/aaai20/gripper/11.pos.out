@@ -1,0 +1,190 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/translate/translate.py domain.pddl ins.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.050s CPU, 0.052s wall-clock]
+Normalizing task... [0.000s CPU, 0.004s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.030s CPU, 0.035s wall-clock]
+Preparing model... [0.020s CPU, 0.017s wall-clock]
+Generated 1577 rules.
+Computing model... [0.020s CPU, 0.017s wall-clock]
+721 relevant atoms
+1422 auxiliary atoms
+2143 final queue length
+3770 total queue pushes
+Completing instantiation... [0.030s CPU, 0.028s wall-clock]
+Instantiating: [0.110s CPU, 0.102s wall-clock]
+Computing fact groups...
+Finding invariants...
+131 initial candidates
+Finding invariants: [0.090s CPU, 0.097s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+143 uncovered facts
+Choosing groups: [0.010s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.100s CPU, 0.100s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.002s wall-clock]
+Translating task: [0.040s CPU, 0.041s wall-clock]
+280 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+8 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.014s wall-clock]
+Reordering and filtering variables...
+151 of 154 variables necessary.
+47 of 53 mutex groups necessary.
+504 of 504 operators necessary.
+1 of 2 axiom rules necessary.
+Reordering and filtering variables: [0.010s CPU, 0.009s wall-clock]
+Translator variables: 151
+Translator derived variables: 1
+Translator facts: 326
+Translator goal facts: 1
+Translator mutex groups: 47
+Translator total mutex groups size: 102
+Translator operators: 504
+Translator axioms: 1
+Translator task size: 6967
+Translator peak memory: 46188 KB
+Writing output... [0.010s CPU, 0.007s wall-clock]
+Done! [0.330s CPU, 0.331s wall-clock]
+
+translate exit code: 0
+INFO     Running search (release32).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/jsegovia/Desktop/automated-programming-framework-private/PLANNERS/fast-downward/builds/release32/bin/downward --evaluator 'hlm=lmcount(lm_factory=lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=false)' --evaluator 'hff=ff(transform=adapt_costs(one))' --search 'lazy_greedy([hff,hlm],preferred=[hff,hlm],cost_type=one,reopen_closed=false)' --internal-plan-file sas_plan < output.sas
+reading input... [t=1.9537e-05s]
+done reading input! [t=0.00536472s]
+Initializing landmarks count heuristic...
+Initializing Exploration...
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Landmarks generation time: 0.00467812s
+Discovered 8 landmarks, of which 0 are disjunctive and 0 are conjunctive 
+11 edges
+Simplifying 2064 unary operators... done! [1305 unary operators]
+Initializing additive heuristic...
+Initializing FF heuristic...
+Building successor generator...done! [t=0.0128584s]
+peak memory difference for successor generator creation: 0 KB
+time for successor generation creation: 0.00014585s
+Variables: 151
+FactPairs: 326
+Bytes per state: 24
+Conducting lazy best first search, (real) bound = 2147483647
+4 initial landmarks, 1 goal landmarks
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 4
+New best heuristic value for ff(transform = adapt_costs(one)): 9
+[g=0, 1 evaluated, 0 expanded, t=0.0129734s, 5060 KB]
+Initial heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 4
+Initial heuristic value for ff(transform = adapt_costs(one)): 9
+New best heuristic value for ff(transform = adapt_costs(one)): 5
+[g=1, 2 evaluated, 1 expanded, t=0.0130711s, 5060 KB]
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 2
+New best heuristic value for ff(transform = adapt_costs(one)): 4
+[g=2, 3 evaluated, 2 expanded, t=0.0131296s, 5060 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 3
+[g=10, 35521 evaluated, 35520 expanded, t=0.969779s, 12244 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 2
+[g=11, 35523 evaluated, 35522 expanded, t=0.969894s, 12244 KB]
+New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 1
+[g=13, 35525 evaluated, 35524 expanded, t=0.969974s, 12244 KB]
+New best heuristic value for ff(transform = adapt_costs(one)): 1
+[g=56, 226329 evaluated, 226328 expanded, t=6.02998s, 38668 KB]
+Solution found!
+Actual search time: 6.01713s [t=6.03005s]
+program-pick-left-0 row-0 (1001)
+check-pick-left-0-0 row-0 (0)
+execute-pick-left-0-0 row-0 (1)
+program-move-1 row-0 (1001)
+check-move-0-1 row-0 (0)
+execute-move-0-1 row-0 (1)
+program-drop-left-2 row-0 (1001)
+check-drop-left-0-2 row-0 (0)
+execute-drop-left-0-2 row-0 (1)
+program-goto-no-balls-in-rooma-3-0 row-0 (1001)
+eval-cond-no-balls-in-rooma-0-3 row-0 (1)
+dont-goto-0-3-0 row-0 (1)
+program-end-4 row-0 (1)
+check-main-end-0-4 row-0 (0)
+repeat-end-main-0-4 row-0 (0)
+check-pick-left-0-0 row-0 (0)
+execute-pick-left-0-0 row-0 (1)
+check-move-0-1 row-0 (0)
+execute-move-0-1 row-0 (1)
+check-drop-left-0-2 row-0 (0)
+execute-drop-left-0-2 row-0 (1)
+eval-cond-no-balls-in-rooma-0-3 row-0 (1)
+do-goto-0-3-0 row-0 (1)
+check-pick-left-0-0 row-0 (0)
+execute-pick-left-0-0 row-0 (1)
+check-move-0-1 row-0 (0)
+execute-move-0-1 row-0 (1)
+check-drop-left-0-2 row-0 (0)
+execute-drop-left-0-2 row-0 (1)
+eval-cond-no-balls-in-rooma-0-3 row-0 (1)
+do-goto-0-3-0 row-0 (1)
+check-pick-left-0-0 row-0 (0)
+execute-pick-left-0-0 row-0 (1)
+check-move-0-1 row-0 (0)
+execute-move-0-1 row-0 (1)
+check-drop-left-0-2 row-0 (0)
+execute-drop-left-0-2 row-0 (1)
+eval-cond-no-balls-in-rooma-0-3 row-0 (1)
+do-goto-0-3-0 row-0 (1)
+check-pick-left-0-0 row-0 (0)
+execute-pick-left-0-0 row-0 (1)
+check-move-0-1 row-0 (0)
+execute-move-0-1 row-0 (1)
+check-drop-left-0-2 row-0 (0)
+execute-drop-left-0-2 row-0 (1)
+eval-cond-no-balls-in-rooma-0-3 row-0 (1)
+do-goto-0-3-0 row-0 (1)
+check-pick-left-0-0 row-0 (0)
+execute-pick-left-0-0 row-0 (1)
+check-move-0-1 row-0 (0)
+execute-move-0-1 row-0 (1)
+check-drop-left-0-2 row-0 (0)
+execute-drop-left-0-2 row-0 (1)
+eval-cond-no-balls-in-rooma-0-3 row-0 (1)
+dont-goto-0-3-0 row-0 (1)
+check-main-end-1-4 row-0 (0)
+repeat-end-main-1-4 row-0 (0)
+Plan length: 57 step(s).
+Plan cost: 4035
+Expanded 226329 state(s).
+Reopened 0 state(s).
+Evaluated 226330 state(s).
+Evaluations: 452660
+Generated 1330395 state(s).
+Dead ends: 0 state(s).
+Number of registered states: 226330
+Int hash set load factor: 226330/262144 = 0.86338
+Int hash set resizes: 18
+Search time: 6.01714s
+Total time: 6.03005s
+Solution found.
+Peak memory: 38668 KB
+
+search exit code: 0

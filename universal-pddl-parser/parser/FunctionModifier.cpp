@@ -7,7 +7,7 @@ FunctionModifier::FunctionModifier( const std::string& name, int val )
 	: name( name ), modifiedGround( 0 ), modifierExpr( new ValueExpression( val ) ) {}
 
 FunctionModifier::FunctionModifier( const std::string& name, Function * f, const IntVec & p )
-	: name( name ), modifierExpr( new FunctionExpression( new Ground( f, p ) ) ) {}
+	: name( name ), modifiedGround( 0 ), modifierExpr( new FunctionExpression( new Ground( f, p ) ) ) {}
 
 FunctionModifier::FunctionModifier( const std::string& name, const FunctionModifier * i, Domain & d )
 	: name( name )
@@ -15,10 +15,12 @@ FunctionModifier::FunctionModifier( const std::string& name, const FunctionModif
 	if ( i->modifiedGround ) {
 		modifiedGround = dynamic_cast< Ground * >( i->modifiedGround->copy( d ) );
 	}
+	else modifiedGround = 0;
 
 	if ( i->modifierExpr ) {
 		modifierExpr = dynamic_cast< Expression * >( i->modifierExpr->copy( d ) );
 	}
+	else modifierExpr = 0;
 }
 
 void FunctionModifier::PDDLPrint( std::ostream & s, unsigned indent, const TokenStruct< std::string > & ts, const Domain & d ) const {

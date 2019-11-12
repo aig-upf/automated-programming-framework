@@ -64,4 +64,18 @@ class Types{
 			constant_names.emplace_back( ss.str() );
 		}
 	}
+	
+	void addConstant( parser::pddl::Domain *d, const String &type_name, const String &constant_name ){
+		parser::pddl::Type *t = d->types.get( type_name );
+		if( t ){
+			int idx = t->constants.index( constant_name );
+			if( idx == -1 )
+				t->constants.insert( constant_name );
+		}
+		else{
+			d->createType( type_name );
+			t = d->types.get( type_name );
+			t->constants.insert( constant_name );
+		}
+	}
 };

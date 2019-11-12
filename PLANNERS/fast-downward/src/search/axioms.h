@@ -2,8 +2,15 @@
 #define AXIOMS_H
 
 #include "global_state.h"
+#include "per_task_information.h"
+#include "task_proxy.h"
 
+#include <memory>
 #include <vector>
+
+namespace int_packer {
+class IntPacker;
+}
 
 class AxiomEvaluator {
     struct AxiomRule;
@@ -28,16 +35,39 @@ class AxiomEvaluator {
             : var_no(var), literal(lit) {}
     };
 
-    std::vector<std::vector<AxiomLiteral> > axiom_literals;
-    std::vector<AxiomRule> rules;
-    std::vector<std::vector<NegationByFailureInfo> > nbf_info_by_layer;
+    bool task_has_axioms;
 
-    // The queue is an instance variable rather than a local variable
-    // to reduce reallocation effort. See issue420.
-    std::vector<AxiomLiteral *> queue;
+    std::vector<std::vector<AxiomLiteral>> axiom_literals;
+    std::vector<AxiomRule> rules;
+    std::vector<std::vector<NegationByFailureInfo>> nbf_info_by_layer;
+    /*
+      default_values stores the default (negation by failure) values
+      for all derived variables, i.e., the value that a derived
+      variable holds by default if no derivation rule triggers.
+
+      This is indexed by variable number and set to -1 for non-derived
+      variables, so can also be used to test if a variable is derived.
+
+      We have our own copy of the data to avoid going through the task
+      interface in the time-critical evaluate method.
+    */
+    std::vector<int> default_values;
+
+    /*
+      The queue is an instance variable rather than a local variable
+      to reduce reallocation effort. See issue420.
+    */
+    std::vector<const AxiomLiteral *> queue;
+
+    template<typename Values, typename Accessor>
+    void evaluate_aux(Values &values, const Accessor &accessor);
 public:
-    AxiomEvaluator();
-    void evaluate(PackedStateBin *buffer);
+    explicit AxiomEvaluator(const TaskProxy &task_proxy);
+
+    void evaluate(PackedStateBin *buffer, const int_packer::IntPacker &state_packer);
+    void evaluate(std::vector<int> &state);
 };
+
+extern PerTaskInformation<AxiomEvaluator> g_axiom_evaluators;
 
 #endif

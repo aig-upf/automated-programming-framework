@@ -1,0 +1,5 @@
+(define (problem fibo2-neg-d)
+  (:domain variables)
+  (:objects v2 - value)
+  (:init (assignment a v1) (assignment b v1) (assignment c v1) (assignment d v1) (sum v0 v0 v0)(sum v0 v1 v1)(sum v1 v0 v1))
+  (:goal (and  (assignment a v1) (assignment b v1) (assignment c v1) (assignment d v0))))

@@ -1,0 +1,5 @@
+(define (problem list18-pos-a)
+  (:domain list)
+  (:objects  n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 n11 n12 n13 n14 n15 n16 n17 n18 - node )
+  (:init ( at n17) ( not-visited n1 ) ( tail n1)( adjacent n17 n11)( not-visited n17 )( adjacent n11 n4)( not-visited n11 )( adjacent n4 n7)( not-visited n4 )( adjacent n7 n12)( not-visited n7 )( adjacent n12 n15)( not-visited n12 )( adjacent n15 n3)( not-visited n15 )( adjacent n3 n16)( not-visited n3 )( adjacent n16 n5)( not-visited n16 )( adjacent n5 n9)( not-visited n5 )( adjacent n9 n10)( not-visited n9 )( adjacent n10 n2)( not-visited n10 )( adjacent n2 n18)( not-visited n2 )( adjacent n18 n8)( not-visited n18 )( adjacent n8 n6)( not-visited n8 )( adjacent n6 n14)( not-visited n6 )( adjacent n14 n13)( not-visited n14 )( adjacent n13 n1)( not-visited n13 ) )
+  (:goal (and ( visited n17 )( visited n11 )( visited n4 )( visited n7 )( visited n12 )( visited n15 )( visited n3 )( visited n16 )( visited n5 )( visited n9 )( visited n10 )( visited n2 )( visited n18 )( visited n8 )( visited n6 )( visited n14 )( visited n13 )( visited n1 ))))

@@ -1,0 +1,5 @@
+(define (problem rp3-pos-a)
+  (:domain robopainter)
+  (:objects i0 i1 i2 i3 - index)
+  (:init (at i0)(last i3)(adjacent i0 i1)(white-cell i0)(adjacent i1 i2)(white-cell i1)(adjacent i2 i3)(white-cell i2))
+(:goal (and  (at i3) (white-cell i0)(painted-black i1)(white-cell i2)  )))

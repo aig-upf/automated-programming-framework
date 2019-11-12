@@ -1,4 +1,4 @@
-AUTOMATED PROGRAMMING FRAMEWORK
+AUTOMATED PROGRAMMING FRAMEWORK [![Build Status](https://travis-ci.com/aig-upf/automated-programming-framework-private.svg?token=YZEDNRdpev2j6HyQBmza&branch=master)](https://travis-ci.com/aig-upf/automated-programming-framework-private)
 =================================
 
 The Automated Programming Framework (APF) is a tool to generate compilations to PDDL such that off-the-shelf classical planners can compute solutions from which we can induce programs or controllers. This is a framework that covers several publications in generalized planning (see [references](#references)), so it includes different compilations in the same code that can be called with configuration files.
@@ -12,6 +12,7 @@ The Automated Programming Framework (APF) is a tool to generate compilations to 
 1. [Tools](#tools)
 	1. [Planners](#planners)
 	1. [Universal PDDL parser](#uniparser)
+	1. [Universal planning validator](#unival)
 1. [References](#references)
 1. [Citing the framework](#citing)
 
@@ -30,7 +31,8 @@ sudo apt-get install scons g++ bison flexc++ g++-multilib
 Run ```scons``` in the main folder. It compiles:
 - the repository,
 - Fast-Downward,
-- and UNIVERSAL-PDDL-PARSER.
+- UNIVERSAL-PDDL-PARSER, 
+- and UNIVERSAL-PLANNING-VALIDATOR.
 
 # <a name="usage"></a>USAGE
 Once the repository is compilled, we run the code with the following command:
@@ -47,7 +49,7 @@ The main uses configuration files to parse inputs, solutions and call multiple t
 ## <a name="apcompilation"/> AUTOMATED PROGRAMMING COMPILATION
 In case you only want to generate a compiled domain and instance from a set of planning instances in PDDL, you can run the compiler directly with the following command:
 ```
-./bin/compile <compiler-type> <original-domain.pddl> <#positive-instances> <original-instances.pddl> <max-bound> <current-bound> <current-procedure> <#stack-predicates> <predicate-names> <#stack-objects> <object-names> <stack-size> <programming-mode> <#variables> <#slots> <#classes> > domain.pddl 2> ins.pddl
+./bin/compile <compiler-type> <original-domain.pddl> <#positive-instances> <#negative-instances?> <original-instances.pddl> <max-bound> <current-bound> <current-procedure> <#stack-predicates> <predicate-names> <#stack-objects> <object-names> <stack-size> <programming-mode> <#variables> <#slots> <#classes> > domain.pddl 2> ins.pddl
 ```
 
 In each argument we must specify a set of strings, a set of files or integers. In the next list we provide more details of how to fill each argument:
@@ -56,8 +58,10 @@ In each argument we must specify a set of strings, a set of files or integers. I
 	* ```PLPR``` : planning programs with procedures.
 	* ```HFSC``` : hierarchical finite state controllers.
 	* ```CFG``` : context-free grammars.
+	* ```NEG``` : programs with positive and negative examples.
 * ```<original-domain.pddl>``` : it is a string with the original classical domain, ```domains/[path]/domain.pddl```
-* ```<#positive-instances>``` : it is an integer with the number of positive instances.
+* ```<#positive-instances>``` : it is an integer with the number of positive instances (if the compilation is not ```NEG```, then it is the total number of instances).
+* ```<#negative-instances?>``` : only include this integer with the total amount of negative instances if the compilation is ```NEG```.
 * ```<original-instances.pddl>``` : add one instance after the other with the following scheme, ```domains/[path]/[instance-name].pddl```
 * ```<max-bound>``` : it is an integer with the max number of lines or controller states for the whole set of procedures or controllers.
 * ```<current-bound>``` : it is an integer with the current number of lines or controller states for the whole set of procedures or controllers. Whether there is only one procedure or controller, this value is the same as ```<max-bound>```.
@@ -84,7 +88,7 @@ bin/compile
 <original-domain.pddl>
 domain.pddl ins.pddl
 <#procedures>
-<current-bound> <time-bound> <#positive-instances> <original-instances.pddl>
+<current-bound> <time-bound> <#positive-instances> <#negative-instances?> <original-instances.pddl>
 ...
 <#instances> <time-bound> <original-instances.pddl>
 <#stack-predicates> <predicate-names>
@@ -93,6 +97,7 @@ domain.pddl ins.pddl
 <#variables> <#slots> <#classes>
 ```
 
+Just as a remainder, only assign a positive integer to ```<#negative-instances?>``` if the ```<compiler-type>``` is ```NEG```. 
 In addition to previous descriptions in automated programming compilation section we only define the differences:
 
 * ```<#procedures>``` : the total amount of procedures counting from 0, i.e. if we only have one main procedure this value is 0 but if we have one main and four extra procedures this value would be 4.
@@ -152,24 +157,32 @@ We include a copy of different planning systems with classical planners that are
 ## <a name="uniparser"></a>UNIVERSAL PDDL PARSER
 The universal PDDL parser is included in the repository and is compiled when you run scons in the main directory. You can delete the current folder and clone a newer version from [https://github.com/aig-upf/universal-pddl-parser](https://github.com/aig-upf/universal-pddl-parser)
 
+## <a name="unival"></a>UNIVERSAL PLANNING VALIDATOR
+This repository can be downloaded from [https://github.com/aig-upf/universal-planning-validator](https://github.com/aig-upf/universal-planning-validator), it is compiled when you run scons and it is used to validate programs with control flow. It validates by default a classical planning domain, instance and plan, but it can also be used to validate a program on the original classical domain and instance.
+
 
 # <a name="references"></a>REFERENCES
 
-* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2016a), [Generalized planning with procedural domain control knowledge](http://www.dtic.upf.edu/~jonsson/icaps16a.pdf), ICAPS 2016.
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2016a), [Generalized planning with procedural domain control knowledge](https://www.researchgate.net/publication/332274286_Generalized_Planning_with_Procedural_Domain_Control_Knowledge), ICAPS 2016.
 
-* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2016b), [Hierarchical finite state controllers for generalized planning](https://ijcai.org/Proceedings/16/Papers/458.pdf), IJCAI 2016.
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2016b), [Hierarchical finite state controllers for generalized planning](https://www.researchgate.net/publication/332274348_Hierarchical_Finite_State_Controllers_for_Generalized_Planning), IJCAI 2016.
 
-* Lotinac, D., Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2016), [Automatic generation of high-level state features for generalized planning](https://ijcai.org/Proceedings/16/Papers/453.pdf), IJCAI 2016.
+* Lotinac, D., Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2016), [Automatic generation of high-level state features for generalized planning](https://www.researchgate.net/publication/332274202_Automatic_Generation_of_High-Level_State_Features_for_Generalized_Planning), IJCAI 2016.
 
-* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2017a), [Unsupervised classification of planning instances](http://www.dtic.upf.edu/~jonsson/icaps17.pdf), ICAPS 2017.
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2017a), [Unsupervised classification of planning instances](https://www.researchgate.net/publication/332274103_Unsupervised_Classification_of_Planning_Instances), ICAPS 2017.
 
-* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2017b), [Generating context-free grammars using classical planning](https://repositori.upf.edu/bitstream/handle/10230/32250/jonsson_ijcai17_gene.pdf), IJCAI 2017.
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2017b), [Generating context-free grammars using classical planning](https://www.researchgate.net/publication/318830140_Generating_Context-Free_Grammars_using_Classical_Planning), IJCAI 2017.
 
-* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2018a), [Computing hierarchical finite state controllers with classical planning](http://users.dsic.upv.es/~serjice/publications/javier-jair18/javier-jair18.pdf), JAIR 2018.
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2018), [Computing hierarchical finite state controllers with classical planning](https://www.researchgate.net/publication/327202698_Computing_Hierarchical_Finite_State_Controllers_With_Classical_Planning), JAIR 2018.
 
-* Jiménez, S., Segovia-Aguas, J., and Jonsson, A. (2018), [A review of generalized planning](http://users.dsic.upv.es/~serjice/publications/sergio-ker18/sergio-ker18.pdf), KER 2018
+* Segovia-Aguas, J. (2018), [Program Synthesis for Generalized Planning](https://www.tdx.cat/bitstream/handle/10803/663753/tjsa.pdf), PhD Dissertation.
 
-* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2018b), [Computing programs for generalized planning using a classical planner](), AIJ 2018.
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2019), [Computing programs for generalized planning using a classical planner](https://www.researchgate.net/publication/330744528_Computing_programs_for_generalized_planning_using_a_classical_planner), AIJ 2019.
+
+* Jiménez, S., Segovia-Aguas, J., and Jonsson, A. (2019), [A review of generalized planning](https://www.researchgate.net/publication/331683822_A_review_of_generalized_planning), KER 2019
+
+* Segovia-Aguas, J., Jiménez, S., and Jonsson, A. (2020) Generalized Planning with Positive and Negative Examples (to be published), AAAI20
+
 
 
 # <a name="citing"></a>CITING THE FRAMEWORK
@@ -179,6 +192,6 @@ The universal PDDL parser is included in the repository and is compiled when you
    author = {Javier Segovia-Aguas},
    howpublished = {\url{https://github.com/aig-upf/automated-programming-framework}},
    year = {2017},
-   note = {Accessed: 2018-05-23}
+   note = {Accessed: 2019-11-12}
 }
 ```

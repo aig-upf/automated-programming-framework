@@ -27,7 +27,7 @@ string Main::getPlan(){
 }
 
 string Main::getPlannerCommand( unsigned timeout ){
-	return "./planner.sh " + dest_domain + " " + dest_ins + " " + to_string( timeout );
+	return "./scripts/planners/planner.sh " + dest_domain + " " + dest_ins + " " + to_string( timeout );
 }
 
 int main( int argc , char *argv[] ){
