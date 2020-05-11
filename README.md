@@ -1,4 +1,5 @@
-AUTOMATED PROGRAMMING FRAMEWORK [![Build Status](https://travis-ci.com/aig-upf/automated-programming-framework-private.svg?token=YZEDNRdpev2j6HyQBmza&branch=master)](https://travis-ci.com/aig-upf/automated-programming-framework-private)
+AUTOMATED PROGRAMMING FRAMEWORK [![Build Status](https://travis-ci.com/aig-upf/automated-programming-framework-private.svg?token=YZEDNRdpev2j6HyQBmza&branch=master)](https://travis-ci.com/aig-upf/automated-programming-framework-private)[![DOI](https://zenodo.org/badge/81231791.svg)](https://zenodo.org/badge/latestdoi/81231791)
+
 =================================
 
 The Automated Programming Framework (APF) is a tool to generate compilations to PDDL such that off-the-shelf classical planners can compute solutions from which we can induce programs or controllers. This is a framework that covers several publications in generalized planning (see [references](#references)), so it includes different compilations in the same code that can be called with configuration files.
