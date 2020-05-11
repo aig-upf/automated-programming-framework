@@ -193,8 +193,8 @@ This repository can be downloaded from [https://github.com/aig-upf/universal-pla
 @misc{automated-programming-framework,
    title = {Automated Programming Framework},
    author = {Javier Segovia-Aguas},
-   howpublished = {\url{https://github.com/aig-upf/automated-programming-framework}},
+   howpublished = {\url{https://zenodo.org/record/3820077#.XrlA9C2Q1QI}},
    year = {2017},
-   note = {Accessed: 2019-11-12}
+   note = {DOI: 10.5281/zenodo.3820077}
 }
 ```
