@@ -1,4 +1,6 @@
-AUTOMATED PROGRAMMING FRAMEWORK [![Build Status](https://travis-ci.com/aig-upf/automated-programming-framework-private.svg?token=YZEDNRdpev2j6HyQBmza&branch=master)](https://travis-ci.com/aig-upf/automated-programming-framework-private)[![DOI](https://zenodo.org/badge/81231791.svg)](https://zenodo.org/badge/latestdoi/81231791)
+# AUTOMATED PROGRAMMING FRAMEWORK 
+
+[![Build Status](https://travis-ci.com/aig-upf/automated-programming-framework-private.svg?token=YZEDNRdpev2j6HyQBmza&branch=master)](https://travis-ci.com/aig-upf/automated-programming-framework-private) [![DOI](https://zenodo.org/badge/81231791.svg)](https://zenodo.org/badge/latestdoi/81231791)
 
 =================================
 
